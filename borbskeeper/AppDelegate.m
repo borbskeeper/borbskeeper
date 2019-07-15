@@ -20,8 +20,8 @@
     // Override point for customization after application launch.
     ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
         
-        configuration.applicationId = @"codepathInstagram";
-        configuration.server = @"http://codepathfbinstagram.herokuapp.com/parse";
+        configuration.applicationId = @"borbsKeeper";
+        configuration.server = @"http://borbskeeper.herokuapp.com/parse";
     }];
     
     [Parse initializeWithConfiguration:config];
