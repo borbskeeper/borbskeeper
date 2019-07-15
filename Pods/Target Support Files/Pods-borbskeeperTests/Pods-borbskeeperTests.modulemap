@@ -1,0 +1,6 @@
+framework module Pods_borbskeeperTests {
+  umbrella header "Pods-borbskeeperTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

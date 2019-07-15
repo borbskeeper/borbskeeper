@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		263AECA810BB9408A1ADC4F8 /* Pods_borbskeeperUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C45C15492DAF90245A6E4BC9 /* Pods_borbskeeperUITests.framework */; };
+		4703D7F77889CBBF77A2AD92 /* Pods_borbskeeperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FF1C08AACA2E8CCDBEA0B8 /* Pods_borbskeeperTests.framework */; };
 		A2BC23AD22DD2CD60030EA51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BC23AC22DD2CD60030EA51 /* AppDelegate.m */; };
 		A2BC23B022DD2CD60030EA51 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BC23AF22DD2CD60030EA51 /* ViewController.m */; };
 		A2BC23B322DD2CD60030EA51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2BC23B122DD2CD60030EA51 /* Main.storyboard */; };
@@ -15,6 +17,7 @@
 		A2BC23BB22DD2CD70030EA51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BC23BA22DD2CD70030EA51 /* main.m */; };
 		A2BC23C522DD2CD70030EA51 /* borbskeeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BC23C422DD2CD70030EA51 /* borbskeeperTests.m */; };
 		A2BC23D022DD2CD70030EA51 /* borbskeeperUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BC23CF22DD2CD70030EA51 /* borbskeeperUITests.m */; };
+		EE30FD20236212C786D5534B /* Pods_borbskeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6560A7C3F09F08802BCEFA4B /* Pods_borbskeeper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		137E82EA480C3D46EE7CD2A2 /* Pods-borbskeeperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeperTests.debug.xcconfig"; path = "Target Support Files/Pods-borbskeeperTests/Pods-borbskeeperTests.debug.xcconfig"; sourceTree = "<group>"; };
+		482BEA8B4EC67026AE80FB32 /* Pods-borbskeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeper.release.xcconfig"; path = "Target Support Files/Pods-borbskeeper/Pods-borbskeeper.release.xcconfig"; sourceTree = "<group>"; };
+		4A627650C748D04B68328283 /* Pods-borbskeeperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeperTests.release.xcconfig"; path = "Target Support Files/Pods-borbskeeperTests/Pods-borbskeeperTests.release.xcconfig"; sourceTree = "<group>"; };
+		6560A7C3F09F08802BCEFA4B /* Pods_borbskeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_borbskeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66FF1C08AACA2E8CCDBEA0B8 /* Pods_borbskeeperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_borbskeeperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F6CE0DA0FA1890902E8CD27 /* Pods-borbskeeperUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeperUITests.debug.xcconfig"; path = "Target Support Files/Pods-borbskeeperUITests/Pods-borbskeeperUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A2BC23A822DD2CD60030EA51 /* borbskeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = borbskeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BC23AB22DD2CD60030EA51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A2BC23AC22DD2CD60030EA51 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +60,9 @@
 		A2BC23CB22DD2CD70030EA51 /* borbskeeperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = borbskeeperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BC23CF22DD2CD70030EA51 /* borbskeeperUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = borbskeeperUITests.m; sourceTree = "<group>"; };
 		A2BC23D122DD2CD70030EA51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C45C15492DAF90245A6E4BC9 /* Pods_borbskeeperUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_borbskeeperUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5A421C40373434EC704AFA0 /* Pods-borbskeeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeper.debug.xcconfig"; path = "Target Support Files/Pods-borbskeeper/Pods-borbskeeper.debug.xcconfig"; sourceTree = "<group>"; };
+		EA3BF8C02DECA191DB2F72EA /* Pods-borbskeeperUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeperUITests.release.xcconfig"; path = "Target Support Files/Pods-borbskeeperUITests/Pods-borbskeeperUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE30FD20236212C786D5534B /* Pods_borbskeeper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4703D7F77889CBBF77A2AD92 /* Pods_borbskeeperTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +86,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				263AECA810BB9408A1ADC4F8 /* Pods_borbskeeperUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28CA91D7F89B85B3DAF94E26 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6560A7C3F09F08802BCEFA4B /* Pods_borbskeeper.framework */,
+				66FF1C08AACA2E8CCDBEA0B8 /* Pods_borbskeeperTests.framework */,
+				C45C15492DAF90245A6E4BC9 /* Pods_borbskeeperUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A2BC239F22DD2CD60030EA51 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +110,8 @@
 				A2BC23C322DD2CD70030EA51 /* borbskeeperTests */,
 				A2BC23CE22DD2CD70030EA51 /* borbskeeperUITests */,
 				A2BC23A922DD2CD60030EA51 /* Products */,
+				F0662FC2EC0AF131CCC9F395 /* Pods */,
+				28CA91D7F89B85B3DAF94E26 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,6 +159,20 @@
 			path = borbskeeperUITests;
 			sourceTree = "<group>";
 		};
+		F0662FC2EC0AF131CCC9F395 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E5A421C40373434EC704AFA0 /* Pods-borbskeeper.debug.xcconfig */,
+				482BEA8B4EC67026AE80FB32 /* Pods-borbskeeper.release.xcconfig */,
+				137E82EA480C3D46EE7CD2A2 /* Pods-borbskeeperTests.debug.xcconfig */,
+				4A627650C748D04B68328283 /* Pods-borbskeeperTests.release.xcconfig */,
+				8F6CE0DA0FA1890902E8CD27 /* Pods-borbskeeperUITests.debug.xcconfig */,
+				EA3BF8C02DECA191DB2F72EA /* Pods-borbskeeperUITests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +180,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2BC23D422DD2CD70030EA51 /* Build configuration list for PBXNativeTarget "borbskeeper" */;
 			buildPhases = (
+				14F89DF5C123CD79BFCB7AC0 /* [CP] Check Pods Manifest.lock */,
 				A2BC23A422DD2CD60030EA51 /* Sources */,
 				A2BC23A522DD2CD60030EA51 /* Frameworks */,
 				A2BC23A622DD2CD60030EA51 /* Resources */,
+				AC936CF5443697F54C27D0F2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -156,6 +199,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2BC23D722DD2CD70030EA51 /* Build configuration list for PBXNativeTarget "borbskeeperTests" */;
 			buildPhases = (
+				B98CBECD77CA1CF835693A22 /* [CP] Check Pods Manifest.lock */,
 				A2BC23BC22DD2CD70030EA51 /* Sources */,
 				A2BC23BD22DD2CD70030EA51 /* Frameworks */,
 				A2BC23BE22DD2CD70030EA51 /* Resources */,
@@ -174,6 +218,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2BC23DA22DD2CD70030EA51 /* Build configuration list for PBXNativeTarget "borbskeeperUITests" */;
 			buildPhases = (
+				EB962D8CE0540BD2D4C21803 /* [CP] Check Pods Manifest.lock */,
 				A2BC23C722DD2CD70030EA51 /* Sources */,
 				A2BC23C822DD2CD70030EA51 /* Frameworks */,
 				A2BC23C922DD2CD70030EA51 /* Resources */,
@@ -256,6 +301,92 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14F89DF5C123CD79BFCB7AC0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-borbskeeper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC936CF5443697F54C27D0F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-borbskeeper/Pods-borbskeeper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-borbskeeper/Pods-borbskeeper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-borbskeeper/Pods-borbskeeper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B98CBECD77CA1CF835693A22 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-borbskeeperTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB962D8CE0540BD2D4C21803 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-borbskeeperUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A2BC23A422DD2CD60030EA51 /* Sources */ = {
@@ -433,9 +564,11 @@
 		};
 		A2BC23D522DD2CD70030EA51 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5A421C40373434EC704AFA0 /* Pods-borbskeeper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q2PU6GNQZR;
 				INFOPLIST_FILE = borbskeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -449,9 +582,11 @@
 		};
 		A2BC23D622DD2CD70030EA51 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 482BEA8B4EC67026AE80FB32 /* Pods-borbskeeper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q2PU6GNQZR;
 				INFOPLIST_FILE = borbskeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -465,6 +600,7 @@
 		};
 		A2BC23D822DD2CD70030EA51 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 137E82EA480C3D46EE7CD2A2 /* Pods-borbskeeperTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -483,6 +619,7 @@
 		};
 		A2BC23D922DD2CD70030EA51 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A627650C748D04B68328283 /* Pods-borbskeeperTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -501,6 +638,7 @@
 		};
 		A2BC23DB22DD2CD70030EA51 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F6CE0DA0FA1890902E8CD27 /* Pods-borbskeeperUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = borbskeeperUITests/Info.plist;
@@ -518,6 +656,7 @@
 		};
 		A2BC23DC22DD2CD70030EA51 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA3BF8C02DECA191DB2F72EA /* Pods-borbskeeperUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = borbskeeperUITests/Info.plist;
