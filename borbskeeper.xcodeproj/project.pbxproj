@@ -13,6 +13,9 @@
 		4A944D4822DE497C0065782C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A944D4722DE497C0065782C /* Login.storyboard */; };
 		4A944D4A22DE49A20065782C /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A944D4922DE49A20065782C /* SignUp.storyboard */; };
 		4A944D4D22DE49F00065782C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A944D4C22DE49F00065782C /* SignUpViewController.m */; };
+		A28F5C0A22DE598E001FAFC7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0922DE598E001FAFC7 /* User.m */; };
+		A28F5C0D22DE6C14001FAFC7 /* Borb.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0C22DE6C14001FAFC7 /* Borb.m */; };
+		A28F5C1022DE6D43001FAFC7 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0F22DE6D43001FAFC7 /* Task.m */; };
 		A2BC23AD22DD2CD60030EA51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BC23AC22DD2CD60030EA51 /* AppDelegate.m */; };
 		A2BC23B022DD2CD60030EA51 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BC23AF22DD2CD60030EA51 /* ViewController.m */; };
 		A2BC23B322DD2CD60030EA51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2BC23B122DD2CD60030EA51 /* Main.storyboard */; };
@@ -54,6 +57,12 @@
 		6560A7C3F09F08802BCEFA4B /* Pods_borbskeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_borbskeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66FF1C08AACA2E8CCDBEA0B8 /* Pods_borbskeeperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_borbskeeperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6CE0DA0FA1890902E8CD27 /* Pods-borbskeeperUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeperUITests.debug.xcconfig"; path = "Target Support Files/Pods-borbskeeperUITests/Pods-borbskeeperUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A28F5C0822DE598E001FAFC7 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = SOURCE_ROOT; };
+		A28F5C0922DE598E001FAFC7 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = SOURCE_ROOT; };
+		A28F5C0B22DE6C14001FAFC7 /* Borb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Borb.h; sourceTree = SOURCE_ROOT; };
+		A28F5C0C22DE6C14001FAFC7 /* Borb.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Borb.m; sourceTree = SOURCE_ROOT; };
+		A28F5C0E22DE6D43001FAFC7 /* Task.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = SOURCE_ROOT; };
+		A28F5C0F22DE6D43001FAFC7 /* Task.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = SOURCE_ROOT; };
 		A2BC23A822DD2CD60030EA51 /* borbskeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = borbskeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BC23AB22DD2CD60030EA51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A2BC23AC22DD2CD60030EA51 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -116,6 +125,12 @@
 		4A944D3A22DE42360065782C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A28F5C0822DE598E001FAFC7 /* User.h */,
+				A28F5C0922DE598E001FAFC7 /* User.m */,
+				A28F5C0B22DE6C14001FAFC7 /* Borb.h */,
+				A28F5C0C22DE6C14001FAFC7 /* Borb.m */,
+				A28F5C0E22DE6D43001FAFC7 /* Task.h */,
+				A28F5C0F22DE6D43001FAFC7 /* Task.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -468,7 +483,10 @@
 			files = (
 				4A944D4622DE49390065782C /* LoginViewController.m in Sources */,
 				4A944D4D22DE49F00065782C /* SignUpViewController.m in Sources */,
+				A28F5C0A22DE598E001FAFC7 /* User.m in Sources */,
 				A2BC23B022DD2CD60030EA51 /* ViewController.m in Sources */,
+				A28F5C1022DE6D43001FAFC7 /* Task.m in Sources */,
+				A28F5C0D22DE6C14001FAFC7 /* Borb.m in Sources */,
 				A2BC23BB22DD2CD70030EA51 /* main.m in Sources */,
 				A2BC23AD22DD2CD60030EA51 /* AppDelegate.m in Sources */,
 			);
