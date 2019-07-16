@@ -50,6 +50,9 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapSignUp:" destination="Bxu-2k-nDe" eventType="touchUpInside" id="DIl-MQ-Z09"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Borbs Keeper" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeX-K5-yfU">
                                 <rect key="frame" x="81" y="80" width="213" height="44"/>
@@ -65,13 +68,30 @@
                                 <state key="normal" title="Already have an account? Log in.">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapLogin:" destination="Bxu-2k-nDe" eventType="touchUpInside" id="eq7-KQ-F28"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="Sc4-Dn-a0E"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="eCi-ql-T1L" appends="YES" id="af6-rd-yQH"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="nQ1-fd-w1p" id="acc-PN-B0c"/>
+                        <outlet property="passwordField" destination="kFg-rI-yKE" id="HrK-od-FTS"/>
+                        <outlet property="usernameField" destination="RJ8-f6-HXq" id="lUo-Rq-aBo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G6H-rk-TIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="eCi-ql-T1L">
+                    <connections>
+                        <action selector="didTapSignUpView:" destination="Bxu-2k-nDe" id="faz-QK-eTa"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-10" y="116"/>
         </scene>
