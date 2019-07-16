@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -103,6 +103,58 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4A944D3A22DE42360065782C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4A944D3B22DE42410065782C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4A944D3C22DE424C0065782C /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				4A944D4022DE42AA0065782C /* TaskList */,
+				4A944D3F22DE42960065782C /* SignUp */,
+				4A944D3D22DE42750065782C /* Login */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		4A944D3D22DE42750065782C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		4A944D3F22DE42960065782C /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		4A944D4022DE42AA0065782C /* TaskList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TaskList;
+			sourceTree = "<group>";
+		};
+		4A944D4122DE433A0065782C /* ParseManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ParseManager;
+			sourceTree = "<group>";
+		};
 		A2BC239F22DD2CD60030EA51 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +180,10 @@
 		A2BC23AA22DD2CD60030EA51 /* borbskeeper */ = {
 			isa = PBXGroup;
 			children = (
+				4A944D4122DE433A0065782C /* ParseManager */,
+				4A944D3C22DE424C0065782C /* Features */,
+				4A944D3B22DE42410065782C /* Views */,
+				4A944D3A22DE42360065782C /* Models */,
 				A2BC23AB22DD2CD60030EA51 /* AppDelegate.h */,
 				A2BC23AC22DD2CD60030EA51 /* AppDelegate.m */,
 				A2BC23AE22DD2CD60030EA51 /* ViewController.h */,
@@ -169,7 +225,6 @@
 				8F6CE0DA0FA1890902E8CD27 /* Pods-borbskeeperUITests.debug.xcconfig */,
 				EA3BF8C02DECA191DB2F72EA /* Pods-borbskeeperUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
