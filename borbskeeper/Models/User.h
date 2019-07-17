@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface User : PFUser<PFSubclassing>
 
 @property (nonatomic, strong) NSString *screenname;
+@property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSNumber *userCoins;
 @property (nonatomic, strong) NSMutableArray *friendsList;
 @property (nonatomic, strong) NSMutableArray *incompleteTaskList;

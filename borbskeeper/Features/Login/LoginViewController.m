@@ -7,7 +7,7 @@
 //
 
 #import "LoginViewController.h"
-#import "Parse/Parse.h"
+#import "BorbParseManager.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -40,10 +40,7 @@ static NSString *const SIGNUP_SEGUE_ID = @"signUpSegue";
                                                      }];
     [loginNotSuccessfulAlert addAction:okAction];
     
-    NSString *username = self.usernameField.text;
-    NSString *password = self.passwordField.text;
-    
-    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+    [BorbParseManager loginUser:self.usernameField.text withPassword:self.passwordField.text withCompletion: ^(NSError * error) {
         if (error != nil) {
             [self presentViewController:loginNotSuccessfulAlert animated:YES completion:nil];
         } else {
