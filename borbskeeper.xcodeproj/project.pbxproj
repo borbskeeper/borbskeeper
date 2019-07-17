@@ -13,6 +13,7 @@
 		4A944D4822DE497C0065782C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A944D4722DE497C0065782C /* Login.storyboard */; };
 		4A944D4A22DE49A20065782C /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A944D4922DE49A20065782C /* SignUp.storyboard */; };
 		4A944D4D22DE49F00065782C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A944D4C22DE49F00065782C /* SignUpViewController.m */; };
+		4A944D6222DE8EF00065782C /* BorbParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A944D6122DE8EF00065782C /* BorbParseManager.m */; };
 		A28F5C0A22DE598E001FAFC7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0922DE598E001FAFC7 /* User.m */; };
 		A28F5C0D22DE6C14001FAFC7 /* Borb.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0C22DE6C14001FAFC7 /* Borb.m */; };
 		A28F5C1022DE6D43001FAFC7 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0F22DE6D43001FAFC7 /* Task.m */; };
@@ -54,6 +55,8 @@
 		4A944D4922DE49A20065782C /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		4A944D4B22DE49F00065782C /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		4A944D4C22DE49F00065782C /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		4A944D6022DE8EF00065782C /* BorbParseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorbParseManager.h; sourceTree = "<group>"; };
+		4A944D6122DE8EF00065782C /* BorbParseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorbParseManager.m; sourceTree = "<group>"; };
 		6560A7C3F09F08802BCEFA4B /* Pods_borbskeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_borbskeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66FF1C08AACA2E8CCDBEA0B8 /* Pods_borbskeeperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_borbskeeperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6CE0DA0FA1890902E8CD27 /* Pods-borbskeeperUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeperUITests.debug.xcconfig"; path = "Target Support Files/Pods-borbskeeperUITests/Pods-borbskeeperUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -182,6 +185,8 @@
 		4A944D4122DE433A0065782C /* ParseManager */ = {
 			isa = PBXGroup;
 			children = (
+				4A944D6022DE8EF00065782C /* BorbParseManager.h */,
+				4A944D6122DE8EF00065782C /* BorbParseManager.m */,
 			);
 			path = ParseManager;
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A944D6222DE8EF00065782C /* BorbParseManager.m in Sources */,
 				4A944D4622DE49390065782C /* LoginViewController.m in Sources */,
 				4A944D4D22DE49F00065782C /* SignUpViewController.m in Sources */,
 				A28F5C0A22DE598E001FAFC7 /* User.m in Sources */,

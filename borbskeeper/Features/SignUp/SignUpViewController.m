@@ -7,7 +7,7 @@
 //
 
 #import "SignUpViewController.h"
-#import "Parse/Parse.h"
+#import "BorbParseManager.h"
 
 @interface SignUpViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -29,7 +29,8 @@ static NSString *const OK_ACTION_TITLE = @"OK";
     // Do any additional setup after loading the view.
 }
 
-- (void)registerUser {
+- (IBAction)didTapSignUp:(id)sender {
+    
     UIAlertController *signUpSuccessAlert = [UIAlertController alertControllerWithTitle:SUCCESSFUL_SIGNUP_ALERT_TITLE
                                                                                 message:SUCCESSFUL_SIGNUP_ALERT_MESSAGE
                                                                          preferredStyle:(UIAlertControllerStyleAlert)];
@@ -44,12 +45,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
                                                                                preferredStyle:(UIAlertControllerStyleAlert)];
     [signUpNotSuccessfulAlert addAction:okAction];
     
-    PFUser *newUser = [PFUser user];
-    newUser.username = self.usernameField.text;
-    newUser.email = self.emailField.text;
-    newUser.password = self.passwordField.text;
-
-    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+    [BorbParseManager createAccount:self.usernameField.text withEmail:self.emailField.text withPassword:self.passwordField.text withCompletion:^(NSError * error) {
         if (error != nil) {
             [self presentViewController:signUpNotSuccessfulAlert animated:YES completion:nil];
         } else {
@@ -58,9 +54,6 @@ static NSString *const OK_ACTION_TITLE = @"OK";
     }];
 }
 
-- (IBAction)didTapSignUp:(id)sender {
-    [self registerUser];
-}
 - (IBAction)didTapLogin:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
