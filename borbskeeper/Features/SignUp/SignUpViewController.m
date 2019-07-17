@@ -45,13 +45,17 @@ static NSString *const OK_ACTION_TITLE = @"OK";
                                                                                preferredStyle:(UIAlertControllerStyleAlert)];
     [signUpNotSuccessfulAlert addAction:okAction];
     
-    [BorbParseManager createAccount:self.usernameField.text withEmail:self.emailField.text withPassword:self.passwordField.text withCompletion:^(NSError * error) {
-        if (error != nil) {
-            [self presentViewController:signUpNotSuccessfulAlert animated:YES completion:nil];
-        } else {
-            [self presentViewController:signUpSuccessAlert animated:YES completion:nil];
-        };
-    }];
+    if ((self.usernameField.text == nil) || (self.emailField.text == nil) || (self.passwordField.text == nil)){
+        [self presentViewController:signUpNotSuccessfulAlert animated:YES completion:nil];
+    } else {
+        [BorbParseManager createAccount:self.usernameField.text withEmail:self.emailField.text withPassword:self.passwordField.text withCompletion:^(NSError * error) {
+            if (error != nil) {
+                [self presentViewController:signUpNotSuccessfulAlert animated:YES completion:nil];
+            } else {
+                [self presentViewController:signUpSuccessAlert animated:YES completion:nil];
+            };
+        }];
+    }
 }
 
 - (IBAction)didTapLogin:(id)sender {
