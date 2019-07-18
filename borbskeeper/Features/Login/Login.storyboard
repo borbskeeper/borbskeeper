@@ -99,7 +99,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="signUp" storyboardName="SignUp" referencedIdentifier="signUp" id="cCa-6Y-dny" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cje-vx-AcN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="606" y="81"/>
+            <point key="canvasLocation" x="638" y="-32"/>
         </scene>
     </scenes>
     <resources>

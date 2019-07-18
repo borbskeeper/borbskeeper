@@ -7,6 +7,9 @@ target 'borbskeeper' do
 
   # Pods for borbskeeper
   pod 'Parse'
+  pod 'UITextView+Placeholder'
+  pod 'AFNetworking'
+  pod 'DateTools'
 
   target 'borbskeeperTests' do
     inherit! :search_paths
