@@ -8,6 +8,7 @@
 
 #import "ComposeTaskViewController.h"
 #import "UITextView+Placeholder.h"
+#import "Task.h"
 
 @interface ComposeTaskViewController () <UITextViewDelegate>
 
@@ -37,6 +38,9 @@ static NSString *const TASK_DESCRIPTION_PLACEHOLDER = @"What are the details of 
 }
 
 - (IBAction)didTapSaveTask:(id)sender {
+    Task *newTask = [Task createTask:self.taskTitleTextField.text withDescription:self.taskDescTextView.text withDueDate:self.taskDeadlineDatePicker.date];
+    [BorbParseManager saveTask:newTask withCompletion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)didTapCreateTaskView:(id)sender {

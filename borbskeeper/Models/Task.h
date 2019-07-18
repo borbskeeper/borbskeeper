@@ -14,7 +14,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Task : PFObject<PFSubclassing>
 
 @property (nonatomic, strong) NSString *taskName;
+@property (nonatomic, strong) NSString *taskDescription;
 @property (nonatomic, strong) NSDate *dueDate;
+@property (nonatomic, strong) PFUser *author;
+@property (nonatomic) BOOL verified;
+@property (nonatomic) BOOL posted;
+
++ (Task*)createTask:(NSString*)title withDescription:(NSString*)description withDueDate:(NSDate*)date;
+
 
 @end
 

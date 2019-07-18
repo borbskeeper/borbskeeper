@@ -12,9 +12,26 @@
 
 @dynamic taskName;
 @dynamic dueDate;
+@dynamic taskDescription;
+@dynamic author;
+@dynamic verified;
+@dynamic posted;
 
 + (NSString *)parseClassName {
     return @"Task";
+}
+
++ (Task*)createTask:(NSString*)title withDescription:(NSString*)description withDueDate:(NSDate*)date{
+    
+    Task *newTask = [Task new];
+    newTask.author = [PFUser currentUser];
+    newTask.taskName = title;
+    newTask.taskDescription = description;
+    newTask.dueDate = date;
+    newTask.verified = NO;
+    newTask.posted = NO;
+    
+    return newTask;
 }
 
 @end

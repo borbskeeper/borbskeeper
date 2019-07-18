@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Parse/Parse.h"
 #import "User.h"
+#import "Task.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)createAccount:(NSString*)username withEmail:(NSString*)email withPassword:(NSString*)password withCompletion:(void (^)(NSError *))completion;
 
 + (void)loginUser:(NSString*)username withPassword:(NSString*)password withCompletion:(void (^)(NSError *))completion;
+
++ (void)saveTask:(Task*)task withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 @end
 

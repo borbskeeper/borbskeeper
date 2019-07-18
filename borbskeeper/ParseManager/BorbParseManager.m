@@ -29,4 +29,8 @@
     
 }
 
++ (void)saveTask:(Task*)task withCompletion: (PFBooleanResultBlock  _Nullable)completion{
+    [task saveInBackgroundWithBlock: completion];
+}
+
 @end
