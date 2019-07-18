@@ -19,15 +19,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
-    
-    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"login"];
-    
-    self.window.rootViewController = viewController;
-    [self.window makeKeyAndVisible];
-    
     
     ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
         configuration.applicationId = @"borbsKeeper";
@@ -36,6 +27,19 @@
     
     [Parse initializeWithConfiguration:config];
     
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"login"];
+    
+    self.window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];
+
+    if (PFUser.currentUser) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TasksList" bundle:nil];
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"taskList"];
+    }
     return YES;
 }
 
