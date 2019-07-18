@@ -25,7 +25,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="original_borb" translatesAutoresizingMaskIntoConstraints="NO" id="xHr-4u-BtG">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="borb_original" translatesAutoresizingMaskIntoConstraints="NO" id="xHr-4u-BtG">
                                 <rect key="frame" x="112" y="110" width="151" height="165"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -112,6 +112,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="original_borb" width="300" height="300"/>
+        <image name="borb_original" width="300" height="300"/>
     </resources>
 </document>

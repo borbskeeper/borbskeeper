@@ -66,7 +66,7 @@
                                             <outlet property="checkboxButton" destination="RXw-dG-cVD" id="C8D-8O-ATu"/>
                                             <outlet property="taskNameLabel" destination="hgu-Tl-acG" id="zBD-KF-9mN"/>
                                             <outletCollection property="gestureRecognizers" destination="ZsH-fa-wyG" appends="YES" id="swd-nH-TTh"/>
-                                            <segue destination="HTb-t6-bi9" kind="show" id="hnV-Zl-uhN"/>
+                                            <segue destination="HTb-t6-bi9" kind="show" identifier="editTaskSegue" id="hnV-Zl-uhN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -76,7 +76,11 @@
                         <viewLayoutGuide key="safeArea" id="kVV-gW-JQ3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tasks List" id="1bU-8H-YLW">
-                        <barButtonItem key="leftBarButtonItem" title="Sign out" id="MGf-Dp-tQi"/>
+                        <barButtonItem key="leftBarButtonItem" title="Sign out" id="MGf-Dp-tQi">
+                            <connections>
+                                <action selector="didTapSignOut:" destination="G0u-nK-hFo" id="8Sb-DJ-HxW"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New Task" id="bqi-oh-UKH">
                             <connections>
                                 <action selector="didTapNewTask:" destination="G0u-nK-hFo" id="0vf-58-QdK"/>

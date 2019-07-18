@@ -7,8 +7,13 @@
 //
 
 #import "BorbParseManager.h"
+#import "AppDelegate.h"
+#import "LoginViewController.h"
 
 @implementation BorbParseManager
+
+static NSString *const LOGIN_STORYBOARD_ID = @"Login";
+static NSString *const LOGIN_VIEW_CONTROLLER_ID = @"login";
 
 + (void)createAccount:(NSString*)username withEmail:(NSString*)email withPassword:(NSString*)password withCompletion:(void (^)(NSError *))completion{
     PFUser *newUser = [PFUser user];
@@ -33,7 +38,7 @@
     [task saveInBackgroundWithBlock: completion];
 }
 
-+ (void) fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion {
++ (void)fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:@"Task"];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
@@ -47,6 +52,15 @@
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
+    }];
+}
+
++ (void)signOutUser{
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:LOGIN_STORYBOARD_ID bundle:nil];
+        LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:LOGIN_VIEW_CONTROLLER_ID];
+        appDelegate.window.rootViewController = loginViewController;
     }];
 }
 

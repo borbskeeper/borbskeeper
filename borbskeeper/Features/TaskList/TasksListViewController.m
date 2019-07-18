@@ -42,12 +42,16 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
 
 - (IBAction)tapTaskCell:(UITapGestureRecognizer *)sender {
     [self performSegueWithIdentifier:EDIT_SEGUE_ID sender:nil];
-    
 }
 
 - (IBAction)didTapNewTask:(id)sender {
     [self performSegueWithIdentifier:COMPOSE_SEGUE_ID sender:nil];
 }
+
+- (IBAction)didTapSignOut:(id)sender {
+    [BorbParseManager signOutUser];
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.incompleteTaskList count];
