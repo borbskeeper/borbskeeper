@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Task.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TaskCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *taskNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *checkboxButton;
+
+- (void)setDataAtCellWithTask:(Task *)task;
 
 @end
 

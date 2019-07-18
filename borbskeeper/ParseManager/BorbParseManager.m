@@ -33,4 +33,22 @@
     [task saveInBackgroundWithBlock: completion];
 }
 
++ (void) fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion {
+    PFQuery *query = [PFQuery queryWithClassName:@"Task"];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"author"];
+    [query whereKey:@"author" equalTo:[PFUser currentUser]];
+    [query whereKey:@"completed" equalTo:@NO];
+    
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            completion([NSMutableArray arrayWithArray:posts]);
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+
 @end

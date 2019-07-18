@@ -20,7 +20,7 @@
 
 @implementation ComposeTaskViewController
 
-static NSString *const TASK_DESCRIPTION_PLACEHOLDER = @"What are the details of you task?";
+static NSString *const TASK_DESCRIPTION_PLACEHOLDER = @"What are the details of your task?";
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)saveTask:(Task*)task withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
++ (void) fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

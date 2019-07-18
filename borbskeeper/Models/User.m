@@ -14,13 +14,8 @@
 @dynamic username;
 @dynamic userCoins;
 @dynamic friendsList;
-@dynamic incompleteTaskList;
-@dynamic completeTaskList;
 @dynamic profilePicture;
 @dynamic usersBorb;
-/*
-+ (nonnull NSString *)parseClassName {
-    return @"user";
-}*/
+
 
 @end

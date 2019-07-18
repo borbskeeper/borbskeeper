@@ -14,6 +14,7 @@
 @dynamic dueDate;
 @dynamic taskDescription;
 @dynamic author;
+@dynamic completed;
 @dynamic verified;
 @dynamic posted;
 
@@ -28,6 +29,7 @@
     newTask.taskName = title;
     newTask.taskDescription = description;
     newTask.dueDate = date;
+    newTask.completed = NO; 
     newTask.verified = NO;
     newTask.posted = NO;
     

@@ -18,8 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSNumber *userCoins;
 @property (nonatomic, strong) NSMutableArray *friendsList;
-@property (nonatomic, strong) NSMutableArray *incompleteTaskList;
-@property (nonatomic, strong) NSMutableArray *completeTaskList;
 @property (nonatomic, strong) PFFileObject *profilePicture;
 @property (nonatomic, strong) Borb *usersBorb;
 

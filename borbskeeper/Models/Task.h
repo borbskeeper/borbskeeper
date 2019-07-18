@@ -17,8 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *taskDescription;
 @property (nonatomic, strong) NSDate *dueDate;
 @property (nonatomic, strong) PFUser *author;
+@property (nonatomic) BOOL completed;
 @property (nonatomic) BOOL verified;
 @property (nonatomic) BOOL posted;
+
 
 + (Task*)createTask:(NSString*)title withDescription:(NSString*)description withDueDate:(NSDate*)date;
 

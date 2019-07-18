@@ -2,7 +2,7 @@
 //  EditTasksViewController.h
 //  borbskeeper
 //
-//  Created by cassanene on 7/16/19.
+//  Created by juliapark628 on 7/18/19.
 //  Copyright © 2019 juliapark628. All rights reserved.
 //
 
@@ -11,9 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EditTasksViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextField *decriptionField;
-@property (weak, nonatomic) IBOutlet UITextField *tasknameField;
-@property (weak, nonatomic) IBOutlet UITextField *deadlineField;
+
+@property (weak, nonatomic) IBOutlet UITextField *taskNameField;
+@property (weak, nonatomic) IBOutlet UITextView *taskDescriptionTextView;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @end
 
