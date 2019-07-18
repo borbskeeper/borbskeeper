@@ -14,6 +14,8 @@
 
 @implementation TasksListViewController
 
+static NSString *const TASK_LIST_SEGUE_ID = @"composeTaskSegue";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.delegate = self;
@@ -24,6 +26,9 @@
     
 }
 
+- (IBAction)didTapNewTask:(id)sender {
+    [self performSegueWithIdentifier:TASK_LIST_SEGUE_ID sender:nil];
+}
 
 
 

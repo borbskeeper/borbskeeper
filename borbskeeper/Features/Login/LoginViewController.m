@@ -23,7 +23,7 @@ static NSString *const UNSUCCESSFUL_LOGIN_ALERT_TITLE = @"Login not succesful";
 static NSString *const UNSUCCESSFUL_LOGIN_ALERT_MESSAGE = @"Please try to login in again.";
 static NSString *const OK_ACTION_TITLE = @"OK";
 
-static NSString *const TIMELINE_SEGUE_ID = @"";
+static NSString *const TASK_LIST_SEGUE_ID = @"taskListSegue";
 static NSString *const SIGNUP_SEGUE_ID = @"signUpSegue";
 
 - (void)viewDidLoad {
@@ -44,7 +44,7 @@ static NSString *const SIGNUP_SEGUE_ID = @"signUpSegue";
         if (error != nil) {
             [self presentViewController:loginNotSuccessfulAlert animated:YES completion:nil];
         } else {
-            //[self performSegueWithIdentifier:TIMELINE_SEGUE_ID sender:nil];
+            [self performSegueWithIdentifier:TASK_LIST_SEGUE_ID sender:nil];
         }
     }];
 }

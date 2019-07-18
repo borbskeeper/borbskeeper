@@ -82,6 +82,7 @@
                         <outlet property="signUpButton" destination="Brr-ra-Jqe" id="Bse-Ee-SeA"/>
                         <outlet property="usernameField" destination="lcb-O7-qu5" id="3hZ-zZ-WNY"/>
                         <segue destination="cCa-6Y-dny" kind="presentation" identifier="signUpSegue" id="EYb-pM-hYa"/>
+                        <segue destination="54F-xN-J4W" kind="presentation" identifier="taskListSegue" id="1d9-q6-deb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cfh-hM-5nS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -100,6 +101,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cje-vx-AcN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="638" y="-32"/>
+        </scene>
+        <!--taskList-->
+        <scene sceneID="aXm-gC-Bue">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="taskList" storyboardName="TasksList" referencedIdentifier="taskList" id="54F-xN-J4W" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Csc-eC-73L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="642" y="214"/>
         </scene>
     </scenes>
     <resources>

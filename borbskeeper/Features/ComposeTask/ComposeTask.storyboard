@@ -99,7 +99,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ghv-bp-wTY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WBV-ul-ByX" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="composeTask" storyboardIdentifier="composeTask" automaticallyAdjustsScrollViewInsets="NO" id="WBV-ul-ByX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uwf-7l-lcR">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

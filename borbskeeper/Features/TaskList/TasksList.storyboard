@@ -58,10 +58,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kVV-gW-JQ3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Tasks List" id="1bU-8H-YLW"/>
+                    <navigationItem key="navigationItem" title="Tasks List" id="1bU-8H-YLW">
+                        <barButtonItem key="leftBarButtonItem" title="Sign out" id="MGf-Dp-tQi"/>
+                        <barButtonItem key="rightBarButtonItem" title="New Task" id="bqi-oh-UKH">
+                            <connections>
+                                <action selector="didTapNewTask:" destination="G0u-nK-hFo" id="0vf-58-QdK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="h49-CA-SWd" id="Isg-c4-6qF"/>
                         <segue destination="ftA-fC-Van" kind="show" identifier="editTaskSegue" id="cCV-fc-rx4"/>
+                        <segue destination="AfF-Xx-8zw" kind="presentation" identifier="composeTaskSegue" id="c9m-Dm-oaX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scB-s8-JdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -72,6 +80,14 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="976.79999999999995" y="202.84857571214394"/>
+        </scene>
+        <!--composeTask-->
+        <scene sceneID="TXy-ur-dR3">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="composeTask" storyboardName="ComposeTask" referencedIdentifier="composeTask" id="AfF-Xx-8zw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qzM-0u-qqP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1544" y="-264"/>
         </scene>
         <!--Edit Tasks View Controller-->
         <scene sceneID="knP-1w-7Jc">
@@ -122,12 +138,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s4D-EY-vDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1776.8" y="202.84857571214394"/>
+            <point key="canvasLocation" x="1753" y="203"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="22e-0N-9Kb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hh4-1o-jIE" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="taskList" storyboardIdentifier="taskList" automaticallyAdjustsScrollViewInsets="NO" id="Hh4-1o-jIE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tOw-zQ-Vp8">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
