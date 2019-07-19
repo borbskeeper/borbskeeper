@@ -9,11 +9,8 @@
 #import "TasksListViewController.h"
 #import "Task.h"
 #import "BorbParseManager.h"
-<<<<<<< HEAD
 #import "EditTasksViewController.h"
-=======
 #import "ComposeTaskViewController.h"
->>>>>>> 1e79aacd06f6e3436c02b5a034809c464ea77a54
 
 @interface TasksListViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -92,18 +89,12 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
 }
 
 
-
-<<<<<<< HEAD
-//#pragma mark - Navigation
-=======
 #pragma mark - Navigation
->>>>>>> 1e79aacd06f6e3436c02b5a034809c464ea77a54
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-<<<<<<< HEAD
     if ([segue.identifier isEqualToString:EDIT_SEGUE_ID]){
     UITableViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
@@ -111,18 +102,15 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     EditTasksViewController *editTasksViewController = [segue destinationViewController];
     NSLog(@"%@", task.taskName);
     editTasksViewController.task = task;
+        
+    } else if ([segue.identifier  isEqual: COMPOSE_SEGUE_ID]){
+            UINavigationController *navigationController = [segue destinationViewController];
+            ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
+            composeController.delegate = self;
     }
     
 }
-=======
-    if([segue.identifier  isEqual: COMPOSE_SEGUE_ID]){
-        UINavigationController *navigationController = [segue destinationViewController];
-        ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
-        composeController.delegate = self;
-    }
-}
 
->>>>>>> 1e79aacd06f6e3436c02b5a034809c464ea77a54
 
 
 
