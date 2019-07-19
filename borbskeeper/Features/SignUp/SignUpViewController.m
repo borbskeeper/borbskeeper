@@ -18,8 +18,11 @@
 
 @implementation SignUpViewController
 
-static NSString *const SUCCESSFUL_SIGNUP_ALERT_TITLE = @"Signup Successful";
-static NSString *const SUCCESSFUL_SIGNUP_ALERT_MESSAGE = @"Please login with your new account.";
+static NSString *const TASK_LIST_SEGUE_ID = @"taskListSegue";
+
+static NSString *const UNSUCCESSFUL_LOGIN_ALERT_TITLE = @"Login not succesful";
+static NSString *const UNSUCCESSFUL_LOGIN_ALERT_MESSAGE = @"Please return to login screen and try again.";
+
 static NSString *const UNSUCCESSFUL_SIGNUP_ALERT_TITLE = @"Signup not successful";
 static NSString *const UNSUCCESSFUL_SIGNUP_ALERT_MESSAGE = @"Please try signing up again.";
 static NSString *const OK_ACTION_TITLE = @"OK";
@@ -30,20 +33,21 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 }
 
 - (IBAction)didTapSignUp:(id)sender {
+    UIAlertController *signUpNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:UNSUCCESSFUL_SIGNUP_ALERT_TITLE
+                                                                                      message:UNSUCCESSFUL_SIGNUP_ALERT_MESSAGE
+                                                                               preferredStyle:(UIAlertControllerStyleAlert)];
     
-    UIAlertController *signUpSuccessAlert = [UIAlertController alertControllerWithTitle:SUCCESSFUL_SIGNUP_ALERT_TITLE
-                                                                                message:SUCCESSFUL_SIGNUP_ALERT_MESSAGE
-                                                                         preferredStyle:(UIAlertControllerStyleAlert)];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:OK_ACTION_TITLE
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
                                                      }];
-    [signUpSuccessAlert addAction:okAction];
     
-    UIAlertController *signUpNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:UNSUCCESSFUL_SIGNUP_ALERT_TITLE
-                                                                                      message:UNSUCCESSFUL_SIGNUP_ALERT_MESSAGE
-                                                                               preferredStyle:(UIAlertControllerStyleAlert)];
     [signUpNotSuccessfulAlert addAction:okAction];
+    
+    UIAlertController *loginNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:UNSUCCESSFUL_LOGIN_ALERT_TITLE
+                                                                                     message:UNSUCCESSFUL_LOGIN_ALERT_MESSAGE
+                                                                              preferredStyle:(UIAlertControllerStyleAlert)];
+    [loginNotSuccessfulAlert addAction:okAction];
     
     if ((self.usernameField.text == nil) || (self.emailField.text == nil) || (self.passwordField.text == nil)){
         [self presentViewController:signUpNotSuccessfulAlert animated:YES completion:nil];
@@ -52,7 +56,13 @@ static NSString *const OK_ACTION_TITLE = @"OK";
             if (error != nil) {
                 [self presentViewController:signUpNotSuccessfulAlert animated:YES completion:nil];
             } else {
-                [self presentViewController:signUpSuccessAlert animated:YES completion:nil];
+                [BorbParseManager loginUser:self.usernameField.text withPassword:self.passwordField.text withCompletion: ^(NSError * error) {
+                    if (error != nil) {
+                        [self presentViewController:loginNotSuccessfulAlert animated:YES completion:nil];
+                    } else {
+                        [self performSegueWithIdentifier:TASK_LIST_SEGUE_ID sender:nil];
+                    }
+                }];
             };
         }];
     }
