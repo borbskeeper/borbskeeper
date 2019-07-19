@@ -8,6 +8,7 @@
 
 #import "SignUpViewController.h"
 #import "BorbParseManager.h"
+#import "Task.h"
 
 @interface SignUpViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -49,7 +50,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
                                                                               preferredStyle:(UIAlertControllerStyleAlert)];
     [loginNotSuccessfulAlert addAction:okAction];
     
-    if ([self checkForInvalidTextFields] == YES){
+    if ([Task checkForInvalidTextFields:@[self.usernameField.text, self.passwordField.text, self.emailField.text]] == YES){
         [self presentViewController:signUpNotSuccessfulAlert animated:YES completion:nil];
     } else {
         [BorbParseManager createAccount:self.usernameField.text withEmail:self.emailField.text withPassword:self.passwordField.text withCompletion:^(NSError * error) {
@@ -73,23 +74,6 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 }
 - (IBAction)didTapSignUpView:(id)sender {
     [self.view endEditing:YES];
-}
-
-- (BOOL)checkForInvalidTextFields{
-    if ((self.usernameField.text == nil) || (self.emailField.text == nil) || (self.passwordField.text == nil)){
-        return YES;
-    }
-    
-    NSArray *fieldsToBeChecked = @[[self.usernameField text], [self.passwordField text], [self.emailField text]];
-    
-    for (NSString *textFieldText in fieldsToBeChecked){
-        NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-        NSString *trimmed = [textFieldText stringByTrimmingCharactersInSet:whitespace];
-        if ([trimmed length] == 0) {
-            return YES;
-        }
-    }
-    return NO;
 }
 
 /*

@@ -49,4 +49,19 @@
 + (void)markTaskAsUnfinished:(Task*)task{
     task.completed = NO;
 }
+
++ (BOOL)checkForInvalidTextFields:(NSArray*)fieldsToBeChecked{
+    for (NSString *textFieldText in fieldsToBeChecked){
+        if (textFieldText == nil){
+            return  YES;
+        } else {
+            NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+            NSString *trimmed = [textFieldText stringByTrimmingCharactersInSet:whitespace];
+            if ([trimmed length] == 0) {
+                return YES;
+            }
+        } 
+    }
+    return NO;
+}
 @end

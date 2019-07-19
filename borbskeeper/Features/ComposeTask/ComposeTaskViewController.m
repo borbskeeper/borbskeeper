@@ -55,17 +55,21 @@ static NSString *const OK_ACTION_TITLE = @"OK";
                                                      }];
     [saveNotSuccessfulAlert addAction:okAction];
     
-    Task *newTask = [Task createTask:self.taskTitleTextField.text
-                     withDescription:self.taskDescTextView.text
-                         withDueDate:self.taskDeadlineDatePicker.date];
-    [BorbParseManager saveTask:newTask withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            [self.delegate didSaveTask];
-            [self dismissViewControllerAnimated:YES completion:nil];
-        } else {
-            [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
-        }
-    }];
+    if ([Task checkForInvalidTextFields:@[self.taskTitleTextField.text]] == YES){
+        [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
+    } else {
+        Task *newTask = [Task createTask:self.taskTitleTextField.text
+                         withDescription:self.taskDescTextView.text
+                             withDueDate:self.taskDeadlineDatePicker.date];
+        [BorbParseManager saveTask:newTask withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded) {
+                [self.delegate didSaveTask];
+                [self dismissViewControllerAnimated:YES completion:nil];
+            } else {
+                [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
+            }
+        }];
+    }
 }
 
 - (IBAction)didTapCreateTaskView:(id)sender {
