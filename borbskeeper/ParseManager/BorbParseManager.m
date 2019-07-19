@@ -16,13 +16,24 @@ static NSString *const LOGIN_STORYBOARD_ID = @"Login";
 static NSString *const LOGIN_VIEW_CONTROLLER_ID = @"login";
 
 + (void)createAccount:(NSString*)username withEmail:(NSString*)email withPassword:(NSString*)password withCompletion:(void (^)(NSError *))completion{
-    PFUser *newUser = [PFUser user];
+    User *newUser = (User *)[PFUser user];
     newUser.username = username;
     newUser.email = email;
     newUser.password = password;
+    newUser.userCoins = @0;
+    newUser.friendsList = [[NSMutableArray alloc] init];
     
-    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-        completion(error);
+    UIImage *defaultImage = [UIImage imageNamed:@"profile_placeholder"];
+    NSData *imageData = UIImagePNGRepresentation(defaultImage);
+    newUser.profilePicture = [PFFileObject fileObjectWithName:@"profile.png" data:imageData];
+    
+    Borb *newBorb = [[Borb alloc] init];
+    [newBorb saveInBackgroundWithBlock: ^(BOOL succeeded, NSError *error){
+        newUser.usersBorb = newBorb;
+        
+        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+            completion(error);
+        }];
     }];
 }
 

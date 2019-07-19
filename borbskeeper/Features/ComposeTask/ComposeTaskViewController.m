@@ -39,8 +39,8 @@ static NSString *const TASK_DESCRIPTION_PLACEHOLDER = @"What are the details of 
 
 - (IBAction)didTapSaveTask:(id)sender {
     Task *newTask = [Task createTask:self.taskTitleTextField.text
-                     withDescription:self.taskDescTextView.text
-                         withDueDate:self.taskDeadlineDatePicker.date];
+                    withDescription:self.taskDescTextView.text
+                    withDueDate:self.taskDeadlineDatePicker.date];
     [BorbParseManager saveTask:newTask withCompletion:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
