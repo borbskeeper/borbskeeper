@@ -106,6 +106,7 @@
                         <outlet property="emailField" destination="nQ1-fd-w1p" id="acc-PN-B0c"/>
                         <outlet property="passwordField" destination="kFg-rI-yKE" id="HrK-od-FTS"/>
                         <outlet property="usernameField" destination="RJ8-f6-HXq" id="lUo-Rq-aBo"/>
+                        <segue destination="Cxr-Se-waV" kind="presentation" identifier="taskListSegue" id="mA1-Bq-1pe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G6H-rk-TIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -116,6 +117,14 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-10" y="116"/>
+        </scene>
+        <!--taskList-->
+        <scene sceneID="Fe6-6P-yqF">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="taskList" storyboardName="TasksList" referencedIdentifier="taskList" id="Cxr-Se-waV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RxD-wp-yqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="630" y="116"/>
         </scene>
     </scenes>
 </document>

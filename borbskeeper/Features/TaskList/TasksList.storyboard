@@ -73,6 +73,7 @@
                                         <gestureRecognizers/>
                                         <connections>
                                             <outlet property="checkboxButton" destination="RXw-dG-cVD" id="C8D-8O-ATu"/>
+                                            <outlet property="dueDate" destination="IX0-qu-3M6" id="Pqh-2Y-gCG"/>
                                             <outlet property="taskNameLabel" destination="hgu-Tl-acG" id="zBD-KF-9mN"/>
                                             <outletCollection property="gestureRecognizers" destination="ZsH-fa-wyG" appends="YES" id="swd-nH-TTh"/>
                                             <segue destination="HTb-t6-bi9" kind="show" identifier="editTaskSegue" id="hnV-Zl-uhN"/>

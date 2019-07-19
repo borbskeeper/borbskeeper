@@ -12,8 +12,14 @@
 
 @implementation BorbParseManager
 
+
 static NSString *const LOGIN_STORYBOARD_ID = @"Login";
 static NSString *const LOGIN_VIEW_CONTROLLER_ID = @"login";
+
+static NSString *const QUERY_TASK_NAME = @"Task";
+static NSString *const TASK_DATE_CREATED_KEY = @"createdAt";
+static NSString *const TASK_AUTHOR_KEY = @"author";
+static NSString *const TASK_COMPLETED_KEY = @"completed";
 
 + (void)createAccount:(NSString*)username withEmail:(NSString*)email withPassword:(NSString*)password withCompletion:(void (^)(NSError *))completion{
     PFUser *newUser = [PFUser user];
@@ -39,11 +45,11 @@ static NSString *const LOGIN_VIEW_CONTROLLER_ID = @"login";
 }
 
 + (void)fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion {
-    PFQuery *query = [PFQuery queryWithClassName:@"Task"];
-    [query orderByDescending:@"createdAt"];
-    [query includeKey:@"author"];
-    [query whereKey:@"author" equalTo:[PFUser currentUser]];
-    [query whereKey:@"completed" equalTo:@NO];
+    PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
+    [query orderByDescending:TASK_DATE_CREATED_KEY];
+    [query includeKey:TASK_AUTHOR_KEY];
+    [query whereKey:TASK_AUTHOR_KEY equalTo:[PFUser currentUser]];
+    [query whereKey:TASK_COMPLETED_KEY equalTo:@NO];
     
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {

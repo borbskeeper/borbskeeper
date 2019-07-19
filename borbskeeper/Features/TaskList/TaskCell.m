@@ -39,6 +39,9 @@
     } else {
         self.checkboxButton.selected = NO;
     }
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"'Due' yyyy-MM-dd 'at' hh:mm a";
+    self.dueDate.text = [dateFormatter stringFromDate:self.task.dueDate];
 }
 
 @end

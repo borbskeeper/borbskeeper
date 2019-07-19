@@ -22,9 +22,17 @@
 
 static NSString *const TASK_DESCRIPTION_PLACEHOLDER = @"What are the details of your task?";
 
+static NSString *const UNSUCCESSFUL_TASK_SAVE_TITLE = @"Could not save task";
+static NSString *const UNSUCCESSFUL_TASK_SAVE_MESSAGE = @"Please try to save task again.";
+static NSString *const OK_ACTION_TITLE = @"OK";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupTextView];
+    [self setupDatePicker];
+}
+- (void)setupDatePicker {
+    self.taskDeadlineDatePicker.minimumDate = [NSDate date];
 }
 
 - (void)setupTextView {
@@ -38,9 +46,36 @@ static NSString *const TASK_DESCRIPTION_PLACEHOLDER = @"What are the details of 
 }
 
 - (IBAction)didTapSaveTask:(id)sender {
+<<<<<<< HEAD
     Task *newTask = [Task createTask:self.taskTitleTextField.text withDescription:self.taskDescTextView.text withDueDate:self.taskDeadlineDatePicker.date];
     [BorbParseManager saveTask:newTask withCompletion:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
+=======
+    UIAlertController *saveNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:UNSUCCESSFUL_TASK_SAVE_TITLE
+                                                                                     message:UNSUCCESSFUL_TASK_SAVE_MESSAGE
+                                                                              preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:OK_ACTION_TITLE
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                     }];
+    [saveNotSuccessfulAlert addAction:okAction];
+    
+    if ([Task checkForInvalidTextFields:@[self.taskTitleTextField.text]] == YES){
+        [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
+    } else {
+        Task *newTask = [Task createTask:self.taskTitleTextField.text
+                         withDescription:self.taskDescTextView.text
+                             withDueDate:self.taskDeadlineDatePicker.date];
+        [BorbParseManager saveTask:newTask withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded) {
+                [self.delegate didSaveTask];
+                [self dismissViewControllerAnimated:YES completion:nil];
+            } else {
+                [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
+            }
+        }];
+    }
+>>>>>>> 1e79aacd06f6e3436c02b5a034809c464ea77a54
 }
 
 - (IBAction)didTapCreateTaskView:(id)sender {

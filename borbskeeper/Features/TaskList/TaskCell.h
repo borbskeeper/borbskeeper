@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TaskCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *taskNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *checkboxButton;
+@property (weak, nonatomic) IBOutlet UILabel *dueDate;
 @property (strong, nonatomic) Task *task;
 
 - (void)setDataAtCellWithTask:(Task *)task;
