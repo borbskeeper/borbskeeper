@@ -46,11 +46,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 }
 
 - (IBAction)didTapSaveTask:(id)sender {
-<<<<<<< HEAD
-    Task *newTask = [Task createTask:self.taskTitleTextField.text withDescription:self.taskDescTextView.text withDueDate:self.taskDeadlineDatePicker.date];
-    [BorbParseManager saveTask:newTask withCompletion:nil];
-    [self dismissViewControllerAnimated:YES completion:nil];
-=======
+    
     UIAlertController *saveNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:UNSUCCESSFUL_TASK_SAVE_TITLE
                                                                                      message:UNSUCCESSFUL_TASK_SAVE_MESSAGE
                                                                               preferredStyle:(UIAlertControllerStyleAlert)];
@@ -75,7 +71,6 @@ static NSString *const OK_ACTION_TITLE = @"OK";
             }
         }];
     }
->>>>>>> 1e79aacd06f6e3436c02b5a034809c464ea77a54
 }
 
 - (IBAction)didTapCreateTaskView:(id)sender {
