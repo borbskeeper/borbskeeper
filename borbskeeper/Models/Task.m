@@ -36,4 +36,17 @@
     return newTask;
 }
 
++ (void)editTask:(Task*)task withTitle:(NSString*)title withDescription:(NSString*)description withDueDate:(NSDate*)date{
+    task.taskName = title;
+    task.taskDescription = description;
+    task.dueDate = date;
+}
+
++ (void)markTaskAsFinished:(Task*)task{
+    task.completed = YES;
+}
+
++ (void)markTaskAsUnfinished:(Task*)task{
+    task.completed = NO;
+}
 @end

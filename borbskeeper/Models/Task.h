@@ -24,6 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (Task*)createTask:(NSString*)title withDescription:(NSString*)description withDueDate:(NSDate*)date;
 
++ (void)editTask:(Task*)task withTitle:(NSString*)title withDescription:(NSString*)description withDueDate:(NSDate*)date;
+
++ (void)markTaskAsFinished:(Task*)task;
+
++ (void)markTaskAsUnfinished:(Task*)task;
 
 @end
 

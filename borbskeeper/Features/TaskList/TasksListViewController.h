@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TasksListViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) Task *task;
 
 @end
 

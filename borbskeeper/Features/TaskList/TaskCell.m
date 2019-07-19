@@ -20,8 +20,25 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)didTapCheckbox:(id)sender {
+    if (self.task.completed == NO){
+        [Task markTaskAsFinished:self.task];
+        self.checkboxButton.selected = YES;
+    } else {
+        [Task markTaskAsUnfinished:self.task];
+        self.checkboxButton.selected = NO;
+    }
+    [BorbParseManager saveTask:self.task withCompletion:nil];
+}
+
 - (void)setDataAtCellWithTask:(Task *)task {
+    self.task = task;
     self.taskNameLabel.text = task.taskName;
+    if (self.task.completed == YES){
+        self.checkboxButton.selected = YES;
+    } else {
+        self.checkboxButton.selected = NO;
+    }
 }
 
 @end

@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="jGL-ls-vtX">
             <objects>
-                <navigationController storyboardIdentifier="EditTasks" id="DTb-zB-CX6" sceneMemberID="viewController">
+                <navigationController id="DTb-zB-CX6" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Wf-gM-6eG">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -29,7 +29,7 @@
         <!--Edit Tasks View Controller-->
         <scene sceneID="UiG-c8-RHQ">
             <objects>
-                <viewController id="3ab-gb-Vam" customClass="EditTasksViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditTasks" id="3ab-gb-Vam" customClass="EditTasksViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yFC-ul-Q1x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,12 +83,12 @@
                     <navigationItem key="navigationItem" id="Qqu-up-x0n">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="juI-0P-GpQ">
                             <connections>
-                                <action selector="didTapCancel:" destination="3ab-gb-Vam" id="6qa-7K-1QZ"/>
+                                <action selector="didTapCancel:" destination="3ab-gb-Vam" id="sFy-3h-tfU"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="y3Z-7U-8jn">
                             <connections>
-                                <action selector="didTapSave:" destination="3ab-gb-Vam" id="vMv-KE-93r"/>
+                                <action selector="didTapSave:" destination="3ab-gb-Vam" id="5ll-hK-KJI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

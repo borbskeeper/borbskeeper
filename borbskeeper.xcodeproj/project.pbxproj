@@ -75,7 +75,7 @@
 		8F6CE0DA0FA1890902E8CD27 /* Pods-borbskeeperUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeperUITests.debug.xcconfig"; path = "Target Support Files/Pods-borbskeeperUITests/Pods-borbskeeperUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A2284FC522E11895006217C9 /* EditTasks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditTasks.storyboard; sourceTree = "<group>"; };
 		A2284FC722E11DE1006217C9 /* EditTasksViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EditTasksViewController.h; path = borbskeeper/Features/EditTask/EditTasksViewController.h; sourceTree = SOURCE_ROOT; };
-		A2284FC822E11DE1006217C9 /* EditTasksViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTasksViewController.m; sourceTree = "<group>"; };
+		A2284FC822E11DE1006217C9 /* EditTasksViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTasksViewController.m; sourceTree = "<group>"; usesTabs = 0; };
 		A28F5C0822DE598E001FAFC7 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = User.h; path = borbskeeper/Models/User.h; sourceTree = SOURCE_ROOT; };
 		A28F5C0922DE598E001FAFC7 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = User.m; path = borbskeeper/Models/User.m; sourceTree = SOURCE_ROOT; };
 		A28F5C0B22DE6C14001FAFC7 /* Borb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Borb.h; path = borbskeeper/Models/Borb.h; sourceTree = SOURCE_ROOT; };

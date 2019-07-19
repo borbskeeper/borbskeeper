@@ -25,23 +25,26 @@
 - (IBAction)didTapSave:(id)sender {
 //    have to change the already made properties in the task
     PFQuery *query = [PFQuery queryWithClassName:@"Task"];
-    // Retrieve the object by id
-    [query getObjectInBackgroundWithId:@"xWMyZ4YEGZ"
-                                 block:^(PFObject *task, NSError *error) {
-                                     // Now let's update it with some new data. In this case, only cheatMode and score
-                                     // will get sent to the cloud. playerName hasn't changed.
-                                     task[@"taskName"] = self.taskTitleTextField.text;
-                                     task[@"taskDescription"] = self.taskDescTextView.text;
-                                     task[@"dueDate"] = self.taskDeadlineDatePicker.date;
-                                     [task saveInBackground];
-                                 }];
-    [self dismissViewControllerAnimated:YES completion:nil];
+
+    NSString *objectId = self.task.objectId;
+//    tried this but there is null in the objectId
+    [query getObjectInBackgroundWithId:objectId
+                                  block:^(PFObject *task, NSError *error) {
+                                      task[@"taskName"] = self.taskTitleTextField.text;
+                                      task[@"taskDescription"] = self.taskDescTextView.text;
+                                      task[@"dueDate"] = self.taskDeadlineDatePicker.date;
+                                      [task saveInBackground];
+                                  }];
+                  
+     
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
 
 - (IBAction)didTapCancel:(id)sender {
-     [self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"Tapped");
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*
