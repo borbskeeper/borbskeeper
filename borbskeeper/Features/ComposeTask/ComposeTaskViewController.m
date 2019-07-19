@@ -46,7 +46,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 }
 
 - (IBAction)didTapSaveTask:(id)sender {
-    
+
     UIAlertController *saveNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:UNSUCCESSFUL_TASK_SAVE_TITLE
                                                                                      message:UNSUCCESSFUL_TASK_SAVE_MESSAGE
                                                                               preferredStyle:(UIAlertControllerStyleAlert)];

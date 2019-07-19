@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)parseClassName;
 
+- (instancetype)init;
+
 @end
 
 NS_ASSUME_NONNULL_END

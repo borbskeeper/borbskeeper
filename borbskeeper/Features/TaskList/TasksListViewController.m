@@ -104,7 +104,7 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
         EditTasksViewController *editTasksViewController = [segue destinationViewController];
         NSLog(@"%@", task.taskName);
         editTasksViewController.task = task;
-    } else if ([segue.identifier  isEqual: COMPOSE_SEGUE_ID]){
+    } else if([segue.identifier  isEqual: COMPOSE_SEGUE_ID]){
         UINavigationController *navigationController = [segue destinationViewController];
         ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
         composeController.delegate = self;

@@ -7,6 +7,7 @@
 //
 
 #import "Borb.h"
+#import "PFObject+Subclass.h"
 
 @implementation Borb
 
@@ -14,8 +15,30 @@
 @dynamic borbExperience;
 @dynamic borbPicture;
 
+static int MAX_HP = 50;
+
 + (NSString *)parseClassName {
     return @"Borb";
 }
+
+- (instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        // self.borbHealth = [NSNumber numberWithInt:MAX_HP];
+        
+        self.borbExperience = @0;
+        /*
+        UIImage *defaultImage = [UIImage imageNamed:@"borb_original"];
+        NSData *imageData = UIImagePNGRepresentation(defaultImage);
+        self.borbPicture = [PFFileObject fileObjectWithName:@"borb.png" data:imageData];
+         */
+    }
+
+    
+    return self;
+}
+
+
 
 @end
