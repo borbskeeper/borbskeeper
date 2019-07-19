@@ -80,11 +80,25 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="KSx-UP-KUk"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Qqu-up-x0n"/>
+                    <navigationItem key="navigationItem" id="Qqu-up-x0n">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="juI-0P-GpQ">
+                            <connections>
+                                <action selector="didTapCancel:" destination="3ab-gb-Vam" id="6qa-7K-1QZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="y3Z-7U-8jn">
+                            <connections>
+                                <action selector="didTapSave:" destination="3ab-gb-Vam" id="vMv-KE-93r"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="cNC-IR-An5" id="NlW-4h-GUv"/>
+                        <outlet property="taskDeadlineDatePicker" destination="cNC-IR-An5" id="RsF-aB-Q3Y"/>
+                        <outlet property="taskDescTextView" destination="4Th-Uv-tMz" id="epL-jW-tKh"/>
                         <outlet property="taskDescriptionTextView" destination="4Th-Uv-tMz" id="cLi-JW-Vef"/>
                         <outlet property="taskNameField" destination="Lbt-4g-40W" id="lp6-MY-0vP"/>
+                        <outlet property="taskTitleTextField" destination="Lbt-4g-40W" id="Kdu-NJ-LYt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Obw-Oh-ASR" userLabel="First Responder" sceneMemberID="firstResponder"/>
