@@ -20,7 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self loadTask];
+}
+
+- (void)loadTask{
+    self.taskTitleTextField.text = self.task.taskName;
+    self.taskDescriptionTextView.text = self.task.taskDescription;
+    self.taskDeadlineDatePicker.date = self.task.dueDate;
 }
 
 - (IBAction)didTapSave:(id)sender {
