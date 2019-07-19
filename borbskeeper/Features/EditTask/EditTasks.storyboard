@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="jGL-ls-vtX">
             <objects>
-                <navigationController storyboardIdentifier="EditTasks" id="DTb-zB-CX6" sceneMemberID="viewController">
+                <navigationController id="DTb-zB-CX6" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Wf-gM-6eG">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -29,7 +29,7 @@
         <!--Edit Tasks View Controller-->
         <scene sceneID="UiG-c8-RHQ">
             <objects>
-                <viewController id="3ab-gb-Vam" customClass="EditTasksViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditTasks" id="3ab-gb-Vam" customClass="EditTasksViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yFC-ul-Q1x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,13 +81,24 @@
                         <viewLayoutGuide key="safeArea" id="KSx-UP-KUk"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qqu-up-x0n">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Hhq-0O-UIb"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="YHA-vF-FXY"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="juI-0P-GpQ">
+                            <connections>
+                                <action selector="didTapCancel:" destination="3ab-gb-Vam" id="sFy-3h-tfU"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="y3Z-7U-8jn">
+                            <connections>
+                                <action selector="didTapSave:" destination="3ab-gb-Vam" id="5ll-hK-KJI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="cNC-IR-An5" id="NlW-4h-GUv"/>
+                        <outlet property="taskDeadlineDatePicker" destination="cNC-IR-An5" id="RsF-aB-Q3Y"/>
+                        <outlet property="taskDescTextView" destination="4Th-Uv-tMz" id="epL-jW-tKh"/>
                         <outlet property="taskDescriptionTextView" destination="4Th-Uv-tMz" id="cLi-JW-Vef"/>
                         <outlet property="taskNameField" destination="Lbt-4g-40W" id="lp6-MY-0vP"/>
+                        <outlet property="taskTitleTextField" destination="Lbt-4g-40W" id="Kdu-NJ-LYt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Obw-Oh-ASR" userLabel="First Responder" sceneMemberID="firstResponder"/>

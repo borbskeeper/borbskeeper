@@ -30,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)markTaskAsUnfinished:(Task*)task;
 
++ (BOOL)checkForInvalidTextFields:(NSArray*)fieldsToBeChecked;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,8 +7,12 @@
 //
 
 #import "EditTasksViewController.h"
+#import "Task.h"
 
 @interface EditTasksViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *taskTitleTextField;
+@property (weak, nonatomic) IBOutlet UITextView *taskDescTextView;
+@property (weak, nonatomic) IBOutlet UIDatePicker *taskDeadlineDatePicker;
 
 @end
 
@@ -17,6 +21,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+- (IBAction)didTapSave:(id)sender {
+//    have to change the already made properties in the task
+    PFQuery *query = [PFQuery queryWithClassName:@"Task"];
+
+    NSString *objectId = self.task.objectId;
+//    tried this but there is null in the objectId
+    [query getObjectInBackgroundWithId:objectId
+                                  block:^(PFObject *task, NSError *error) {
+                                      task[@"taskName"] = self.taskTitleTextField.text;
+                                      task[@"taskDescription"] = self.taskDescTextView.text;
+                                      task[@"dueDate"] = self.taskDeadlineDatePicker.date;
+                                      [task saveInBackground];
+                                  }];
+                  
+     
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+
+- (IBAction)didTapCancel:(id)sender {
+    NSLog(@"Tapped");
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*

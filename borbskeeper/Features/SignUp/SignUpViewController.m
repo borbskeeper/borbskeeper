@@ -8,6 +8,7 @@
 
 #import "SignUpViewController.h"
 #import "BorbParseManager.h"
+#import "Task.h"
 
 @interface SignUpViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -49,7 +50,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
                                                                               preferredStyle:(UIAlertControllerStyleAlert)];
     [loginNotSuccessfulAlert addAction:okAction];
     
-    if ((self.usernameField.text == nil) || (self.emailField.text == nil) || (self.passwordField.text == nil)){
+    if ([Task checkForInvalidTextFields:@[self.usernameField.text, self.passwordField.text, self.emailField.text]] == YES){
         [self presentViewController:signUpNotSuccessfulAlert animated:YES completion:nil];
     } else {
         [BorbParseManager createAccount:self.usernameField.text withEmail:self.emailField.text withPassword:self.passwordField.text withCompletion:^(NSError * error) {

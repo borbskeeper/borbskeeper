@@ -9,6 +9,8 @@
 #import "TasksListViewController.h"
 #import "Task.h"
 #import "BorbParseManager.h"
+#import "EditTasksViewController.h"
+#import "ComposeTaskViewController.h"
 
 @interface TasksListViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -65,6 +67,10 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     
     return cell;
 }
+-(void)didSaveTask{
+    [self fetchData];
+}
+
 -(void)refreshTaskList{
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchData) forControlEvents:UIControlEventValueChanged];
@@ -83,16 +89,29 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
 }
 
 
-/*
+
+//#pragma mark - Navigation
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:EDIT_SEGUE_ID]){
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Task* task = self.incompleteTaskList[indexPath.row];
+        EditTasksViewController *editTasksViewController = [segue destinationViewController];
+        NSLog(@"%@", task.taskName);
+        editTasksViewController.task = task;
+    } else if([segue.identifier  isEqual: COMPOSE_SEGUE_ID]){
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
+        composeController.delegate = self;
+    }
 }
-*/
 
-//}
+
+
 
 @end
