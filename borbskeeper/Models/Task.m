@@ -42,4 +42,11 @@
     task.dueDate = date;
 }
 
++ (void)markTaskAsFinished:(Task*)task{
+    task.completed = YES;
+}
+
++ (void)markTaskAsUnfinished:(Task*)task{
+    task.completed = NO;
+}
 @end
