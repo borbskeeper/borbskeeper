@@ -36,4 +36,10 @@
     return newTask;
 }
 
++ (void)editTask:(Task*)task withTitle:(NSString*)title withDescription:(NSString*)description withDueDate:(NSDate*)date{
+    task.taskName = title;
+    task.taskDescription = description;
+    task.dueDate = date;
+}
+
 @end
