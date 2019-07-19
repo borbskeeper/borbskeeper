@@ -38,6 +38,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="585168767.21635199">
                                     <!--2019-07-18 18:52:47 +0000-->
                                 </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                    <!--1970-01-01 11:00:00 +0000-->
+                                </date>
                             </datePicker>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a descriptive title for your task!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DmC-d1-ge6">
                                 <rect key="frame" x="22" y="119" width="329" height="30"/>

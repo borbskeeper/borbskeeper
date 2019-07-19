@@ -25,6 +25,10 @@ static NSString *const TASK_DESCRIPTION_PLACEHOLDER = @"What are the details of 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupTextView];
+    [self setupDatePicker];
+}
+- (void)setupDatePicker {
+    self.taskDeadlineDatePicker.minimumDate = [NSDate date];
 }
 
 - (void)setupTextView {
