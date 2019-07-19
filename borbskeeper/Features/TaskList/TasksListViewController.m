@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) NSMutableArray *incompleteTaskList;
 @property (strong, nonatomic) NSString *current_username;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 
 @end
@@ -31,11 +33,8 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     self.tableView.dataSource = self;
     
     self.current_username = [PFUser currentUser].username;
-    
-    [BorbParseManager fetchIncompleteTasksOfUser:self.current_username WithCompletion:^(NSMutableArray *posts) {
-        self.incompleteTaskList = posts;
-        [self.tableView reloadData];
-    }];
+    [self fetchData];
+    [self refreshTaskList];
     
     
 }
@@ -66,8 +65,22 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     
     return cell;
 }
+-(void)refreshTaskList{
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchData) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+    [self.tableView addSubview:self.refreshControl];
+    [self.activityIndicator startAnimating];
+}
 
-
+-(void)fetchData {
+    [BorbParseManager fetchIncompleteTasksOfUser:self.current_username WithCompletion:^(NSMutableArray *posts) {
+        self.incompleteTaskList = posts;
+        [self.tableView reloadData];
+        [self.activityIndicator stopAnimating];
+        [self.refreshControl endRefreshing];
+    }];
+}
 
 
 /*
