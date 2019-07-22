@@ -54,7 +54,7 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
 }
 
 - (IBAction)didTapCancel:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)didTapSaveTask:(id)sender {
@@ -79,7 +79,6 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
             [BorbParseManager saveTask:newTask withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                 if (succeeded) {
                     [self.delegate didSaveTask];
-                    [self.navigationController popViewControllerAnimated:YES];
                     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                 } else {
                     [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
@@ -101,7 +100,7 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
                                          }];
             
             
-            [self.navigationController popViewControllerAnimated:YES];
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }
     }
 }
