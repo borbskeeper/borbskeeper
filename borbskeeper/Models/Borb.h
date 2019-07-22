@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)parseClassName;
 
-- (instancetype)init;
+- (instancetype)initWithInitialStats;
 
 @end
 

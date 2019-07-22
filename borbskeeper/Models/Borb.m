@@ -21,20 +21,18 @@ static int MAX_HP = 50;
     return @"Borb";
 }
 
-- (instancetype)init {
+- (instancetype)initWithInitialStats {
     self = [super init];
     
     if (self) {
-        // self.borbHealth = [NSNumber numberWithInt:MAX_HP];
-        
+        self.borbHealth = [NSNumber numberWithInt:MAX_HP];
         self.borbExperience = @0;
-        /*
+        
         UIImage *defaultImage = [UIImage imageNamed:@"borb_original"];
         NSData *imageData = UIImagePNGRepresentation(defaultImage);
         self.borbPicture = [PFFileObject fileObjectWithName:@"borb.png" data:imageData];
-         */
+        
     }
-
     
     return self;
 }

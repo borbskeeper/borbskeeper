@@ -33,7 +33,7 @@ static NSString *const TASK_COMPLETED_KEY = @"completed";
     NSData *imageData = UIImagePNGRepresentation(defaultImage);
     newUser.profilePicture = [PFFileObject fileObjectWithName:@"profile.png" data:imageData];
     
-    Borb *newBorb = [[Borb alloc] init];
+    Borb *newBorb = [[Borb alloc] initWithInitialStats];
     [newBorb saveInBackgroundWithBlock: ^(BOOL succeeded, NSError *error){
         newUser.usersBorb = newBorb;
         
