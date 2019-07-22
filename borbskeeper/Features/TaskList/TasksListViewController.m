@@ -98,16 +98,20 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:EDIT_SEGUE_ID]){
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
+        // ComposeTaskViewController *composeController = [segue destinationViewController];
+        
+        // NSLog(@"%@", task);
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         Task* task = self.incompleteTaskList[indexPath.row];
-        ComposeTaskViewController *composeController = [segue destinationViewController];
         composeController.task = task;
     } else if([segue.identifier  isEqual: COMPOSE_SEGUE_ID]){
         UINavigationController *navigationController = [segue destinationViewController];
         ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
-//        composeController.delegate = self;
-        composeController.task = _task;
+       //  composeController.delegate = self;
+        composeController.task = nil;
     }
 }
 

@@ -40,9 +40,17 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
 }
 
 - (void)setupTextView {
-    self.taskDescTextView.delegate = self;
-    self.taskDescTextView.placeholder = TASK_DESCRIPTION_PLACEHOLDER;
-    self.taskDescTextView.placeholderColor = [UIColor lightGrayColor];
+    if (self.task == nil) {
+        self.taskDescTextView.delegate = self;
+        self.taskDescTextView.placeholder = TASK_DESCRIPTION_PLACEHOLDER;
+        self.taskDescTextView.placeholderColor = [UIColor lightGrayColor];
+    }
+    else {
+        self.taskTitleTextField.text = self.task.taskName;
+        self.taskDescTextView.text = self.task.taskDescription;
+        self.taskDeadlineDatePicker.date = self.task.dueDate;
+    }
+
 }
 
 - (IBAction)didTapCancel:(id)sender {
@@ -63,17 +71,38 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
     if ([Task checkForInvalidTextFields:@[self.taskTitleTextField.text]] == YES){
         [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
     } else {
-        Task *newTask = [Task createTask:self.taskTitleTextField.text
-                         withDescription:self.taskDescTextView.text
-                             withDueDate:self.taskDeadlineDatePicker.date];
-        [BorbParseManager saveTask:newTask withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-            if (succeeded) {
-                [self.delegate didSaveTask];
-                [self.navigationController popViewControllerAnimated:YES];
-            } else {
-                [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
-            }
-        }];
+        if (self.task == nil) {
+            
+            Task *newTask = [Task createTask:self.taskTitleTextField.text
+                             withDescription:self.taskDescTextView.text
+                                 withDueDate:self.taskDeadlineDatePicker.date];
+            [BorbParseManager saveTask:newTask withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                if (succeeded) {
+                    [self.delegate didSaveTask];
+                    [self.navigationController popViewControllerAnimated:YES];
+                    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                } else {
+                    [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
+                }
+            }];
+        }
+        else {
+            //    have to change the already made properties in the task
+            PFQuery *query = [PFQuery queryWithClassName:@"Task"];
+            
+            NSString *objectId = self.task.objectId;
+            //    tried this but there is null in the objectId
+            [query getObjectInBackgroundWithId:objectId
+                                         block:^(PFObject *task, NSError *error) {
+                                             task[@"taskName"] = self.taskTitleTextField.text;
+                                             task[@"taskDescription"] = self.taskDescTextView.text;
+                                             task[@"dueDate"] = self.taskDeadlineDatePicker.date;
+                                             [task saveInBackground];
+                                         }];
+            
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
 }
 
