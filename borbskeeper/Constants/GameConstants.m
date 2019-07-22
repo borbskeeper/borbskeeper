@@ -16,6 +16,9 @@ const int COIN_REWARD_OPTOUT = 5;
 
 const int AMOUNT_OF_HP_FOOD_RESTORES = 15;
 const int FOOD_COST = 7;
+const int AMOUNT_OF_XP_FROM_BOOST = 40;
+const int XP_BOOST_COST = 75; 
+
 const int BORB_HP_DECAY_PER_HOUR = 1;
 const int BORB_HP_DECAY_PER_INCOMPLETE_TASK = 6;
 

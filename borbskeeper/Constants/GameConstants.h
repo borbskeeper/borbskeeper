@@ -16,6 +16,9 @@ extern int const COIN_REWARD_OPTOUT;
 
 extern int const AMOUNT_OF_HP_FOOD_RESTORES;
 extern int const FOOD_COST;
+extern int const AMOUNT_OF_XP_FROM_BOOST;
+extern int const XP_BOOST_COST; 
+
 extern int const BORB_HP_DECAY_PER_HOUR;
 extern int const BORB_HP_DECAY_PER_INCOMPLETE_TASK;
 
