@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface ComposeTaskViewController : UIViewController
+@property (strong, nonatomic) Task *task;
 
 @property (nonatomic, weak) id<ComposeViewControllerDelegate> delegate;
 

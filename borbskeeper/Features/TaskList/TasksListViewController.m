@@ -101,13 +101,13 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         Task* task = self.incompleteTaskList[indexPath.row];
-        EditTasksViewController *editTasksViewController = [segue destinationViewController];
-        NSLog(@"%@", task.taskName);
-        editTasksViewController.task = task;
+        ComposeTaskViewController *composeController = [segue destinationViewController];
+        composeController.task = task;
     } else if([segue.identifier  isEqual: COMPOSE_SEGUE_ID]){
         UINavigationController *navigationController = [segue destinationViewController];
         ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
-        composeController.delegate = self;
+//        composeController.delegate = self;
+        composeController.task = _task;
     }
 }
 

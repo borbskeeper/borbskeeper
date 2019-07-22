@@ -7,6 +7,8 @@
 //
 
 #import "ComposeTaskViewController.h"
+#import "EditTasksViewController.h"
+#import "TasksListViewController.h"
 #import "UITextView+Placeholder.h"
 #import "Task.h"
 
@@ -25,6 +27,8 @@ static NSString *const TASK_DESCRIPTION_PLACEHOLDER = @"What are the details of 
 static NSString *const UNSUCCESSFUL_TASK_SAVE_TITLE = @"Could not save task";
 static NSString *const UNSUCCESSFUL_TASK_SAVE_MESSAGE = @"Please try to save task again.";
 static NSString *const OK_ACTION_TITLE = @"OK";
+static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,7 +46,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 }
 
 - (IBAction)didTapCancel:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)didTapSaveTask:(id)sender {
@@ -65,7 +69,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
         [BorbParseManager saveTask:newTask withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             if (succeeded) {
                 [self.delegate didSaveTask];
-                [self dismissViewControllerAnimated:YES completion:nil];
+                [self.navigationController popViewControllerAnimated:YES];
             } else {
                 [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
             }

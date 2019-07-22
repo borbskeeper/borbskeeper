@@ -13,7 +13,7 @@
         <!--Create Task-->
         <scene sceneID="7KA-ao-PNZ">
             <objects>
-                <viewController id="CPZ-OX-dnB" customClass="ComposeTaskViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="composeTask" id="CPZ-OX-dnB" customClass="ComposeTaskViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ncA-dk-B6x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,7 +101,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ghv-bp-wTY">
             <objects>
-                <navigationController restorationIdentifier="composeTask" storyboardIdentifier="composeTask" automaticallyAdjustsScrollViewInsets="NO" id="WBV-ul-ByX" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="composeTask" automaticallyAdjustsScrollViewInsets="NO" id="WBV-ul-ByX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uwf-7l-lcR">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
