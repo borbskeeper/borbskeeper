@@ -126,14 +126,6 @@
             </objects>
             <point key="canvasLocation" x="1659" y="109"/>
         </scene>
-        <!--EditTasks-->
-        <scene sceneID="lZ7-0G-lTI">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="EditTasks" storyboardName="EditTasks" referencedIdentifier="EditTasks" id="HTb-t6-bi9" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TAw-iv-8gG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1650" y="324"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="22e-0N-9Kb">
             <objects>

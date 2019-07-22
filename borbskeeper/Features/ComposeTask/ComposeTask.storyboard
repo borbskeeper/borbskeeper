@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Create Task-->
+        <!--Compose Task View Controller-->
         <scene sceneID="7KA-ao-PNZ">
             <objects>
                 <viewController id="CPZ-OX-dnB" customClass="ComposeTaskViewController" sceneMemberID="viewController">
@@ -71,7 +71,7 @@
                             <outletCollection property="gestureRecognizers" destination="WWr-3c-UwL" appends="YES" id="CAt-80-6j4"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Create Task" id="ee0-gP-BfB">
+                    <navigationItem key="navigationItem" id="ee0-gP-BfB">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="DPV-H5-FNR">
                             <connections>
                                 <action selector="didTapCancel:" destination="CPZ-OX-dnB" id="c5Z-oL-fUa"/>

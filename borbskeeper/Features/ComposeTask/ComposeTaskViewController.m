@@ -7,7 +7,6 @@
 //
 
 #import "ComposeTaskViewController.h"
-#import "EditTasksViewController.h"
 #import "TasksListViewController.h"
 #import "UITextView+Placeholder.h"
 #import "Task.h"
@@ -41,11 +40,13 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
 
 - (void)setupTextView {
     if (self.task == nil) {
+        self.navigationItem.title = @"Create Task";
         self.taskDescTextView.delegate = self;
         self.taskDescTextView.placeholder = TASK_DESCRIPTION_PLACEHOLDER;
         self.taskDescTextView.placeholderColor = [UIColor lightGrayColor];
     }
     else {
+        self.navigationItem.title = @"Edit Task";
         self.taskTitleTextField.text = self.task.taskName;
         self.taskDescTextView.text = self.task.taskDescription;
         self.taskDeadlineDatePicker.date = self.task.dueDate;

@@ -8,8 +8,6 @@
 
 #import "TasksListViewController.h"
 #import "Task.h"
-#import "BorbParseManager.h"
-#import "EditTasksViewController.h"
 #import "ComposeTaskViewController.h"
 
 @interface TasksListViewController () <UITableViewDataSource, UITableViewDelegate>
