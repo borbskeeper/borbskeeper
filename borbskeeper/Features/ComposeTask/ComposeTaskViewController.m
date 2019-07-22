@@ -7,6 +7,7 @@
 //
 
 #import "ComposeTaskViewController.h"
+#import "TasksListViewController.h"
 #import "UITextView+Placeholder.h"
 #import "Task.h"
 
@@ -25,6 +26,8 @@ static NSString *const TASK_DESCRIPTION_PLACEHOLDER = @"What are the details of 
 static NSString *const UNSUCCESSFUL_TASK_SAVE_TITLE = @"Could not save task";
 static NSString *const UNSUCCESSFUL_TASK_SAVE_MESSAGE = @"Please try to save task again.";
 static NSString *const OK_ACTION_TITLE = @"OK";
+static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,13 +39,23 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 }
 
 - (void)setupTextView {
-    self.taskDescTextView.delegate = self;
-    self.taskDescTextView.placeholder = TASK_DESCRIPTION_PLACEHOLDER;
-    self.taskDescTextView.placeholderColor = [UIColor lightGrayColor];
+    if (self.task == nil) {
+        self.navigationItem.title = @"Create Task";
+        self.taskDescTextView.delegate = self;
+        self.taskDescTextView.placeholder = TASK_DESCRIPTION_PLACEHOLDER;
+        self.taskDescTextView.placeholderColor = [UIColor lightGrayColor];
+    }
+    else {
+        self.navigationItem.title = @"Edit Task";
+        self.taskTitleTextField.text = self.task.taskName;
+        self.taskDescTextView.text = self.task.taskDescription;
+        self.taskDeadlineDatePicker.date = self.task.dueDate;
+    }
+
 }
 
 - (IBAction)didTapCancel:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)didTapSaveTask:(id)sender {
@@ -59,17 +72,37 @@ static NSString *const OK_ACTION_TITLE = @"OK";
     if ([Task checkForInvalidTextFields:@[self.taskTitleTextField.text]] == YES){
         [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
     } else {
-        Task *newTask = [Task createTask:self.taskTitleTextField.text
-                         withDescription:self.taskDescTextView.text
-                             withDueDate:self.taskDeadlineDatePicker.date];
-        [BorbParseManager saveTask:newTask withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-            if (succeeded) {
-                [self.delegate didSaveTask];
-                [self dismissViewControllerAnimated:YES completion:nil];
-            } else {
-                [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
-            }
-        }];
+        if (self.task == nil) {
+            
+            Task *newTask = [Task createTask:self.taskTitleTextField.text
+                             withDescription:self.taskDescTextView.text
+                                 withDueDate:self.taskDeadlineDatePicker.date];
+            [BorbParseManager saveTask:newTask withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                if (succeeded) {
+                    [self.delegate didSaveTask];
+                    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                } else {
+                    [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
+                }
+            }];
+        }
+        else {
+            //    have to change the already made properties in the task
+            PFQuery *query = [PFQuery queryWithClassName:@"Task"];
+            
+            NSString *objectId = self.task.objectId;
+            //    tried this but there is null in the objectId
+            [query getObjectInBackgroundWithId:objectId
+                                         block:^(PFObject *task, NSError *error) {
+                                             task[@"taskName"] = self.taskTitleTextField.text;
+                                             task[@"taskDescription"] = self.taskDescTextView.text;
+                                             task[@"dueDate"] = self.taskDeadlineDatePicker.date;
+                                             [task saveInBackground];
+                                         }];
+            
+            
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        }
     }
 }
 

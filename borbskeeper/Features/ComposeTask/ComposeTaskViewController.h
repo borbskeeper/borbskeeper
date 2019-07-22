@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ComposeTaskViewController : UIViewController
 
+@property (strong, nonatomic) Task *_Nullable task;
+
 @property (nonatomic, weak) id<ComposeViewControllerDelegate> delegate;
 
 @end

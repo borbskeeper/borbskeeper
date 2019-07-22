@@ -76,7 +76,7 @@
                                             <outlet property="dueDate" destination="IX0-qu-3M6" id="Pqh-2Y-gCG"/>
                                             <outlet property="taskNameLabel" destination="hgu-Tl-acG" id="zBD-KF-9mN"/>
                                             <outletCollection property="gestureRecognizers" destination="ZsH-fa-wyG" appends="YES" id="swd-nH-TTh"/>
-                                            <segue destination="HTb-t6-bi9" kind="show" identifier="editTaskSegue" id="hnV-Zl-uhN"/>
+                                            <segue destination="AfF-Xx-8zw" kind="show" identifier="editTaskSegue" trigger="accessoryAction" id="u27-HT-tIp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -100,13 +100,13 @@
                         <barButtonItem key="rightBarButtonItem" title="New Task" id="bqi-oh-UKH">
                             <connections>
                                 <action selector="didTapNewTask:" destination="G0u-nK-hFo" id="0vf-58-QdK"/>
+                                <segue destination="AfF-Xx-8zw" kind="presentation" identifier="composeTaskSegue" id="OR7-sw-UMd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="myp-aS-eSa" id="Dlm-5T-2tl"/>
                         <outlet property="tableView" destination="h49-CA-SWd" id="Isg-c4-6qF"/>
-                        <segue destination="AfF-Xx-8zw" kind="presentation" identifier="composeTaskSegue" id="c9m-Dm-oaX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scB-s8-JdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -125,14 +125,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzM-0u-qqP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1659" y="109"/>
-        </scene>
-        <!--EditTasks-->
-        <scene sceneID="lZ7-0G-lTI">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="EditTasks" storyboardName="EditTasks" referencedIdentifier="EditTasks" id="HTb-t6-bi9" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TAw-iv-8gG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1650" y="324"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="22e-0N-9Kb">
@@ -157,4 +149,7 @@
         <image name="checkbox_checked" width="96" height="96"/>
         <image name="checkbox_empty" width="96" height="96"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="OR7-sw-UMd"/>
+    </inferredMetricsTieBreakers>
 </document>

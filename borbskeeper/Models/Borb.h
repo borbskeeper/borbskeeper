@@ -13,8 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Borb : PFObject<PFSubclassing>
 
+@property (nonatomic, strong) NSString *borbName;
 @property (nonatomic, strong) NSNumber *borbHealth;
 @property (nonatomic, strong) NSNumber *borbExperience;
+@property (nonatomic, strong) NSNumber *borbLevel; 
 @property (nonatomic, strong) PFFileObject *borbPicture;
 
 + (NSString *)parseClassName;
