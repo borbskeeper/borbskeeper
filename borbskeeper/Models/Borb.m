@@ -8,6 +8,7 @@
 
 #import "Borb.h"
 #import "PFObject+Subclass.h"
+#import "GameConstants.h"
 
 @implementation Borb
 
@@ -16,8 +17,6 @@
 @dynamic borbExperience;
 @dynamic borbLevel;
 @dynamic borbPicture;
-
-static int MAX_HP = 100;
 
 + (NSString *)parseClassName {
     return @"Borb";
