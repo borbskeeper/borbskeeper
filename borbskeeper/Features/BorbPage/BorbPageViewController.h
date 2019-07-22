@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Borb.h"
+#import "User.h"
+#import "GameConstants.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BorbPageViewController : UIViewController
-
-@property (strong, nonatomic) Borb *borb;
 
 
 @end
