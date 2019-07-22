@@ -7,6 +7,7 @@
 //
 
 #import "Task.h"
+#import "User.h"
 
 @implementation Task
 
@@ -17,6 +18,8 @@
 @dynamic completed;
 @dynamic verified;
 @dynamic posted;
+
+const int COIN_REWARD_FOR_TASK_OPT_OUT = 5;
 
 + (NSString *)parseClassName {
     return @"Task";
@@ -44,10 +47,12 @@
 
 + (void)markTaskAsFinished:(Task*)task{
     task.completed = YES;
+    [User currentUser].userCoins = [NSNumber numberWithFloat:([[User currentUser].userCoins intValue] + COIN_REWARD_FOR_TASK_OPT_OUT)];
 }
 
 + (void)markTaskAsUnfinished:(Task*)task{
     task.completed = NO;
+    [User currentUser].userCoins = [NSNumber numberWithFloat:([[User currentUser].userCoins intValue] - COIN_REWARD_FOR_TASK_OPT_OUT)];
 }
 
 + (BOOL)checkForInvalidTextFields:(NSArray*)fieldsToBeChecked{

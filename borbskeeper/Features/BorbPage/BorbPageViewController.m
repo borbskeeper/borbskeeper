@@ -25,7 +25,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self setUpView];
+}
+
+- (void)setUpView {
+    self.userCoinsLabel.text = [NSString stringWithFormat:@"%@", self.user.userCoins];
+    self.borbNameLabel.text = self.user.usersBorb.borbName;
+    self.borbLevelLabel.text = [NSString stringWithFormat:@"%@", self.user.usersBorb.borbLevel];
+    self.borbXPLabel.text = [NSString stringWithFormat:@"%@", self.user.usersBorb.borbExperience];
+    
 }
 
 /*

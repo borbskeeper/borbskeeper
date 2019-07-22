@@ -11,8 +11,10 @@
 
 @implementation Borb
 
+@dynamic borbName;
 @dynamic borbHealth;
 @dynamic borbExperience;
+@dynamic borbLevel;
 @dynamic borbPicture;
 
 static int MAX_HP = 100;
@@ -25,8 +27,10 @@ static int MAX_HP = 100;
     self = [super init];
     
     if (self) {
+        self.borbName = @"Borb"; 
         self.borbHealth = [NSNumber numberWithInt:MAX_HP];
         self.borbExperience = @0;
+        self.borbLevel = @0;
         
         UIImage *defaultImage = [UIImage imageNamed:@"borb_original"];
         NSData *imageData = UIImagePNGRepresentation(defaultImage);
