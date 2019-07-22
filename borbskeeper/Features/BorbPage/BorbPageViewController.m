@@ -92,8 +92,8 @@ static NSString *const OK_ACTION_TITLE = @"OK";
                 [self presentViewController:cannotFeedBorbAlert animated:YES completion:nil];
             
             } else {
-                [Borb feedBorb:borb];
-                [User decreaseUserCoins:self.user byCoins:FOOD_COST];
+                [borb feedBorb];
+                [self.user decreaseUserCoinsBy:FOOD_COST];
 
                 [BorbParseManager saveBorb:borb withCompletion:nil];
                 [BorbParseManager saveUser:self.user withCompletion:nil];

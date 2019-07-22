@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)decreaseExperiencePointsBy:(int)XP;
 
+- (void)feedBorb;
+
 @end
 
 NS_ASSUME_NONNULL_END

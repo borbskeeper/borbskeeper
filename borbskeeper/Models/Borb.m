@@ -50,14 +50,14 @@
     self.borbExperience = @(currentXP - XP);
 }
 
-+ (void)feedBorb:(Borb*)borb {
-    int borbHP = [borb.borbHealth intValue];
+- (void)feedBorb{
+    int borbHP = [self.borbHealth intValue];
     borbHP += AMOUNT_OF_HP_FOOD_RESTORES;
     
     if (borbHP > 100){
         borbHP = 100;
     }
-    borb.borbHealth = @(borbHP);
+    self.borbHealth = @(borbHP);
 }
 
 @end
