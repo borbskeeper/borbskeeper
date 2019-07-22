@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h49-CA-SWd">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="98" id="LCg-KO-ZoF" customClass="TaskCell">
@@ -133,34 +133,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAw-iv-8gG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1650" y="324"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="GiR-66-BVd">
-            <objects>
-                <tabBarController id="l9d-SC-V7S" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zEY-c3-DcF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="Hh4-1o-jIE" kind="relationship" relationship="viewControllers" id="ID9-No-xHf"/>
-                        <segue destination="BhT-Fg-Fnj" kind="relationship" relationship="viewControllers" id="bOe-Z2-CcR"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i1d-Uc-FUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-967" y="203"/>
-        </scene>
-        <!--BorbPage-->
-        <scene sceneID="728-ks-F7A">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="BorbPage" storyboardName="BorbPage" id="BhT-Fg-Fnj" userLabel="BorbPage" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Z9E-Gz-y5z"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xIs-Sh-wfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-303" y="-318"/>
         </scene>
         <!--Tasks-->
         <scene sceneID="22e-0N-9Kb">
