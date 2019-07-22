@@ -9,6 +9,7 @@
 #import "TaskCell.h"
 #import "User.h"
 #import "Borb.h"
+#import "GameConstants.h"
 
 @implementation TaskCell
 
@@ -26,22 +27,22 @@
     if (self.task.completed == NO){
         self.checkboxButton.selected = YES;
         [Task markTaskAsFinished:self.task];
-        [User increaseUserCoins:[User currentUser] byCoins:5];
+        [[User currentUser] increaseUserCoinsBy: COIN_REWARD_OPTOUT];
         
         [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
             Borb *userBorb = borbs[0];
-            [Borb increaseBorbExperience:userBorb byExperiencePoints:13];
+            [userBorb increaseExperiencePointsBy:XP_GAINED_PER_COMPLETE_TASK];
             [BorbParseManager saveBorb:userBorb withCompletion:nil];
         }];
 
     } else {
         self.checkboxButton.selected = NO;
         [Task markTaskAsUnfinished:self.task];
-        [User decreaseUserCoins:[User currentUser] byCoins:5];
+        [[User currentUser] decreaseUserCoinsBy: COIN_REWARD_OPTOUT];
         
         [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
             Borb *userBorb = borbs[0];
-            [Borb decreaseBorbExperience:userBorb byExperiencePoints:13];
+            [userBorb decreaseExperiencePointsBy:XP_GAINED_PER_COMPLETE_TASK];
             [BorbParseManager saveBorb:userBorb withCompletion:nil];
         }];
     }
