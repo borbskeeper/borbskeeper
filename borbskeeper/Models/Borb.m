@@ -15,7 +15,7 @@
 @dynamic borbExperience;
 @dynamic borbPicture;
 
-static int MAX_HP = 50;
+static int MAX_HP = 100;
 
 + (NSString *)parseClassName {
     return @"Borb";
