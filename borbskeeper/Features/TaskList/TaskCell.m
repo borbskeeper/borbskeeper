@@ -9,8 +9,10 @@
 #import "TaskCell.h"
 #import "User.h"
 #import "Borb.h"
+#import "GameConstants.h"
 
 @implementation TaskCell
+static NSString *const DATE_FORMAT = @"'Due' yyyy-MM-dd 'at' hh:mm a";
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -26,22 +28,22 @@
     if (self.task.completed == NO){
         self.checkboxButton.selected = YES;
         [Task markTaskAsFinished:self.task];
-        [User increaseUserCoins:[User currentUser] byCoins:5];
+        [User increaseUserCoins:[User currentUser] byCoins:COIN_REWARD_OPTOUT];
         
         [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
             Borb *userBorb = borbs[0];
-            [Borb increaseBorbExperience:userBorb byExperiencePoints:13];
+            [Borb increaseBorbExperience:userBorb byExperiencePoints:XP_GAINED_PER_COMPLETE_TASK];
             [BorbParseManager saveBorb:userBorb withCompletion:nil];
         }];
 
     } else {
         self.checkboxButton.selected = NO;
         [Task markTaskAsUnfinished:self.task];
-        [User decreaseUserCoins:[User currentUser] byCoins:5];
+        [User decreaseUserCoins:[User currentUser] byCoins:COIN_REWARD_OPTOUT];
         
         [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
             Borb *userBorb = borbs[0];
-            [Borb decreaseBorbExperience:userBorb byExperiencePoints:13];
+            [Borb decreaseBorbExperience:userBorb byExperiencePoints:XP_GAINED_PER_COMPLETE_TASK];
             [BorbParseManager saveBorb:userBorb withCompletion:nil];
         }];
     }
@@ -58,7 +60,7 @@
         self.checkboxButton.selected = NO;
     }
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"'Due' yyyy-MM-dd 'at' hh:mm a";
+    dateFormatter.dateFormat = DATE_FORMAT;
     self.dueDate.text = [dateFormatter stringFromDate:self.task.dueDate];
 }
 

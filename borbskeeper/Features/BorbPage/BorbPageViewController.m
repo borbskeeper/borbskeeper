@@ -8,6 +8,7 @@
 
 #import "BorbPageViewController.h"
 #import "GameConstants.h"
+#import "BorbParseManager.h"
 
 @interface BorbPageViewController ()
 
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *maxHPLabel;
 
 @property (strong, nonatomic) User *user;
+@property (strong, nonatomic) Borb *borb;
 
 @end
 
@@ -29,22 +31,27 @@
     [super viewDidLoad];
     
     self.user = [User currentUser];
+    [self loadBorb];
     [self setUpView];
 }
 
 - (void)setUpView {
     self.userCoinsLabel.text = [NSString stringWithFormat:@"%@", self.user.userCoins];
-    self.borbNameLabel.text = self.user.usersBorb.borbName;
-    self.borbLevelLabel.text = [NSString stringWithFormat:@"%@", self.user.usersBorb.borbLevel];
-    self.borbXPLabel.text = [NSString stringWithFormat:@"%@", self.user.usersBorb.borbExperience];
+    self.borbNameLabel.text = self.borb.borbName;
+    self.borbLevelLabel.text = [NSString stringWithFormat:@"%@", self.borb.borbLevel];
+    self.borbXPLabel.text = [NSString stringWithFormat:@"%@", self.borb.borbExperience];
     
-    int borbsMaxXP = [GameConstants maxXPForExperienceLevel:self.user.usersBorb.borbLevel];
+    int borbsMaxXP = [GameConstants maxXPForExperienceLevel:self.borb.borbLevel];
     self.maxXPLabel.text = [NSString stringWithFormat:@"%d", borbsMaxXP];
-    
-    self.borbHPLabel.text = [NSString stringWithFormat:@"%@", self.user.usersBorb.borbHealth];
+    self.borbHPLabel.text = [NSString stringWithFormat:@"%@", self.borb.borbHealth];
     self.maxHPLabel.text = [NSString stringWithFormat:@"%d", MAX_HP];
 }
 
+- (void)loadBorb {
+    [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
+        self.borb = borbs[0];
+    }];
+}
 /*
 #pragma mark - Navigation
 
