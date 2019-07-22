@@ -54,6 +54,15 @@
                                 <rect key="frame" x="41" y="487" width="99" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Feed (# coins)"/>
+                                <state key="disabled">
+                                    <color key="titleColor" red="1" green="0.31665022329999998" blue="0.27053768500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="1" green="0.31665022329999998" blue="0.27053768500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapFeed:" destination="1Lh-AC-ibU" eventType="touchUpInside" id="ns7-8i-71O"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="borb_original" translatesAutoresizingMaskIntoConstraints="NO" id="OM8-ET-3fD">
                                 <rect key="frame" x="86" y="203" width="200" height="200"/>
@@ -98,14 +107,14 @@
                                 <rect key="frame" x="113" y="422" width="148" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="/ #maxXP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sml-gq-1XI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="/ #maxXP" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sml-gq-1XI">
                                         <rect key="frame" x="74" y="0.0" width="74" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#XP" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGV-7n-LyG">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#XP" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGV-7n-LyG">
                                         <rect key="frame" x="34" y="0.0" width="37" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -131,6 +140,9 @@
                                 <rect key="frame" x="227" y="487" width="128" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="XP Boost (# coins)"/>
+                                <connections>
+                                    <action selector="didTapXPBoost:" destination="1Lh-AC-ibU" eventType="touchUpInside" id="kCq-eW-VRD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -142,6 +154,7 @@
                         <outlet property="borbLevelLabel" destination="Zwb-P1-AfX" id="xAT-Va-9pb"/>
                         <outlet property="borbNameLabel" destination="Mtj-Pr-phh" id="6ee-aP-C1Q"/>
                         <outlet property="borbXPLabel" destination="vGV-7n-LyG" id="Pig-Ls-Eqc"/>
+                        <outlet property="feedBorbButton" destination="v6n-yM-h3k" id="6Bt-pV-F14"/>
                         <outlet property="maxHPLabel" destination="nCu-yv-Ux9" id="Ick-wt-PCB"/>
                         <outlet property="maxXPLabel" destination="sml-gq-1XI" id="SqQ-Yl-Nws"/>
                         <outlet property="userCoinsLabel" destination="CEP-dj-MNX" id="UZb-0i-Xkj"/>

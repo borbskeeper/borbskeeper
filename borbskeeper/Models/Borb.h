@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)decreaseBorbExperience:(Borb*)borb byExperiencePoints:(int)XP;
 
++ (void)feedBorb:(Borb*)borb;
+
 @end
 
 NS_ASSUME_NONNULL_END
