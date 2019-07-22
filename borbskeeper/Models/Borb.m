@@ -28,8 +28,7 @@
     if (self) {
         self.borbName = @"Borb"; 
         self.borbHealth = [NSNumber numberWithInt:MAX_HP];
-        self.borbExperience = @0;
-        self.borbLevel = @0;
+        self.borbExperience = @(0);
         
         UIImage *defaultImage = [UIImage imageNamed:@"borb_original"];
         NSData *imageData = UIImagePNGRepresentation(defaultImage);
@@ -40,6 +39,15 @@
     return self;
 }
 
++ (void)increaseBorbExperience:(Borb*)borb byExperiencePoints:(int)XP{
+    // NSLog(@"%@, %@", borb, borb.borbExperience);
+    int currentXP = [borb.borbExperience intValue];
+    borb.borbExperience = @(currentXP + XP);
+}
 
++ (void)decreaseBorbExperience:(Borb*)borb byExperiencePoints:(int)XP{
+    int currentXP = [borb.borbExperience intValue];
+    borb.borbExperience = @(currentXP - XP);
+}
 
 @end

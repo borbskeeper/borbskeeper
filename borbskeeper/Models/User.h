@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) PFFileObject *profilePicture;
 @property (nonatomic, strong) Borb *usersBorb;
 
++ (void)increaseUserCoins:(User*)user byCoins:(int)numCoins;
++ (void)decreaseUserCoins:(User*)user byCoins:(int)numCoins;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -23,6 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithInitialStats;
 
++ (void)increaseBorbExperience:(Borb*)borb byExperiencePoints:(int)XP;
+
++ (void)decreaseBorbExperience:(Borb*)borb byExperiencePoints:(int)XP;
+
 @end
 
 NS_ASSUME_NONNULL_END
