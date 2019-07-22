@@ -36,6 +36,7 @@
 }
 
 - (void)setUpView {
+    /*
     self.userCoinsLabel.text = [NSString stringWithFormat:@"%@", self.user.userCoins];
     self.borbNameLabel.text = self.borb.borbName;
     self.borbLevelLabel.text = [NSString stringWithFormat:@"%@", self.borb.borbLevel];
@@ -45,6 +46,7 @@
     self.maxXPLabel.text = [NSString stringWithFormat:@"%d", borbsMaxXP];
     self.borbHPLabel.text = [NSString stringWithFormat:@"%@", self.borb.borbHealth];
     self.maxHPLabel.text = [NSString stringWithFormat:@"%d", MAX_HP];
+     */
 }
 
 - (void)loadBorb {

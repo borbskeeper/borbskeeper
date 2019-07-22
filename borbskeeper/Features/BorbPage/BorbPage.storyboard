@@ -10,10 +10,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Borb-->
         <scene sceneID="oWL-Uo-VGj">
             <objects>
                 <navigationController storyboardIdentifier="BorbPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VHV-vV-FeN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Borb" id="rsX-LY-YjW"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w6U-G2-J2w">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
