@@ -17,5 +17,13 @@
 @dynamic profilePicture;
 @dynamic usersBorb;
 
++ (void)increaseUserCoins:(User*)user byCoins:(int)numCoins{
+    int currentCoins = [user.userCoins intValue];
+    user.userCoins = @(currentCoins + numCoins);
+}
 
++ (void)decreaseUserCoins:(User*)user byCoins:(int)numCoins{
+    int currentCoins = [user.userCoins intValue];
+    user.userCoins = @(currentCoins - numCoins);
+}
 @end

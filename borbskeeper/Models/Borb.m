@@ -26,7 +26,7 @@ static int MAX_HP = 100;
     
     if (self) {
         self.borbHealth = [NSNumber numberWithInt:MAX_HP];
-        self.borbExperience = @0;
+        self.borbExperience = @(0);
         
         UIImage *defaultImage = [UIImage imageNamed:@"borb_original"];
         NSData *imageData = UIImagePNGRepresentation(defaultImage);
@@ -37,6 +37,15 @@ static int MAX_HP = 100;
     return self;
 }
 
++ (void)increaseBorbExperience:(Borb*)borb byExperiencePoints:(int)XP{
+    // NSLog(@"%@, %@", borb, borb.borbExperience);
+    int currentXP = [borb.borbExperience intValue];
+    borb.borbExperience = @(currentXP + XP);
+}
 
++ (void)decreaseBorbExperience:(Borb*)borb byExperiencePoints:(int)XP{
+    int currentXP = [borb.borbExperience intValue];
+    borb.borbExperience = @(currentXP - XP);
+}
 
 @end

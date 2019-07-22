@@ -21,6 +21,9 @@ static NSString *const TASK_DATE_CREATED_KEY = @"createdAt";
 static NSString *const TASK_AUTHOR_KEY = @"author";
 static NSString *const TASK_COMPLETED_KEY = @"completed";
 
+static NSString *const QUERY_BORB_NAME = @"Borb";
+static NSString *const BORB_ID_KEY = @"objectId";
+
 + (void)createAccount:(NSString*)username withEmail:(NSString*)email withPassword:(NSString*)password withCompletion:(void (^)(NSError *))completion{
     User *newUser = (User *)[PFUser user];
     newUser.username = username;
@@ -55,6 +58,14 @@ static NSString *const TASK_COMPLETED_KEY = @"completed";
     [task saveInBackgroundWithBlock: completion];
 }
 
++ (void)saveUser:(User*)user withCompletion: (PFBooleanResultBlock  _Nullable)completion{
+    [user saveInBackgroundWithBlock: completion];
+}
+
++ (void)saveBorb:(Borb*)borb withCompletion: (PFBooleanResultBlock  _Nullable)completion{
+    [borb saveInBackgroundWithBlock: completion];
+}
+
 + (void)fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     [query orderByDescending:TASK_DATE_CREATED_KEY];
@@ -72,6 +83,19 @@ static NSString *const TASK_COMPLETED_KEY = @"completed";
     }];
 }
 
++ (void)fetchBorb:(NSString *)borbID WithCompletion:(void (^)(NSMutableArray *))completion {
+    PFQuery *query = [PFQuery queryWithClassName:QUERY_BORB_NAME];
+    [query whereKey:BORB_ID_KEY equalTo:borbID];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *borbs, NSError *error) {
+        if (borbs != nil) {
+            completion([NSMutableArray arrayWithArray:borbs]);
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
 + (void)signOutUser{
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -80,6 +104,5 @@ static NSString *const TASK_COMPLETED_KEY = @"completed";
         appDelegate.window.rootViewController = loginViewController;
     }];
 }
-
 
 @end

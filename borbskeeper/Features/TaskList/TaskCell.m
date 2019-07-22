@@ -7,6 +7,8 @@
 //
 
 #import "TaskCell.h"
+#import "User.h"
+#import "Borb.h"
 
 @implementation TaskCell
 
@@ -22,13 +24,29 @@
 
 - (IBAction)didTapCheckbox:(id)sender {
     if (self.task.completed == NO){
-        [Task markTaskAsFinished:self.task];
         self.checkboxButton.selected = YES;
+        [Task markTaskAsFinished:self.task];
+        [User increaseUserCoins:[User currentUser] byCoins:5];
+        
+        [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
+            Borb *userBorb = borbs[0];
+            [Borb increaseBorbExperience:userBorb byExperiencePoints:13];
+            [BorbParseManager saveBorb:userBorb withCompletion:nil];
+        }];
+
     } else {
-        [Task markTaskAsUnfinished:self.task];
         self.checkboxButton.selected = NO;
+        [Task markTaskAsUnfinished:self.task];
+        [User decreaseUserCoins:[User currentUser] byCoins:5];
+        
+        [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
+            Borb *userBorb = borbs[0];
+            [Borb decreaseBorbExperience:userBorb byExperiencePoints:13];
+            [BorbParseManager saveBorb:userBorb withCompletion:nil];
+        }];
     }
     [BorbParseManager saveTask:self.task withCompletion:nil];
+    [BorbParseManager saveUser:[User currentUser] withCompletion:nil];
 }
 
 - (void)setDataAtCellWithTask:(Task *)task {
