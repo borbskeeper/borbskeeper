@@ -39,15 +39,15 @@
     return self;
 }
 
-+ (void)increaseBorbExperience:(Borb*)borb byExperiencePoints:(int)XP{
+- (void)increaseExperiencePointsBy:(int)XP{
     // NSLog(@"%@, %@", borb, borb.borbExperience);
-    int currentXP = [borb.borbExperience intValue];
-    borb.borbExperience = @(currentXP + XP);
+    int currentXP = [self.borbExperience intValue];
+    self.borbExperience = @(currentXP + XP);
 }
 
-+ (void)decreaseBorbExperience:(Borb*)borb byExperiencePoints:(int)XP{
-    int currentXP = [borb.borbExperience intValue];
-    borb.borbExperience = @(currentXP - XP);
+- (void)decreaseExperiencePointsBy:(int)XP{
+    int currentXP = [self.borbExperience intValue];
+    self.borbExperience = @(currentXP - XP);
 }
 
 + (void)feedBorb:(Borb*)borb {

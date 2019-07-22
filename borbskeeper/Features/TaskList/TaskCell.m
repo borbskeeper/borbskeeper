@@ -28,22 +28,22 @@ static NSString *const DATE_FORMAT = @"'Due' yyyy-MM-dd 'at' hh:mm a";
     if (self.task.completed == NO){
         self.checkboxButton.selected = YES;
         [Task markTaskAsFinished:self.task];
-        [User increaseUserCoins:[User currentUser] byCoins:COIN_REWARD_OPTOUT];
+        [[User currentUser] increaseUserCoinsBy: COIN_REWARD_OPTOUT];
         
         [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
             Borb *userBorb = borbs[0];
-            [Borb increaseBorbExperience:userBorb byExperiencePoints:XP_GAINED_PER_COMPLETE_TASK];
+            [userBorb increaseExperiencePointsBy:XP_GAINED_PER_COMPLETE_TASK];
             [BorbParseManager saveBorb:userBorb withCompletion:nil];
         }];
 
     } else {
         self.checkboxButton.selected = NO;
         [Task markTaskAsUnfinished:self.task];
-        [User decreaseUserCoins:[User currentUser] byCoins:COIN_REWARD_OPTOUT];
+        [[User currentUser] decreaseUserCoinsBy: COIN_REWARD_OPTOUT];
         
         [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
             Borb *userBorb = borbs[0];
-            [Borb decreaseBorbExperience:userBorb byExperiencePoints:XP_GAINED_PER_COMPLETE_TASK];
+            [userBorb decreaseExperiencePointsBy:XP_GAINED_PER_COMPLETE_TASK];
             [BorbParseManager saveBorb:userBorb withCompletion:nil];
         }];
     }

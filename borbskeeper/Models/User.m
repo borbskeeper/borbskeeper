@@ -17,13 +17,13 @@
 @dynamic profilePicture;
 @dynamic usersBorb;
 
-+ (void)increaseUserCoins:(User*)user byCoins:(int)numCoins{
-    int currentCoins = [user.userCoins intValue];
-    user.userCoins = @(currentCoins + numCoins);
+- (void)increaseUserCoinsBy:(int)numCoins{
+    int currentCoins = [self.userCoins intValue];
+    self.userCoins = @(currentCoins + numCoins);
 }
 
-+ (void)decreaseUserCoins:(User*)user byCoins:(int)numCoins{
-    int currentCoins = [user.userCoins intValue];
-    user.userCoins = @(currentCoins - numCoins);
+- (void)decreaseUserCoinsBy:(int)numCoins{
+    int currentCoins = [self.userCoins intValue];
+    self.userCoins = @(currentCoins - numCoins);
 }
 @end
