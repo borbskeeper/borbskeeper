@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GameConstants : NSObject
 
-- (int) maxXPForExperienceLevel:(int)borbLevel;
++ (int) maxXPForExperienceLevel:(NSNumber *)borbLevel;
 
 @end
 

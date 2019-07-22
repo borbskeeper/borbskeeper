@@ -7,6 +7,7 @@
 //
 
 #import "BorbPageViewController.h"
+#import "GameConstants.h"
 
 @interface BorbPageViewController ()
 
@@ -18,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *borbHPLabel;
 @property (weak, nonatomic) IBOutlet UILabel *maxHPLabel;
 
+@property (strong, nonatomic) User *user;
 
 @end
 
@@ -26,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.user = [User currentUser];
     [self setUpView];
 }
 
@@ -35,6 +38,11 @@
     self.borbLevelLabel.text = [NSString stringWithFormat:@"%@", self.user.usersBorb.borbLevel];
     self.borbXPLabel.text = [NSString stringWithFormat:@"%@", self.user.usersBorb.borbExperience];
     
+    int borbsMaxXP = [GameConstants maxXPForExperienceLevel:self.user.usersBorb.borbLevel];
+    self.maxXPLabel.text = [NSString stringWithFormat:@"%d", borbsMaxXP];
+    
+    self.borbHPLabel.text = [NSString stringWithFormat:@"%@", self.user.usersBorb.borbHealth];
+    self.maxHPLabel.text = [NSString stringWithFormat:@"%d", MAX_HP];
 }
 
 /*

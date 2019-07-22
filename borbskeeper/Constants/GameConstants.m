@@ -23,20 +23,21 @@ const int XP_GAINED_PER_COMPLETE_TASK = 13;
 
 @implementation GameConstants
 
-- (int) maxXPForExperienceLevel:(int)borbLevel {
-    if (borbLevel == 0) {
++ (int) maxXPForExperienceLevel:(NSNumber *)borbLevel {
+    
+    if (borbLevel.integerValue == 0) {
         return 50;
-    } else if (borbLevel == 1) {
+    } else if (borbLevel.integerValue == 1) {
         return 75;
-    } else if (borbLevel == 2) {
+    } else if (borbLevel.integerValue == 2) {
         return 115;
-    } else if (borbLevel == 3) {
+    } else if (borbLevel.integerValue == 3) {
         return 175;
-    } else if (borbLevel == 4) {
+    } else if (borbLevel.integerValue == 4) {
         return 265;
-    } else if (borbLevel == 5) {
+    } else if (borbLevel.integerValue == 5) {
         return 400;
-    } else if (borbLevel == 6) {
+    } else if (borbLevel.integerValue == 6) {
         return 600;
     } else {
         return 900;
