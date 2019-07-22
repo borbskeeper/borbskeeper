@@ -28,7 +28,8 @@
     if (self) {
         self.borbName = @"Borb"; 
         self.borbHealth = [NSNumber numberWithInt:MAX_HP];
-        self.borbExperience = @(0);
+        self.borbExperience = @0;
+        self.borbLevel = @0;
         
         UIImage *defaultImage = [UIImage imageNamed:@"borb_original"];
         NSData *imageData = UIImagePNGRepresentation(defaultImage);
@@ -40,9 +41,16 @@
 }
 
 - (void)increaseExperiencePointsBy:(int)XP{
-    // NSLog(@"%@, %@", borb, borb.borbExperience);
-    int currentXP = [self.borbExperience intValue];
-    self.borbExperience = @(currentXP + XP);
+    int newXP = [self.borbExperience intValue] + XP;
+    // self.borbExperience = @(newXP);
+    
+    int currMaxXP = [GameConstants maxXPForExperienceLevel:self.borbLevel];
+    
+    if (newXP >= currMaxXP) {
+        newXP -= currMaxXP;
+        self.borbLevel = [NSNumber numberWithInteger:([self.borbLevel intValue] + 1)];
+    }
+    self.borbExperience = @(newXP);
 }
 
 - (void)decreaseExperiencePointsBy:(int)XP{
