@@ -88,7 +88,6 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     }];
 }
 
-
 //#pragma mark - Navigation
 
 #pragma mark - Navigation
@@ -100,7 +99,6 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     if ([segue.identifier isEqualToString:EDIT_SEGUE_ID]){
         UINavigationController *navigationController = [segue destinationViewController];
         ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
-        // ComposeTaskViewController *composeController = [segue destinationViewController];
         
         // NSLog(@"%@", task);
         UITableViewCell *tappedCell = sender;
@@ -110,12 +108,10 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     } else if([segue.identifier  isEqual: COMPOSE_SEGUE_ID]){
         UINavigationController *navigationController = [segue destinationViewController];
         ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
-       //  composeController.delegate = self;
+        composeController.delegate = self;
         composeController.task = nil;
     }
 }
-
-
 
 
 @end
