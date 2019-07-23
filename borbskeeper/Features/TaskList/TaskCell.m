@@ -35,7 +35,6 @@ static NSString *const DATE_FORMAT = @"'Due' yyyy-MM-dd 'at' hh:mm a";
             [userBorb increaseExperiencePointsBy:XP_GAINED_PER_COMPLETE_TASK];
             [BorbParseManager saveBorb:userBorb withCompletion:nil];
         }];
-
     } else {
         self.checkboxButton.selected = NO;
         [Task markTaskAsUnfinished:self.task];
@@ -51,7 +50,7 @@ static NSString *const DATE_FORMAT = @"'Due' yyyy-MM-dd 'at' hh:mm a";
     [BorbParseManager saveUser:[User currentUser] withCompletion:nil];
 }
 
-- (void)setDataAtCellWithTask:(Task *)task {
+- (void)setupWithTask:(Task *)task {
     self.task = task;
     self.taskNameLabel.text = task.taskName;
     if (self.task.completed == YES){

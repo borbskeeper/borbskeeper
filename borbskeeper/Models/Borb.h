@@ -27,6 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)decreaseExperiencePointsBy:(int)XP;
 
+- (void)increaseHealthPointsBy:(int)HP;
+
+- (void)decreaseHealthPointsBy:(int)HP;
+
 - (void)feedBorb;
 
 @end

@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *dueDate;
 @property (strong, nonatomic) Task *task;
 
-- (void)setDataAtCellWithTask:(Task *)task;
+- (void)setupWithTask:(Task *)task;
 
 @end
 

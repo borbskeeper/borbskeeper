@@ -38,11 +38,15 @@ static NSString *const BORB_ID_KEY = @"objectId";
     
     Borb *newBorb = [[Borb alloc] initWithInitialStats];
     [newBorb saveInBackgroundWithBlock: ^(BOOL succeeded, NSError *error){
-        newUser.usersBorb = newBorb;
-        
-        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+        if (succeeded) {
+            newUser.usersBorb = newBorb;
+            
+            [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+                completion(error);
+            }];
+        } else {
             completion(error);
-        }];
+        }
     }];
 }
 
