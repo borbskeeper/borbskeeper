@@ -44,13 +44,11 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
         self.taskDescTextView.delegate = self;
         self.taskDescTextView.placeholder = TASK_DESCRIPTION_PLACEHOLDER;
         self.taskDescTextView.placeholderColor = [UIColor lightGrayColor];
-    }
-    else {
+    } else {
         self.taskTitleTextField.text = self.task.taskName;
         self.taskDescTextView.text = self.task.taskDescription;
         self.taskDeadlineDatePicker.date = self.task.dueDate;
     }
-
 }
 
 - (IBAction)didTapCancel:(id)sender {
@@ -84,8 +82,7 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
                     [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
                 }
             }];
-        }
-        else {
+        } else {
             //    have to change the already made properties in the task
             PFQuery *query = [PFQuery queryWithClassName:@"Task"];
             

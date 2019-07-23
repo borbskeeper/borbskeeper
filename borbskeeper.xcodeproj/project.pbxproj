@@ -19,6 +19,7 @@
 		4A944D6222DE8EF00065782C /* BorbParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A944D6122DE8EF00065782C /* BorbParseManager.m */; };
 		4AB260CE22E0F5890062DD14 /* ComposeTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB260CD22E0F5890062DD14 /* ComposeTaskViewController.m */; };
 		4AB260D022E0F5B70062DD14 /* ComposeTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */; };
+		4AB260D422E7C0C60062DD14 /* InfiniteScrollTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB260D322E7C0C60062DD14 /* InfiniteScrollTableView.m */; };
 		A2284FC622E11895006217C9 /* EditTasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2284FC522E11895006217C9 /* EditTasks.storyboard */; };
 		A2284FC922E11DE1006217C9 /* EditTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2284FC822E11DE1006217C9 /* EditTasksViewController.m */; };
 		A2284FD022E24217006217C9 /* BorbPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2284FCF22E24217006217C9 /* BorbPageViewController.m */; };
@@ -73,6 +74,8 @@
 		4AB260CC22E0F5890062DD14 /* ComposeTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeTaskViewController.h; sourceTree = "<group>"; };
 		4AB260CD22E0F5890062DD14 /* ComposeTaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeTaskViewController.m; sourceTree = "<group>"; };
 		4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComposeTask.storyboard; sourceTree = "<group>"; };
+		4AB260D222E7C0C60062DD14 /* InfiniteScrollTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfiniteScrollTableView.h; sourceTree = "<group>"; };
+		4AB260D322E7C0C60062DD14 /* InfiniteScrollTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfiniteScrollTableView.m; sourceTree = "<group>"; };
 		6560A7C3F09F08802BCEFA4B /* Pods_borbskeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_borbskeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66FF1C08AACA2E8CCDBEA0B8 /* Pods_borbskeeperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_borbskeeperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6CE0DA0FA1890902E8CD27 /* Pods-borbskeeperUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeperUITests.debug.xcconfig"; path = "Target Support Files/Pods-borbskeeperUITests/Pods-borbskeeperUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -230,6 +233,15 @@
 			path = ComposeTask;
 			sourceTree = "<group>";
 		};
+		4AB260D122E7BF7D0062DD14 /* Infinite Scrolling Framework */ = {
+			isa = PBXGroup;
+			children = (
+				4AB260D222E7C0C60062DD14 /* InfiniteScrollTableView.h */,
+				4AB260D322E7C0C60062DD14 /* InfiniteScrollTableView.m */,
+			);
+			path = "Infinite Scrolling Framework";
+			sourceTree = "<group>";
+		};
 		A2284FC422E1183A006217C9 /* EditTask */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +296,7 @@
 		A2BC23AA22DD2CD60030EA51 /* borbskeeper */ = {
 			isa = PBXGroup;
 			children = (
+				4AB260D122E7BF7D0062DD14 /* Infinite Scrolling Framework */,
 				A2660C4122E6427E008C39C7 /* Constants */,
 				4A944D4122DE433A0065782C /* ParseManager */,
 				4A944D3C22DE424C0065782C /* Features */,
@@ -560,6 +573,7 @@
 				4A944D4622DE49390065782C /* LoginViewController.m in Sources */,
 				4A944D4D22DE49F00065782C /* SignUpViewController.m in Sources */,
 				A28F5C0A22DE598E001FAFC7 /* User.m in Sources */,
+				4AB260D422E7C0C60062DD14 /* InfiniteScrollTableView.m in Sources */,
 				A28F5C1022DE6D43001FAFC7 /* Task.m in Sources */,
 				A2284FD022E24217006217C9 /* BorbPageViewController.m in Sources */,
 				4AB260CE22E0F5890062DD14 /* ComposeTaskViewController.m in Sources */,

@@ -68,12 +68,14 @@ static NSString *const BORB_ID_KEY = @"objectId";
 
 + (void)fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
+    query.limit = 20;
     [query orderByDescending:TASK_DATE_CREATED_KEY];
     [query includeKey:TASK_AUTHOR_KEY];
     [query whereKey:TASK_AUTHOR_KEY equalTo:[PFUser currentUser]];
     [query whereKey:TASK_COMPLETED_KEY equalTo:@NO];
     
     // fetch data asynchronously
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             completion([NSMutableArray arrayWithArray:posts]);
@@ -81,6 +83,27 @@ static NSString *const BORB_ID_KEY = @"objectId";
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+}
+
++ (void)loadMoreIncompleteTasksOfUser:(NSString *)username withLaterDate:(NSDate *)date WithCompletion:(void (^)(NSMutableArray *))completion {
+    PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
+    query.limit = 20;
+    [query orderByDescending:TASK_DATE_CREATED_KEY];
+    [query includeKey:TASK_AUTHOR_KEY];
+    [query whereKey:TASK_AUTHOR_KEY equalTo:[PFUser currentUser]];
+    [query whereKey:TASK_COMPLETED_KEY equalTo:@NO];
+    [query whereKey:TASK_DATE_CREATED_KEY lessThan:date];
+    
+    // fetch data asynchronously
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            completion([NSMutableArray arrayWithArray:posts]);
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+    
 }
 
 + (void)fetchBorb:(NSString *)borbID WithCompletion:(void (^)(NSMutableArray *))completion {
