@@ -51,7 +51,7 @@ static NSString *const DATE_FORMAT = @"'Due' yyyy-MM-dd 'at' hh:mm a";
     [BorbParseManager saveUser:[User currentUser] withCompletion:nil];
 }
 
-- (void)setDataAtCellWithTask:(Task *)task {
+- (void)setTask:(Task *)task {
     self.task = task;
     self.taskNameLabel.text = task.taskName;
     if (self.task.completed == YES){
