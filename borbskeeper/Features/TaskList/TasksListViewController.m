@@ -12,7 +12,7 @@
 #import "EditTasksViewController.h"
 #import "ComposeTaskViewController.h"
 
-@interface TasksListViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TasksListViewController () <UITableViewDataSource, UITableViewDelegate, ComposeViewControllerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *incompleteTaskList;
 @property (strong, nonatomic) NSString *current_username;

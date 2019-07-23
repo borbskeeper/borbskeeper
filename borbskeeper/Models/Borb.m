@@ -60,19 +60,33 @@
         int currMaxXP = [GameConstants maxXPForExperienceLevel:self.borbLevel];
         newXP = currMaxXP + newXP;
     }
-    
     self.borbExperience = @(newXP);
 }
 
-
-- (void)feedBorb{
-    int borbHP = [self.borbHealth intValue];
-    borbHP += AMOUNT_OF_HP_FOOD_RESTORES;
-    
-    if (borbHP > 100){
-        borbHP = 100;
+- (void)increaseHealthPointsBy:(int)HP {
+    int newHP = [self.borbHealth intValue] + HP;
+    if (newHP > 100){
+        newHP = 100;
     }
-    self.borbHealth = @(borbHP);
+    self.borbHealth = @(newHP);
+}
+
+- (void)decreaseHealthPointsBy:(int)HP {
+    int newHP = [self.borbHealth intValue] - HP;
+    
+    if (newHP < 0) {
+        self.borbLevel = [NSNumber numberWithInteger:([self.borbLevel intValue] - 1)];
+        self.borbExperience = @0;
+        self.borbHealth = [NSNumber numberWithInteger:MAX_HP];
+    }
+    else {
+        self.borbHealth = @(newHP);
+    }
+}
+
+
+- (void)feedBorb {
+    [self increaseHealthPointsBy:AMOUNT_OF_HP_FOOD_RESTORES];
 }
 
 @end
