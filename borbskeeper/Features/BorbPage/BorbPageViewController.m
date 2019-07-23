@@ -32,7 +32,8 @@ static NSString *const BORB_MAXHP_ALERT_TITLE = @"This Borb is already full!";
 static NSString *const BORB_MAXHP_ALERT_MESSAGE = @"Your Borb is at max HP";
 
 static NSString *const NOT_ENOUGH_COINS_ALERT_TITLE = @"Not enough Coins!";
-static NSString *const NOT_ENOUGH_COINS_ALERT_MESSAGE = @"You need at tleast 7 coins to feed your Borb";
+static NSString *const NOT_ENOUGH_COINS_FEED_ALERT_MESSAGE = @"You need at least 7 coins to feed your Borb";
+static NSString *const NOT_ENOUGH_COINS_XPBOOST_ALERT_MESSAGE = @"You need at least 75 coins to boost your Borb's XP";
 
 static NSString *const OK_ACTION_TITLE = @"OK";
 
@@ -75,7 +76,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
     [cannotFeedBorbAlert addAction:okAction];
     
     UIAlertController *notEnoughCoinsAlert = [UIAlertController alertControllerWithTitle:NOT_ENOUGH_COINS_ALERT_TITLE
-                                                                                 message:NOT_ENOUGH_COINS_ALERT_MESSAGE
+                                                                                 message:NOT_ENOUGH_COINS_FEED_ALERT_MESSAGE
                                                                           preferredStyle:(UIAlertControllerStyleAlert)];
     
     [notEnoughCoinsAlert addAction:okAction];
@@ -104,6 +105,32 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 }
 
 - (IBAction)didTapXPBoost:(id)sender {
+    UIAlertController *notEnoughCoinsAlert = [UIAlertController alertControllerWithTitle:NOT_ENOUGH_COINS_ALERT_TITLE
+                                                                                 message:NOT_ENOUGH_COINS_XPBOOST_ALERT_MESSAGE
+                                                                          preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:OK_ACTION_TITLE
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                     }];
+    [notEnoughCoinsAlert addAction:okAction];
+    
+    if ([self.user.userCoins intValue] < XP_BOOST_COST){
+        [self presentViewController:notEnoughCoinsAlert animated:YES completion:nil];
+        
+    } else {
+        [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
+            
+            Borb *borb = borbs[0];
+        
+            [borb increaseExperiencePointsBy:AMOUNT_OF_XP_FROM_BOOST];
+            [self.user decreaseUserCoinsBy:XP_BOOST_COST];
+            
+            [BorbParseManager saveBorb:borb withCompletion:nil];
+            [BorbParseManager saveUser:self.user withCompletion:nil];
+            [self reloadData];
+        }];
+    }
 }
 
 /*
