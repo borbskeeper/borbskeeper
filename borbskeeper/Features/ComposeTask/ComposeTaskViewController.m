@@ -7,7 +7,6 @@
 //
 
 #import "ComposeTaskViewController.h"
-#import "EditTasksViewController.h"
 #import "TasksListViewController.h"
 #import "UITextView+Placeholder.h"
 #import "Task.h"
