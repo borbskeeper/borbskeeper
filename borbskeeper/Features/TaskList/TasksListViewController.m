@@ -18,8 +18,8 @@
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-
 @end
+
 
 @implementation TasksListViewController
 
@@ -36,12 +36,6 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     self.current_username = [PFUser currentUser].username;
     [self fetchData];
     [self refreshTaskList];
-    
-    
-}
-
-- (IBAction)tapTaskCell:(UITapGestureRecognizer *)sender {
-    [self performSegueWithIdentifier:EDIT_SEGUE_ID sender:nil];
 }
 
 - (IBAction)didTapNewTask:(id)sender {
@@ -52,7 +46,6 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     [BorbParseManager signOutUser];
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.incompleteTaskList count];
 }
@@ -62,15 +55,16 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     
     Task *currTask = self.incompleteTaskList[indexPath.row];
     
-    [cell setTask:currTask];
+    [cell setupWithTask:currTask];
     
     return cell;
 }
--(void)didSaveTask{
+
+- (void)didSaveTask{
     [self fetchData];
 }
 
--(void)refreshTaskList{
+- (void)refreshTaskList{
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchData) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
@@ -78,7 +72,7 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     [self.activityIndicator startAnimating];
 }
 
--(void)fetchData {
+- (void)fetchData {
     [BorbParseManager fetchIncompleteTasksOfUser:self.current_username WithCompletion:^(NSMutableArray *posts) {
         self.incompleteTaskList = posts;
         [self.tableView reloadData];
@@ -87,14 +81,10 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     }];
 }
 
-//#pragma mark - Navigation
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:EDIT_SEGUE_ID]){
         NSLog(@"edit segue entered");
         UINavigationController *navigationController = [segue destinationViewController];

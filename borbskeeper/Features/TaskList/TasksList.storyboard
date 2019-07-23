@@ -75,8 +75,7 @@
                                             <outlet property="checkboxButton" destination="RXw-dG-cVD" id="C8D-8O-ATu"/>
                                             <outlet property="dueDate" destination="IX0-qu-3M6" id="Pqh-2Y-gCG"/>
                                             <outlet property="taskNameLabel" destination="hgu-Tl-acG" id="zBD-KF-9mN"/>
-                                            <outletCollection property="gestureRecognizers" destination="ZsH-fa-wyG" appends="YES" id="swd-nH-TTh"/>
-                                            <segue destination="AfF-Xx-8zw" kind="show" identifier="editTaskSegue" trigger="accessoryAction" id="u27-HT-tIp"/>
+                                            <segue destination="AfF-Xx-8zw" kind="show" identifier="editTaskSegue" id="yLD-ml-QaY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -110,11 +109,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scB-s8-JdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ZsH-fa-wyG">
-                    <connections>
-                        <action selector="tapTaskCell:" destination="G0u-nK-hFo" id="Lw9-GP-chU"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="ZsH-fa-wyG"/>
             </objects>
             <point key="canvasLocation" x="976.79999999999995" y="202.84857571214394"/>
         </scene>
@@ -179,6 +174,6 @@
         <image name="checkbox_empty" width="96" height="96"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OR7-sw-UMd"/>
+        <segue reference="yLD-ml-QaY"/>
     </inferredMetricsTieBreakers>
 </document>
