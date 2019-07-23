@@ -18,23 +18,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grc-d6-dZI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grc-d6-dZI">
                                 <rect key="frame" x="22" y="90" width="35" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sf4-0N-C2D">
-                                <rect key="frame" x="22" y="202" width="329" height="243"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sf4-0N-C2D">
+                                <rect key="frame" x="22" y="203" width="328" height="226"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VJt-cU-FQc">
-                                <rect key="frame" x="16" y="496" width="329" height="151"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VJt-cU-FQc">
+                                <rect key="frame" x="22" y="483" width="328" height="164"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VJt-cU-FQc" secondAttribute="height" multiplier="2:1" id="HeF-9b-Pog"/>
+                                </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="585168767.21635199">
                                     <!--2019-07-18 18:52:47 +0000-->
                                 </date>
@@ -42,23 +42,20 @@
                                     <!--1970-01-01 11:00:00 +0000-->
                                 </date>
                             </datePicker>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a descriptive title for your task!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DmC-d1-ge6">
-                                <rect key="frame" x="22" y="119" width="329" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a descriptive title for your task!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DmC-d1-ge6">
+                                <rect key="frame" x="22" y="119" width="328" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3k-98-oPQ">
-                                <rect key="frame" x="22" y="173" width="94" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3k-98-oPQ">
+                                <rect key="frame" x="22" y="174" width="94" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdO-0x-tuP">
-                                <rect key="frame" x="22" y="467" width="72" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdO-0x-tuP">
+                                <rect key="frame" x="22" y="454" width="72" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -66,6 +63,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="sf4-0N-C2D" firstAttribute="leading" secondItem="DmC-d1-ge6" secondAttribute="leading" id="2h9-6d-fZ6"/>
+                            <constraint firstItem="sf4-0N-C2D" firstAttribute="trailing" secondItem="DmC-d1-ge6" secondAttribute="trailing" id="4tn-kU-PXM"/>
+                            <constraint firstItem="grc-d6-dZI" firstAttribute="top" secondItem="ncA-dk-B6x" secondAttribute="topMargin" constant="26" id="7Fn-G9-AcM"/>
+                            <constraint firstItem="IdO-0x-tuP" firstAttribute="top" secondItem="sf4-0N-C2D" secondAttribute="bottom" constant="25" id="7mi-ha-tBS"/>
+                            <constraint firstItem="4N7-wk-ARu" firstAttribute="bottom" secondItem="VJt-cU-FQc" secondAttribute="bottom" constant="20" id="AbQ-ge-lc6"/>
+                            <constraint firstItem="VJt-cU-FQc" firstAttribute="trailing" secondItem="sf4-0N-C2D" secondAttribute="trailing" id="H0v-M9-sjb"/>
+                            <constraint firstItem="R3k-98-oPQ" firstAttribute="top" secondItem="DmC-d1-ge6" secondAttribute="bottom" constant="25" id="HDz-PZ-hbx"/>
+                            <constraint firstItem="R3k-98-oPQ" firstAttribute="leading" secondItem="DmC-d1-ge6" secondAttribute="leading" id="NgD-xS-NZC"/>
+                            <constraint firstItem="4N7-wk-ARu" firstAttribute="trailing" secondItem="DmC-d1-ge6" secondAttribute="trailing" constant="25" id="Noa-E6-JhH"/>
+                            <constraint firstItem="DmC-d1-ge6" firstAttribute="top" secondItem="grc-d6-dZI" secondAttribute="bottom" constant="8" id="Yva-7O-N6W"/>
+                            <constraint firstItem="VJt-cU-FQc" firstAttribute="leading" secondItem="IdO-0x-tuP" secondAttribute="leading" id="dCD-bL-EmZ"/>
+                            <constraint firstItem="VJt-cU-FQc" firstAttribute="leading" secondItem="sf4-0N-C2D" secondAttribute="leading" id="eq6-qI-kSi"/>
+                            <constraint firstItem="sf4-0N-C2D" firstAttribute="top" secondItem="R3k-98-oPQ" secondAttribute="bottom" constant="8" id="qf7-Ga-9vp"/>
+                            <constraint firstItem="grc-d6-dZI" firstAttribute="leading" secondItem="4N7-wk-ARu" secondAttribute="leading" constant="22" id="s2A-nD-cxu"/>
+                            <constraint firstItem="VJt-cU-FQc" firstAttribute="top" secondItem="IdO-0x-tuP" secondAttribute="bottom" constant="8" id="sZE-kk-UGR"/>
+                            <constraint firstItem="DmC-d1-ge6" firstAttribute="leading" secondItem="grc-d6-dZI" secondAttribute="leading" id="wOA-qg-jD7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4N7-wk-ARu"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="WWr-3c-UwL" appends="YES" id="CAt-80-6j4"/>

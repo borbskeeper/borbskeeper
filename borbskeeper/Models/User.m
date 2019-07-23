@@ -22,6 +22,10 @@
     self.userCoins = @(currentCoins + numCoins);
 }
 
+/*
+ NOTE: in certain scenarios (e.g. when user marks an complete task incomplete), the user's coins must be allowed to be negative.
+ It is the caller's responsibility to check whether this action is invalid or not.
+*/
 - (void)decreaseUserCoinsBy:(int)numCoins{
     int currentCoins = [self.userCoins intValue];
     self.userCoins = @(currentCoins - numCoins);
