@@ -135,6 +135,9 @@
                                 <rect key="frame" x="258" y="74" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Rename Borb!"/>
+                                <connections>
+                                    <action selector="didTapRenameBorb:" destination="1Lh-AC-ibU" eventType="touchUpInside" id="rXL-eS-Wl0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYV-28-TcF">
                                 <rect key="frame" x="227" y="487" width="128" height="30"/>
