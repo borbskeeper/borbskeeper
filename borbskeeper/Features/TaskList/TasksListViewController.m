@@ -10,14 +10,16 @@
 #import "Task.h"
 #import "BorbParseManager.h"
 #import "ComposeTaskViewController.h"
+#import "TasksListInfiniteScrollView.h"
 
-@interface TasksListViewController () <InfiniteScrollTableViewDelegate, ComposeViewControllerDelegate>
+@interface TasksListViewController () <InfiniteScrollDelegate, ComposeViewControllerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *incompleteTaskList;
 @property (strong, nonatomic) NSString *current_username;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) NSDate *latestDate;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet TasksListInfiniteScrollView *taskListInfiniteScrollView;
 
 @end
 
@@ -30,9 +32,7 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.infiniteScrollTableView.delegate = self.infiniteScrollTableView;
-    self.infiniteScrollTableView.dataSource = self;
-    self.infiniteScrollTableView.infiniteScrollDelegate = self;
+    self.taskListInfiniteScrollView.infiniteScrollDelegate = self;
     
     self.current_username = [PFUser currentUser].username;
     [self fetchData];
@@ -51,6 +51,7 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     return [self.incompleteTaskList count];
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TaskCell *cell = [tableView dequeueReusableCellWithIdentifier:TASK_TABLE_VIEW_CELL_ID];
     
@@ -68,15 +69,15 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
 - (void)refreshTaskList{
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchData) forControlEvents:UIControlEventValueChanged];
-    [self.infiniteScrollTableView insertSubview:self.refreshControl atIndex:0];
-    [self.infiniteScrollTableView addSubview:self.refreshControl];
+    [self.taskListInfiniteScrollView.tableView insertSubview:self.refreshControl atIndex:0];
+    [self.taskListInfiniteScrollView.tableView addSubview:self.refreshControl];
     [self.activityIndicator startAnimating];
 }
 
 - (void)fetchData {
     [BorbParseManager fetchIncompleteTasksOfUser:self.current_username WithCompletion:^(NSMutableArray *posts) {
         self.incompleteTaskList = posts;
-        [self.infiniteScrollTableView reloadData];
+        [self.taskListInfiniteScrollView.tableView reloadData];
         [self.activityIndicator stopAnimating];
         [self.refreshControl endRefreshing];
         [self checkDate];
@@ -92,9 +93,9 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     NSComparisonResult result;
     Task *task = self.incompleteTaskList[0];
     result = [today compare:task.dueDate];
-    NSLog(@"%ld", result);
-    NSLog(@"%@", task.dueDate);
-    NSLog(@"%@", today);
+    // NSLog(@"%ld", result);
+    // NSLog(@"%@", task.dueDate);
+    // NSLog(@"%@", today);
 
 }
 
@@ -104,13 +105,11 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     
     [BorbParseManager loadMoreIncompleteTasksOfUser:self.current_username withLaterDate:self.latestDate WithCompletion:^(NSMutableArray *posts) {
         if ([posts count] > 0){
-            NSLog(@"!!!Loading more posts!!!");
             [self.incompleteTaskList addObjectsFromArray:posts];
-            [self.infiniteScrollTableView reloadData];
-            self.infiniteScrollTableView.isMoreDataLoading = false;
+            [self.taskListInfiniteScrollView.tableView reloadData];
+            self.taskListInfiniteScrollView.isMoreDataLoading = false;
         } else {
-            self.infiniteScrollTableView.isMoreDataLoading = true;
-            NSLog(@"!!!No more posts to load!!!");
+            self.taskListInfiniteScrollView.isMoreDataLoading = true;
         }
     }];
 }
@@ -124,7 +123,7 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
         ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
         
         UITableViewCell *tappedCell = sender;
-        NSIndexPath *indexPath = [self.infiniteScrollTableView indexPathForCell:tappedCell];
+        NSIndexPath *indexPath = [self.taskListInfiniteScrollView.tableView indexPathForCell:tappedCell];
         Task* task = self.incompleteTaskList[indexPath.row];
         composeController.task = task;
     } else if([segue.identifier  isEqual: COMPOSE_SEGUE_ID]){

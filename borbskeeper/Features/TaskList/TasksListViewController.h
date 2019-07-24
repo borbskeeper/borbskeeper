@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "TaskCell.h"
-#import "InfiniteScrollTableView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TasksListViewController : UIViewController
-@property (weak, nonatomic) IBOutlet InfiniteScrollTableView *infiniteScrollTableView;
-
 
 //@property (weak, nonatomic) IBOutlet InfiniteScrollTableView *infiniteScrollTableView;
 
