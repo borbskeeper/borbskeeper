@@ -11,15 +11,15 @@
 #import "BorbParseManager.h"
 #import "ComposeTaskViewController.h"
 
-@interface TasksListViewController () <UITableViewDataSource, UITableViewDelegate, ComposeViewControllerDelegate>
+@interface TasksListViewController () <InfiniteScrollTableViewDelegate, ComposeViewControllerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *incompleteTaskList;
 @property (strong, nonatomic) NSString *current_username;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) NSDate *latestDate;
 
 @end
-
 
 @implementation TasksListViewController
 
@@ -30,8 +30,9 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    self.infiniteScrollTableView.delegate = self.infiniteScrollTableView;
+    self.infiniteScrollTableView.dataSource = self;
+    self.infiniteScrollTableView.infiniteScrollDelegate = self;
     
     self.current_username = [PFUser currentUser].username;
     [self fetchData];
@@ -67,17 +68,34 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
 - (void)refreshTaskList{
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchData) forControlEvents:UIControlEventValueChanged];
-    [self.tableView insertSubview:self.refreshControl atIndex:0];
-    [self.tableView addSubview:self.refreshControl];
+    [self.infiniteScrollTableView insertSubview:self.refreshControl atIndex:0];
+    [self.infiniteScrollTableView addSubview:self.refreshControl];
     [self.activityIndicator startAnimating];
 }
 
 - (void)fetchData {
     [BorbParseManager fetchIncompleteTasksOfUser:self.current_username WithCompletion:^(NSMutableArray *posts) {
         self.incompleteTaskList = posts;
-        [self.tableView reloadData];
+        [self.infiniteScrollTableView reloadData];
         [self.activityIndicator stopAnimating];
         [self.refreshControl endRefreshing];
+    }];
+}
+
+- (void)loadMoreData{
+    Task *latestTask = [self.incompleteTaskList lastObject];
+    self.latestDate = latestTask.createdAt;
+    
+    [BorbParseManager loadMoreIncompleteTasksOfUser:self.current_username withLaterDate:self.latestDate WithCompletion:^(NSMutableArray *posts) {
+        if ([posts count] > 0){
+            NSLog(@"!!!Loading more posts!!!");
+            [self.incompleteTaskList addObjectsFromArray:posts];
+            [self.infiniteScrollTableView reloadData];
+            self.infiniteScrollTableView.isMoreDataLoading = false;
+        } else {
+            self.infiniteScrollTableView.isMoreDataLoading = true;
+            NSLog(@"!!!No more posts to load!!!");
+        }
     }];
 }
 
@@ -90,7 +108,7 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
         ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
         
         UITableViewCell *tappedCell = sender;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        NSIndexPath *indexPath = [self.infiniteScrollTableView indexPathForCell:tappedCell];
         Task* task = self.incompleteTaskList[indexPath.row];
         composeController.task = task;
     } else if([segue.identifier  isEqual: COMPOSE_SEGUE_ID]){

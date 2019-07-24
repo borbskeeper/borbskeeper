@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="323" width="375" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h49-CA-SWd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h49-CA-SWd" customClass="InfiniteScrollTableView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -105,7 +105,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="myp-aS-eSa" id="Dlm-5T-2tl"/>
-                        <outlet property="tableView" destination="h49-CA-SWd" id="Isg-c4-6qF"/>
+                        <outlet property="infiniteScrollTableView" destination="h49-CA-SWd" id="Pfc-2w-P5J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scB-s8-JdO" userLabel="First Responder" sceneMemberID="firstResponder"/>

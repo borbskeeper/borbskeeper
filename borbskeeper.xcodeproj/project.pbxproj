@@ -20,8 +20,6 @@
 		4AB260CE22E0F5890062DD14 /* ComposeTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB260CD22E0F5890062DD14 /* ComposeTaskViewController.m */; };
 		4AB260D022E0F5B70062DD14 /* ComposeTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */; };
 		4AB260D422E7C0C60062DD14 /* InfiniteScrollTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB260D322E7C0C60062DD14 /* InfiniteScrollTableView.m */; };
-		A2284FC622E11895006217C9 /* EditTasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2284FC522E11895006217C9 /* EditTasks.storyboard */; };
-		A2284FC922E11DE1006217C9 /* EditTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2284FC822E11DE1006217C9 /* EditTasksViewController.m */; };
 		A2284FD022E24217006217C9 /* BorbPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2284FCF22E24217006217C9 /* BorbPageViewController.m */; };
 		A2284FD222E24229006217C9 /* BorbPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2284FD122E24229006217C9 /* BorbPage.storyboard */; };
 		A2660C4422E64331008C39C7 /* GameConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A2660C4322E64331008C39C7 /* GameConstants.m */; };
@@ -236,16 +234,6 @@
 				4AB260D322E7C0C60062DD14 /* InfiniteScrollTableView.m */,
 			);
 			path = "Infinite Scrolling Framework";
-			sourceTree = "<group>";
-		};
-		A2284FC422E1183A006217C9 /* EditTask */ = {
-			isa = PBXGroup;
-			children = (
-				A2284FC522E11895006217C9 /* EditTasks.storyboard */,
-				A2284FC722E11DE1006217C9 /* EditTasksViewController.h */,
-				A2284FC822E11DE1006217C9 /* EditTasksViewController.m */,
-			);
-			path = EditTask;
 			sourceTree = "<group>";
 		};
 		A2284FCD22E241EB006217C9 /* BorbPage */ = {
