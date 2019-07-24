@@ -17,9 +17,7 @@
         
         if(self.contentOffset.y > scrollOffsetThreshold && self.isDragging) {
             self.isMoreDataLoading = true;
-            [self.infScrollTableDelegate loadMoreDataWithCompletion:^(NSError * error) {
-                self.isMoreDataLoading = false;
-            }];
+            [self.infiniteScrollDelegate loadMoreData];
         }
     }
 }

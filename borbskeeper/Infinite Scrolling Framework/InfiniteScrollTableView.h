@@ -12,13 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol InfiniteScrollTableViewDelegate <UITableViewDataSource, UITableViewDelegate>
 
-- (void)loadMoreDataWithCompletion:(void (^)(NSError *))completion;
+- (void)loadMoreData;
 
 @end
 
 @interface InfiniteScrollTableView : UITableView <UIScrollViewDelegate>
-@property (nonatomic, weak) id<InfiniteScrollTableViewDelegate> infScrollTableDelegate;
+@property (nonatomic, weak) id<InfiniteScrollTableViewDelegate> infiniteScrollDelegate;
 @property (assign, nonatomic) BOOL isMoreDataLoading;
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
 
 @end
 
