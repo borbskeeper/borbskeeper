@@ -93,10 +93,6 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     NSComparisonResult result;
     Task *task = self.incompleteTaskList[0];
     result = [today compare:task.dueDate];
-    // NSLog(@"%ld", result);
-    // NSLog(@"%@", task.dueDate);
-    // NSLog(@"%@", today);
-
 }
 
 - (void)loadMoreData{
