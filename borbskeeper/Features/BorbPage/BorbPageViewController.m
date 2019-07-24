@@ -51,9 +51,9 @@ static NSString *const OK_ACTION_TITLE = @"OK";
     [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
         Borb *borb = borbs[0];
         
-        self.userCoinsLabel.text = [NSString stringWithFormat:@"%@", self.user.userCoins];
+        self.userCoinsLabel.text = [NSString stringWithFormat:@"Coins: %@", self.user.userCoins];
         self.borbNameLabel.text = borb.borbName;
-        self.borbLevelLabel.text = [NSString stringWithFormat:@"%@", borb.borbLevel];
+        self.borbLevelLabel.text = [NSString stringWithFormat:@"Level %@", borb.borbLevel];
         
         self.borbXPLabel.text = [NSString stringWithFormat:@"%@", borb.borbExperience];
         int borbsMaxXP = [GameConstants maxXPForExperienceLevel:borb.borbLevel];
