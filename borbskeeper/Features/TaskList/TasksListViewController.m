@@ -17,6 +17,9 @@
 @property (strong, nonatomic) NSString *current_username;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) NSString *incompleteTask;
+
+
 
 @end
 
@@ -78,8 +81,37 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
         [self.tableView reloadData];
         [self.activityIndicator stopAnimating];
         [self.refreshControl endRefreshing];
+        [self checkDate];
     }];
 }
+-(void)checkDate{
+    NSLog(@"%@", self.incompleteTaskList);
+    for (int i = 0; i < [self.incompleteTaskList count]; i++){
+        [self getCurrentDate];
+//        [self compareDate];
+    }
+}
+-(void)getCurrentDate{
+    NSLocale* currentLocale = [NSLocale currentLocale];
+    NSDate *currentDatei = [[NSDate date] descriptionWithLocale:currentLocale];
+    NSLog(@"First Current Date: %@",currentDatei);
+    //Get current device time
+    NSDate *today = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //Get Current Device Data
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterFullStyle];
+    NSString *currentDate = [dateFormatter stringFromDate:today];
+    NSLog(@"%@",currentDate);
+}
+//-(void)compareDate{
+//    NSComparisonResult result;
+//    result = [today compare:self.task.dueDate];
+//    NSLog(@"%@",self.task.dueDate);
+//    if (result == NSOrderedAscending){
+//        NSLog(@"Can't Compare");
+//    }
+//}
 
 
 #pragma mark - Navigation

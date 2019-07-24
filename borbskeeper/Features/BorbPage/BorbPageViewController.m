@@ -9,6 +9,8 @@
 #import "BorbPageViewController.h"
 #import "GameConstants.h"
 #import "BorbParseManager.h"
+#import "Borb.h"
+
 
 @interface BorbPageViewController ()
 
@@ -180,6 +182,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
     
     [self presentViewController:renameBorbAlert animated:YES completion:nil];
 }
+
 
 /*
 #pragma mark - Navigation
