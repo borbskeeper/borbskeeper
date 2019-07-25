@@ -42,7 +42,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     [self refreshCompleteTaskList];
 }
 
-- (void)setupProfile{
+- (void)setupProfile {
     NSString *userName = User.currentUser.username;
     self.userName.text = userName;
     [self loadUserProfilePicture];
