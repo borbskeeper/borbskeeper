@@ -115,7 +115,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     self.latestDate = latestTask.createdAt;
     
     [BorbParseManager loadMoreCompleteTasksOfUser:User.currentUser.username withLaterDate:self.latestDate WithCompletion:^(NSMutableArray *posts) {
-        if ([posts count] > 0){
+        if ([posts count] > 0) {
             [self.completeTaskList addObjectsFromArray:posts];
             [self.completedTasksListInfiniteScrollView.tableView reloadData];
             self.completedTasksListInfiniteScrollView.isMoreDataLoading = false;
