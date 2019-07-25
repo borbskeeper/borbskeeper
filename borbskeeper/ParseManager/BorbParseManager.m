@@ -31,6 +31,9 @@ static NSString *const BORB_ID_KEY = @"objectId";
     newUser.password = password;
     newUser.userCoins = @0;
     newUser.friendsList = [[NSMutableArray alloc] init];
+    newUser.userLogin = [NSDate date];
+    NSLog(@"%@", newUser.userLogin);
+    
     
     UIImage *defaultImage = [UIImage imageNamed:@"profile_placeholder"];
     NSData *imageData = UIImagePNGRepresentation(defaultImage);

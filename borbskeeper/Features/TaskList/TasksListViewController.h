@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (weak, nonatomic) IBOutlet InfiniteScrollTableView *infiniteScrollTableView;
 
 @property (strong, nonatomic) Task *task;
+@property (strong, nonatomic) Borb *borb;
+@property (strong, nonatomic) User *user;
+
 
 @end
 

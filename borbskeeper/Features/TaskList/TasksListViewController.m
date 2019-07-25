@@ -10,6 +10,9 @@
 #import "Task.h"
 #import "BorbParseManager.h"
 #import "ComposeTaskViewController.h"
+#import "Borb.h"
+#import "GameConstants.h"
+#import "User.h"
 
 @interface TasksListViewController () <InfiniteScrollTableViewDelegate, ComposeViewControllerDelegate>
 
@@ -18,7 +21,6 @@
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) NSDate *latestDate;
-
 @end
 
 @implementation TasksListViewController
@@ -26,6 +28,9 @@
 static NSString *const COMPOSE_SEGUE_ID = @"composeTaskSegue";
 static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
 static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
+static const int START_INDEX = 0;
+static const int SECS_TO_HOURS = 3600;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,6 +42,7 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     self.current_username = [PFUser currentUser].username;
     [self fetchData];
     [self refreshTaskList];
+    [self decayByTime];
 }
 
 - (IBAction)didTapNewTask:(id)sender {
@@ -57,7 +63,6 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     Task *currTask = self.incompleteTaskList[indexPath.row];
     
     [cell setupWithTask:currTask];
-    
     return cell;
 }
 
@@ -79,24 +84,40 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
         [self.infiniteScrollTableView reloadData];
         [self.activityIndicator stopAnimating];
         [self.refreshControl endRefreshing];
-        [self checkDate];
+        [self decayByIncompleteTask];
     }];
 }
 
-- (void)checkDate{
-    [self compareDate];
-}
-
-- (void)compareDate{
+- (void)decayByIncompleteTask{
     NSDate *today = [NSDate date];
     NSComparisonResult result;
-    Task *task = self.incompleteTaskList[0];
-    result = [today compare:task.dueDate];
-    NSLog(@"%ld", result);
-    NSLog(@"%@", task.dueDate);
-    NSLog(@"%@", today);
+    for (int i = START_INDEX; i < [self.incompleteTaskList count]; i++){
+        Task *task = self.incompleteTaskList[i];
+        result = [today compare: task.dueDate];
+        if (result == NSOrderedDescending){
+            [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
+                Borb *userBorb = borbs[0];
+                [userBorb decreaseHealthPointsBy:BORB_HP_DECAY_PER_INCOMPLETE_TASK];
+                [BorbParseManager saveBorb:userBorb withCompletion:nil];
+            }];
+            NSLog(@"This task is past due");
+        } else if (result == NSOrderedAscending){
+            NSLog(@"This task is not due yet");
 
+        }
+    }
 }
+
+-(void)decayByTime{
+    NSDate *today = [NSDate date]; //get today's date
+    NSTimeInterval secondsBetween = [today timeIntervalSinceDate: [User currentUser].userLogin];
+    int numOfHours = secondsBetween / SECS_TO_HOURS;
+    [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
+        Borb *userBorb = borbs[0];
+        [userBorb decreaseHealthPointsBy:(BORB_HP_DECAY_PER_HOUR * numOfHours)];
+        [BorbParseManager saveBorb:userBorb withCompletion:nil];
+    }];
+    }
 
 - (void)loadMoreData{
     Task *latestTask = [self.incompleteTaskList lastObject];
@@ -114,7 +135,6 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
         }
     }];
 }
-
 
 #pragma mark - Navigation
 
