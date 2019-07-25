@@ -21,6 +21,7 @@
 @dynamic posted;
 
 const int COIN_REWARD_FOR_TASK_OPT_OUT = 5;
+static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
 
 + (NSString *)parseClassName {
     return @"Task";
@@ -45,9 +46,23 @@ const int COIN_REWARD_FOR_TASK_OPT_OUT = 5;
 + (void)createNotificationForTask:(Task *)task {
     UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
     content.title = [NSString localizedUserNotificationStringForKey:task.taskName arguments:nil];
-    content.body = [NSString localizedUserNotificationStringForKey:task.taskDescription
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = DATE_FORMAT;
+    content.body = [NSString localizedUserNotificationStringForKey:[dateFormatter stringFromDate:task.dueDate]
                                                          arguments:nil];
     content.sound = [UNNotificationSound defaultSound];
+    
+    
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute;
+    NSDateComponents *dueDateComponents = [gregorian components:unitFlags fromDate:task.dueDate];
+    UNCalendarNotificationTrigger* trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:dueDateComponents repeats:NO];
+    
+    UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:@"FiveSecond"
+                                                                          content:content trigger:trigger];
+    UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+    [center addNotificationRequest:request withCompletionHandler:nil];
 }
 
 + (void)editTask:(Task*)task withTitle:(NSString*)title withDescription:(NSString*)description withDueDate:(NSDate*)date{

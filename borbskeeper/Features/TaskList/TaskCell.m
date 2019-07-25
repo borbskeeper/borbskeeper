@@ -12,7 +12,7 @@
 #import "GameConstants.h"
 
 @implementation TaskCell
-static NSString *const DATE_FORMAT = @"'Due' yyyy-MM-dd 'at' hh:mm a";
+static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
 
 - (void)awakeFromNib {
     [super awakeFromNib];
