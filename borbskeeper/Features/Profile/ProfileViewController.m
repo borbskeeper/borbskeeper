@@ -110,7 +110,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     }];
 }
 
-- (void)loadMoreData{
+- (void)loadMoreData {
     Task *latestTask = [self.completeTaskList lastObject];
     self.latestDate = latestTask.createdAt;
     
