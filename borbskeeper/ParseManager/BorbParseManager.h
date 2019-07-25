@@ -32,6 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)loadMoreIncompleteTasksOfUser:(NSString *)username withLaterDate:(NSDate *)date WithCompletion:(void (^)(NSMutableArray *))completion;
 
++ (void)fetchCompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion;
+
++ (void)loadMoreCompleteTasksOfUser:(NSString *)username withLaterDate:(NSDate *)date WithCompletion:(void (^)(NSMutableArray *))completion;
+
 + (void)signOutUser;
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
