@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)fetchCompleteTasksOfUser:(NSString *)username withCompletion:(void (^)(NSMutableArray *))completion;
 
-+ (void)loadMoreCompleteTasksOfUser:(NSString *)username withLaterDate:(NSDate *)date WithCompletion:(void (^)(NSMutableArray *))completion;
++ (void)loadMoreCompleteTasksOfUser:(NSString *)username withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion;
 
 + (void)signOutUser;
 
