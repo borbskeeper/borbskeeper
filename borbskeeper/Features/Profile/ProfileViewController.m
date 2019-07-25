@@ -92,7 +92,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
-- (void)refreshCompleteTaskList{
+- (void)refreshCompleteTaskList {
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchData) forControlEvents:UIControlEventValueChanged];
     [self.completedTasksListInfiniteScrollView.tableView insertSubview:self.refreshControl atIndex:0];
