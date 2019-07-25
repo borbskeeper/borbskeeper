@@ -34,6 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)signOutUser;
 
++ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
+
 @end
 
 NS_ASSUME_NONNULL_END

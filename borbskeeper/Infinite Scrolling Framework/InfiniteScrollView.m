@@ -13,10 +13,8 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     if ((self.tableView.delegate == nil) || (self.tableView.dataSource == nil)){
-        
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
-        NSLog(@"Laying out subviews!");
     }
 }
 

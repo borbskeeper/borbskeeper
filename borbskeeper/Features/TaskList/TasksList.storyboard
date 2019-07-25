@@ -155,6 +155,16 @@
             </objects>
             <point key="canvasLocation" x="37.600000000000001" y="202.84857571214394"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="j3g-Dz-QFa">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Profile" storyboardName="Profile" referencedIdentifier="Profile" id="oBF-zk-Lhi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="jlp-Ot-FMU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5d-1W-sgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-324" y="659"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wub-Np-Ec2">
             <objects>
@@ -167,6 +177,7 @@
                     <connections>
                         <segue destination="Hh4-1o-jIE" kind="relationship" relationship="viewControllers" id="hJq-4y-cI5"/>
                         <segue destination="ENz-np-pcm" kind="relationship" relationship="viewControllers" id="aZW-gF-Hvy"/>
+                        <segue destination="oBF-zk-Lhi" kind="relationship" relationship="viewControllers" id="PPQ-jY-aFd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eh1-fb-61b" userLabel="First Responder" sceneMemberID="firstResponder"/>
