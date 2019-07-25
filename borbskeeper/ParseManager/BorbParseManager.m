@@ -81,8 +81,6 @@ static NSString *const BORB_ID_KEY = @"objectId";
     [query whereKey:TASK_AUTHOR_KEY equalTo:[PFUser currentUser]];
     [query whereKey:TASK_COMPLETED_KEY equalTo:@NO];
     
-    // fetch data asynchronously
-    
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             completion([NSMutableArray arrayWithArray:posts]);
@@ -100,8 +98,6 @@ static NSString *const BORB_ID_KEY = @"objectId";
     [query whereKey:TASK_AUTHOR_KEY equalTo:[PFUser currentUser]];
     [query whereKey:TASK_COMPLETED_KEY equalTo:@NO];
     [query whereKey:TASK_DATE_CREATED_KEY lessThan:date];
-    
-    // fetch data asynchronously
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {

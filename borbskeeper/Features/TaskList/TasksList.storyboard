@@ -22,72 +22,77 @@
                                 <rect key="frame" x="0.0" y="323" width="375" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h49-CA-SWd" customClass="InfiniteScrollTableView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="98" id="LCg-KO-ZoF" customClass="TaskCell">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="98"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LCg-KO-ZoF" id="K43-GJ-SIQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="97.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Task" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgu-Tl-acG">
-                                                    <rect key="frame" x="55" y="21" width="104" height="20"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXw-dG-cVD">
-                                                    <rect key="frame" x="25" y="21" width="20" height="20"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqx-VY-PXF" customClass="TasksListInfiniteScrollView">
+                                <rect key="frame" x="-20" y="0.0" width="415" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h49-CA-SWd">
+                                        <rect key="frame" x="20" y="20" width="375" height="604"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="98" id="LCg-KO-ZoF" customClass="TaskCell">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="98"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LCg-KO-ZoF" id="K43-GJ-SIQ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="97.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Task" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgu-Tl-acG">
+                                                            <rect key="frame" x="55" y="21" width="104" height="20"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXw-dG-cVD">
+                                                            <rect key="frame" x="25" y="21" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="Ehd-65-Ahb"/>
+                                                                <constraint firstAttribute="width" constant="20" id="TdZ-Ii-Wsk"/>
+                                                            </constraints>
+                                                            <state key="normal" image="checkbox_empty"/>
+                                                            <state key="selected" image="checkbox_checked"/>
+                                                            <connections>
+                                                                <action selector="didTapCheckbox:" destination="LCg-KO-ZoF" eventType="touchUpInside" id="YCq-Kc-q2u"/>
+                                                            </connections>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/20/2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IX0-qu-3M6">
+                                                            <rect key="frame" x="55" y="46" width="64" height="17"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="Ehd-65-Ahb"/>
-                                                        <constraint firstAttribute="width" constant="20" id="TdZ-Ii-Wsk"/>
+                                                        <constraint firstItem="RXw-dG-cVD" firstAttribute="top" secondItem="K43-GJ-SIQ" secondAttribute="topMargin" constant="10" id="6Fy-mU-0kW"/>
+                                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="IX0-qu-3M6" secondAttribute="trailing" constant="10" id="EbY-gq-h1p"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="IX0-qu-3M6" secondAttribute="bottom" constant="10" id="GKv-zp-L3G"/>
+                                                        <constraint firstItem="IX0-qu-3M6" firstAttribute="leading" secondItem="hgu-Tl-acG" secondAttribute="leading" id="Jsf-9q-HyW"/>
+                                                        <constraint firstItem="hgu-Tl-acG" firstAttribute="leading" secondItem="RXw-dG-cVD" secondAttribute="trailing" constant="10" id="PHA-AL-DtT"/>
+                                                        <constraint firstItem="RXw-dG-cVD" firstAttribute="leading" secondItem="K43-GJ-SIQ" secondAttribute="leadingMargin" constant="10" id="QGe-W4-06C"/>
+                                                        <constraint firstItem="IX0-qu-3M6" firstAttribute="top" secondItem="hgu-Tl-acG" secondAttribute="bottom" constant="5" id="j5N-gm-tEJ"/>
+                                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="hgu-Tl-acG" secondAttribute="trailing" constant="10" id="lZz-oV-dvB"/>
+                                                        <constraint firstItem="hgu-Tl-acG" firstAttribute="top" secondItem="RXw-dG-cVD" secondAttribute="top" id="qsK-BU-Btl"/>
                                                     </constraints>
-                                                    <state key="normal" image="checkbox_empty"/>
-                                                    <state key="selected" image="checkbox_checked"/>
-                                                    <connections>
-                                                        <action selector="didTapCheckbox:" destination="LCg-KO-ZoF" eventType="touchUpInside" id="YCq-Kc-q2u"/>
-                                                    </connections>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/20/2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IX0-qu-3M6">
-                                                    <rect key="frame" x="55" y="46" width="64" height="17"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="RXw-dG-cVD" firstAttribute="top" secondItem="K43-GJ-SIQ" secondAttribute="topMargin" constant="10" id="6Fy-mU-0kW"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="IX0-qu-3M6" secondAttribute="trailing" constant="10" id="EbY-gq-h1p"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="IX0-qu-3M6" secondAttribute="bottom" constant="10" id="GKv-zp-L3G"/>
-                                                <constraint firstItem="IX0-qu-3M6" firstAttribute="leading" secondItem="hgu-Tl-acG" secondAttribute="leading" id="Jsf-9q-HyW"/>
-                                                <constraint firstItem="hgu-Tl-acG" firstAttribute="leading" secondItem="RXw-dG-cVD" secondAttribute="trailing" constant="10" id="PHA-AL-DtT"/>
-                                                <constraint firstItem="RXw-dG-cVD" firstAttribute="leading" secondItem="K43-GJ-SIQ" secondAttribute="leadingMargin" constant="10" id="QGe-W4-06C"/>
-                                                <constraint firstItem="IX0-qu-3M6" firstAttribute="top" secondItem="hgu-Tl-acG" secondAttribute="bottom" constant="5" id="j5N-gm-tEJ"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="hgu-Tl-acG" secondAttribute="trailing" constant="10" id="lZz-oV-dvB"/>
-                                                <constraint firstItem="hgu-Tl-acG" firstAttribute="top" secondItem="RXw-dG-cVD" secondAttribute="top" id="qsK-BU-Btl"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outlet property="checkboxButton" destination="RXw-dG-cVD" id="C8D-8O-ATu"/>
-                                            <outlet property="dueDate" destination="IX0-qu-3M6" id="Pqh-2Y-gCG"/>
-                                            <outlet property="taskNameLabel" destination="hgu-Tl-acG" id="zBD-KF-9mN"/>
-                                            <segue destination="AfF-Xx-8zw" kind="show" identifier="editTaskSegue" id="yLD-ml-QaY"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                                                </tableViewCellContentView>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outlet property="checkboxButton" destination="RXw-dG-cVD" id="C8D-8O-ATu"/>
+                                                    <outlet property="dueDate" destination="IX0-qu-3M6" id="Pqh-2Y-gCG"/>
+                                                    <outlet property="taskNameLabel" destination="hgu-Tl-acG" id="zBD-KF-9mN"/>
+                                                    <segue destination="AfF-Xx-8zw" kind="show" identifier="editTaskSegue" id="yLD-ml-QaY"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="tableView" destination="h49-CA-SWd" id="XWY-9b-hhi"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="h49-CA-SWd" firstAttribute="trailing" secondItem="kVV-gW-JQ3" secondAttribute="trailing" id="6yq-TU-GK6"/>
-                            <constraint firstItem="h49-CA-SWd" firstAttribute="leading" secondItem="kVV-gW-JQ3" secondAttribute="leading" id="Ewc-gl-cXa"/>
-                            <constraint firstItem="h49-CA-SWd" firstAttribute="top" secondItem="kVV-gW-JQ3" secondAttribute="top" id="cDC-4P-cn6"/>
-                            <constraint firstItem="kVV-gW-JQ3" firstAttribute="bottom" secondItem="h49-CA-SWd" secondAttribute="bottom" id="xMz-aS-L6A"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="kVV-gW-JQ3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tasks List" id="1bU-8H-YLW">
@@ -105,7 +110,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="myp-aS-eSa" id="Dlm-5T-2tl"/>
-                        <outlet property="infiniteScrollTableView" destination="h49-CA-SWd" id="Pfc-2w-P5J"/>
+                        <outlet property="taskListInfiniteScrollView" destination="dqx-VY-PXF" id="4Ri-RD-7tY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scB-s8-JdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
