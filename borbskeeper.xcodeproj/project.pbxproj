@@ -251,13 +251,13 @@
 			path = BorbPage;
 			sourceTree = "<group>";
 		};
-		A2660C4122E6427E008C39C7 /* Constants */ = {
+		A2660C4122E6427E008C39C7 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				A2660C4222E64331008C39C7 /* GameConstants.h */,
 				A2660C4322E64331008C39C7 /* GameConstants.m */,
 			);
-			path = Constants;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		A2BC239F22DD2CD60030EA51 = {
@@ -286,7 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				4AB260D122E7BF7D0062DD14 /* Infinite Scrolling Framework */,
-				A2660C4122E6427E008C39C7 /* Constants */,
+				A2660C4122E6427E008C39C7 /* Utility */,
 				4A944D4122DE433A0065782C /* ParseManager */,
 				4A944D3C22DE424C0065782C /* Features */,
 				4A944D3B22DE42410065782C /* Views */,

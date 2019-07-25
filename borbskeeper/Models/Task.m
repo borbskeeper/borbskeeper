@@ -8,6 +8,7 @@
 
 #import "Task.h"
 #import "User.h"
+#import <UserNotifications/UserNotifications.h>
 
 @implementation Task
 
@@ -36,7 +37,17 @@ const int COIN_REWARD_FOR_TASK_OPT_OUT = 5;
     newTask.verified = NO;
     newTask.posted = NO;
     
+    [self createNotificationForTask:newTask];
+    
     return newTask;
+}
+
++ (void)createNotificationForTask:(Task *)task {
+    UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
+    content.title = [NSString localizedUserNotificationStringForKey:task.taskName arguments:nil];
+    content.body = [NSString localizedUserNotificationStringForKey:task.taskDescription
+                                                         arguments:nil];
+    content.sound = [UNNotificationSound defaultSound];
 }
 
 + (void)editTask:(Task*)task withTitle:(NSString*)title withDescription:(NSString*)description withDueDate:(NSDate*)date{
