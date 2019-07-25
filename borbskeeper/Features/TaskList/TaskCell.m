@@ -10,6 +10,7 @@
 #import "User.h"
 #import "Borb.h"
 #import "GameConstants.h"
+#import "PushNotifications.h"
 
 @implementation TaskCell
 static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
@@ -30,6 +31,8 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
         [Task markTaskAsFinished:self.task];
         [[User currentUser] increaseUserCoinsBy: COIN_REWARD_OPTOUT];
         
+        [PushNotifications deleteNotificationForTaskWithID:[self.task objectId]];
+        
         [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
             Borb *userBorb = borbs[0];
             [userBorb increaseExperiencePointsBy:XP_GAINED_PER_COMPLETE_TASK];
@@ -39,6 +42,8 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
         self.checkboxButton.selected = NO;
         [Task markTaskAsUnfinished:self.task];
         [[User currentUser] decreaseUserCoinsBy: COIN_REWARD_OPTOUT];
+        
+        [PushNotifications createNotificationForTask:self.task WithID:[self.task objectId]];
         
         [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
             Borb *userBorb = borbs[0];

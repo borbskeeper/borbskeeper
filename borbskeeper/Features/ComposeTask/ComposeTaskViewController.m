@@ -10,6 +10,7 @@
 #import "TasksListViewController.h"
 #import "UITextView+Placeholder.h"
 #import "Task.h"
+#import "PushNotifications.h"
 
 @interface ComposeTaskViewController () <UITextViewDelegate>
 
@@ -75,6 +76,8 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
                                  withDueDate:self.taskDeadlineDatePicker.date];
             [BorbParseManager saveTask:newTask withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                 if (succeeded) {
+                    NSString *objectId = [newTask objectId];
+                    [PushNotifications createNotificationForTask:newTask WithID:objectId];
                     [self.delegate didSaveTask];
                     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                 } else {
@@ -82,11 +85,9 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
                 }
             }];
         } else {
-            //    have to change the already made properties in the task
             PFQuery *query = [PFQuery queryWithClassName:@"Task"];
             
             NSString *objectId = self.task.objectId;
-            //    tried this but there is null in the objectId
             [query getObjectInBackgroundWithId:objectId
                                          block:^(PFObject *task, NSError *error) {
                                              task[@"taskName"] = self.taskTitleTextField.text;
@@ -94,8 +95,8 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
                                              task[@"dueDate"] = self.taskDeadlineDatePicker.date;
                                              [task saveInBackground];
                                          }];
-            
-            
+            [PushNotifications deleteNotificationForTaskWithID:objectId];
+            [PushNotifications createNotificationForTask:self.task WithID:objectId];
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }
     }
