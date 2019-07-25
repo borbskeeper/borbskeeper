@@ -106,7 +106,7 @@ static NSString *const BORB_ID_KEY = @"objectId";
     
 }
 
-+ (void)fetchCompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion {
++ (void)fetchCompleteTasksOfUser:(NSString *)username withCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     query.limit = 20;
     [query orderByDescending:TASK_DATE_CREATED_KEY];
