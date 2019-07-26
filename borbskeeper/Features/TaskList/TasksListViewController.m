@@ -13,7 +13,6 @@
 #import "Borb.h"
 #import "GameConstants.h"
 #import "User.h"
-#import "TasksListInfiniteScrollView.h"
 #import "IncompleteTaskListInfiniteScrollView.h"
 
 @interface TasksListViewController () <InfiniteScrollDelegate, ComposeViewControllerDelegate>
@@ -90,10 +89,9 @@ static const int SECS_TO_HOURS = 3600;
                 [userBorb decreaseHealthPointsBy:BORB_HP_DECAY_PER_INCOMPLETE_TASK];
                 [BorbParseManager saveBorb:userBorb withCompletion:nil];
             }];
-            NSLog(@"This task is past due");
+            // NSLog(@"This task is past due");
         } else if (result == NSOrderedAscending){
-            NSLog(@"This task is not due yet");
-
+            // NSLog(@"This task is not due yet");
         }
     }
 }
