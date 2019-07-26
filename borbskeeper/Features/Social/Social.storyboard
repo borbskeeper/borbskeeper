@@ -28,21 +28,73 @@
             </objects>
             <point key="canvasLocation" x="-967" y="-5"/>
         </scene>
-        <!--Social View Controller-->
+        <!--addFriends-->
+        <scene sceneID="PzB-JU-KLS">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="AddFriends" storyboardName="AddFriends" referencedIdentifier="addFriends" id="vMy-hT-cRI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e25-au-uA1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="532" y="-139"/>
+        </scene>
+        <!--composePost-->
+        <scene sceneID="WrZ-yb-3cr">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ComposePost" storyboardName="ComposePostStoryboard" referencedIdentifier="composePost" id="dMX-No-ieI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pfT-dg-Yfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="536" y="49"/>
+        </scene>
+        <!--Social-->
         <scene sceneID="CbT-pR-k15">
             <objects>
                 <viewController id="qbN-9e-LGJ" customClass="SocialViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GTZ-vb-Ly0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4eR-g3-Jx6">
+                                <rect key="frame" x="0.0" y="109" width="375" height="558"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BPh-ma-I8i">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BPh-ma-I8i" id="JS3-GS-IBU">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="dH6-a9-dH6">
+                                <rect key="frame" x="101" y="73" width="172" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Friends"/>
+                                    <segment title="Global"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="COc-bA-chM"/>
                     </view>
-                    <navigationItem key="navigationItem" id="m0k-nq-sNK"/>
+                    <navigationItem key="navigationItem" title="Social" id="m0k-nq-sNK">
+                        <barButtonItem key="leftBarButtonItem" title="+ Friends" id="cJp-0h-cHs">
+                            <connections>
+                                <segue destination="vMy-hT-cRI" kind="presentation" id="M1x-A8-R70"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="New Post" id="A40-Og-7H5">
+                            <connections>
+                                <segue destination="dMX-No-ieI" kind="presentation" id="WLd-bf-Qdm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hm-c8-yDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-119" y="-15"/>
+            <point key="canvasLocation" x="-119.2" y="-15.742128935532236"/>
         </scene>
     </scenes>
 </document>
