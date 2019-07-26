@@ -13,14 +13,12 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     if ((self.tableView.delegate == nil) || (self.tableView.dataSource == nil)){
-        
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
-        NSLog(@"Laying out subviews!");
     }
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.infiniteScrollDelegate tableView:tableView numberOfRowsInSection:section];
 }
 
@@ -28,7 +26,7 @@
     return [self.infiniteScrollDelegate tableView:tableView cellForRowAtIndexPath:indexPath];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if(!self.isMoreDataLoading){
         int scrollViewContentHeight = self.tableView.contentSize.height;
         int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
@@ -39,6 +37,28 @@
         }
     }
 }
+
+- (void)fetchData {
+    [self.infiniteScrollDelegate fetchDataWithCompletion:^{
+        [self.tableView reloadData];
+        [self.activityIndicator stopAnimating];
+        [self.refreshControl endRefreshing];
+    }];
+}
+
+- (void)refreshTableView {
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchData) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+    [self.tableView addSubview:self.refreshControl];
+    [self.activityIndicator startAnimating];
+}
+
+- (void)setupTableView {
+    [self refreshTableView];
+    [self fetchData];
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

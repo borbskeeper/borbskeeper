@@ -1,14 +1,14 @@
 //
-//  TasksListInfiniteScrollView.m
+//  CompleteTaskListInfiniteScrollView.m
 //  borbskeeper
 //
-//  Created by rodrigoandrade on 7/24/19.
+//  Created by rodrigoandrade on 7/26/19.
 //  Copyright © 2019 juliapark628. All rights reserved.
 //
 
-#import "TasksListInfiniteScrollView.h"
+#import "CompleteTaskListInfiniteScrollView.h"
 
-@implementation TasksListInfiniteScrollView
+@implementation CompleteTaskListInfiniteScrollView
 
 /*
 // Only override drawRect: if you perform custom drawing.
