@@ -87,16 +87,18 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
         } else {
             PFQuery *query = [PFQuery queryWithClassName:@"Task"];
             
-            NSString *objectId = self.task.objectId;
+            NSString *objectId = [self.task objectId];
             [query getObjectInBackgroundWithId:objectId
                                          block:^(PFObject *task, NSError *error) {
                                              task[@"taskName"] = self.taskTitleTextField.text;
                                              task[@"taskDescription"] = self.taskDescTextView.text;
                                              task[@"dueDate"] = self.taskDeadlineDatePicker.date;
                                              [task saveInBackground];
+                                             
+                                             [PushNotifications createNotificationForTask:(Task *)task WithID:objectId];
                                          }];
             [PushNotifications deleteNotificationForTaskWithID:objectId];
-            [PushNotifications createNotificationForTask:self.task WithID:objectId];
+
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }
     }

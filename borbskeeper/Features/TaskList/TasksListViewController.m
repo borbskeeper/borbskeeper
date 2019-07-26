@@ -80,10 +80,10 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
         [self.taskListInfiniteScrollView.tableView reloadData];
         [self.activityIndicator stopAnimating];
         [self.refreshControl endRefreshing];
-        [self checkDate];
+        //[self checkDate];
     }];
 }
-
+/*
 - (void)checkDate{
     [self compareDate];
 }
@@ -93,7 +93,7 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     NSComparisonResult result;
     Task *task = self.incompleteTaskList[0];
     result = [today compare:task.dueDate];
-}
+}*/
 
 - (void)loadMoreData{
     Task *latestTask = [self.incompleteTaskList lastObject];
