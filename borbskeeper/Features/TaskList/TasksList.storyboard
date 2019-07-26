@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="323" width="375" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqx-VY-PXF" customClass="TasksListInfiniteScrollView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqx-VY-PXF" customClass="IncompleteTaskListInfiniteScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h49-CA-SWd">
@@ -92,7 +92,8 @@
                                     <constraint firstAttribute="trailing" secondItem="h49-CA-SWd" secondAttribute="trailing" id="hs5-Tm-j8Q"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="tableView" destination="h49-CA-SWd" id="XWY-9b-hhi"/>
+                                    <outlet property="activityIndicator" destination="myp-aS-eSa" id="qdi-8q-U1p"/>
+                                    <outlet property="tableView" destination="h49-CA-SWd" id="W3J-eD-YZ8"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -119,8 +120,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityIndicator" destination="myp-aS-eSa" id="Dlm-5T-2tl"/>
-                        <outlet property="taskListInfiniteScrollView" destination="dqx-VY-PXF" id="4Ri-RD-7tY"/>
+                        <outlet property="incompleteTaskListInfiniteScrollView" destination="dqx-VY-PXF" id="lnQ-Bh-okf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scB-s8-JdO" userLabel="First Responder" sceneMemberID="firstResponder"/>

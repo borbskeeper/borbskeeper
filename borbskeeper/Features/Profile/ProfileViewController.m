@@ -10,21 +10,18 @@
 #import "UIImageView+AFNetworking.h"
 #import "BorbParseManager.h"
 #import "Task.h"
-#import "CompletedTasksListInfiniteScrollView.h"
+#import "CompleteTaskListInfiniteScrollView.h"
 #import "TaskCell.h"
 
 @interface ProfileViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, InfiniteScrollDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
-@property (weak, nonatomic) IBOutlet CompletedTasksListInfiniteScrollView *completedTasksListInfiniteScrollView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-
+@property (weak, nonatomic) IBOutlet CompleteTaskListInfiniteScrollView *completeTaskListInfiniteScrollView;
 @property (strong, nonatomic) NSMutableArray *completeTaskList;
 @property (strong, nonatomic) NSDate *latestDate;
 @property (strong, nonatomic) UIImage *originalImage;
 @property (strong, nonatomic) UIImage *editedImage;
-@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -36,10 +33,9 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.completedTasksListInfiniteScrollView.infiniteScrollDelegate = self;
+    self.completeTaskListInfiniteScrollView.infiniteScrollDelegate = self;
     [self setupProfile];
-    [self fetchData];
-    [self refreshCompleteTaskList];
+    [self.completeTaskListInfiniteScrollView setupTableView];
 }
 
 - (void)setupProfile {
@@ -92,20 +88,10 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
-- (void)refreshCompleteTaskList {
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(fetchData) forControlEvents:UIControlEventValueChanged];
-    [self.completedTasksListInfiniteScrollView.tableView insertSubview:self.refreshControl atIndex:0];
-    [self.completedTasksListInfiniteScrollView.tableView addSubview:self.refreshControl];
-    [self.activityIndicator startAnimating];
-}
-
-- (void)fetchData {
-    [BorbParseManager fetchCompleteTasksOfUser:User.currentUser.username WithCompletion:^(NSMutableArray *tasks) {
+- (void)fetchDataWithCompletion:(void (^)(void))completion {
+    [BorbParseManager fetchCompleteTasksOfUser:User.currentUser.username withCompletion:^(NSMutableArray *tasks) {
         self.completeTaskList = tasks;
-        [self.completedTasksListInfiniteScrollView.tableView reloadData];
-        [self.activityIndicator stopAnimating];
-        [self.refreshControl endRefreshing];
+        completion();
         [self checkDate];
     }];
 }
@@ -114,22 +100,22 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     Task *latestTask = [self.completeTaskList lastObject];
     self.latestDate = latestTask.createdAt;
     
-    [BorbParseManager loadMoreCompleteTasksOfUser:User.currentUser.username withLaterDate:self.latestDate WithCompletion:^(NSMutableArray *posts) {
+    [BorbParseManager loadMoreCompleteTasksOfUser:User.currentUser.username withLaterDate:self.latestDate withCompletion:^(NSMutableArray *posts) {
         if ([posts count] > 0) {
             [self.completeTaskList addObjectsFromArray:posts];
-            [self.completedTasksListInfiniteScrollView.tableView reloadData];
-            self.completedTasksListInfiniteScrollView.isMoreDataLoading = false;
+            [self.completeTaskListInfiniteScrollView.tableView reloadData];
+            self.completeTaskListInfiniteScrollView.isMoreDataLoading = false;
         } else {
-            self.completedTasksListInfiniteScrollView.isMoreDataLoading = true;
+            self.completeTaskListInfiniteScrollView.isMoreDataLoading = true;
         }
     }];
 }
 
-- (void)checkDate{
+- (void)checkDate {
     [self compareDate];
 }
 
-- (void)compareDate{
+- (void)compareDate {
     NSDate *today = [NSDate date];
     NSComparisonResult result;
     Task *task = self.completeTaskList[0];

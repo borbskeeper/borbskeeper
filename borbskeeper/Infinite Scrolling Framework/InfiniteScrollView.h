@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol InfiniteScrollDelegate
 
+- (void)fetchDataWithCompletion:(void(^)(void))completion;
 - (void)loadMoreData;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
@@ -22,8 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<InfiniteScrollDelegate> infiniteScrollDelegate;
 @property (assign, nonatomic) BOOL isMoreDataLoading;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
+- (void)setupTableView;
+- (void)fetchData;
 @end
 
 NS_ASSUME_NONNULL_END

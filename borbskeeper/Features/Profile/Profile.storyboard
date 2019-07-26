@@ -43,7 +43,7 @@
                                     <action selector="didTapChangeProfilePicture:" destination="anJ-WG-UX5" eventType="touchUpInside" id="u2m-71-UnW"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iua-m0-cvN" customClass="CompletedTasksListInfiniteScrollView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iua-m0-cvN" customClass="CompleteTaskListInfiniteScrollView">
                                 <rect key="frame" x="0.0" y="219" width="375" height="448"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B9J-XS-sJS">
@@ -111,7 +111,8 @@
                                     <constraint firstItem="B9J-XS-sJS" firstAttribute="top" secondItem="iua-m0-cvN" secondAttribute="top" id="YKm-So-Jor"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="tableView" destination="B9J-XS-sJS" id="ibG-A7-YmL"/>
+                                    <outlet property="activityIndicator" destination="3d4-9s-ASW" id="cxV-g2-jXv"/>
+                                    <outlet property="tableView" destination="B9J-XS-sJS" id="W8i-Mq-EvZ"/>
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed Tasks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wb-MU-iZK">
@@ -142,8 +143,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Uxd-T4-WLf"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="3d4-9s-ASW" id="Xmj-5J-kQG"/>
-                        <outlet property="completedTasksListInfiniteScrollView" destination="iua-m0-cvN" id="c6O-Wd-zy0"/>
+                        <outlet property="completeTaskListInfiniteScrollView" destination="iua-m0-cvN" id="c6q-SK-2pM"/>
                         <outlet property="profilePicture" destination="gWZ-Cu-ltZ" id="um8-fb-qvp"/>
                         <outlet property="userName" destination="yMy-OK-GGN" id="aJU-h9-hEE"/>
                     </connections>
