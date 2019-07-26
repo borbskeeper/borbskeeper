@@ -33,6 +33,9 @@ static int const PARSE_QUERY_LIMIT = 20;
     newUser.password = password;
     newUser.userCoins = @0;
     newUser.friendsList = [[NSMutableArray alloc] init];
+    newUser.userLogin = [NSDate date];
+    NSLog(@"%@", newUser.userLogin);
+    
     
     UIImage *defaultImage = [UIImage imageNamed:@"profile_placeholder"];
     NSData *imageData = UIImagePNGRepresentation(defaultImage);
