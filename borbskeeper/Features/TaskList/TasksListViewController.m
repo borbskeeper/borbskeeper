@@ -14,6 +14,7 @@
 #import "GameConstants.h"
 #import "User.h"
 #import "TasksListInfiniteScrollView.h"
+#import "IncompleteTaskListInfiniteScrollView.h"
 
 @interface TasksListViewController () <InfiniteScrollDelegate, ComposeViewControllerDelegate>
 
@@ -21,8 +22,8 @@
 @property (strong, nonatomic) NSString *current_username;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSDate *latestDate;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (weak, nonatomic) IBOutlet TasksListInfiniteScrollView *taskListInfiniteScrollView;
+@property (weak, nonatomic) IBOutlet IncompleteTaskListInfiniteScrollView *incompleteTaskListInfiniteScrollView;
+
 
 @end
 
@@ -38,11 +39,10 @@ static const int SECS_TO_HOURS = 3600;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.taskListInfiniteScrollView.infiniteScrollDelegate = self;
+    self.incompleteTaskListInfiniteScrollView.infiniteScrollDelegate = self;
     
     self.current_username = [PFUser currentUser].username;
-    [self fetchData];
-    [self refreshTaskList];
+    [self.incompleteTaskListInfiniteScrollView setupTableView];
     [self decayByTime];
 }
 
@@ -61,31 +61,19 @@ static const int SECS_TO_HOURS = 3600;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TaskCell *cell = [tableView dequeueReusableCellWithIdentifier:TASK_TABLE_VIEW_CELL_ID];
-    
     Task *currTask = self.incompleteTaskList[indexPath.row];
-    
     [cell setupWithTask:currTask];
     return cell;
 }
 
-- (void)didSaveTask{
-    [self fetchData];
+- (void)didSaveTask {
+    [self.incompleteTaskListInfiniteScrollView fetchData];
 }
 
-- (void)refreshTaskList{
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(fetchData) forControlEvents:UIControlEventValueChanged];
-    [self.taskListInfiniteScrollView.tableView insertSubview:self.refreshControl atIndex:0];
-    [self.taskListInfiniteScrollView.tableView addSubview:self.refreshControl];
-    [self.activityIndicator startAnimating];
-}
-
-- (void)fetchData {
+- (void)fetchDataWithCompletion:(void (^)(void))completion {
     [BorbParseManager fetchIncompleteTasksOfUser:self.current_username WithCompletion:^(NSMutableArray *posts) {
         self.incompleteTaskList = posts;
-        [self.taskListInfiniteScrollView.tableView reloadData];
-        [self.activityIndicator stopAnimating];
-        [self.refreshControl endRefreshing];
+        completion();
         [self decayByIncompleteTask];
     }];
 }
@@ -119,19 +107,19 @@ static const int SECS_TO_HOURS = 3600;
         [userBorb decreaseHealthPointsBy:(BORB_HP_DECAY_PER_HOUR * numOfHours)];
         [BorbParseManager saveBorb:userBorb withCompletion:nil];
     }];
-    }
+}
 
-- (void)loadMoreData{
+- (void)loadMoreData {
     Task *latestTask = [self.incompleteTaskList lastObject];
     self.latestDate = latestTask.createdAt;
     
     [BorbParseManager loadMoreIncompleteTasksOfUser:self.current_username withLaterDate:self.latestDate WithCompletion:^(NSMutableArray *posts) {
         if ([posts count] > 0){
             [self.incompleteTaskList addObjectsFromArray:posts];
-            [self.taskListInfiniteScrollView.tableView reloadData];
-            self.taskListInfiniteScrollView.isMoreDataLoading = false;
+            [self.incompleteTaskListInfiniteScrollView.tableView reloadData];
+            self.incompleteTaskListInfiniteScrollView.isMoreDataLoading = false;
         } else {
-            self.taskListInfiniteScrollView.isMoreDataLoading = true;
+            self.incompleteTaskListInfiniteScrollView.isMoreDataLoading = true;
         }
     }];
 }
@@ -144,7 +132,7 @@ static const int SECS_TO_HOURS = 3600;
         ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
         
         UITableViewCell *tappedCell = sender;
-        NSIndexPath *indexPath = [self.taskListInfiniteScrollView.tableView indexPathForCell:tappedCell];
+        NSIndexPath *indexPath = [self.incompleteTaskListInfiniteScrollView.tableView indexPathForCell:tappedCell];
         Task* task = self.incompleteTaskList[indexPath.row];
         composeController.task = task;
     } else if([segue.identifier  isEqual: COMPOSE_SEGUE_ID]){
