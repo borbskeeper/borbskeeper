@@ -108,8 +108,6 @@ static const int SECS_TO_HOURS = 3600;
 
         }
     }
-    Task *task = self.incompleteTaskList[0];
-    result = [today compare:task.dueDate];
 }
 
 -(void)decayByTime{
