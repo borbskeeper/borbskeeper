@@ -24,6 +24,8 @@ static NSString *const TASK_COMPLETED_KEY = @"completed";
 static NSString *const QUERY_BORB_NAME = @"Borb";
 static NSString *const BORB_ID_KEY = @"objectId";
 
+static int const PARSE_QUERY_LIMIT = 20;
+
 + (void)createAccount:(NSString*)username withEmail:(NSString*)email withPassword:(NSString*)password withCompletion:(void (^)(NSError *))completion{
     User *newUser = (User *)[PFUser user];
     newUser.username = username;
@@ -72,7 +74,7 @@ static NSString *const BORB_ID_KEY = @"objectId";
 
 + (void)fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
-    query.limit = 20;
+    query.limit = PARSE_QUERY_LIMIT;
     [query orderByDescending:TASK_DATE_CREATED_KEY];
     [query includeKey:TASK_AUTHOR_KEY];
     [query whereKey:TASK_AUTHOR_KEY equalTo:[PFUser currentUser]];
@@ -82,6 +84,7 @@ static NSString *const BORB_ID_KEY = @"objectId";
         if (posts != nil) {
             completion([NSMutableArray arrayWithArray:posts]);
         } else {
+            // TBD: Call completion with error
             NSLog(@"%@", error.localizedDescription);
         }
     }];
@@ -89,7 +92,7 @@ static NSString *const BORB_ID_KEY = @"objectId";
 
 + (void)loadMoreIncompleteTasksOfUser:(NSString *)username withLaterDate:(NSDate *)date WithCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
-    query.limit = 20;
+    query.limit = PARSE_QUERY_LIMIT;
     [query orderByDescending:TASK_DATE_CREATED_KEY];
     [query includeKey:TASK_AUTHOR_KEY];
     [query whereKey:TASK_AUTHOR_KEY equalTo:[PFUser currentUser]];
@@ -100,6 +103,45 @@ static NSString *const BORB_ID_KEY = @"objectId";
         if (posts != nil) {
             completion([NSMutableArray arrayWithArray:posts]);
         } else {
+            // TBD: Call completion with error
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+    
+}
+
++ (void)fetchCompleteTasksOfUser:(NSString *)username withCompletion:(void (^)(NSMutableArray *))completion {
+    PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
+    query.limit = PARSE_QUERY_LIMIT;
+    [query orderByDescending:TASK_DATE_CREATED_KEY];
+    [query includeKey:TASK_AUTHOR_KEY];
+    [query whereKey:TASK_AUTHOR_KEY equalTo:[PFUser currentUser]];
+    [query whereKey:TASK_COMPLETED_KEY equalTo:@YES];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            completion([NSMutableArray arrayWithArray:posts]);
+        } else {
+            // TBD: Call completion with error
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
++ (void)loadMoreCompleteTasksOfUser:(NSString *)username withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion {
+    PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
+    query.limit = PARSE_QUERY_LIMIT;
+    [query orderByDescending:TASK_DATE_CREATED_KEY];
+    [query includeKey:TASK_AUTHOR_KEY];
+    [query whereKey:TASK_AUTHOR_KEY equalTo:[PFUser currentUser]];
+    [query whereKey:TASK_COMPLETED_KEY equalTo:@YES];
+    [query whereKey:TASK_DATE_CREATED_KEY lessThan:date];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            completion([NSMutableArray arrayWithArray:posts]);
+        } else {
+            // TBD: Call completion with error
             NSLog(@"%@", error.localizedDescription);
         }
     }];
@@ -114,18 +156,30 @@ static NSString *const BORB_ID_KEY = @"objectId";
         if (borbs != nil) {
             completion([NSMutableArray arrayWithArray:borbs]);
         } else {
+            // TBD: Call completion with error
             NSLog(@"%@", error.localizedDescription);
         }
     }];
 }
 
-+ (void)signOutUser{
++ (void)signOutUser {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:LOGIN_STORYBOARD_ID bundle:nil];
         LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:LOGIN_VIEW_CONTROLLER_ID];
         appDelegate.window.rootViewController = loginViewController;
     }];
+}
+
++ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
+    if (!image) {
+        return nil;
+    }
+    NSData *imageData = UIImagePNGRepresentation(image);
+    if (!imageData) {
+        return nil;
+    }
+    return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 
 @end
