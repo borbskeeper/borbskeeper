@@ -9,6 +9,7 @@
 #import "BorbParseManager.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "Post.h"
 
 @implementation BorbParseManager
 
@@ -70,6 +71,10 @@ static int const PARSE_QUERY_LIMIT = 20;
 
 + (void)saveBorb:(Borb*)borb withCompletion: (PFBooleanResultBlock  _Nullable)completion{
     [borb saveInBackgroundWithBlock: completion];
+}
+
++ (void)savePost:(Post*)post withCompletion: (PFBooleanResultBlock _Nullable)completion{
+    [post saveInBackgroundWithBlock: completion];
 }
 
 + (void)fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion {

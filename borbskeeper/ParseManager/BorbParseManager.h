@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)saveBorb:(Borb*)borb withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
++ (void)savePost:(Post*)post withCompletion: (PFBooleanResultBlock _Nullable)completion;
+
 + (void)fetchBorb:(NSString *)borbID WithCompletion:(void (^)(NSMutableArray *))completion;
 
 + (void)fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion;

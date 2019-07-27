@@ -43,6 +43,7 @@
 		A2FBF61E22EB960D00464637 /* AddFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FBF61D22EB960D00464637 /* AddFriendsViewController.m */; };
 		A2FBF62222EB969D00464637 /* ComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FBF62122EB969D00464637 /* ComposePostViewController.m */; };
 		A2FBF62422EB96AB00464637 /* ComposePostStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2FBF62322EB96AB00464637 /* ComposePostStoryboard.storyboard */; };
+		A2FBF62722EBBDBF00464637 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FBF62622EBBDBF00464637 /* Post.m */; };
 		EE30FD20236212C786D5534B /* Pods_borbskeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6560A7C3F09F08802BCEFA4B /* Pods_borbskeeper.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,8 +69,8 @@
 		3432CFA622DE597700B6C47E /* TasksList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TasksList.storyboard; sourceTree = "<group>"; };
 		3432CFB122DE6BE800B6C47E /* TasksListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TasksListViewController.h; sourceTree = "<group>"; };
 		3432CFB222DE6BE800B6C47E /* TasksListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TasksListViewController.m; sourceTree = "<group>"; };
-		3432CFB422DE6CA700B6C47E /* TaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TaskCell.h; path = borbskeeper/Features/TaskList/TaskCell.h; sourceTree = SOURCE_ROOT; };
-		3432CFB522DE6CA700B6C47E /* TaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TaskCell.m; path = borbskeeper/Features/TaskList/TaskCell.m; sourceTree = SOURCE_ROOT; };
+		3432CFB422DE6CA700B6C47E /* TaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TaskCell.h; path = borbskeeper/Views/TaskCell.h; sourceTree = SOURCE_ROOT; };
+		3432CFB522DE6CA700B6C47E /* TaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TaskCell.m; path = borbskeeper/Views/TaskCell.m; sourceTree = SOURCE_ROOT; };
 		482BEA8B4EC67026AE80FB32 /* Pods-borbskeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeper.release.xcconfig"; path = "Target Support Files/Pods-borbskeeper/Pods-borbskeeper.release.xcconfig"; sourceTree = "<group>"; };
 		4A55B93A22E8FA7500CA5400 /* InfiniteScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfiniteScrollView.h; sourceTree = "<group>"; };
 		4A55B93B22E8FA7500CA5400 /* InfiniteScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfiniteScrollView.m; sourceTree = "<group>"; };
@@ -130,6 +131,8 @@
 		A2FBF62022EB969D00464637 /* ComposePostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposePostViewController.h; sourceTree = "<group>"; };
 		A2FBF62122EB969D00464637 /* ComposePostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposePostViewController.m; sourceTree = "<group>"; };
 		A2FBF62322EB96AB00464637 /* ComposePostStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComposePostStoryboard.storyboard; sourceTree = "<group>"; };
+		A2FBF62522EBBDBF00464637 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		A2FBF62622EBBDBF00464637 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		C45C15492DAF90245A6E4BC9 /* Pods_borbskeeperUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_borbskeeperUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A421C40373434EC704AFA0 /* Pods-borbskeeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeper.debug.xcconfig"; path = "Target Support Files/Pods-borbskeeper/Pods-borbskeeper.debug.xcconfig"; sourceTree = "<group>"; };
 		EA3BF8C02DECA191DB2F72EA /* Pods-borbskeeperUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeperUITests.release.xcconfig"; path = "Target Support Files/Pods-borbskeeperUITests/Pods-borbskeeperUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,7 +176,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4A55B94822EA2EA200CA5400 /* Profile */ = {
+		4A55B94822EA2EA200CA5400 /* 5Profile */ = {
 			isa = PBXGroup;
 			children = (
 				4A55B94922EA2EB000CA5400 /* Profile.storyboard */,
@@ -182,7 +185,7 @@
 				4A55B95722EB84AB00CA5400 /* CompleteTaskListInfiniteScrollView.h */,
 				4A55B95822EB84AB00CA5400 /* CompleteTaskListInfiniteScrollView.m */,
 			);
-			path = Profile;
+			path = 5Profile;
 			sourceTree = "<group>";
 		};
 		4A944D3A22DE42360065782C /* Models */ = {
@@ -194,6 +197,8 @@
 				A28F5C0C22DE6C14001FAFC7 /* Borb.m */,
 				A28F5C0E22DE6D43001FAFC7 /* Task.h */,
 				A28F5C0F22DE6D43001FAFC7 /* Task.m */,
+				A2FBF62522EBBDBF00464637 /* Post.h */,
+				A2FBF62622EBBDBF00464637 /* Post.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,13 +215,13 @@
 		4A944D3C22DE424C0065782C /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				A2FBF61F22EB968900464637 /* ComposePost */,
-				A2FBF61922EB959E00464637 /* AddFriends */,
-				A2FBF61322EB8F8B00464637 /* Social */,
-				4A55B94822EA2EA200CA5400 /* Profile */,
-				A2284FCD22E241EB006217C9 /* BorbPage */,
-				4AB260CB22E0F4110062DD14 /* ComposeTask */,
-				4A944D4022DE42AA0065782C /* TaskList */,
+				4A944D4022DE42AA0065782C /* 1TaskList */,
+				4AB260CB22E0F4110062DD14 /* 1RComposeTask */,
+				A2FBF61322EB8F8B00464637 /* 2Social */,
+				A2FBF61F22EB968900464637 /* 2RComposePost */,
+				A2FBF61922EB959E00464637 /* 2LAddFriends */,
+				A2284FCD22E241EB006217C9 /* 3BorbPage */,
+				4A55B94822EA2EA200CA5400 /* 5Profile */,
 				4A944D3F22DE42960065782C /* SignUp */,
 				4A944D3D22DE42750065782C /* Login */,
 			);
@@ -243,7 +248,7 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
-		4A944D4022DE42AA0065782C /* TaskList */ = {
+		4A944D4022DE42AA0065782C /* 1TaskList */ = {
 			isa = PBXGroup;
 			children = (
 				3432CFA622DE597700B6C47E /* TasksList.storyboard */,
@@ -252,7 +257,7 @@
 				4A55B95422EB818700CA5400 /* IncompleteTaskListInfiniteScrollView.h */,
 				4A55B95522EB818700CA5400 /* IncompleteTaskListInfiniteScrollView.m */,
 			);
-			path = TaskList;
+			path = 1TaskList;
 			sourceTree = "<group>";
 		};
 		4A944D4122DE433A0065782C /* ParseManager */ = {
@@ -264,14 +269,14 @@
 			path = ParseManager;
 			sourceTree = "<group>";
 		};
-		4AB260CB22E0F4110062DD14 /* ComposeTask */ = {
+		4AB260CB22E0F4110062DD14 /* 1RComposeTask */ = {
 			isa = PBXGroup;
 			children = (
 				4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */,
 				4AB260CC22E0F5890062DD14 /* ComposeTaskViewController.h */,
 				4AB260CD22E0F5890062DD14 /* ComposeTaskViewController.m */,
 			);
-			path = ComposeTask;
+			path = 1RComposeTask;
 			sourceTree = "<group>";
 		};
 		4AB260D122E7BF7D0062DD14 /* Infinite Scrolling Framework */ = {
@@ -283,14 +288,14 @@
 			path = "Infinite Scrolling Framework";
 			sourceTree = "<group>";
 		};
-		A2284FCD22E241EB006217C9 /* BorbPage */ = {
+		A2284FCD22E241EB006217C9 /* 3BorbPage */ = {
 			isa = PBXGroup;
 			children = (
 				A2284FCE22E24217006217C9 /* BorbPageViewController.h */,
 				A2284FCF22E24217006217C9 /* BorbPageViewController.m */,
 				A2284FD122E24229006217C9 /* BorbPage.storyboard */,
 			);
-			path = BorbPage;
+			path = 3BorbPage;
 			sourceTree = "<group>";
 		};
 		A2660C4122E6427E008C39C7 /* Utility */ = {
@@ -363,34 +368,34 @@
 			path = borbskeeperUITests;
 			sourceTree = "<group>";
 		};
-		A2FBF61322EB8F8B00464637 /* Social */ = {
+		A2FBF61322EB8F8B00464637 /* 2Social */ = {
 			isa = PBXGroup;
 			children = (
 				A2FBF61422EB8FD800464637 /* SocialViewController.h */,
 				A2FBF61522EB8FD800464637 /* SocialViewController.m */,
 				A2FBF61722EB8FE700464637 /* Social.storyboard */,
 			);
-			path = Social;
+			path = 2Social;
 			sourceTree = "<group>";
 		};
-		A2FBF61922EB959E00464637 /* AddFriends */ = {
+		A2FBF61922EB959E00464637 /* 2LAddFriends */ = {
 			isa = PBXGroup;
 			children = (
 				A2FBF61A22EB95F700464637 /* AddFriends.storyboard */,
 				A2FBF61C22EB960D00464637 /* AddFriendsViewController.h */,
 				A2FBF61D22EB960D00464637 /* AddFriendsViewController.m */,
 			);
-			path = AddFriends;
+			path = 2LAddFriends;
 			sourceTree = "<group>";
 		};
-		A2FBF61F22EB968900464637 /* ComposePost */ = {
+		A2FBF61F22EB968900464637 /* 2RComposePost */ = {
 			isa = PBXGroup;
 			children = (
 				A2FBF62022EB969D00464637 /* ComposePostViewController.h */,
 				A2FBF62122EB969D00464637 /* ComposePostViewController.m */,
 				A2FBF62322EB96AB00464637 /* ComposePostStoryboard.storyboard */,
 			);
-			path = ComposePost;
+			path = 2RComposePost;
 			sourceTree = "<group>";
 		};
 		F0662FC2EC0AF131CCC9F395 /* Pods */ = {
@@ -653,6 +658,7 @@
 				A2BC23BB22DD2CD70030EA51 /* main.m in Sources */,
 				A2BC23AD22DD2CD60030EA51 /* AppDelegate.m in Sources */,
 				3432CFB322DE6BE800B6C47E /* TasksListViewController.m in Sources */,
+				A2FBF62722EBBDBF00464637 /* Post.m in Sources */,
 				A2660C4422E64331008C39C7 /* GameConstants.m in Sources */,
 				4A55B93C22E8FA7500CA5400 /* InfiniteScrollView.m in Sources */,
 			);
