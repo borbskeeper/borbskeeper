@@ -9,6 +9,8 @@
 #import "CompleteTaskListInfiniteScrollView.h"
 
 @implementation CompleteTaskListInfiniteScrollView
+@dynamic tableView;
+@dynamic activityIndicator;
 
 /*
 // Only override drawRect: if you perform custom drawing.
