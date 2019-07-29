@@ -90,10 +90,9 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 }
 
 - (void)fetchDataWithCompletion:(void (^)(void))completion {
-    [BorbParseManager fetchCompleteTasksOfUser:User.currentUser.username withCompletion:^(NSMutableArray *tasks) {
+    [BorbParseManager fetchCompleteTasksOfUser:User.currentUser.username ifNotPosted:NO withCompletion:^(NSMutableArray *tasks) {
         self.completeTaskList = tasks;
         completion();
-        // [self checkDate];
     }];
 }
 
@@ -101,7 +100,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     Task *latestTask = [self.completeTaskList lastObject];
     self.latestDate = latestTask.createdAt;
     
-    [BorbParseManager loadMoreCompleteTasksOfUser:User.currentUser.username withLaterDate:self.latestDate withCompletion:^(NSMutableArray *posts) {
+    [BorbParseManager loadMoreCompleteTasksOfUser:User.currentUser.username ifNotPosted:NO withLaterDate:self.latestDate withCompletion:^(NSMutableArray *posts) {
         if ([posts count] > 0) {
             [self.completeTaskList addObjectsFromArray:posts];
             [self.completeTaskListInfiniteScrollView.tableView reloadData];
