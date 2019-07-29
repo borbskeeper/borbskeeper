@@ -13,7 +13,7 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
 
 @implementation PushNotificationsManager
 
-+ (void)createNotificationForTask:(Task *)task WithID:(nonnull NSString *)taskID {
++ (void)createNotificationForTask:(Task *)task withID:(nonnull NSString *)taskID {
     // creating the content of the push notif
     UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
     content.title = [NSString localizedUserNotificationStringForKey:task.taskName arguments:nil];
@@ -26,14 +26,14 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
     // creating the trigger of the push notif
     NSCalendar *gregorian = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute;
+    NSUInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute;
     NSDateComponents *dueDateComponents = [gregorian components:unitFlags fromDate:task.dueDate];
-    UNCalendarNotificationTrigger* trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:dueDateComponents repeats:NO];
+    UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:dueDateComponents repeats:NO];
     
     // creating push notif and adding it
-    UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:taskID
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:taskID
                                                                           content:content trigger:trigger];
-    UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     [center addNotificationRequest:request withCompletionHandler:nil];
 }
 

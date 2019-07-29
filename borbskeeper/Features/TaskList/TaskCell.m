@@ -40,7 +40,7 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
         self.checkboxButton.selected = NO;
         [Task markTaskAsUnfinished:self.task];
         [[User currentUser] decreaseUserCoinsBy: COIN_REWARD_OPTOUT];
-        [PushNotificationsManager createNotificationForTask:self.task WithID:[self.task objectId]];
+        [PushNotificationsManager createNotificationForTask:self.task withID:[self.task objectId]];
         [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
             Borb *userBorb = borbs[0];
             [userBorb decreaseExperiencePointsBy:XP_GAINED_PER_COMPLETE_TASK];

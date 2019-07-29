@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PushNotificationsManager : NSObject
 
-+ (void)createNotificationForTask:(Task *)task WithID:(NSString *)taskID;
++ (void)createNotificationForTask:(Task *)task withID:(NSString *)taskID;
 + (void)deleteNotificationForTaskWithID:(nonnull NSString *)taskID; 
 
 @end

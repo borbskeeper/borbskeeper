@@ -77,7 +77,7 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
             [BorbParseManager saveTask:newTask withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                 if (succeeded) {
                     NSString *objectId = [newTask objectId];
-                    [PushNotificationsManager createNotificationForTask:newTask WithID:objectId];
+                    [PushNotificationsManager createNotificationForTask:newTask withID:objectId];
                     [self.delegate didSaveTask];
                     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                 } else {
@@ -94,11 +94,9 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
                                              task[@"taskDescription"] = self.taskDescTextView.text;
                                              task[@"dueDate"] = self.taskDeadlineDatePicker.date;
                                              [task saveInBackground];
-                                             
-                                             [PushNotificationsManager createNotificationForTask:(Task *)task WithID:taskId];
+                                             [PushNotificationsManager createNotificationForTask:(Task *)task withID:taskId];
                                          }];
             [PushNotificationsManager deleteNotificationForTaskWithID:taskId];
-
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }
     }
