@@ -30,7 +30,7 @@
 		A28F5C0A22DE598E001FAFC7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0922DE598E001FAFC7 /* User.m */; };
 		A28F5C0D22DE6C14001FAFC7 /* Borb.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0C22DE6C14001FAFC7 /* Borb.m */; };
 		A28F5C1022DE6D43001FAFC7 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0F22DE6D43001FAFC7 /* Task.m */; };
-		A2A2922E22EA67B600276315 /* PushNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A2922D22EA67B600276315 /* PushNotifications.m */; };
+		A2A2922E22EA67B600276315 /* PushNotificationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A2922D22EA67B600276315 /* PushNotificationsManager.m */; };
 		A2BC23AD22DD2CD60030EA51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BC23AC22DD2CD60030EA51 /* AppDelegate.m */; };
 		A2BC23B522DD2CD70030EA51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2BC23B422DD2CD70030EA51 /* Assets.xcassets */; };
 		A2BC23B822DD2CD70030EA51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2BC23B622DD2CD70030EA51 /* LaunchScreen.storyboard */; };
@@ -100,8 +100,8 @@
 		A28F5C0C22DE6C14001FAFC7 /* Borb.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Borb.m; path = borbskeeper/Models/Borb.m; sourceTree = SOURCE_ROOT; };
 		A28F5C0E22DE6D43001FAFC7 /* Task.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Task.h; path = borbskeeper/Models/Task.h; sourceTree = SOURCE_ROOT; };
 		A28F5C0F22DE6D43001FAFC7 /* Task.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = borbskeeper/Models/Task.m; sourceTree = SOURCE_ROOT; };
-		A2A2922C22EA67B600276315 /* PushNotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushNotifications.h; sourceTree = "<group>"; };
-		A2A2922D22EA67B600276315 /* PushNotifications.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushNotifications.m; sourceTree = "<group>"; };
+		A2A2922C22EA67B600276315 /* PushNotificationsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushNotificationsManager.h; sourceTree = "<group>"; };
+		A2A2922D22EA67B600276315 /* PushNotificationsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushNotificationsManager.m; sourceTree = "<group>"; };
 		A2BC23A822DD2CD60030EA51 /* borbskeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = borbskeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BC23AB22DD2CD60030EA51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A2BC23AC22DD2CD60030EA51 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -280,8 +280,8 @@
 			children = (
 				A2660C4222E64331008C39C7 /* GameConstants.h */,
 				A2660C4322E64331008C39C7 /* GameConstants.m */,
-				A2A2922C22EA67B600276315 /* PushNotifications.h */,
-				A2A2922D22EA67B600276315 /* PushNotifications.m */,
+				A2A2922C22EA67B600276315 /* PushNotificationsManager.h */,
+				A2A2922D22EA67B600276315 /* PushNotificationsManager.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -594,7 +594,7 @@
 				A2284FD022E24217006217C9 /* BorbPageViewController.m in Sources */,
 				4A55B95922EB84AB00CA5400 /* CompleteTaskListInfiniteScrollView.m in Sources */,
 				4AB260CE22E0F5890062DD14 /* ComposeTaskViewController.m in Sources */,
-				A2A2922E22EA67B600276315 /* PushNotifications.m in Sources */,
+				A2A2922E22EA67B600276315 /* PushNotificationsManager.m in Sources */,
 				A28F5C0D22DE6C14001FAFC7 /* Borb.m in Sources */,
 				A2BC23BB22DD2CD70030EA51 /* main.m in Sources */,
 				A2BC23AD22DD2CD60030EA51 /* AppDelegate.m in Sources */,

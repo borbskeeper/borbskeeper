@@ -6,16 +6,16 @@
 //  Copyright © 2019 juliapark628. All rights reserved.
 //
 
-#import "PushNotifications.h"
+#import "PushNotificationsManager.h"
 #import <UserNotifications/UserNotifications.h>
 
 static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
 
-@implementation PushNotifications
+@implementation PushNotificationsManager
 
 + (void)createNotificationForTask:(Task *)task WithID:(nonnull NSString *)taskID {
     // creating the content of the push notif
-    UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
+    UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
     content.title = [NSString localizedUserNotificationStringForKey:task.taskName arguments:nil];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = DATE_FORMAT;

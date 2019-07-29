@@ -10,7 +10,7 @@
 #import "TasksListViewController.h"
 #import "UITextView+Placeholder.h"
 #import "Task.h"
-#import "PushNotifications.h"
+#import "PushNotificationsManager.h"
 
 @interface ComposeTaskViewController () <UITextViewDelegate>
 
@@ -77,7 +77,7 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
             [BorbParseManager saveTask:newTask withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                 if (succeeded) {
                     NSString *objectId = [newTask objectId];
-                    [PushNotifications createNotificationForTask:newTask WithID:objectId];
+                    [PushNotificationsManager createNotificationForTask:newTask WithID:objectId];
                     [self.delegate didSaveTask];
                     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                 } else {
@@ -87,17 +87,17 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
         } else {
             PFQuery *query = [PFQuery queryWithClassName:@"Task"];
             
-            NSString *objectId = [self.task objectId];
-            [query getObjectInBackgroundWithId:objectId
+            NSString *taskId = [self.task objectId];
+            [query getObjectInBackgroundWithId:taskId
                                          block:^(PFObject *task, NSError *error) {
                                              task[@"taskName"] = self.taskTitleTextField.text;
                                              task[@"taskDescription"] = self.taskDescTextView.text;
                                              task[@"dueDate"] = self.taskDeadlineDatePicker.date;
                                              [task saveInBackground];
                                              
-                                             [PushNotifications createNotificationForTask:(Task *)task WithID:objectId];
+                                             [PushNotificationsManager createNotificationForTask:(Task *)task WithID:taskId];
                                          }];
-            [PushNotifications deleteNotificationForTaskWithID:objectId];
+            [PushNotificationsManager deleteNotificationForTaskWithID:taskId];
 
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }
