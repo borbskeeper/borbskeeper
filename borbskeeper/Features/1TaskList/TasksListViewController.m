@@ -67,10 +67,10 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     [BorbParseManager fetchIncompleteTasksOfUser:self.current_username WithCompletion:^(NSMutableArray *posts) {
         self.incompleteTaskList = posts;
         completion();
-        [self checkDate];
+        //[self checkDate];
     }];
 }
-
+/*
 - (void)checkDate {
     [self compareDate];
 }
@@ -80,7 +80,7 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     NSComparisonResult result;
     Task *task = self.incompleteTaskList[0];
     result = [today compare:task.dueDate];
-}
+}*/
 
 - (void)loadMoreData {
     Task *latestTask = [self.incompleteTaskList lastObject];

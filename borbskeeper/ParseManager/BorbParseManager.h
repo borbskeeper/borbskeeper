@@ -10,6 +10,7 @@
 #import "Parse/Parse.h"
 #import "User.h"
 #import "Task.h"
+#import "Post.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
