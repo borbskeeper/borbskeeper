@@ -11,8 +11,8 @@
 #import "BorbParseManager.h"
 #import "Task.h"
 #import "CompleteTaskListInfiniteScrollView.h"
-#import "TaskCell.h"
 #import "ComposePostForTaskViewController.h"
+#import "CompletedTaskCell.h"
 
 @interface ProfileViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, InfiniteScrollDelegate>
 

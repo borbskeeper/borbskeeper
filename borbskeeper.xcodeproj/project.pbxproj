@@ -17,6 +17,7 @@
 		4A55B94D22EA2EBF00CA5400 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A55B94C22EA2EBF00CA5400 /* ProfileViewController.m */; };
 		4A55B95622EB818700CA5400 /* IncompleteTaskListInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A55B95522EB818700CA5400 /* IncompleteTaskListInfiniteScrollView.m */; };
 		4A55B95922EB84AB00CA5400 /* CompleteTaskListInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A55B95822EB84AB00CA5400 /* CompleteTaskListInfiniteScrollView.m */; };
+		4A55B95C22EF67FA00CA5400 /* CompletedTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A55B95B22EF67FA00CA5400 /* CompletedTaskCell.m */; };
 		4A944D4622DE49390065782C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A944D4522DE49390065782C /* LoginViewController.m */; };
 		4A944D4822DE497C0065782C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A944D4722DE497C0065782C /* Login.storyboard */; };
 		4A944D4A22DE49A20065782C /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A944D4922DE49A20065782C /* SignUp.storyboard */; };
@@ -83,6 +84,8 @@
 		4A55B95522EB818700CA5400 /* IncompleteTaskListInfiniteScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IncompleteTaskListInfiniteScrollView.m; sourceTree = "<group>"; };
 		4A55B95722EB84AB00CA5400 /* CompleteTaskListInfiniteScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompleteTaskListInfiniteScrollView.h; sourceTree = "<group>"; };
 		4A55B95822EB84AB00CA5400 /* CompleteTaskListInfiniteScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompleteTaskListInfiniteScrollView.m; sourceTree = "<group>"; };
+		4A55B95A22EF67FA00CA5400 /* CompletedTaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CompletedTaskCell.h; path = borbskeeper/Features/Profile/CompletedTaskCell.h; sourceTree = SOURCE_ROOT; };
+		4A55B95B22EF67FA00CA5400 /* CompletedTaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CompletedTaskCell.m; path = borbskeeper/Features/Profile/CompletedTaskCell.m; sourceTree = SOURCE_ROOT; };
 		4A627650C748D04B68328283 /* Pods-borbskeeperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeperTests.release.xcconfig"; path = "Target Support Files/Pods-borbskeeperTests/Pods-borbskeeperTests.release.xcconfig"; sourceTree = "<group>"; };
 		4A944D4422DE49390065782C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		4A944D4522DE49390065782C /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 			children = (
 				3432CFB422DE6CA700B6C47E /* TaskCell.h */,
 				3432CFB522DE6CA700B6C47E /* TaskCell.m */,
+				4A55B95A22EF67FA00CA5400 /* CompletedTaskCell.h */,
+				4A55B95B22EF67FA00CA5400 /* CompletedTaskCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -673,6 +678,7 @@
 				A2FBF62222EB969D00464637 /* ComposePostViewController.m in Sources */,
 				A2A2922E22EA67B600276315 /* PushNotifications.m in Sources */,
 				A28F5C0D22DE6C14001FAFC7 /* Borb.m in Sources */,
+				4A55B95C22EF67FA00CA5400 /* CompletedTaskCell.m in Sources */,
 				A2BC23BB22DD2CD70030EA51 /* main.m in Sources */,
 				A2BC23AD22DD2CD60030EA51 /* AppDelegate.m in Sources */,
 				3432CFB322DE6BE800B6C47E /* TasksListViewController.m in Sources */,
