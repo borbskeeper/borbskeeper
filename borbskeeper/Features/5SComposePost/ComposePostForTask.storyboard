@@ -35,35 +35,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9lz-Ps-eyj">
-                                <rect key="frame" x="104" y="135" width="175" height="175"/>
+                                <rect key="frame" x="100" y="88" width="175" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKU-WJ-QJz">
-                                <rect key="frame" x="36" y="310" width="136" height="30"/>
+                                <rect key="frame" x="41" y="264" width="136" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Choose from library"/>
+                                <connections>
+                                    <action selector="choosePhotoButtonClicked:" destination="Nwz-sn-vfe" eventType="touchUpInside" id="bb5-rJ-cOA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktC-7F-0hb">
-                                <rect key="frame" x="239" y="310" width="89" height="30"/>
+                                <rect key="frame" x="230" y="264" width="89" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Take a Photo"/>
+                                <connections>
+                                    <action selector="takePhotoButtonClicked:" destination="Nwz-sn-vfe" eventType="touchUpInside" id="bBz-Pd-j2U"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4/20/2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKu-p2-S3w">
-                                <rect key="frame" x="26" y="376" width="64" height="17"/>
+                                <rect key="frame" x="26" y="342" width="309" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of Task" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTe-9D-U15">
-                                <rect key="frame" x="26" y="348" width="104" height="20"/>
+                                <rect key="frame" x="26" y="323" width="309" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZQ-Qp-HVR">
-                                <rect key="frame" x="26" y="401" width="88" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZQ-Qp-HVR">
+                                <rect key="frame" x="26" y="374" width="309" height="213"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -86,7 +92,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="selectedImage" destination="9lz-Ps-eyj" id="W0W-sq-kTR"/>
+                        <outlet property="selectedImageView" destination="9lz-Ps-eyj" id="UmB-ZS-y5D"/>
+                        <outlet property="taskDescriptionLabel" destination="8ZQ-Qp-HVR" id="0Gi-d8-B0P"/>
+                        <outlet property="taskDueDateLabel" destination="HKu-p2-S3w" id="4ln-Sv-th2"/>
+                        <outlet property="taskNameLabel" destination="kTe-9D-U15" id="2lQ-xb-UNw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="otD-b7-pIc" userLabel="First Responder" sceneMemberID="firstResponder"/>

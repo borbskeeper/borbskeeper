@@ -137,21 +137,24 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 }
 
 
-
-
-
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"composePostForTask"]) {
-        UINavigationController *navigationController = [segue destinationViewController];
-        ComposePostForTaskViewController *composePostController = (ComposePostForTaskViewController*)navigationController.topViewController;
-        
+    if ([[segue identifier] isEqualToString:@"composePostForTaskSegue"]) {
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.completeTaskListInfiniteScrollView.tableView indexPathForCell:tappedCell];
         Task* task = self.completeTaskList[indexPath.row];
-        composePostController.task = task;
+        
+        if (task.posted) {
+            NSLog(@"Already posted this task! Cannot.");
+        }
+        else {
+            UINavigationController *navigationController = [segue destinationViewController];
+            ComposePostForTaskViewController *composePostController = (ComposePostForTaskViewController*)navigationController.topViewController;
+
+            composePostController.selectedTask = task;
+        }
     }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
