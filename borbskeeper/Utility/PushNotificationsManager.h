@@ -1,5 +1,5 @@
 //
-//  PushNotifications.h
+//  PushNotificationsManager.h
 //  borbskeeper
 //
 //  Created by juliapark628 on 7/25/19.

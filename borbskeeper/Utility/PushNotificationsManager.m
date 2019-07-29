@@ -1,5 +1,5 @@
 //
-//  PushNotifications.m
+//  PushNotificationsManager.m
 //  borbskeeper
 //
 //  Created by juliapark628 on 7/25/19.
