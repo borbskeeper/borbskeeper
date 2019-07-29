@@ -10,21 +10,37 @@
 #import "Task.h"
 #import "Post.h"
 #import "BorbParseManager.h"
+#import "TaskCell.h"
 
-@interface ComposePostViewController () < UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ComposePostViewController () < UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UIImage* selectedImage;
-@property (strong, nonatomic) Task* selectedTask;
+@property (strong, nonatomic) Task *selectedTask;
+@property (strong, nonatomic) NSArray *completeTaskList;
 @property (weak, nonatomic) IBOutlet UIImageView *selectedImageView;
-
+@property (weak, nonatomic) IBOutlet UITableView *taskTableView;
 
 @end
+
+static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 
 @implementation ComposePostViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.completeTaskList count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    TaskCell *cell = [tableView dequeueReusableCellWithIdentifier:COMPLETE_TASK_TABLE_VIEW_CELL_ID];
+    
+    Task *currTask = self.completeTaskList[indexPath.row];
+    [cell setupWithTask:currTask];
+    return cell;
 }
 
 - (IBAction)choosePhotoButtonClicked:(id)sender {
@@ -99,6 +115,12 @@
 }
 
 - (IBAction)postBarButtonClicked:(id)sender {
+    if (!self.selectedImage|| !self.selectedTask) {
+        NSLog(@"error");
+        // put a error alert here
+        return;
+    }
+    // self.selectedTask = ; 
     Post *newPost = [Post createPost:self.selectedImage withTask:self.selectedTask];
     [BorbParseManager savePost:newPost withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (error) {

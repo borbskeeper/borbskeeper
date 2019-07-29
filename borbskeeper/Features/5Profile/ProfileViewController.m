@@ -12,6 +12,7 @@
 #import "Task.h"
 #import "CompleteTaskListInfiniteScrollView.h"
 #import "TaskCell.h"
+#import "ComposePostForTaskViewController.h"
 
 @interface ProfileViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, InfiniteScrollDelegate>
 
@@ -92,7 +93,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     [BorbParseManager fetchCompleteTasksOfUser:User.currentUser.username withCompletion:^(NSMutableArray *tasks) {
         self.completeTaskList = tasks;
         completion();
-        [self checkDate];
+        // [self checkDate];
     }];
 }
 
@@ -110,7 +111,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
         }
     }];
 }
-
+/*
 - (void)checkDate {
     [self compareDate];
 }
@@ -120,7 +121,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     NSComparisonResult result;
     Task *task = self.completeTaskList[0];
     result = [today compare:task.dueDate];
-}
+} */
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.completeTaskList count];
@@ -135,14 +136,26 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     return cell;
 }
 
-/*
+
+
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"composePostForTask"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposePostForTaskViewController *composePostController = (ComposePostForTaskViewController*)navigationController.topViewController;
+        
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.completeTaskListInfiniteScrollView.tableView indexPathForCell:tappedCell];
+        Task* task = self.completeTaskList[indexPath.row];
+        composePostController.task = task;
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

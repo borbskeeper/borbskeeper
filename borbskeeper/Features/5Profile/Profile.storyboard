@@ -98,6 +98,7 @@
                                                     <outlet property="checkboxButton" destination="7Op-WZ-sHK" id="6mj-Io-keb"/>
                                                     <outlet property="dueDate" destination="fiO-y7-0TA" id="Yd9-Sz-x4v"/>
                                                     <outlet property="taskNameLabel" destination="VXb-Xr-TS4" id="f4v-5c-4KL"/>
+                                                    <segue destination="Of9-3a-UzL" kind="presentation" identifier="composePostForTaskSegue" id="eEJ-bj-Ruv"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -151,6 +152,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cvx-77-PrF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1231.2" y="110.19490254872565"/>
+        </scene>
+        <!--ComposePostForTask-->
+        <scene sceneID="e3X-8K-qFF">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="composePostForTask" storyboardName="ComposePostForTask" referencedIdentifier="ComposePostForTask" id="Of9-3a-UzL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iK0-c0-m6n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1964" y="209"/>
         </scene>
         <!--Profile-->
         <scene sceneID="NUa-YD-4ip">

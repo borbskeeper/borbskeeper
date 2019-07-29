@@ -37,6 +37,8 @@
 		A2BC23BB22DD2CD70030EA51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BC23BA22DD2CD70030EA51 /* main.m */; };
 		A2BC23C522DD2CD70030EA51 /* borbskeeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BC23C422DD2CD70030EA51 /* borbskeeperTests.m */; };
 		A2BC23D022DD2CD70030EA51 /* borbskeeperUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BC23CF22DD2CD70030EA51 /* borbskeeperUITests.m */; };
+		A2FAE71522EFA37C0081DAE7 /* ComposePostForTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2FAE71422EFA37C0081DAE7 /* ComposePostForTask.storyboard */; };
+		A2FAE71822EFA5870081DAE7 /* ComposePostForTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FAE71722EFA5870081DAE7 /* ComposePostForTaskViewController.m */; };
 		A2FBF61622EB8FD800464637 /* SocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FBF61522EB8FD800464637 /* SocialViewController.m */; };
 		A2FBF61822EB8FE700464637 /* Social.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2FBF61722EB8FE700464637 /* Social.storyboard */; };
 		A2FBF61B22EB95F700464637 /* AddFriends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2FBF61A22EB95F700464637 /* AddFriends.storyboard */; };
@@ -122,6 +124,9 @@
 		A2BC23CB22DD2CD70030EA51 /* borbskeeperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = borbskeeperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BC23CF22DD2CD70030EA51 /* borbskeeperUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = borbskeeperUITests.m; sourceTree = "<group>"; };
 		A2BC23D122DD2CD70030EA51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2FAE71422EFA37C0081DAE7 /* ComposePostForTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComposePostForTask.storyboard; sourceTree = "<group>"; };
+		A2FAE71622EFA5870081DAE7 /* ComposePostForTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposePostForTaskViewController.h; sourceTree = "<group>"; };
+		A2FAE71722EFA5870081DAE7 /* ComposePostForTaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposePostForTaskViewController.m; sourceTree = "<group>"; };
 		A2FBF61422EB8FD800464637 /* SocialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialViewController.h; sourceTree = "<group>"; };
 		A2FBF61522EB8FD800464637 /* SocialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialViewController.m; sourceTree = "<group>"; };
 		A2FBF61722EB8FE700464637 /* Social.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Social.storyboard; sourceTree = "<group>"; };
@@ -222,6 +227,7 @@
 				A2FBF61922EB959E00464637 /* 2LAddFriends */,
 				A2284FCD22E241EB006217C9 /* 3BorbPage */,
 				4A55B94822EA2EA200CA5400 /* 5Profile */,
+				A2FAE71022EFA3390081DAE7 /* 5SComposePost */,
 				4A944D3F22DE42960065782C /* SignUp */,
 				4A944D3D22DE42750065782C /* Login */,
 			);
@@ -366,6 +372,16 @@
 				A2BC23D122DD2CD70030EA51 /* Info.plist */,
 			);
 			path = borbskeeperUITests;
+			sourceTree = "<group>";
+		};
+		A2FAE71022EFA3390081DAE7 /* 5SComposePost */ = {
+			isa = PBXGroup;
+			children = (
+				A2FAE71422EFA37C0081DAE7 /* ComposePostForTask.storyboard */,
+				A2FAE71622EFA5870081DAE7 /* ComposePostForTaskViewController.h */,
+				A2FAE71722EFA5870081DAE7 /* ComposePostForTaskViewController.m */,
+			);
+			path = 5SComposePost;
 			sourceTree = "<group>";
 		};
 		A2FBF61322EB8F8B00464637 /* 2Social */ = {
@@ -519,6 +535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AB260D022E0F5B70062DD14 /* ComposeTask.storyboard in Resources */,
+				A2FAE71522EFA37C0081DAE7 /* ComposePostForTask.storyboard in Resources */,
 				4A944D4822DE497C0065782C /* Login.storyboard in Resources */,
 				A2FBF61822EB8FE700464637 /* Social.storyboard in Resources */,
 				A2FBF62422EB96AB00464637 /* ComposePostStoryboard.storyboard in Resources */,
@@ -640,6 +657,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3432CFB622DE6CA700B6C47E /* TaskCell.m in Sources */,
+				A2FAE71822EFA5870081DAE7 /* ComposePostForTaskViewController.m in Sources */,
 				4A944D6222DE8EF00065782C /* BorbParseManager.m in Sources */,
 				4A55B94D22EA2EBF00CA5400 /* ProfileViewController.m in Sources */,
 				4A944D4622DE49390065782C /* LoginViewController.m in Sources */,
