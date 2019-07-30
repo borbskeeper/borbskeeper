@@ -101,6 +101,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="selectedImageView" destination="9lz-Ps-eyj" id="UmB-ZS-y5D"/>
+                        <outlet property="shareOptionButton" destination="5hj-OT-GAV" id="zzA-uL-wun"/>
                         <outlet property="taskDescriptionLabel" destination="8ZQ-Qp-HVR" id="0Gi-d8-B0P"/>
                         <outlet property="taskDueDateLabel" destination="HKu-p2-S3w" id="4ln-Sv-th2"/>
                         <outlet property="taskNameLabel" destination="kTe-9D-U15" id="2lQ-xb-UNw"/>

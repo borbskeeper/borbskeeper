@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *taskNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *taskDueDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *taskDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *shareOptionButton;
 
 @end
 
@@ -122,11 +123,22 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
         return;
     }
     Post *newPost = [Post createPost:self.selectedImage withTask:self.selectedTask];
+    if (self.shareOptionButton.selectedSegmentIndex == 0){
+        newPost.sharedGlobally = NO;
+        newPost.sharedWithFriends = YES;
+    } else {
+        newPost.sharedGlobally = YES;
+        newPost.sharedWithFriends = YES;
+    }
+    
     [BorbParseManager savePost:newPost withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Error composing Pos: %@", error.localizedDescription);
         }
         else {
+            self.selectedTask.posted = YES;
+            [BorbParseManager saveTask:self.selectedTask withCompletion:nil];
+            [self.delegate didPostTask];
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }
     }];

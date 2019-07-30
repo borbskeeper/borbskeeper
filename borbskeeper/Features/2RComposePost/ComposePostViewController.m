@@ -19,6 +19,7 @@
 @property (strong, nonatomic) Task *selectedTask;
 @property (weak, nonatomic) IBOutlet UIImageView *selectedImageView;
 @property (weak, nonatomic) IBOutlet ComposePostTaskListInfiniteScrollView *composePostTaskListInfiniteScrollView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *shareOptionButton;
 
 @property (strong, nonatomic) NSMutableArray *completeTaskList;
 @property (strong, nonatomic) NSDate *latestDate;
@@ -150,6 +151,14 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     }
     // self.selectedTask = ; 
     Post *newPost = [Post createPost:self.selectedImage withTask:self.selectedTask];
+    if (self.shareOptionButton.selectedSegmentIndex == 0){
+        newPost.sharedGlobally = NO;
+        newPost.sharedWithFriends = YES;
+    } else {
+        newPost.sharedGlobally = YES;
+        newPost.sharedWithFriends = YES;
+    }
+    
     [BorbParseManager savePost:newPost withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Error composing Pos: %@", error.localizedDescription);

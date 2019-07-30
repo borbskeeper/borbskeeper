@@ -14,7 +14,7 @@
 #import "ComposePostForTaskViewController.h"
 #import "CompletedTaskCell.h"
 
-@interface ProfileViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, InfiniteScrollDelegate>
+@interface ProfileViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, InfiniteScrollDelegate, ComposePostViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
@@ -110,17 +110,10 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
         }
     }];
 }
-/*
-- (void)checkDate {
-    [self compareDate];
-}
 
-- (void)compareDate {
-    NSDate *today = [NSDate date];
-    NSComparisonResult result;
-    Task *task = self.completeTaskList[0];
-    result = [today compare:task.dueDate];
-} */
+- (void)didPostTask {
+    [self.completeTaskListInfiniteScrollView fetchData];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.completeTaskList count];
@@ -151,7 +144,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
         else {
             UINavigationController *navigationController = [segue destinationViewController];
             ComposePostForTaskViewController *composePostController = (ComposePostForTaskViewController*)navigationController.topViewController;
-
+            composePostController.delegate = self;
             composePostController.selectedTask = task;
         }
     }

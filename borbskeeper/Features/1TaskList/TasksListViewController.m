@@ -104,11 +104,12 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     if ([segue.identifier isEqualToString:EDIT_SEGUE_ID]){
         UINavigationController *navigationController = [segue destinationViewController];
         ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
-        
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.incompleteTaskListInfiniteScrollView.tableView indexPathForCell:tappedCell];
         Task* task = self.incompleteTaskList[indexPath.row];
+        composeController.delegate = self;
         composeController.task = task;
+    
     } else if([segue.identifier  isEqual: COMPOSE_SEGUE_ID]){
         UINavigationController *navigationController = [segue destinationViewController];
         ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
