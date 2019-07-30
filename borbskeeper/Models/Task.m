@@ -8,6 +8,7 @@
 
 #import "Task.h"
 #import "User.h"
+#import <UserNotifications/UserNotifications.h>
 
 @implementation Task
 
