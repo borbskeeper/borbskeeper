@@ -57,13 +57,72 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="148" id="BPh-ma-I8i">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="148"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="492" id="BPh-ma-I8i" customClass="PostCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="492"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BPh-ma-I8i" id="JS3-GS-IBU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="147.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="491.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FTq-t2-8kg">
+                                                    <rect key="frame" x="20" y="16" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="FEu-AT-qaR"/>
+                                                        <constraint firstAttribute="height" constant="50" id="lrg-6c-NfK"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uaa-vg-aRd">
+                                                    <rect key="frame" x="20" y="99.5" width="340" height="340"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="340" id="Q8r-CT-QVE"/>
+                                                        <constraint firstAttribute="height" constant="340" id="uHc-0c-oUx"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83H-bK-O7L">
+                                                    <rect key="frame" x="20" y="71" width="84.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhD-sc-In2">
+                                                    <rect key="frame" x="80" y="30.5" width="79" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sq6-9y-gHq">
+                                                    <rect key="frame" x="316" y="444.5" width="44" height="30"/>
+                                                    <state key="normal" title="Verify!"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Posted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wv9-3U-s9d">
+                                                    <rect key="frame" x="189" y="30.5" width="94" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="OhD-sc-In2" firstAttribute="leading" secondItem="FTq-t2-8kg" secondAttribute="trailing" constant="10" id="8ph-aY-bXD"/>
+                                                <constraint firstItem="Sq6-9y-gHq" firstAttribute="trailing" secondItem="Uaa-vg-aRd" secondAttribute="trailing" id="Db2-6l-KtD"/>
+                                                <constraint firstItem="83H-bK-O7L" firstAttribute="leading" secondItem="FTq-t2-8kg" secondAttribute="leading" id="Dlj-Zf-faY"/>
+                                                <constraint firstItem="FTq-t2-8kg" firstAttribute="leading" secondItem="JS3-GS-IBU" secondAttribute="leadingMargin" constant="5" id="GQX-dX-dRA"/>
+                                                <constraint firstItem="83H-bK-O7L" firstAttribute="top" secondItem="FTq-t2-8kg" secondAttribute="bottom" constant="5" id="Smz-AL-pjj"/>
+                                                <constraint firstItem="wv9-3U-s9d" firstAttribute="leading" secondItem="OhD-sc-In2" secondAttribute="trailing" constant="30" id="Szi-8k-g8G"/>
+                                                <constraint firstItem="FTq-t2-8kg" firstAttribute="top" secondItem="JS3-GS-IBU" secondAttribute="topMargin" constant="5" id="gBq-eX-wRq"/>
+                                                <constraint firstItem="wv9-3U-s9d" firstAttribute="centerY" secondItem="OhD-sc-In2" secondAttribute="centerY" id="hd6-nG-Uwd"/>
+                                                <constraint firstItem="OhD-sc-In2" firstAttribute="centerY" secondItem="FTq-t2-8kg" secondAttribute="centerY" id="mpy-1n-h0y"/>
+                                                <constraint firstItem="Uaa-vg-aRd" firstAttribute="leading" secondItem="83H-bK-O7L" secondAttribute="leading" id="oo3-aA-CQ9"/>
+                                                <constraint firstItem="Uaa-vg-aRd" firstAttribute="top" secondItem="83H-bK-O7L" secondAttribute="bottom" constant="8" id="sM3-a1-cOK"/>
+                                                <constraint firstItem="Sq6-9y-gHq" firstAttribute="top" secondItem="Uaa-vg-aRd" secondAttribute="bottom" constant="5" id="yWB-d6-si3"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="datePostedLabel" destination="wv9-3U-s9d" id="BWA-Gy-EzN"/>
+                                            <outlet property="photoImageView" destination="Uaa-vg-aRd" id="oid-eP-m1p"/>
+                                            <outlet property="profilePhotoImageView" destination="FTq-t2-8kg" id="7jV-xv-hIW"/>
+                                            <outlet property="taskNameLabel" destination="83H-bK-O7L" id="uDL-qr-UcC"/>
+                                            <outlet property="usernameLabel" destination="OhD-sc-In2" id="afe-Tm-yUg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -91,6 +150,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="4eR-g3-Jx6" id="P72-LN-yhl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hm-c8-yDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

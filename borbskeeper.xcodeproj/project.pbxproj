@@ -40,6 +40,7 @@
 		A2BC23D022DD2CD70030EA51 /* borbskeeperUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BC23CF22DD2CD70030EA51 /* borbskeeperUITests.m */; };
 		A2FAE71522EFA37C0081DAE7 /* ComposePostForTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2FAE71422EFA37C0081DAE7 /* ComposePostForTask.storyboard */; };
 		A2FAE71822EFA5870081DAE7 /* ComposePostForTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FAE71722EFA5870081DAE7 /* ComposePostForTaskViewController.m */; };
+		A2FAE71B22EFAEDD0081DAE7 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FAE71A22EFAEDD0081DAE7 /* PostCell.m */; };
 		A2FBF61622EB8FD800464637 /* SocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FBF61522EB8FD800464637 /* SocialViewController.m */; };
 		A2FBF61822EB8FE700464637 /* Social.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2FBF61722EB8FE700464637 /* Social.storyboard */; };
 		A2FBF61B22EB95F700464637 /* AddFriends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2FBF61A22EB95F700464637 /* AddFriends.storyboard */; };
@@ -130,6 +131,8 @@
 		A2FAE71422EFA37C0081DAE7 /* ComposePostForTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComposePostForTask.storyboard; sourceTree = "<group>"; };
 		A2FAE71622EFA5870081DAE7 /* ComposePostForTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposePostForTaskViewController.h; sourceTree = "<group>"; };
 		A2FAE71722EFA5870081DAE7 /* ComposePostForTaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposePostForTaskViewController.m; sourceTree = "<group>"; };
+		A2FAE71922EFAEDD0081DAE7 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
+		A2FAE71A22EFAEDD0081DAE7 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		A2FBF61422EB8FD800464637 /* SocialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialViewController.h; sourceTree = "<group>"; };
 		A2FBF61522EB8FD800464637 /* SocialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialViewController.m; sourceTree = "<group>"; };
 		A2FBF61722EB8FE700464637 /* Social.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Social.storyboard; sourceTree = "<group>"; };
@@ -218,6 +221,8 @@
 				3432CFB522DE6CA700B6C47E /* TaskCell.m */,
 				4A55B95A22EF67FA00CA5400 /* CompletedTaskCell.h */,
 				4A55B95B22EF67FA00CA5400 /* CompletedTaskCell.m */,
+				A2FAE71922EFAEDD0081DAE7 /* PostCell.h */,
+				A2FAE71A22EFAEDD0081DAE7 /* PostCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -670,6 +675,7 @@
 				4A55B95622EB818700CA5400 /* IncompleteTaskListInfiniteScrollView.m in Sources */,
 				A2FBF61622EB8FD800464637 /* SocialViewController.m in Sources */,
 				A28F5C0A22DE598E001FAFC7 /* User.m in Sources */,
+				A2FAE71B22EFAEDD0081DAE7 /* PostCell.m in Sources */,
 				A2FBF61E22EB960D00464637 /* AddFriendsViewController.m in Sources */,
 				A28F5C1022DE6D43001FAFC7 /* Task.m in Sources */,
 				A2284FD022E24217006217C9 /* BorbPageViewController.m in Sources */,

@@ -150,7 +150,6 @@ static int const PARSE_QUERY_LIMIT = 20;
             NSLog(@"%@", error.localizedDescription);
         }
     }];
-    
 }
 
 + (void)fetchBorb:(NSString *)borbID WithCompletion:(void (^)(NSMutableArray *))completion {
@@ -162,6 +161,22 @@ static int const PARSE_QUERY_LIMIT = 20;
             completion([NSMutableArray arrayWithArray:borbs]);
         } else {
             // TBD: Call completion with error
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
++ (void) fetchGlobalPostsWithCompletion: (void (^)(NSMutableArray *))completion {
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query includeKey:@"author"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = PARSE_QUERY_LIMIT;
+    [query whereKey:@"verified" equalTo:@NO];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            completion([NSMutableArray arrayWithArray:posts]);
+        } else {
             NSLog(@"%@", error.localizedDescription);
         }
     }];

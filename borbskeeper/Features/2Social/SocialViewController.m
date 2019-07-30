@@ -7,8 +7,14 @@
 //
 
 #import "SocialViewController.h"
+#import "BorbParseManager.h"
+#import "PostCell.h"
 
-@interface SocialViewController ()
+@interface SocialViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray* posts;
+
 
 @end
 
@@ -16,9 +22,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
+    
+    [self beginRefresh:nil];
     // Do any additional setup after loading the view.
 }
 
+- (void)beginRefresh:(UIRefreshControl * _Nullable)refreshControl {
+    [BorbParseManager fetchGlobalPostsWithCompletion:^(NSMutableArray * _Nonnull posts) {
+        self.posts = posts;
+        
+        [self.tableView reloadData];
+        
+        [refreshControl endRefreshing];
+    }];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+        return [self.posts count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
+    
+    Post *post = self.posts[indexPath.row];
+    [cell setupWithPost:post];
+    return cell;
+}
 /*
 #pragma mark - Navigation
 

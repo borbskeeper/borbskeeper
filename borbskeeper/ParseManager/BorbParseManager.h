@@ -39,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)loadMoreCompleteTasksOfUser:(NSString *)username withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion;
 
++ (void) fetchGlobalPostsWithCompletion: (void (^)(NSMutableArray *))completion;
+
 + (void)signOutUser;
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
