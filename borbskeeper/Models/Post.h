@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) Task* task;
 @property (nonatomic, strong) PFFileObject *image;
 @property (nonatomic) BOOL verified;
+@property (nonatomic) BOOL sharedWithFriends;
+@property (nonatomic) BOOL sharedGlobally;
 
 + (Post *)createPost:(UIImage *)image withTask:(Task *)task; 
 

@@ -16,6 +16,8 @@
 @dynamic task;
 @dynamic image;
 @dynamic verified;
+@dynamic sharedWithFriends;
+@dynamic sharedGlobally;
 
 + (nonnull NSString *)parseClassName {
     return @"Post";

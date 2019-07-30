@@ -98,7 +98,7 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
                                              [PushNotifications createNotificationForTask:(Task *)task WithID:objectId];
                                          }];
             [PushNotifications deleteNotificationForTaskWithID:objectId];
-
+            [self.delegate didSaveTask];
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }
     }
