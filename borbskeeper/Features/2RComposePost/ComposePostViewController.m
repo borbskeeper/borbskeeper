@@ -11,15 +11,17 @@
 #import "Post.h"
 #import "BorbParseManager.h"
 #import "TaskCell.h"
+#import "ComposePostTaskListInfiniteScrollView.h"
 
-@interface ComposePostViewController () < UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ComposePostViewController () < UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate, InfiniteScrollDelegate>
 
 @property (strong, nonatomic) UIImage* selectedImage;
 @property (strong, nonatomic) Task *selectedTask;
-@property (strong, nonatomic) NSArray *completeTaskList;
 @property (weak, nonatomic) IBOutlet UIImageView *selectedImageView;
-@property (weak, nonatomic) IBOutlet UITableView *taskTableView;
+@property (weak, nonatomic) IBOutlet ComposePostTaskListInfiniteScrollView *composePostTaskListInfiniteScrollView;
 
+@property (strong, nonatomic) NSMutableArray *completeTaskList;
+@property (strong, nonatomic) NSDate *latestDate;
 @end
 
 static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
@@ -28,12 +30,38 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.composePostTaskListInfiniteScrollView.infiniteScrollDelegate = self;
+    [self.composePostTaskListInfiniteScrollView setupTableView];
     // Do any additional setup after loading the view.
+}
+
+- (void)fetchDataWithCompletion:(void (^)(void))completion {
+    [BorbParseManager fetchCompleteTasksOfUser:User.currentUser.username ifNotPosted:YES withCompletion:^(NSMutableArray *tasks) {
+        self.completeTaskList = tasks;
+        completion();
+        // [self checkDate];
+    }];
+}
+
+- (void)loadMoreData {
+    Task *latestTask = [self.completeTaskList lastObject];
+    self.latestDate = latestTask.createdAt;
+    
+    [BorbParseManager loadMoreCompleteTasksOfUser:User.currentUser.username ifNotPosted:YES withLaterDate:self.latestDate withCompletion:^(NSMutableArray *posts) {
+        if ([posts count] > 0) {
+            [self.completeTaskList addObjectsFromArray:posts];
+            [self.composePostTaskListInfiniteScrollView.tableView reloadData];
+            self.composePostTaskListInfiniteScrollView.isMoreDataLoading = false;
+        } else {
+            self.composePostTaskListInfiniteScrollView.isMoreDataLoading = true;
+        }
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.completeTaskList count];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TaskCell *cell = [tableView dequeueReusableCellWithIdentifier:COMPLETE_TASK_TABLE_VIEW_CELL_ID];

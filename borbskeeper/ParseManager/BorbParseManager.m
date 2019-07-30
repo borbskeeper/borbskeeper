@@ -24,6 +24,7 @@ static NSString *const TASK_COMPLETED_KEY = @"completed";
 
 static NSString *const QUERY_BORB_NAME = @"Borb";
 static NSString *const BORB_ID_KEY = @"objectId";
+static NSString *const TASK_POSTED_KEY = @"posted";
 
 static int const PARSE_QUERY_LIMIT = 20;
 
@@ -115,13 +116,17 @@ static int const PARSE_QUERY_LIMIT = 20;
     
 }
 
-+ (void)fetchCompleteTasksOfUser:(NSString *)username withCompletion:(void (^)(NSMutableArray *))completion {
++ (void)fetchCompleteTasksOfUser:(NSString *)username ifNotPosted:(BOOL)postedStatus withCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     query.limit = PARSE_QUERY_LIMIT;
     [query orderByDescending:TASK_DATE_CREATED_KEY];
     [query includeKey:TASK_AUTHOR_KEY];
     [query whereKey:TASK_AUTHOR_KEY equalTo:[PFUser currentUser]];
     [query whereKey:TASK_COMPLETED_KEY equalTo:@YES];
+    
+    if (postedStatus == YES){
+        [query whereKey:TASK_POSTED_KEY equalTo:@NO];
+    }
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
@@ -133,7 +138,7 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
-+ (void)loadMoreCompleteTasksOfUser:(NSString *)username withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion {
++ (void)loadMoreCompleteTasksOfUser:(NSString *)username ifNotPosted:(BOOL)postedStatus withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     query.limit = PARSE_QUERY_LIMIT;
     [query orderByDescending:TASK_DATE_CREATED_KEY];
@@ -141,6 +146,10 @@ static int const PARSE_QUERY_LIMIT = 20;
     [query whereKey:TASK_AUTHOR_KEY equalTo:[PFUser currentUser]];
     [query whereKey:TASK_COMPLETED_KEY equalTo:@YES];
     [query whereKey:TASK_DATE_CREATED_KEY lessThan:date];
+    
+    if (postedStatus == YES){
+        [query whereKey:TASK_POSTED_KEY equalTo:@YES];
+    }
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {

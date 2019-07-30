@@ -70,13 +70,13 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/20/2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiO-y7-0TA">
-                                                            <rect key="frame" x="55" y="51" width="64" height="17"/>
+                                                            <rect key="frame" x="55" y="46" width="64" height="17"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Task" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXb-Xr-TS4">
-                                                            <rect key="frame" x="55" y="21" width="104" height="20"/>
+                                                            <rect key="frame" x="55" y="21" width="225" height="20"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -104,9 +104,10 @@
                                                     <constraints>
                                                         <constraint firstItem="VXb-Xr-TS4" firstAttribute="top" secondItem="7Op-WZ-sHK" secondAttribute="top" id="1Hb-TQ-F5t"/>
                                                         <constraint firstItem="fiO-y7-0TA" firstAttribute="leading" secondItem="VXb-Xr-TS4" secondAttribute="leading" id="7ih-Gy-sYw"/>
-                                                        <constraint firstItem="fiO-y7-0TA" firstAttribute="top" secondItem="VXb-Xr-TS4" secondAttribute="bottom" constant="10" id="PU9-eC-cHV"/>
+                                                        <constraint firstItem="fiO-y7-0TA" firstAttribute="top" secondItem="VXb-Xr-TS4" secondAttribute="bottom" constant="5" id="PU9-eC-cHV"/>
                                                         <constraint firstItem="3Zn-Gj-bng" firstAttribute="top" secondItem="VXb-Xr-TS4" secondAttribute="top" id="UcF-uc-9U7"/>
                                                         <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="fiO-y7-0TA" secondAttribute="bottom" constant="10" id="X9x-cE-Cg3"/>
+                                                        <constraint firstItem="Y8v-a4-jvV" firstAttribute="leading" secondItem="VXb-Xr-TS4" secondAttribute="trailing" constant="10" id="YGA-cg-5MQ"/>
                                                         <constraint firstItem="7Op-WZ-sHK" firstAttribute="top" secondItem="fpd-aX-Js9" secondAttribute="topMargin" constant="10" id="bxz-x1-dN2"/>
                                                         <constraint firstItem="Y8v-a4-jvV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fpd-aX-Js9" secondAttribute="leading" constant="10" id="dQd-Qb-tba"/>
                                                         <constraint firstItem="VXb-Xr-TS4" firstAttribute="leading" secondItem="7Op-WZ-sHK" secondAttribute="trailing" constant="10" id="eBu-kd-ow5"/>
@@ -117,15 +118,12 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="checkboxButton" destination="7Op-WZ-sHK" id="6mj-Io-keb"/>
-                                                    <outlet property="dueDate" destination="fiO-y7-0TA" id="Yd9-Sz-x4v"/>
-                                                    <outlet property="taskNameLabel" destination="VXb-Xr-TS4" id="f4v-5c-4KL"/>
-                                                    <segue destination="Of9-3a-UzL" kind="presentation" identifier="composePostForTaskSegue" id="eEJ-bj-Ruv"/>
-\                                                    <outlet property="checkboxButton" destination="7Op-WZ-sHK" id="jAG-vA-tLa"/>
+                                                    <outlet property="checkboxButton" destination="7Op-WZ-sHK" id="jAG-vA-tLa"/>
                                                     <outlet property="dueDate" destination="fiO-y7-0TA" id="SSe-2o-CRr"/>
                                                     <outlet property="sharedIcon" destination="Y8v-a4-jvV" id="Pcd-I0-i4G"/>
                                                     <outlet property="taskNameLabel" destination="VXb-Xr-TS4" id="YSM-M5-ZIU"/>
                                                     <outlet property="verifiedIcon" destination="3Zn-Gj-bng" id="nli-nj-VNi"/>
+                                                    <segue destination="Of9-3a-UzL" kind="presentation" identifier="composePostForTaskSegue" id="eEJ-bj-Ruv"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
