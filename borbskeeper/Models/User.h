@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray *friendsList;
 @property (nonatomic, strong) PFFileObject *profilePicture;
 @property (nonatomic, strong) Borb *usersBorb;
+@property (nonatomic, strong) NSDate *userLogin;
 
 - (void)increaseUserCoinsBy:(int)numCoins;
 - (void)decreaseUserCoinsBy:(int)numCoins;

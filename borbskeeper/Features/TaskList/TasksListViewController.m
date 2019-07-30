@@ -10,6 +10,9 @@
 #import "Task.h"
 #import "BorbParseManager.h"
 #import "ComposeTaskViewController.h"
+#import "Borb.h"
+#import "GameConstants.h"
+#import "User.h"
 #import "IncompleteTaskListInfiniteScrollView.h"
 
 @interface TasksListViewController () <InfiniteScrollDelegate, ComposeViewControllerDelegate>
@@ -28,6 +31,9 @@
 static NSString *const COMPOSE_SEGUE_ID = @"composeTaskSegue";
 static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
 static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
+static const int START_INDEX = 0;
+static const int SECS_TO_HOURS = 3600;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,7 +42,7 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     
     self.current_username = [PFUser currentUser].username;
     [self.incompleteTaskListInfiniteScrollView setupTableView];
-     
+    [self decayByTime];
 }
 
 - (IBAction)didTapNewTask:(id)sender {
@@ -67,6 +73,37 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
     [BorbParseManager fetchIncompleteTasksOfUser:self.current_username WithCompletion:^(NSMutableArray *posts) {
         self.incompleteTaskList = posts;
         completion();
+        [self decayByIncompleteTask];
+    }];
+}
+
+- (void)decayByIncompleteTask{
+    NSDate *today = [NSDate date];
+    NSComparisonResult result;
+    for (int i = START_INDEX; i < [self.incompleteTaskList count]; i++){
+        Task *task = self.incompleteTaskList[i];
+        result = [today compare: task.dueDate];
+        if (result == NSOrderedDescending){
+            [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
+                Borb *userBorb = borbs[0];
+                [userBorb decreaseHealthPointsBy:BORB_HP_DECAY_PER_INCOMPLETE_TASK];
+                [BorbParseManager saveBorb:userBorb withCompletion:nil];
+            }];
+            // NSLog(@"This task is past due");
+        } else if (result == NSOrderedAscending){
+            // NSLog(@"This task is not due yet");
+        }
+    }
+}
+
+-(void)decayByTime{
+    NSDate *today = [NSDate date]; //get today's date
+    NSTimeInterval secondsBetween = [today timeIntervalSinceDate: [User currentUser].userLogin];
+    int numOfHours = secondsBetween / SECS_TO_HOURS;
+    [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
+        Borb *userBorb = borbs[0];
+        [userBorb decreaseHealthPointsBy:(BORB_HP_DECAY_PER_HOUR * numOfHours)];
+        [BorbParseManager saveBorb:userBorb withCompletion:nil];
     }];
 }
 
@@ -84,7 +121,6 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
         }
     }];
 }
-
 
 #pragma mark - Navigation
 
