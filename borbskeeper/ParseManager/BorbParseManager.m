@@ -35,6 +35,8 @@ static int const PARSE_QUERY_LIMIT = 20;
     newUser.password = password;
     newUser.userCoins = @0;
     newUser.friendsList = [[NSMutableArray alloc] init];
+    newUser.userLogin = [NSDate date];
+    NSLog(@"%@", newUser.userLogin);
     
     UIImage *defaultImage = [UIImage imageNamed:@"profile_placeholder"];
     NSData *imageData = UIImagePNGRepresentation(defaultImage);
@@ -59,7 +61,6 @@ static int const PARSE_QUERY_LIMIT = 20;
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         completion(error);
     }];
-    
 }
 
 + (void)saveTask:(Task*)task withCompletion: (PFBooleanResultBlock  _Nullable)completion{
@@ -113,7 +114,6 @@ static int const PARSE_QUERY_LIMIT = 20;
             NSLog(@"%@", error.localizedDescription);
         }
     }];
-    
 }
 
 + (void)fetchCompleteTasksOfUser:(NSString *)username ifNotPosted:(BOOL)postedStatus withCompletion:(void (^)(NSMutableArray *))completion {

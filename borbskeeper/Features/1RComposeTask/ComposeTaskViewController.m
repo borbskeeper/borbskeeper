@@ -10,7 +10,7 @@
 #import "TasksListViewController.h"
 #import "UITextView+Placeholder.h"
 #import "Task.h"
-#import "PushNotifications.h"
+#import "PushNotificationsManager.h"
 
 @interface ComposeTaskViewController () <UITextViewDelegate>
 
@@ -65,19 +65,19 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
                                                      handler:^(UIAlertAction * _Nonnull action) {
                                                      }];
     [saveNotSuccessfulAlert addAction:okAction];
-    
+
     if ([Task checkForInvalidTextFields:@[self.taskTitleTextField.text]] == YES){
         [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
     } else {
         if (self.task == nil) {
-            
+
             Task *newTask = [Task createTask:self.taskTitleTextField.text
                              withDescription:self.taskDescTextView.text
                                  withDueDate:self.taskDeadlineDatePicker.date];
             [BorbParseManager saveTask:newTask withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                 if (succeeded) {
                     NSString *objectId = [newTask objectId];
-                    [PushNotifications createNotificationForTask:newTask WithID:objectId];
+                    [PushNotificationsManager createNotificationForTask:newTask withID:objectId];
                     [self.delegate didSaveTask];
                     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                 } else {
@@ -86,16 +86,15 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
             }];
         } else {
             PFQuery *query = [PFQuery queryWithClassName:@"Task"];
-            
-            NSString *objectId = [self.task objectId];
-            [query getObjectInBackgroundWithId:objectId
+
+            NSString *taskId = [self.task objectId];
+            [query getObjectInBackgroundWithId:taskId
                                          block:^(PFObject *task, NSError *error) {
                                              task[@"taskName"] = self.taskTitleTextField.text;
                                              task[@"taskDescription"] = self.taskDescTextView.text;
                                              task[@"dueDate"] = self.taskDeadlineDatePicker.date;
                                              [task saveInBackground];
-                                             
-                                             [PushNotifications createNotificationForTask:(Task *)task WithID:objectId];
+                                             [PushNotificationsManager createNotificationForTask:(Task *)task withID:taskId];
                                          }];
             [PushNotifications deleteNotificationForTaskWithID:objectId];
             [self.delegate didSaveTask];

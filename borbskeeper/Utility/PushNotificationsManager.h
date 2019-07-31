@@ -1,5 +1,5 @@
 //
-//  PushNotifications.h
+//  PushNotificationsManager.h
 //  borbskeeper
 //
 //  Created by juliapark628 on 7/25/19.
@@ -13,9 +13,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PushNotifications : NSObject
+@interface PushNotificationsManager : NSObject
 
-+ (void)createNotificationForTask:(Task *)task WithID:(NSString *)taskID;
++ (void)createNotificationForTask:(Task *)task withID:(NSString *)taskID;
 + (void)deleteNotificationForTaskWithID:(nonnull NSString *)taskID; 
 
 @end
