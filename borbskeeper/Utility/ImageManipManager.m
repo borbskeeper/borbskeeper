@@ -25,11 +25,9 @@
     else {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Camera" message:@"There is no camera." preferredStyle:(UIAlertControllerStyleAlert)];
         
-        // try again by refreshing
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         }];
         
-        // add the refresh action to the alert controller
         [alert addAction:cancelAction];
         
         [self.imageManipManagerDelegate presentViewController:alert animated:YES completion:^{

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol ImageManipManagerDelegate
 
+// these methods will already be implemented if the delegate is a subclass of UIViewController (which it should be)
 - (void)presentViewController:(UIViewController *)viewControllerToPresent animated: (BOOL)flag completion:(void (^ __nullable)(void))completion NS_AVAILABLE_IOS(5_0);
 - (void)dismissViewControllerAnimated: (BOOL)flag completion: (void (^ __nullable)(void))completion NS_AVAILABLE_IOS(5_0);
 
@@ -23,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ImageManipManager : NSObject <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 - (void) attemptToSetImageSourceToCamera;
-- (void) setImageSourceToLibrary
+- (void) setImageSourceToLibrary;
 
 @property (nonatomic, weak) id<ImageManipManagerDelegate> imageManipManagerDelegate;
 
