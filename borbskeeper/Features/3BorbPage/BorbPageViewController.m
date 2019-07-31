@@ -10,6 +10,7 @@
 #import "GameConstants.h"
 #import "BorbParseManager.h"
 #import "Borb.h"
+#import <SpriteKit/SpriteKit.h>
 
 
 @interface BorbPageViewController ()
@@ -23,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *maxHPLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *feedBorbButton;
+
+@property (weak, nonatomic) IBOutlet SKView *hpBarSprite;
+
 
 @property (strong, nonatomic) User *user;
 
@@ -63,7 +67,18 @@ static NSString *const OK_ACTION_TITLE = @"OK";
         
         self.borbHPLabel.text = [NSString stringWithFormat:@"%@", borb.borbHealth];
         self.maxHPLabel.text = [NSString stringWithFormat:@"/ %d", MAX_HP];
+        
+        // TODO: set up bar w/animation
+        /*
+        SKShapeNode *hpBar = [[SKShapeNode alloc] init];
+        
+        CGSize size = CGSizeMake(100, 20);
+        hpBar = [SKShapeNode shapeNodeWithRectOfSize:size cornerRadius:5];
+        
+        */
+        [self.hpBarSprite presentScene:[SKScene nodeWithFileNamed:@"gameBar"]];
     }];
+
 }
 
 - (IBAction)didTapFeed:(id)sender {
