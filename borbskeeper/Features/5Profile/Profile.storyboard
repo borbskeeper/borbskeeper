@@ -190,7 +190,7 @@
         <scene sceneID="NUa-YD-4ip">
             <objects>
                 <navigationController storyboardIdentifier="Profile" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KoX-Q4-s1y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="7pL-Zq-zjK"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="User" id="7pL-Zq-zjK"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="etV-KY-030">
@@ -211,6 +211,7 @@
         <image name="Globe Unshared" width="700" height="700"/>
         <image name="Globe shared" width="700" height="700"/>
         <image name="Unverified" width="700" height="700"/>
+        <image name="User" width="25" height="25"/>
         <image name="Verified" width="700" height="700"/>
         <image name="checkbox_checked" width="96" height="96"/>
         <image name="checkbox_empty" width="96" height="96"/>

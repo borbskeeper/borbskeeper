@@ -14,7 +14,7 @@
         <scene sceneID="zCf-qX-fZs">
             <objects>
                 <navigationController storyboardIdentifier="Social" id="Dcr-vd-V0Z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Social" id="jqm-zT-omr"/>
+                    <tabBarItem key="tabBarItem" title="Social" image="Social" id="jqm-zT-omr"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uih-cV-ws1">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -159,4 +159,7 @@
             <point key="canvasLocation" x="-119.2" y="-15.742128935532236"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Social" width="25" height="25"/>
+    </resources>
 </document>
