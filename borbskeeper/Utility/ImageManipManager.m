@@ -8,45 +8,60 @@
 
 #import "ImageManipManager.h"
 
+@interface ImageManipManager ()
+
+@property (strong, nonatomic) UIViewController *originalViewController;
+
+@end
+
 @implementation ImageManipManager
 
+- (bool) presentImagePickerFromViewController:(UIViewController *)viewController withImageSource:(imageSource) imageSource {
+    self.originalViewController = viewController;
+    
+    if (imageSource == LIBRARY) {
+        return [self setImageSourceToLibrary];
+    }
+    else if (imageSource == CAMERA) {
+        return [self attemptToSetImageSourceToCamera];
+    }
+    else {
+        return false;
+    }
+}
 
-- (void) attemptToSetImageSourceToCamera {
+
+- (bool) attemptToSetImageSourceToCamera {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
-    
-    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self.imageManipManagerDelegate presentViewController:imagePickerVC animated:YES completion:nil];
+        [self.originalViewController presentViewController:imagePickerVC animated:YES completion:nil];
+        return true;
     }
     else {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Camera" message:@"There is no camera." preferredStyle:(UIAlertControllerStyleAlert)];
-        
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        }];
-        
-        [alert addAction:cancelAction];
-        
-        [self.imageManipManagerDelegate presentViewController:alert animated:YES completion:^{
-            // do nothing
-        }];
+        return false;
     }
 }
 
-- (void) setImageSourceToLibrary {
+- (bool) setImageSourceToLibrary {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
     
-    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self.imageManipManagerDelegate presentViewController:imagePickerVC animated:YES completion:nil];
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self.originalViewController presentViewController:imagePickerVC animated:YES completion:nil];
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = [self resizeImage:originalImage withSize:CGSizeMake(375, 375)];
@@ -54,7 +69,7 @@
     [self.imageManipManagerDelegate saveImage:editedImage];
 
     // Dismiss UIImagePickerController to go back to your original view controller
-    [self.imageManipManagerDelegate dismissViewControllerAnimated:YES completion:nil];
+    [self.originalViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
