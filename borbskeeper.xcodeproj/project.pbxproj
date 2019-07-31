@@ -28,6 +28,7 @@
 		4AB260D022E0F5B70062DD14 /* ComposeTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */; };
 		A2284FD022E24217006217C9 /* BorbPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2284FCF22E24217006217C9 /* BorbPageViewController.m */; };
 		A2284FD222E24229006217C9 /* BorbPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2284FD122E24229006217C9 /* BorbPage.storyboard */; };
+		A228EF8E22F20D2F00F5C6F6 /* ImageManipManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A228EF8D22F20D2F00F5C6F6 /* ImageManipManager.m */; };
 		A2660C4422E64331008C39C7 /* GameConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A2660C4322E64331008C39C7 /* GameConstants.m */; };
 		A28F5C0A22DE598E001FAFC7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0922DE598E001FAFC7 /* User.m */; };
 		A28F5C0D22DE6C14001FAFC7 /* Borb.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0C22DE6C14001FAFC7 /* Borb.m */; };
@@ -97,6 +98,8 @@
 		A2284FCE22E24217006217C9 /* BorbPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorbPageViewController.h; sourceTree = "<group>"; };
 		A2284FCF22E24217006217C9 /* BorbPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorbPageViewController.m; sourceTree = "<group>"; };
 		A2284FD122E24229006217C9 /* BorbPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BorbPage.storyboard; sourceTree = "<group>"; };
+		A228EF8C22F20D2F00F5C6F6 /* ImageManipManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageManipManager.h; sourceTree = "<group>"; };
+		A228EF8D22F20D2F00F5C6F6 /* ImageManipManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageManipManager.m; sourceTree = "<group>"; };
 		A2660C4222E64331008C39C7 /* GameConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
 		A2660C4322E64331008C39C7 /* GameConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameConstants.m; sourceTree = "<group>"; };
 		A28F5C0822DE598E001FAFC7 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = User.h; path = borbskeeper/Models/User.h; sourceTree = SOURCE_ROOT; };
@@ -298,6 +301,8 @@
 				A2660C4322E64331008C39C7 /* GameConstants.m */,
 				A2A2922C22EA67B600276315 /* PushNotificationsManager.h */,
 				A2A2922D22EA67B600276315 /* PushNotificationsManager.m */,
+				A228EF8C22F20D2F00F5C6F6 /* ImageManipManager.h */,
+				A228EF8D22F20D2F00F5C6F6 /* ImageManipManager.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -613,6 +618,7 @@
 				4A55B95922EB84AB00CA5400 /* CompleteTaskListInfiniteScrollView.m in Sources */,
 				4AB260CE22E0F5890062DD14 /* ComposeTaskViewController.m in Sources */,
 				A2A2922E22EA67B600276315 /* PushNotificationsManager.m in Sources */,
+				A228EF8E22F20D2F00F5C6F6 /* ImageManipManager.m in Sources */,
 				A28F5C0D22DE6C14001FAFC7 /* Borb.m in Sources */,
 				A2BC23BB22DD2CD70030EA51 /* main.m in Sources */,
 				A2BC23AD22DD2CD60030EA51 /* AppDelegate.m in Sources */,

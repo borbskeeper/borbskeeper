@@ -12,16 +12,16 @@
 #import "Task.h"
 #import "CompleteTaskListInfiniteScrollView.h"
 #import "TaskCell.h"
+#import "ImageManipManager.h"
 
-@interface ProfileViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, InfiniteScrollDelegate>
+@interface ProfileViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, InfiniteScrollDelegate, ImageManipManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet CompleteTaskListInfiniteScrollView *completeTaskListInfiniteScrollView;
 @property (strong, nonatomic) NSMutableArray *completeTaskList;
 @property (strong, nonatomic) NSDate *latestDate;
-@property (strong, nonatomic) UIImage *originalImage;
-@property (strong, nonatomic) UIImage *editedImage;
+@property (strong, nonatomic) ImageManipManager *imageManip;
 
 @end
 
@@ -36,6 +36,8 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     self.completeTaskListInfiniteScrollView.infiniteScrollDelegate = self;
     [self setupProfile];
     [self.completeTaskListInfiniteScrollView setupTableView];
+    self.imageManip = [[ImageManipManager alloc] init];
+    self.imageManip.imageManipManagerDelegate = self;
 }
 
 - (void)setupProfile {
@@ -63,29 +65,16 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     return newImage;
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    self.originalImage = info[UIImagePickerControllerOriginalImage];
-    self.editedImage = [self resizeImage:self.originalImage withSize:CGSizeMake(1000, 1000)];
-    [self.profilePicture setImage:self.editedImage];
-    
-    [User currentUser][USER_PROF_PIC_KEY] = [BorbParseManager getPFFileFromImage:self.editedImage];
-    
-    [BorbParseManager saveUser:[User currentUser] withCompletion:nil];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)didTapChangeProfilePicture:(id)sender {
+    [self.imageManip setImageSourceToLibrary];
 }
 
-- (IBAction)didTapChangeProfilePicture:(id)sender {
-    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
-    imagePickerVC.delegate = self;
-    imagePickerVC.allowsEditing = YES;
+- (void) saveImage:(UIImage *)selectedImage {
+    [self.profilePicture setImage:selectedImage];
     
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
-    } else {
-        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }
-    [self presentViewController:imagePickerVC animated:YES completion:nil];
+    [User currentUser][USER_PROF_PIC_KEY] = [BorbParseManager getPFFileFromImage:selectedImage];
+    
+    [BorbParseManager saveUser:[User currentUser] withCompletion:nil];
 }
 
 - (void)fetchDataWithCompletion:(void (^)(void))completion {
