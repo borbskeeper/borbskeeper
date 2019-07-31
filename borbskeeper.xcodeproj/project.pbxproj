@@ -64,8 +64,8 @@
 		3432CFA622DE597700B6C47E /* TasksList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TasksList.storyboard; sourceTree = "<group>"; };
 		3432CFB122DE6BE800B6C47E /* TasksListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TasksListViewController.h; sourceTree = "<group>"; };
 		3432CFB222DE6BE800B6C47E /* TasksListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TasksListViewController.m; sourceTree = "<group>"; };
-		3432CFB422DE6CA700B6C47E /* TaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TaskCell.h; path = borbskeeper/Features/TaskList/TaskCell.h; sourceTree = SOURCE_ROOT; };
-		3432CFB522DE6CA700B6C47E /* TaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TaskCell.m; path = borbskeeper/Features/TaskList/TaskCell.m; sourceTree = SOURCE_ROOT; };
+		3432CFB422DE6CA700B6C47E /* TaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TaskCell.h; path = borbskeeper/Views/TaskCell.h; sourceTree = SOURCE_ROOT; };
+		3432CFB522DE6CA700B6C47E /* TaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TaskCell.m; path = borbskeeper/Views/TaskCell.m; sourceTree = SOURCE_ROOT; };
 		3494209E22EB7BC500FDA714 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		349420A322EB855E00FDA714 /* SettingsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		349420A422EB855E00FDA714 /* SettingsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
@@ -171,9 +171,9 @@
 				349420A422EB855E00FDA714 /* SettingsTableViewController.m */,
 			);
 			path = Settings;
-      sourceTree = "<group>";
-    };
-		4A55B94822EA2EA200CA5400 /* Profile */ = {
+			sourceTree = "<group>";
+		};
+		4A55B94822EA2EA200CA5400 /* 5Profile */ = {
 			isa = PBXGroup;
 			children = (
 				4A55B94922EA2EB000CA5400 /* Profile.storyboard */,
@@ -182,7 +182,7 @@
 				4A55B95722EB84AB00CA5400 /* CompleteTaskListInfiniteScrollView.h */,
 				4A55B95822EB84AB00CA5400 /* CompleteTaskListInfiniteScrollView.m */,
 			);
-			path = Profile;
+			path = 5Profile;
 			sourceTree = "<group>";
 		};
 		4A944D3A22DE42360065782C /* Models */ = {
@@ -210,11 +210,11 @@
 		4A944D3C22DE424C0065782C /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4A944D4022DE42AA0065782C /* 1TaskList */,
+				4AB260CB22E0F4110062DD14 /* 1RComposeTask */,
+				A2284FCD22E241EB006217C9 /* 3BorbPage */,
+				4A55B94822EA2EA200CA5400 /* 5Profile */,
 				3494209D22EB7BA700FDA714 /* Settings */,
-				4A55B94822EA2EA200CA5400 /* Profile */,
-				A2284FCD22E241EB006217C9 /* BorbPage */,
-				4AB260CB22E0F4110062DD14 /* ComposeTask */,
-				4A944D4022DE42AA0065782C /* TaskList */,
 				4A944D3F22DE42960065782C /* SignUp */,
 				4A944D3D22DE42750065782C /* Login */,
 			);
@@ -241,7 +241,7 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
-		4A944D4022DE42AA0065782C /* TaskList */ = {
+		4A944D4022DE42AA0065782C /* 1TaskList */ = {
 			isa = PBXGroup;
 			children = (
 				3432CFA622DE597700B6C47E /* TasksList.storyboard */,
@@ -250,7 +250,7 @@
 				4A55B95422EB818700CA5400 /* IncompleteTaskListInfiniteScrollView.h */,
 				4A55B95522EB818700CA5400 /* IncompleteTaskListInfiniteScrollView.m */,
 			);
-			path = TaskList;
+			path = 1TaskList;
 			sourceTree = "<group>";
 		};
 		4A944D4122DE433A0065782C /* ParseManager */ = {
@@ -262,14 +262,14 @@
 			path = ParseManager;
 			sourceTree = "<group>";
 		};
-		4AB260CB22E0F4110062DD14 /* ComposeTask */ = {
+		4AB260CB22E0F4110062DD14 /* 1RComposeTask */ = {
 			isa = PBXGroup;
 			children = (
 				4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */,
 				4AB260CC22E0F5890062DD14 /* ComposeTaskViewController.h */,
 				4AB260CD22E0F5890062DD14 /* ComposeTaskViewController.m */,
 			);
-			path = ComposeTask;
+			path = 1RComposeTask;
 			sourceTree = "<group>";
 		};
 		4AB260D122E7BF7D0062DD14 /* Infinite Scrolling Framework */ = {
@@ -281,14 +281,14 @@
 			path = "Infinite Scrolling Framework";
 			sourceTree = "<group>";
 		};
-		A2284FCD22E241EB006217C9 /* BorbPage */ = {
+		A2284FCD22E241EB006217C9 /* 3BorbPage */ = {
 			isa = PBXGroup;
 			children = (
 				A2284FCE22E24217006217C9 /* BorbPageViewController.h */,
 				A2284FCF22E24217006217C9 /* BorbPageViewController.m */,
 				A2284FD122E24229006217C9 /* BorbPage.storyboard */,
 			);
-			path = BorbPage;
+			path = 3BorbPage;
 			sourceTree = "<group>";
 		};
 		A2660C4122E6427E008C39C7 /* Utility */ = {
