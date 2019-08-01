@@ -10,6 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--settings-->
+        <scene sceneID="d98-qd-FSX">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="settings" storyboardName="Settings" referencedIdentifier="settings" id="eAT-L5-jge" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YRR-Ro-3HT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1210" y="-296"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="DA3-5N-nb9">
             <objects>
@@ -46,11 +54,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iua-m0-cvN" customClass="CompleteTaskListInfiniteScrollView">
                                 <rect key="frame" x="0.0" y="219" width="375" height="448"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B9J-XS-sJS">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B9J-XS-sJS">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="448"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompletedTaskCell" rowHeight="121" id="DGo-ka-m6r" customClass="TaskCell">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompletedTaskCell" rowHeight="121" id="DGo-ka-m6r" customClass="CompletedTaskCell">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="121"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DGo-ka-m6r" id="fpd-aX-Js9">
@@ -70,34 +78,60 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/20/2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiO-y7-0TA">
-                                                            <rect key="frame" x="55" y="51" width="64" height="17"/>
+                                                            <rect key="frame" x="55" y="46" width="64" height="17"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Task" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXb-Xr-TS4">
-                                                            <rect key="frame" x="55" y="21" width="104" height="20"/>
+                                                            <rect key="frame" x="55" y="21" width="225" height="20"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8v-a4-jvV">
+                                                            <rect key="frame" x="290" y="21" width="25" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="25" id="M3y-no-Z7b"/>
+                                                                <constraint firstAttribute="height" constant="25" id="dId-uJ-84Y"/>
+                                                            </constraints>
+                                                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <state key="normal" title="Button" image="Globe Unshared"/>
+                                                            <state key="selected" image="Globe shared"/>
+                                                        </button>
+                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zn-Gj-bng">
+                                                            <rect key="frame" x="325" y="21" width="25" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="0jz-gj-ib5"/>
+                                                                <constraint firstAttribute="width" constant="25" id="1sc-s4-DaF"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button" image="Unverified"/>
+                                                            <state key="selected" image="Verified"/>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="VXb-Xr-TS4" firstAttribute="top" secondItem="7Op-WZ-sHK" secondAttribute="top" id="1Hb-TQ-F5t"/>
                                                         <constraint firstItem="fiO-y7-0TA" firstAttribute="leading" secondItem="VXb-Xr-TS4" secondAttribute="leading" id="7ih-Gy-sYw"/>
-                                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="fiO-y7-0TA" secondAttribute="trailing" constant="10" id="MLk-5s-YAE"/>
-                                                        <constraint firstItem="fiO-y7-0TA" firstAttribute="top" secondItem="VXb-Xr-TS4" secondAttribute="bottom" constant="10" id="PU9-eC-cHV"/>
+                                                        <constraint firstItem="fiO-y7-0TA" firstAttribute="top" secondItem="VXb-Xr-TS4" secondAttribute="bottom" constant="5" id="PU9-eC-cHV"/>
+                                                        <constraint firstItem="3Zn-Gj-bng" firstAttribute="top" secondItem="VXb-Xr-TS4" secondAttribute="top" id="UcF-uc-9U7"/>
                                                         <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="fiO-y7-0TA" secondAttribute="bottom" constant="10" id="X9x-cE-Cg3"/>
+                                                        <constraint firstItem="Y8v-a4-jvV" firstAttribute="leading" secondItem="VXb-Xr-TS4" secondAttribute="trailing" constant="10" id="YGA-cg-5MQ"/>
                                                         <constraint firstItem="7Op-WZ-sHK" firstAttribute="top" secondItem="fpd-aX-Js9" secondAttribute="topMargin" constant="10" id="bxz-x1-dN2"/>
+                                                        <constraint firstItem="Y8v-a4-jvV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fpd-aX-Js9" secondAttribute="leading" constant="10" id="dQd-Qb-tba"/>
                                                         <constraint firstItem="VXb-Xr-TS4" firstAttribute="leading" secondItem="7Op-WZ-sHK" secondAttribute="trailing" constant="10" id="eBu-kd-ow5"/>
                                                         <constraint firstItem="7Op-WZ-sHK" firstAttribute="leading" secondItem="fpd-aX-Js9" secondAttribute="leadingMargin" constant="10" id="eyc-js-Inu"/>
-                                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="VXb-Xr-TS4" secondAttribute="trailing" constant="10" id="j57-qj-DTb"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="3Zn-Gj-bng" secondAttribute="trailing" constant="10" id="fPS-Vh-xXL"/>
+                                                        <constraint firstItem="Y8v-a4-jvV" firstAttribute="top" secondItem="7Op-WZ-sHK" secondAttribute="top" id="v4s-vy-P9i"/>
+                                                        <constraint firstItem="3Zn-Gj-bng" firstAttribute="leading" secondItem="Y8v-a4-jvV" secondAttribute="trailing" constant="10" id="vPo-kG-u0i"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="checkboxButton" destination="7Op-WZ-sHK" id="6mj-Io-keb"/>
-                                                    <outlet property="dueDate" destination="fiO-y7-0TA" id="Yd9-Sz-x4v"/>
-                                                    <outlet property="taskNameLabel" destination="VXb-Xr-TS4" id="f4v-5c-4KL"/>
+                                                    <outlet property="checkboxButton" destination="7Op-WZ-sHK" id="jAG-vA-tLa"/>
+                                                    <outlet property="dueDate" destination="fiO-y7-0TA" id="SSe-2o-CRr"/>
+                                                    <outlet property="sharedIcon" destination="Y8v-a4-jvV" id="Pcd-I0-i4G"/>
+                                                    <outlet property="taskNameLabel" destination="VXb-Xr-TS4" id="YSM-M5-ZIU"/>
+                                                    <outlet property="verifiedIcon" destination="3Zn-Gj-bng" id="nli-nj-VNi"/>
+                                                    <segue destination="Of9-3a-UzL" kind="presentation" identifier="composePostForTaskSegue" id="eEJ-bj-Ruv"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -141,7 +175,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AXT-aU-e77"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Uxd-T4-WLf"/>
+                    <navigationItem key="navigationItem" id="Uxd-T4-WLf">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="4vd-db-V7f">
+                            <connections>
+                                <segue destination="eAT-L5-jge" kind="presentation" id="qcQ-8R-1wF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="completeTaskListInfiniteScrollView" destination="iua-m0-cvN" id="c6q-SK-2pM"/>
                         <outlet property="profilePicture" destination="gWZ-Cu-ltZ" id="um8-fb-qvp"/>
@@ -152,11 +192,19 @@
             </objects>
             <point key="canvasLocation" x="1231.2" y="110.19490254872565"/>
         </scene>
+        <!--ComposePostForTask-->
+        <scene sceneID="e3X-8K-qFF">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="composePostForTask" storyboardName="ComposePostForTask" referencedIdentifier="ComposePostForTask" id="Of9-3a-UzL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iK0-c0-m6n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1964" y="209"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="NUa-YD-4ip">
             <objects>
                 <navigationController storyboardIdentifier="Profile" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KoX-Q4-s1y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="7pL-Zq-zjK"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="User" id="7pL-Zq-zjK"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="etV-KY-030">
@@ -174,6 +222,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Globe Unshared" width="700" height="700"/>
+        <image name="Globe shared" width="700" height="700"/>
+        <image name="Unverified" width="700" height="700"/>
+        <image name="User" width="25" height="25"/>
+        <image name="Verified" width="700" height="700"/>
         <image name="checkbox_checked" width="96" height="96"/>
         <image name="checkbox_empty" width="96" height="96"/>
     </resources>

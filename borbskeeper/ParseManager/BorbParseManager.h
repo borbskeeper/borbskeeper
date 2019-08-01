@@ -10,6 +10,7 @@
 #import "Parse/Parse.h"
 #import "User.h"
 #import "Task.h"
+#import "Post.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,15 +27,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)saveBorb:(Borb*)borb withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
++ (void)savePost:(Post*)post withCompletion: (PFBooleanResultBlock _Nullable)completion;
+
 + (void)fetchBorb:(NSString *)borbID WithCompletion:(void (^)(NSMutableArray *))completion;
 
 + (void)fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion;
 
 + (void)loadMoreIncompleteTasksOfUser:(NSString *)username withLaterDate:(NSDate *)date WithCompletion:(void (^)(NSMutableArray *))completion;
 
-+ (void)fetchCompleteTasksOfUser:(NSString *)username withCompletion:(void (^)(NSMutableArray *))completion;
++ (void)fetchCompleteTasksOfUser:(NSString *)username ifNotPosted:(BOOL)postedStatus withCompletion:(void (^)(NSMutableArray *))completion;
 
-+ (void)loadMoreCompleteTasksOfUser:(NSString *)username withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion;
++ (void)loadMoreCompleteTasksOfUser:(NSString *)username ifNotPosted:(BOOL)postedStatus withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion;
+
++ (void) fetchGlobalPostsWithCompletion: (void (^)(NSMutableArray *))completion;
 
 + (void)signOutUser;
 
