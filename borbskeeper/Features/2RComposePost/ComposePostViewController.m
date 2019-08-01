@@ -74,7 +74,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 }
 
 - (IBAction)choosePhotoButtonClicked:(id)sender {
-    [self.imageManip presentImagePickerFromViewController:self withImageSource:LIBRARY];
+    [self.imageManip presentImagePickerFromViewController:self withImageSource:IMAGESOURCE_LIBRARY];
 }
 
 - (IBAction)takePhotoButtonClicked:(id)sender {

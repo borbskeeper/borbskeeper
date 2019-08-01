@@ -44,11 +44,11 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
 }
 
 - (IBAction)choosePhotoButtonClicked:(id)sender {
-    [self.imageManip presentImagePickerFromViewController:self withImageSource:LIBRARY];
+    [self.imageManip presentImagePickerFromViewController:self withImageSource:IMAGESOURCE_LIBRARY];
 }
 
 - (IBAction)takePhotoButtonClicked:(id)sender {
-    if (![self.imageManip presentImagePickerFromViewController:self withImageSource:CAMERA]) {
+    if (![self.imageManip presentImagePickerFromViewController:self withImageSource:IMAGESOURCE_CAMERA]) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Camera" message:@"There is no camera." preferredStyle:(UIAlertControllerStyleAlert)];
         
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
