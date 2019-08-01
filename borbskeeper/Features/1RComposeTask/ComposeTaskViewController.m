@@ -11,6 +11,7 @@
 #import "UITextView+Placeholder.h"
 #import "Task.h"
 #import "PushNotificationsManager.h"
+#import "AlertManager.h"
 
 @interface ComposeTaskViewController () <UITextViewDelegate>
 
@@ -24,11 +25,7 @@
 
 static NSString *const TASK_DESCRIPTION_PLACEHOLDER = @"What are the details of your task?";
 
-static NSString *const UNSUCCESSFUL_TASK_SAVE_TITLE = @"Could not save task";
-static NSString *const UNSUCCESSFUL_TASK_SAVE_MESSAGE = @"Please try to save task again.";
-static NSString *const OK_ACTION_TITLE = @"OK";
 static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,20 +54,11 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
 
 - (IBAction)didTapSaveTask:(id)sender {
 
-    UIAlertController *saveNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:UNSUCCESSFUL_TASK_SAVE_TITLE
-                                                                                     message:UNSUCCESSFUL_TASK_SAVE_MESSAGE
-                                                                              preferredStyle:(UIAlertControllerStyleAlert)];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:OK_ACTION_TITLE
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                     }];
-    [saveNotSuccessfulAlert addAction:okAction];
-    
     if ([Task checkForInvalidTextFields:@[self.taskTitleTextField.text]] == YES){
-        [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
+        [AlertManager presentSaveTaskNotSuccesfulAlert:self];
     } else {
         if (self.task == nil) {
-            
+
             Task *newTask = [Task createTask:self.taskTitleTextField.text
                              withDescription:self.taskDescTextView.text
                                  withDueDate:self.taskDeadlineDatePicker.date];
@@ -81,12 +69,12 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
                     [self.delegate didSaveTask];
                     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                 } else {
-                    [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
+                    [AlertManager presentSaveTaskNotSuccesfulAlert:self];
                 }
             }];
         } else {
             PFQuery *query = [PFQuery queryWithClassName:@"Task"];
-            
+
             NSString *taskId = [self.task objectId];
             [query getObjectInBackgroundWithId:taskId
                                          block:^(PFObject *task, NSError *error) {
@@ -96,6 +84,7 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
                                              [task saveInBackground];
                                              [PushNotificationsManager createNotificationForTask:(Task *)task withID:taskId];
                                          }];
+            [self.delegate didSaveTask];
             [PushNotificationsManager deleteNotificationForTaskWithID:taskId];
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }

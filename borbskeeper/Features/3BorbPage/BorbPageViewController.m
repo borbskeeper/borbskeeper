@@ -12,6 +12,7 @@
 #import "Borb.h"
 #import <SpriteKit/SpriteKit.h>
 #import "statsBarManager.h"
+#import "AlertManager.h"
 
 @interface BorbPageViewController ()
 
@@ -34,14 +35,6 @@
 @end
 
 @implementation BorbPageViewController
-
-static NSString *const BORB_MAXHP_ALERT_TITLE = @"This Borb is already full!";
-static NSString *const BORB_MAXHP_ALERT_MESSAGE = @"Your Borb is at max HP";
-
-static NSString *const NOT_ENOUGH_COINS_ALERT_TITLE = @"Not enough Coins!";
-static NSString *const NOT_ENOUGH_COINS_FEED_ALERT_MESSAGE = @"You need at least 7 coins to feed your Borb";
-static NSString *const NOT_ENOUGH_COINS_XPBOOST_ALERT_MESSAGE = @"You need at least 75 coins to boost your Borb's XP";
-
 
 static NSString *const OK_ACTION_TITLE = @"OK";
 
@@ -75,25 +68,8 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 }
 
 - (IBAction)didTapFeed:(id)sender {
-    UIAlertController *cannotFeedBorbAlert = [UIAlertController alertControllerWithTitle:BORB_MAXHP_ALERT_TITLE
-                                                                                      message:BORB_MAXHP_ALERT_MESSAGE
-                                                                               preferredStyle:(UIAlertControllerStyleAlert)];
-    
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:OK_ACTION_TITLE
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                     }];
-    
-    [cannotFeedBorbAlert addAction:okAction];
-    
-    UIAlertController *notEnoughCoinsAlert = [UIAlertController alertControllerWithTitle:NOT_ENOUGH_COINS_ALERT_TITLE
-                                                                                 message:NOT_ENOUGH_COINS_FEED_ALERT_MESSAGE
-                                                                          preferredStyle:(UIAlertControllerStyleAlert)];
-    
-    [notEnoughCoinsAlert addAction:okAction];
-    
     if ([self.user.userCoins intValue] < FOOD_COST){
-        [self presentViewController:notEnoughCoinsAlert animated:YES completion:nil];
+        [AlertManager presentNotEnoughCoinsToFeedAlert:self];
 
     } else {
         [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
@@ -101,8 +77,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
             Borb *borb = borbs[0];
             
             if ([borb.borbHealth intValue] == MAX_HP){
-                [self presentViewController:cannotFeedBorbAlert animated:YES completion:nil];
-            
+                [AlertManager presentCannotFeedBorbMaxHPAlert:self];
             } else {
                 [borb feedBorb];
                 [self.user decreaseUserCoinsBy:FOOD_COST];
@@ -116,18 +91,9 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 }
 
 - (IBAction)didTapXPBoost:(id)sender {
-    UIAlertController *notEnoughCoinsAlert = [UIAlertController alertControllerWithTitle:NOT_ENOUGH_COINS_ALERT_TITLE
-                                                                                 message:NOT_ENOUGH_COINS_XPBOOST_ALERT_MESSAGE
-                                                                          preferredStyle:(UIAlertControllerStyleAlert)];
-    
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:OK_ACTION_TITLE
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                     }];
-    [notEnoughCoinsAlert addAction:okAction];
     
     if ([self.user.userCoins intValue] < XP_BOOST_COST){
-        [self presentViewController:notEnoughCoinsAlert animated:YES completion:nil];
+        [AlertManager presentNotEnoughCoinsToBoostXPAlert:self];
         
     } else {
         [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {

@@ -9,6 +9,7 @@
 #import "BorbParseManager.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "Post.h"
 
 @implementation BorbParseManager
 
@@ -18,11 +19,21 @@ static NSString *const LOGIN_VIEW_CONTROLLER_ID = @"login";
 
 static NSString *const QUERY_TASK_NAME = @"Task";
 static NSString *const TASK_DATE_CREATED_KEY = @"createdAt";
-static NSString *const TASK_AUTHOR_KEY = @"author";
+static NSString *const TASK_DATE_DUE_KEY = @"dueDate";
+
+static NSString *const AUTHOR_KEY = @"author";
 static NSString *const TASK_COMPLETED_KEY = @"completed";
+
+static NSString *const QUERY_POST_NAME = @"Post";
+static NSString *const POST_VERIFIED_KEY = @"verified";
 
 static NSString *const QUERY_BORB_NAME = @"Borb";
 static NSString *const BORB_ID_KEY = @"objectId";
+static NSString *const TASK_POSTED_KEY = @"posted";
+
+static NSString *const PLACEHOLDER_IMAGE_NAME = @"profile_placeholder";
+static NSString *const POST_PLACEHOLDER_IMAGE_NAME = @"image.png";
+static NSString *const PROFILE_IMAGE_KEY = @"profile.png";
 
 static int const PARSE_QUERY_LIMIT = 20;
 
@@ -34,11 +45,10 @@ static int const PARSE_QUERY_LIMIT = 20;
     newUser.userCoins = @0;
     newUser.friendsList = [[NSMutableArray alloc] init];
     newUser.userLogin = [NSDate date];
-    NSLog(@"%@", newUser.userLogin);
     
-    UIImage *defaultImage = [UIImage imageNamed:@"profile_placeholder"];
+    UIImage *defaultImage = [UIImage imageNamed:PLACEHOLDER_IMAGE_NAME];
     NSData *imageData = UIImagePNGRepresentation(defaultImage);
-    newUser.profilePicture = [PFFileObject fileObjectWithName:@"profile.png" data:imageData];
+    newUser.profilePicture = [PFFileObject fileObjectWithName:PROFILE_IMAGE_KEY data:imageData];
     
     Borb *newBorb = [[Borb alloc] initWithInitialStats];
     [newBorb saveInBackgroundWithBlock: ^(BOOL succeeded, NSError *error){
@@ -73,12 +83,16 @@ static int const PARSE_QUERY_LIMIT = 20;
     [borb saveInBackgroundWithBlock: completion];
 }
 
++ (void)savePost:(Post*)post withCompletion: (PFBooleanResultBlock _Nullable)completion{
+    [post saveInBackgroundWithBlock: completion];
+}
+
 + (void)fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     query.limit = PARSE_QUERY_LIMIT;
-    [query orderByDescending:TASK_DATE_CREATED_KEY];
-    [query includeKey:TASK_AUTHOR_KEY];
-    [query whereKey:TASK_AUTHOR_KEY equalTo:[PFUser currentUser]];
+    [query orderByAscending:TASK_DATE_DUE_KEY];
+    [query includeKey:AUTHOR_KEY];
+    [query whereKey:AUTHOR_KEY equalTo:[PFUser currentUser]];
     [query whereKey:TASK_COMPLETED_KEY equalTo:@NO];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -94,11 +108,11 @@ static int const PARSE_QUERY_LIMIT = 20;
 + (void)loadMoreIncompleteTasksOfUser:(NSString *)username withLaterDate:(NSDate *)date WithCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     query.limit = PARSE_QUERY_LIMIT;
-    [query orderByDescending:TASK_DATE_CREATED_KEY];
-    [query includeKey:TASK_AUTHOR_KEY];
-    [query whereKey:TASK_AUTHOR_KEY equalTo:[PFUser currentUser]];
+    [query orderByAscending:TASK_DATE_DUE_KEY];
+    [query includeKey:AUTHOR_KEY];
+    [query whereKey:AUTHOR_KEY equalTo:[PFUser currentUser]];
     [query whereKey:TASK_COMPLETED_KEY equalTo:@NO];
-    [query whereKey:TASK_DATE_CREATED_KEY lessThan:date];
+    [query whereKey:TASK_DATE_DUE_KEY greaterThan:date];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
@@ -110,13 +124,17 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
-+ (void)fetchCompleteTasksOfUser:(NSString *)username withCompletion:(void (^)(NSMutableArray *))completion {
++ (void)fetchCompleteTasksOfUser:(NSString *)username ifNotPosted:(BOOL)postedStatus withCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     query.limit = PARSE_QUERY_LIMIT;
-    [query orderByDescending:TASK_DATE_CREATED_KEY];
-    [query includeKey:TASK_AUTHOR_KEY];
-    [query whereKey:TASK_AUTHOR_KEY equalTo:[PFUser currentUser]];
+    [query orderByDescending:TASK_DATE_DUE_KEY];
+    [query includeKey:AUTHOR_KEY];
+    [query whereKey:AUTHOR_KEY equalTo:[PFUser currentUser]];
     [query whereKey:TASK_COMPLETED_KEY equalTo:@YES];
+    
+    if (postedStatus == YES){
+        [query whereKey:TASK_POSTED_KEY equalTo:@NO];
+    }
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
@@ -128,14 +146,18 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
-+ (void)loadMoreCompleteTasksOfUser:(NSString *)username withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion {
++ (void)loadMoreCompleteTasksOfUser:(NSString *)username ifNotPosted:(BOOL)postedStatus withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     query.limit = PARSE_QUERY_LIMIT;
-    [query orderByDescending:TASK_DATE_CREATED_KEY];
-    [query includeKey:TASK_AUTHOR_KEY];
-    [query whereKey:TASK_AUTHOR_KEY equalTo:[PFUser currentUser]];
+    [query orderByDescending:TASK_DATE_DUE_KEY];
+    [query includeKey:AUTHOR_KEY];
+    [query whereKey:AUTHOR_KEY equalTo:[PFUser currentUser]];
     [query whereKey:TASK_COMPLETED_KEY equalTo:@YES];
-    [query whereKey:TASK_DATE_CREATED_KEY lessThan:date];
+    [query whereKey:TASK_DATE_DUE_KEY lessThan:date];
+    
+    if (postedStatus == YES){
+        [query whereKey:TASK_POSTED_KEY equalTo:@YES];
+    }
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
@@ -161,6 +183,22 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
++ (void) fetchGlobalPostsWithCompletion: (void (^)(NSMutableArray *))completion {
+    PFQuery *query = [PFQuery queryWithClassName:QUERY_POST_NAME];
+    [query includeKey:AUTHOR_KEY];
+    [query orderByDescending:TASK_DATE_CREATED_KEY];
+    query.limit = PARSE_QUERY_LIMIT;
+    [query whereKey:POST_VERIFIED_KEY equalTo:@NO];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            completion([NSMutableArray arrayWithArray:posts]);
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
 + (void)signOutUser {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -178,7 +216,7 @@ static int const PARSE_QUERY_LIMIT = 20;
     if (!imageData) {
         return nil;
     }
-    return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
+    return [PFFileObject fileObjectWithName:POST_PLACEHOLDER_IMAGE_NAME data:imageData];
 }
 
 @end
