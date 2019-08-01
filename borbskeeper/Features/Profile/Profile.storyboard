@@ -10,6 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--settings-->
+        <scene sceneID="d98-qd-FSX">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="settings" storyboardName="Settings" referencedIdentifier="settings" id="eAT-L5-jge" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YRR-Ro-3HT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1210" y="-296"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="DA3-5N-nb9">
             <objects>
@@ -141,7 +149,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AXT-aU-e77"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Uxd-T4-WLf"/>
+                    <navigationItem key="navigationItem" id="Uxd-T4-WLf">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="4vd-db-V7f">
+                            <connections>
+                                <segue destination="eAT-L5-jge" kind="presentation" id="qcQ-8R-1wF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="completeTaskListInfiniteScrollView" destination="iua-m0-cvN" id="c6q-SK-2pM"/>
                         <outlet property="profilePicture" destination="gWZ-Cu-ltZ" id="um8-fb-qvp"/>
