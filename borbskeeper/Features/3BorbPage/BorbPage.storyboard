@@ -156,6 +156,7 @@
                         <outlet property="maxHPLabel" destination="nCu-yv-Ux9" id="Ick-wt-PCB"/>
                         <outlet property="maxXPLabel" destination="sml-gq-1XI" id="SqQ-Yl-Nws"/>
                         <outlet property="userCoinsLabel" destination="CEP-dj-MNX" id="UZb-0i-Xkj"/>
+                        <outlet property="xpBarSKView" destination="cuM-QM-moe" id="DBF-tO-nl5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44O-ih-voB" userLabel="First Responder" sceneMemberID="firstResponder"/>
