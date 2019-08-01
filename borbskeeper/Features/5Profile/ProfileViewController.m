@@ -75,7 +75,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 
 - (void)loadMoreData {
     Task *latestTask = [self.completeTaskList lastObject];
-    self.latestDate = latestTask.createdAt;
+    self.latestDate = latestTask.dueDate;
 
     [BorbParseManager loadMoreCompleteTasksOfUser:User.currentUser.username ifNotPosted:NO withLaterDate:self.latestDate withCompletion:^(NSMutableArray *posts) {
         if ([posts count] > 0) {

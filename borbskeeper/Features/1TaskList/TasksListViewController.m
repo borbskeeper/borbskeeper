@@ -109,7 +109,7 @@ static const int SECS_TO_HOURS = 3600;
 
 - (void)loadMoreData {
     Task *latestTask = [self.incompleteTaskList lastObject];
-    self.latestDate = latestTask.createdAt;
+    self.latestDate = latestTask.dueDate;
 
     [BorbParseManager loadMoreIncompleteTasksOfUser:self.current_username withLaterDate:self.latestDate WithCompletion:^(NSMutableArray *posts) {
         if ([posts count] > 0){
