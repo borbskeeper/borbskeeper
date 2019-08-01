@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
 }
 
-- (IBAction)didTapBack:(id)sender {
+- (IBAction)didTapCancel:(id)sender {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 

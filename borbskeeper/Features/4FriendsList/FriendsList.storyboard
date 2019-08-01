@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Friends List View Controller-->
+        <scene sceneID="hfy-yD-xY9">
+            <objects>
+                <viewController id="B5o-gK-IXu" customClass="FriendsListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hgW-6R-jSR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Wrk-Gk-got"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CuG-wG-6Oy">
+                        <barButtonItem key="leftBarButtonItem" title="requests" id="jbq-SQ-GBs">
+                            <connections>
+                                <segue destination="Eog-hC-o8v" kind="presentation" id="Qvm-4S-t4u"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="+" id="SKt-Lo-faX">
+                            <connections>
+                                <segue destination="cXf-G8-UMw" kind="presentation" id="fCD-xS-OFR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L8b-MN-EBL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1986.4000000000001" y="116.49175412293854"/>
+        </scene>
+        <!--Friends-->
+        <scene sceneID="jdo-EC-Uom">
+            <objects>
+                <navigationController storyboardIdentifier="FriendsList" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dDI-wc-BIT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Friends" image="Social" id="iO0-tJ-eU6"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kfT-2y-Jex">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="B5o-gK-IXu" kind="relationship" relationship="rootViewController" id="x1l-rn-8oh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dgj-iL-Yd0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.2" y="116.49175412293854"/>
+        </scene>
+        <!--FriendRequestList-->
+        <scene sceneID="6u3-9L-mpX">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="FriendRequestList" storyboardName="FriendRequestList" referencedIdentifier="FriendRequestList" id="Eog-hC-o8v" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fgE-j9-9A3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2582" y="213"/>
+        </scene>
+        <!--AddFriends-->
+        <scene sceneID="AzD-KD-5Mv">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="AddFriends" storyboardName="AddFriends" referencedIdentifier="AddFriends" id="cXf-G8-UMw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dl1-Xs-P0y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2549" y="10"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Social" width="40" height="40"/>
+    </resources>
+</document>

@@ -15,6 +15,10 @@
 		349420A522EB855E00FDA714 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 349420A422EB855E00FDA714 /* SettingsTableViewController.m */; };
 		4703D7F77889CBBF77A2AD92 /* Pods_borbskeeperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FF1C08AACA2E8CCDBEA0B8 /* Pods_borbskeeperTests.framework */; };
 		4A2ECAF722F240B4003C880B /* AlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ECAF622F240B4003C880B /* AlertManager.m */; };
+		4A2ECAFD22F3607C003C880B /* FriendsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ECAFC22F3607C003C880B /* FriendsListViewController.m */; };
+		4A2ECAFF22F36092003C880B /* FriendsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ECAFE22F36092003C880B /* FriendsList.storyboard */; };
+		4A2ECB0122F360A9003C880B /* FriendRequestList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ECB0022F360A9003C880B /* FriendRequestList.storyboard */; };
+		4A2ECB0422F360BE003C880B /* FriendRequestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ECB0322F360BD003C880B /* FriendRequestsViewController.m */; };
 		4A55B93C22E8FA7500CA5400 /* InfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A55B93B22E8FA7500CA5400 /* InfiniteScrollView.m */; };
 		4A55B94A22EA2EB000CA5400 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A55B94922EA2EB000CA5400 /* Profile.storyboard */; };
 		4A55B94D22EA2EBF00CA5400 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A55B94C22EA2EBF00CA5400 /* ProfileViewController.m */; };
@@ -86,6 +90,12 @@
 		482BEA8B4EC67026AE80FB32 /* Pods-borbskeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeper.release.xcconfig"; path = "Target Support Files/Pods-borbskeeper/Pods-borbskeeper.release.xcconfig"; sourceTree = "<group>"; };
 		4A2ECAF522F240B4003C880B /* AlertManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertManager.h; sourceTree = "<group>"; };
 		4A2ECAF622F240B4003C880B /* AlertManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertManager.m; sourceTree = "<group>"; };
+		4A2ECAFB22F3607C003C880B /* FriendsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsListViewController.h; sourceTree = "<group>"; };
+		4A2ECAFC22F3607C003C880B /* FriendsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsListViewController.m; sourceTree = "<group>"; };
+		4A2ECAFE22F36092003C880B /* FriendsList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendsList.storyboard; sourceTree = "<group>"; };
+		4A2ECB0022F360A9003C880B /* FriendRequestList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendRequestList.storyboard; sourceTree = "<group>"; };
+		4A2ECB0222F360BD003C880B /* FriendRequestsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendRequestsViewController.h; sourceTree = "<group>"; };
+		4A2ECB0322F360BD003C880B /* FriendRequestsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRequestsViewController.m; sourceTree = "<group>"; };
 		4A55B93A22E8FA7500CA5400 /* InfiniteScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfiniteScrollView.h; sourceTree = "<group>"; };
 		4A55B93B22E8FA7500CA5400 /* InfiniteScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfiniteScrollView.m; sourceTree = "<group>"; };
 		4A55B94922EA2EB000CA5400 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -211,6 +221,36 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		4A2ECAF822F35F1B003C880B /* 4FriendsList */ = {
+			isa = PBXGroup;
+			children = (
+				4A2ECAFE22F36092003C880B /* FriendsList.storyboard */,
+				4A2ECAFB22F3607C003C880B /* FriendsListViewController.h */,
+				4A2ECAFC22F3607C003C880B /* FriendsListViewController.m */,
+			);
+			path = 4FriendsList;
+			sourceTree = "<group>";
+		};
+		4A2ECAF922F35F64003C880B /* 4LFriendRequestList */ = {
+			isa = PBXGroup;
+			children = (
+				4A2ECB0022F360A9003C880B /* FriendRequestList.storyboard */,
+				4A2ECB0222F360BD003C880B /* FriendRequestsViewController.h */,
+				4A2ECB0322F360BD003C880B /* FriendRequestsViewController.m */,
+			);
+			path = 4LFriendRequestList;
+			sourceTree = "<group>";
+		};
+		4A2ECAFA22F35F89003C880B /* 4RAddFriend */ = {
+			isa = PBXGroup;
+			children = (
+				A2FBF61A22EB95F700464637 /* AddFriends.storyboard */,
+				A2FBF61C22EB960D00464637 /* AddFriendsViewController.h */,
+				A2FBF61D22EB960D00464637 /* AddFriendsViewController.m */,
+			);
+			path = 4RAddFriend;
+			sourceTree = "<group>";
+		};
 		4A55B94822EA2EA200CA5400 /* 5Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,8 +298,10 @@
 				4AB260CB22E0F4110062DD14 /* 1RComposeTask */,
 				A2FBF61322EB8F8B00464637 /* 2Social */,
 				A2FBF61F22EB968900464637 /* 2RComposePost */,
-				A2FBF61922EB959E00464637 /* 2LAddFriends */,
 				A2284FCD22E241EB006217C9 /* 3BorbPage */,
+				4A2ECAF822F35F1B003C880B /* 4FriendsList */,
+				4A2ECAFA22F35F89003C880B /* 4RAddFriend */,
+				4A2ECAF922F35F64003C880B /* 4LFriendRequestList */,
 				4A55B94822EA2EA200CA5400 /* 5Profile */,
 				A2FAE71022EFA3390081DAE7 /* 5SComposePost */,
 				3494209D22EB7BA700FDA714 /* Settings */,
@@ -332,9 +374,9 @@
 		A2284FCD22E241EB006217C9 /* 3BorbPage */ = {
 			isa = PBXGroup;
 			children = (
+				A2284FD122E24229006217C9 /* BorbPage.storyboard */,
 				A2284FCE22E24217006217C9 /* BorbPageViewController.h */,
 				A2284FCF22E24217006217C9 /* BorbPageViewController.m */,
-				A2284FD122E24229006217C9 /* BorbPage.storyboard */,
 			);
 			path = 3BorbPage;
 			sourceTree = "<group>";
@@ -426,21 +468,11 @@
 		A2FBF61322EB8F8B00464637 /* 2Social */ = {
 			isa = PBXGroup;
 			children = (
+				A2FBF61722EB8FE700464637 /* Social.storyboard */,
 				A2FBF61422EB8FD800464637 /* SocialViewController.h */,
 				A2FBF61522EB8FD800464637 /* SocialViewController.m */,
-				A2FBF61722EB8FE700464637 /* Social.storyboard */,
 			);
 			path = 2Social;
-			sourceTree = "<group>";
-		};
-		A2FBF61922EB959E00464637 /* 2LAddFriends */ = {
-			isa = PBXGroup;
-			children = (
-				A2FBF61A22EB95F700464637 /* AddFriends.storyboard */,
-				A2FBF61C22EB960D00464637 /* AddFriendsViewController.h */,
-				A2FBF61D22EB960D00464637 /* AddFriendsViewController.m */,
-			);
-			path = 2LAddFriends;
 			sourceTree = "<group>";
 		};
 		A2FBF61F22EB968900464637 /* 2RComposePost */ = {
@@ -585,9 +617,11 @@
 				A2284FD222E24229006217C9 /* BorbPage.storyboard in Resources */,
 				A2BC23B522DD2CD70030EA51 /* Assets.xcassets in Resources */,
 				3494209F22EB7BC500FDA714 /* Settings.storyboard in Resources */,
+				4A2ECAFF22F36092003C880B /* FriendsList.storyboard in Resources */,
 				4A944D4A22DE49A20065782C /* SignUp.storyboard in Resources */,
 				A2FBF61B22EB95F700464637 /* AddFriends.storyboard in Resources */,
 				3432CFA722DE597700B6C47E /* TasksList.storyboard in Resources */,
+				4A2ECB0122F360A9003C880B /* FriendRequestList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,6 +733,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				349420A522EB855E00FDA714 /* SettingsTableViewController.m in Sources */,
+				4A2ECAFD22F3607C003C880B /* FriendsListViewController.m in Sources */,
 				3432CFB622DE6CA700B6C47E /* TaskCell.m in Sources */,
 				A2FAE71822EFA5870081DAE7 /* ComposePostForTaskViewController.m in Sources */,
 				4A944D6222DE8EF00065782C /* BorbParseManager.m in Sources */,
@@ -709,6 +744,7 @@
 				4A2ECAF722F240B4003C880B /* AlertManager.m in Sources */,
 				A2FBF61622EB8FD800464637 /* SocialViewController.m in Sources */,
 				A28F5C0A22DE598E001FAFC7 /* User.m in Sources */,
+				4A2ECB0422F360BE003C880B /* FriendRequestsViewController.m in Sources */,
 				A2FAE71B22EFAEDD0081DAE7 /* PostCell.m in Sources */,
 				A2FBF61E22EB960D00464637 /* AddFriendsViewController.m in Sources */,
 				A28F5C1022DE6D43001FAFC7 /* Task.m in Sources */,

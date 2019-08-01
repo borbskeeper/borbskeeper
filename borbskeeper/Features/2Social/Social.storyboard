@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Social-->
+        <!--Feed-->
         <scene sceneID="zCf-qX-fZs">
             <objects>
                 <navigationController storyboardIdentifier="Social" id="Dcr-vd-V0Z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Social" image="Social" id="jqm-zT-omr"/>
+                    <tabBarItem key="tabBarItem" title="Feed" id="jqm-zT-omr"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uih-cV-ws1">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -27,14 +27,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUn-Z2-oeI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-967" y="-5"/>
-        </scene>
-        <!--addFriends-->
-        <scene sceneID="PzB-JU-KLS">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="AddFriends" storyboardName="AddFriends" referencedIdentifier="addFriends" id="vMy-hT-cRI" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e25-au-uA1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="532" y="-139"/>
         </scene>
         <!--composePost-->
         <scene sceneID="WrZ-yb-3cr">
@@ -139,11 +131,6 @@
                         <viewLayoutGuide key="safeArea" id="COc-bA-chM"/>
                     </view>
                     <navigationItem key="navigationItem" title="Social" id="m0k-nq-sNK">
-                        <barButtonItem key="leftBarButtonItem" title="+ Friends" id="cJp-0h-cHs">
-                            <connections>
-                                <segue destination="vMy-hT-cRI" kind="presentation" id="M1x-A8-R70"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New Post" id="A40-Og-7H5">
                             <connections>
                                 <segue destination="dMX-No-ieI" kind="presentation" id="WLd-bf-Qdm"/>
@@ -159,7 +146,4 @@
             <point key="canvasLocation" x="-119.2" y="-15.742128935532236"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Social" width="25" height="25"/>
-    </resources>
 </document>

@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="tfs-EK-JNc">
             <objects>
-                <navigationController storyboardIdentifier="addFriends" id="nHq-9x-5cG" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AddFriends" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nHq-9x-5cG" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vl1-5Y-TEr">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MzZ-SF-078" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-600" y="136"/>
+            <point key="canvasLocation" x="-601" y="143"/>
         </scene>
         <!--Add Friends View Controller-->
         <scene sceneID="iOq-qA-jP0">
@@ -33,20 +33,34 @@
                     <view key="view" contentMode="scaleToFill" id="cQe-1N-op1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P4P-fn-jli">
+                                <rect key="frame" x="16" y="105" width="274" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbd-Qt-762">
+                                <rect key="frame" x="311" y="105" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="a1U-VA-rMw"/>
                     </view>
                     <navigationItem key="navigationItem" id="gGF-Zb-8VM">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="gQC-gV-iKV">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="gQC-gV-iKV">
                             <connections>
-                                <action selector="didTapBack:" destination="baf-gR-X0c" id="l5T-LF-QgK"/>
+                                <action selector="didTapCancel:" destination="baf-gR-X0c" id="jvI-BQ-PAp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUk-XF-yNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="284" y="143"/>
+            <point key="canvasLocation" x="284" y="142.57871064467767"/>
         </scene>
     </scenes>
 </document>
