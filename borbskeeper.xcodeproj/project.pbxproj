@@ -28,11 +28,12 @@
 		4AB260D022E0F5B70062DD14 /* ComposeTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */; };
 		A2284FD022E24217006217C9 /* BorbPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2284FCF22E24217006217C9 /* BorbPageViewController.m */; };
 		A2284FD222E24229006217C9 /* BorbPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2284FD122E24229006217C9 /* BorbPage.storyboard */; };
-		A228EF9122F24A5500F5C6F6 /* gameBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = A228EF9022F24A5500F5C6F6 /* gameBar.sks */; };
+		A228EF9122F24A5500F5C6F6 /* statsBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = A228EF9022F24A5500F5C6F6 /* statsBar.sks */; };
 		A2660C4422E64331008C39C7 /* GameConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A2660C4322E64331008C39C7 /* GameConstants.m */; };
 		A28F5C0A22DE598E001FAFC7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0922DE598E001FAFC7 /* User.m */; };
 		A28F5C0D22DE6C14001FAFC7 /* Borb.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0C22DE6C14001FAFC7 /* Borb.m */; };
 		A28F5C1022DE6D43001FAFC7 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0F22DE6D43001FAFC7 /* Task.m */; };
+		A2A103C422F3802A001406D6 /* statsBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A103C322F3802A001406D6 /* statsBarManager.m */; };
 		A2A2922E22EA67B600276315 /* PushNotificationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A2922D22EA67B600276315 /* PushNotificationsManager.m */; };
 		A2BC23AD22DD2CD60030EA51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BC23AC22DD2CD60030EA51 /* AppDelegate.m */; };
 		A2BC23B522DD2CD70030EA51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2BC23B422DD2CD70030EA51 /* Assets.xcassets */; };
@@ -98,7 +99,7 @@
 		A2284FCE22E24217006217C9 /* BorbPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorbPageViewController.h; sourceTree = "<group>"; };
 		A2284FCF22E24217006217C9 /* BorbPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorbPageViewController.m; sourceTree = "<group>"; };
 		A2284FD122E24229006217C9 /* BorbPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BorbPage.storyboard; sourceTree = "<group>"; };
-		A228EF9022F24A5500F5C6F6 /* gameBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = gameBar.sks; sourceTree = "<group>"; };
+		A228EF9022F24A5500F5C6F6 /* statsBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = statsBar.sks; sourceTree = "<group>"; };
 		A2660C4222E64331008C39C7 /* GameConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
 		A2660C4322E64331008C39C7 /* GameConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameConstants.m; sourceTree = "<group>"; };
 		A28F5C0822DE598E001FAFC7 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = User.h; path = borbskeeper/Models/User.h; sourceTree = SOURCE_ROOT; };
@@ -107,6 +108,8 @@
 		A28F5C0C22DE6C14001FAFC7 /* Borb.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Borb.m; path = borbskeeper/Models/Borb.m; sourceTree = SOURCE_ROOT; };
 		A28F5C0E22DE6D43001FAFC7 /* Task.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Task.h; path = borbskeeper/Models/Task.h; sourceTree = SOURCE_ROOT; };
 		A28F5C0F22DE6D43001FAFC7 /* Task.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = borbskeeper/Models/Task.m; sourceTree = SOURCE_ROOT; };
+		A2A103C222F3802A001406D6 /* statsBarManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = statsBarManager.h; sourceTree = "<group>"; };
+		A2A103C322F3802A001406D6 /* statsBarManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = statsBarManager.m; sourceTree = "<group>"; };
 		A2A2922C22EA67B600276315 /* PushNotificationsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PushNotificationsManager.h; path = /Users/juliapark628/Documents/borbskeeper/borbskeeper/Utility/PushNotificationsManager.h; sourceTree = "<absolute>"; };
 		A2A2922D22EA67B600276315 /* PushNotificationsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PushNotificationsManager.m; path = /Users/juliapark628/Documents/borbskeeper/borbskeeper/Utility/PushNotificationsManager.m; sourceTree = "<absolute>"; };
 		A2BC23A822DD2CD60030EA51 /* borbskeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = borbskeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -296,7 +299,9 @@
 		A228EF8F22F24A1500F5C6F6 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				A228EF9022F24A5500F5C6F6 /* gameBar.sks */,
+				A228EF9022F24A5500F5C6F6 /* statsBar.sks */,
+				A2A103C222F3802A001406D6 /* statsBarManager.h */,
+				A2A103C322F3802A001406D6 /* statsBarManager.m */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -501,7 +506,7 @@
 				3494209F22EB7BC500FDA714 /* Settings.storyboard in Resources */,
 				4A944D4A22DE49A20065782C /* SignUp.storyboard in Resources */,
 				3432CFA722DE597700B6C47E /* TasksList.storyboard in Resources */,
-				A228EF9122F24A5500F5C6F6 /* gameBar.sks in Resources */,
+				A228EF9122F24A5500F5C6F6 /* statsBar.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +636,7 @@
 				3432CFB322DE6BE800B6C47E /* TasksListViewController.m in Sources */,
 				A2660C4422E64331008C39C7 /* GameConstants.m in Sources */,
 				4A55B93C22E8FA7500CA5400 /* InfiniteScrollView.m in Sources */,
+				A2A103C422F3802A001406D6 /* statsBarManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

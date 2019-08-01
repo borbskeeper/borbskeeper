@@ -112,10 +112,6 @@
                                     <action selector="didTapXPBoost:" destination="1Lh-AC-ibU" eventType="touchUpInside" id="kCq-eW-VRD"/>
                                 </connections>
                             </button>
-                            <skView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h6h-iV-KUs">
-                                <rect key="frame" x="56" y="401" width="278" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </skView>
                             <skView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cuM-QM-moe">
                                 <rect key="frame" x="56" y="452" width="278" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -141,6 +137,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <skView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h6h-iV-KUs">
+                                <rect key="frame" x="56" y="402" width="278" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </skView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="K60-s8-iJW"/>
@@ -152,7 +152,7 @@
                         <outlet property="borbNameLabel" destination="Mtj-Pr-phh" id="6ee-aP-C1Q"/>
                         <outlet property="borbXPLabel" destination="vGV-7n-LyG" id="Pig-Ls-Eqc"/>
                         <outlet property="feedBorbButton" destination="v6n-yM-h3k" id="6Bt-pV-F14"/>
-                        <outlet property="hpBarSprite" destination="h6h-iV-KUs" id="WZo-kY-vDH"/>
+                        <outlet property="hpBarSKView" destination="h6h-iV-KUs" id="WZo-kY-vDH"/>
                         <outlet property="maxHPLabel" destination="nCu-yv-Ux9" id="Ick-wt-PCB"/>
                         <outlet property="maxXPLabel" destination="sml-gq-1XI" id="SqQ-Yl-Nws"/>
                         <outlet property="userCoinsLabel" destination="CEP-dj-MNX" id="UZb-0i-Xkj"/>
