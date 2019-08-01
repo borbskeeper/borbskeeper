@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "BorbParseManager.h"
+#import "AlertManager.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -19,10 +20,6 @@
 
 @implementation LoginViewController
 
-static NSString *const UNSUCCESSFUL_LOGIN_ALERT_TITLE = @"Login not succesful";
-static NSString *const UNSUCCESSFUL_LOGIN_ALERT_MESSAGE = @"Please try to login in again.";
-static NSString *const OK_ACTION_TITLE = @"OK";
-
 static NSString *const TASK_LIST_SEGUE_ID = @"taskListSegue";
 static NSString *const SIGNUP_SEGUE_ID = @"signUpSegue";
 
@@ -31,18 +28,9 @@ static NSString *const SIGNUP_SEGUE_ID = @"signUpSegue";
 }
 
 - (void)loginUser {
-    UIAlertController *loginNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:UNSUCCESSFUL_LOGIN_ALERT_TITLE
-                                                                                     message:UNSUCCESSFUL_LOGIN_ALERT_MESSAGE
-                                                                              preferredStyle:(UIAlertControllerStyleAlert)];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:OK_ACTION_TITLE
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                     }];
-    [loginNotSuccessfulAlert addAction:okAction];
-    
     [BorbParseManager loginUser:self.usernameField.text withPassword:self.passwordField.text withCompletion: ^(NSError * error) {
         if (error != nil) {
-            [self presentViewController:loginNotSuccessfulAlert animated:YES completion:nil];
+            [AlertManager presentLoginNotSuccesfulAlert:self];
         } else {
             [self performSegueWithIdentifier:TASK_LIST_SEGUE_ID sender:nil];
         }

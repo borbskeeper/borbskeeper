@@ -1,14 +1,14 @@
 //
-//  CompleteTaskListInfiniteScrollView.m
+//  ComposePostTaskListInfiniteScrollView.m
 //  borbskeeper
 //
-//  Created by rodrigoandrade on 7/26/19.
+//  Created by rodrigoandrade on 7/29/19.
 //  Copyright © 2019 juliapark628. All rights reserved.
 //
 
-#import "CompleteTaskListInfiniteScrollView.h"
+#import "ComposePostTaskListInfiniteScrollView.h"
 
-@implementation CompleteTaskListInfiniteScrollView
+@implementation ComposePostTaskListInfiniteScrollView
 @dynamic tableView;
 @dynamic activityIndicator;
 
