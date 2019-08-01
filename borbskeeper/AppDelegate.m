@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Parse/Parse.h"
 #import "LoginViewController.h"
+#import <UserNotifications/UserNotifications.h>
 
 @interface AppDelegate ()
 
@@ -26,6 +27,11 @@
     }];
     
     [Parse initializeWithConfiguration:config];
+ 
+    UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+    [center requestAuthorizationWithOptions: (UNAuthorizationOptionAlert + UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        
+    }];
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     

@@ -12,7 +12,6 @@
 #import "Borb.h"
 
 
-
 @interface BorbPageViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *userCoinsLabel;

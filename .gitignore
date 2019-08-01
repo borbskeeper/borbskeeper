@@ -5,9 +5,10 @@
 ## Build generated
 build/
 DerivedData/
+.DS_Store
 
 ## Various settings
-*.pbxuser
+*.pbxusers
 !default.pbxuser
 *.mode1v3
 !default.mode1v3

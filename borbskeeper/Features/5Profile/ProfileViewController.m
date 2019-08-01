@@ -92,7 +92,6 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     [BorbParseManager fetchCompleteTasksOfUser:User.currentUser.username withCompletion:^(NSMutableArray *tasks) {
         self.completeTaskList = tasks;
         completion();
-        [self checkDate];
     }];
 }
 
@@ -109,17 +108,6 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
             self.completeTaskListInfiniteScrollView.isMoreDataLoading = true;
         }
     }];
-}
-
-- (void)checkDate {
-    [self compareDate];
-}
-
-- (void)compareDate {
-    NSDate *today = [NSDate date];
-    NSComparisonResult result;
-    Task *task = self.completeTaskList[0];
-    result = [today compare:task.dueDate];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
