@@ -28,7 +28,6 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadTask];
-    // Do any additional setup after loading the view.
 }
 
 - (void) loadTask {
@@ -47,7 +46,6 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
 - (IBAction)takePhotoButtonClicked:(id)sender {
     [self attemptToSetImageSourceToCamera];
 }
-
 
 - (void) attemptToSetImageSourceToCamera {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];

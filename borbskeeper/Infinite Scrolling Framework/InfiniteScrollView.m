@@ -39,10 +39,12 @@
 }
 
 - (void)fetchData {
+    self.isMoreDataLoading = true;
     [self.infiniteScrollDelegate fetchDataWithCompletion:^{
         [self.tableView reloadData];
         [self.activityIndicator stopAnimating];
         [self.refreshControl endRefreshing];
+        self.isMoreDataLoading = false;
     }];
 }
 

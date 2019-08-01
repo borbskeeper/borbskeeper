@@ -15,10 +15,10 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray* posts;
 
-
 @end
 
 @implementation SocialViewController
+static NSString *const POST_CELL_REUSE_ID = @"PostCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,17 +29,13 @@
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:refreshControl atIndex:0];
-    
     [self beginRefresh:nil];
-    // Do any additional setup after loading the view.
 }
 
 - (void)beginRefresh:(UIRefreshControl * _Nullable)refreshControl {
     [BorbParseManager fetchGlobalPostsWithCompletion:^(NSMutableArray * _Nonnull posts) {
         self.posts = posts;
-        
         [self.tableView reloadData];
-        
         [refreshControl endRefreshing];
     }];
 }
@@ -49,7 +45,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
+    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:POST_CELL_REUSE_ID];
     
     Post *post = self.posts[indexPath.row];
     [cell setupWithPost:post];

@@ -32,7 +32,6 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     [super viewDidLoad];
     self.composePostTaskListInfiniteScrollView.infiniteScrollDelegate = self;
     [self.composePostTaskListInfiniteScrollView setupTableView];
-    // Do any additional setup after loading the view.
 }
 
 - (void)fetchDataWithCompletion:(void (^)(void))completion {
@@ -83,7 +82,6 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
-    
     imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -170,9 +168,6 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 - (IBAction)didTapCancel:(id)sender {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
-
-
-
 
 /*
 #pragma mark - Navigation
