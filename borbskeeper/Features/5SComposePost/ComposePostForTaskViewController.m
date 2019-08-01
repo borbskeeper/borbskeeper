@@ -9,15 +9,17 @@
 #import "ComposePostForTaskViewController.h"
 #import "Post.h"
 #import "BorbParseManager.h"
+#import "ImageManipManager.h"
 
-@interface ComposePostForTaskViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ComposePostForTaskViewController () <ImageManipManagerDelegate>
 
-@property (strong, nonatomic) UIImage *selectedImage;
 @property (weak, nonatomic) IBOutlet UIImageView *selectedImageView;
 @property (weak, nonatomic) IBOutlet UILabel *taskNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *taskDueDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *taskDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *shareOptionButton;
+@property (strong, nonatomic) UIImage *selectedImage;
+@property (strong, nonatomic) ImageManipManager *imageManip;
 
 @end
 
@@ -28,6 +30,8 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadTask];
+    self.imageManip = [[ImageManipManager alloc] init];
+    self.imageManip.imageManipManagerDelegate = self;
 }
 
 - (void) loadTask {
@@ -40,32 +44,16 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
 }
 
 - (IBAction)choosePhotoButtonClicked:(id)sender {
-    [self setImageSourceToLibrary];
+    [self.imageManip presentImagePickerFromViewController:self withImageSource:LIBRARY];
 }
 
 - (IBAction)takePhotoButtonClicked:(id)sender {
-    [self attemptToSetImageSourceToCamera];
-}
-
-- (void) attemptToSetImageSourceToCamera {
-    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
-    imagePickerVC.delegate = self;
-    imagePickerVC.allowsEditing = YES;
-    
-    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:imagePickerVC animated:YES completion:nil];
-    }
-    else {
+    if (![self.imageManip presentImagePickerFromViewController:self withImageSource:CAMERA]) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Camera" message:@"There is no camera." preferredStyle:(UIAlertControllerStyleAlert)];
         
-        // try again by refreshing
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         }];
         
-        // add the refresh action to the alert controller
         [alert addAction:cancelAction];
         
         [self presentViewController:alert animated:YES completion:^{
@@ -74,41 +62,10 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
     }
 }
 
-- (void) setImageSourceToLibrary {
-    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
-    imagePickerVC.delegate = self;
-    imagePickerVC.allowsEditing = YES;
-    
-    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:imagePickerVC animated:YES completion:nil];
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
-    // Get the image captured by the UIImagePickerController
-    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    UIImage *editedImage = [self resizeImage:originalImage withSize:CGSizeMake(375, 375)];
-    
-    self.selectedImage = [UIImage imageWithCGImage:editedImage.CGImage];
+- (void)saveImage:(nonnull UIImage *)selectedImage {
+    self.selectedImage = [UIImage imageWithCGImage:selectedImage.CGImage];
     self.selectedImageView.image = self.selectedImage;
-    // Dismiss UIImagePickerController to go back to your original view controller
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
-    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    
-    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
-    resizeImageView.image = image;
-    
-    UIGraphicsBeginImageContext(size);
-    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return newImage;
-}
-
 
 - (IBAction)didTapCancel:(id)sender {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
