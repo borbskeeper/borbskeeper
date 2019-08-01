@@ -11,9 +11,10 @@
 #import "BorbParseManager.h"
 #import "Task.h"
 #import "CompleteTaskListInfiniteScrollView.h"
-#import "TaskCell.h"
+#import "ComposePostForTaskViewController.h"
+#import "CompletedTaskCell.h"
 
-@interface ProfileViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, InfiniteScrollDelegate>
+@interface ProfileViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, InfiniteScrollDelegate, ComposePostViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
@@ -32,7 +33,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.completeTaskListInfiniteScrollView.infiniteScrollDelegate = self;
     [self setupProfile];
     [self.completeTaskListInfiniteScrollView setupTableView];
@@ -47,7 +48,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 -(void)loadUserProfilePicture {
     PFFileObject *PFObjectProfileImage = [User currentUser][USER_PROF_PIC_KEY];
     NSURL *profileImageURL = [NSURL URLWithString:PFObjectProfileImage.url];
-    self.profilePicture.image = nil;
+    // self.profilePicture.image = nil;
     [self.profilePicture setImageWithURL:profileImageURL];
 }
 
@@ -55,7 +56,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
     resizeImageView.image = image;
-    
+
     UIGraphicsBeginImageContext(size);
     [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -67,11 +68,11 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     self.originalImage = info[UIImagePickerControllerOriginalImage];
     self.editedImage = [self resizeImage:self.originalImage withSize:CGSizeMake(1000, 1000)];
     [self.profilePicture setImage:self.editedImage];
-    
+
     [User currentUser][USER_PROF_PIC_KEY] = [BorbParseManager getPFFileFromImage:self.editedImage];
-    
+
     [BorbParseManager saveUser:[User currentUser] withCompletion:nil];
-    
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -79,7 +80,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
-    
+
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
     } else {
@@ -89,7 +90,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 }
 
 - (void)fetchDataWithCompletion:(void (^)(void))completion {
-    [BorbParseManager fetchCompleteTasksOfUser:User.currentUser.username withCompletion:^(NSMutableArray *tasks) {
+    [BorbParseManager fetchCompleteTasksOfUser:User.currentUser.username ifNotPosted:NO withCompletion:^(NSMutableArray *tasks) {
         self.completeTaskList = tasks;
         completion();
     }];
@@ -98,8 +99,8 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 - (void)loadMoreData {
     Task *latestTask = [self.completeTaskList lastObject];
     self.latestDate = latestTask.createdAt;
-    
-    [BorbParseManager loadMoreCompleteTasksOfUser:User.currentUser.username withLaterDate:self.latestDate withCompletion:^(NSMutableArray *posts) {
+
+    [BorbParseManager loadMoreCompleteTasksOfUser:User.currentUser.username ifNotPosted:NO withLaterDate:self.latestDate withCompletion:^(NSMutableArray *posts) {
         if ([posts count] > 0) {
             [self.completeTaskList addObjectsFromArray:posts];
             [self.completeTaskListInfiniteScrollView.tableView reloadData];
@@ -110,6 +111,10 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     }];
 }
 
+- (void)didPostTask {
+    [self.completeTaskListInfiniteScrollView fetchData];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.completeTaskList count];
 }
@@ -117,20 +122,35 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TaskCell *cell = [tableView dequeueReusableCellWithIdentifier:COMPLETE_TASK_TABLE_VIEW_CELL_ID];
-    
+
     Task *currTask = self.completeTaskList[indexPath.row];
     [cell setupWithTask:currTask];
     return cell;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"composePostForTaskSegue"]) {
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.completeTaskListInfiniteScrollView.tableView indexPathForCell:tappedCell];
+        Task* task = self.completeTaskList[indexPath.row];
+
+        if (task.posted) {
+            NSLog(@"Already posted this task! Cannot.");
+        }
+        else {
+            UINavigationController *navigationController = [segue destinationViewController];
+            ComposePostForTaskViewController *composePostController = (ComposePostForTaskViewController*)navigationController.topViewController;
+            composePostController.delegate = self;
+            composePostController.selectedTask = task;
+        }
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

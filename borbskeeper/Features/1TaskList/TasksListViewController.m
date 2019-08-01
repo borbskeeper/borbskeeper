@@ -37,9 +37,9 @@ static const int SECS_TO_HOURS = 3600;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.incompleteTaskListInfiniteScrollView.infiniteScrollDelegate = self;
-    
+
     self.current_username = [PFUser currentUser].username;
     [self.incompleteTaskListInfiniteScrollView setupTableView];
     [self decayByTime];
@@ -110,7 +110,7 @@ static const int SECS_TO_HOURS = 3600;
 - (void)loadMoreData {
     Task *latestTask = [self.incompleteTaskList lastObject];
     self.latestDate = latestTask.createdAt;
-    
+
     [BorbParseManager loadMoreIncompleteTasksOfUser:self.current_username withLaterDate:self.latestDate WithCompletion:^(NSMutableArray *posts) {
         if ([posts count] > 0){
             [self.incompleteTaskList addObjectsFromArray:posts];
@@ -128,11 +128,12 @@ static const int SECS_TO_HOURS = 3600;
     if ([segue.identifier isEqualToString:EDIT_SEGUE_ID]){
         UINavigationController *navigationController = [segue destinationViewController];
         ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
-        
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.incompleteTaskListInfiniteScrollView.tableView indexPathForCell:tappedCell];
         Task* task = self.incompleteTaskList[indexPath.row];
+        composeController.delegate = self;
         composeController.task = task;
+
     } else if([segue.identifier  isEqual: COMPOSE_SEGUE_ID]){
         UINavigationController *navigationController = [segue destinationViewController];
         ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;

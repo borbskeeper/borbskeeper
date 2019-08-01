@@ -65,12 +65,12 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
                                                      handler:^(UIAlertAction * _Nonnull action) {
                                                      }];
     [saveNotSuccessfulAlert addAction:okAction];
-    
+
     if ([Task checkForInvalidTextFields:@[self.taskTitleTextField.text]] == YES){
         [self presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
     } else {
         if (self.task == nil) {
-            
+
             Task *newTask = [Task createTask:self.taskTitleTextField.text
                              withDescription:self.taskDescTextView.text
                                  withDueDate:self.taskDeadlineDatePicker.date];
@@ -86,7 +86,7 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
             }];
         } else {
             PFQuery *query = [PFQuery queryWithClassName:@"Task"];
-            
+
             NSString *taskId = [self.task objectId];
             [query getObjectInBackgroundWithId:taskId
                                          block:^(PFObject *task, NSError *error) {
@@ -96,7 +96,8 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
                                              [task saveInBackground];
                                              [PushNotificationsManager createNotificationForTask:(Task *)task withID:taskId];
                                          }];
-            [PushNotificationsManager deleteNotificationForTaskWithID:taskId];
+            [PushNotifications deleteNotificationForTaskWithID:objectId];
+            [self.delegate didSaveTask];
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }
     }
