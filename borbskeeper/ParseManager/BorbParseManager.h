@@ -11,7 +11,7 @@
 #import "User.h"
 #import "Task.h"
 #import "Post.h"
-
+#import "FriendRequest.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BorbParseManager : NSObject
@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)savePost:(Post*)post withCompletion: (PFBooleanResultBlock _Nullable)completion;
 
++ (void)saveFriendRequest:(FriendRequest*)friendRequest withCompletion: (PFBooleanResultBlock _Nullable)completion;
+
 + (void)fetchBorb:(NSString *)borbID WithCompletion:(void (^)(NSMutableArray *))completion;
 
 + (void)fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion;
@@ -40,6 +42,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)loadMoreCompleteTasksOfUser:(NSString *)username ifNotPosted:(BOOL)postedStatus withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion;
 
 + (void) fetchGlobalPostsWithCompletion: (void (^)(NSMutableArray *))completion;
+
++ (void) fetchUser:(NSString*)username withCompletion: (void (^)(User *))completion;
+
++ (void) fetchFriendRequestFrom:(User*)sender withRecipient: (User*)recipient withCompletion: (void (^)(BOOL))friendRequestFound;
 
 + (void)signOutUser;
 

@@ -9,7 +9,6 @@
 #import "BorbParseManager.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
-#import "Post.h"
 
 @implementation BorbParseManager
 
@@ -85,6 +84,10 @@ static int const PARSE_QUERY_LIMIT = 20;
 
 + (void)savePost:(Post*)post withCompletion: (PFBooleanResultBlock _Nullable)completion{
     [post saveInBackgroundWithBlock: completion];
+}
+
++ (void)saveFriendRequest:(FriendRequest*)friendRequest withCompletion: (PFBooleanResultBlock _Nullable)completion{
+    [friendRequest saveInBackgroundWithBlock: completion];
 }
 
 + (void)fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion {
@@ -195,6 +198,44 @@ static int const PARSE_QUERY_LIMIT = 20;
             completion([NSMutableArray arrayWithArray:posts]);
         } else {
             NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
++ (void) fetchUser:(NSString*)username withCompletion: (void (^)(User *))completion {
+    PFQuery *query = [User query];
+    [query whereKey:@"username" equalTo:username];
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
+        if (users.count > 0) {
+            completion(users[0]);
+        } else {
+            User *noUser;
+            completion(noUser);
+        }
+    }];
+}
+
++ (void) fetchFriendRequestFrom:(User*)sender withRecipient: (User*)recipient withCompletion: (void (^)(BOOL))friendRequestFound {
+    PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
+    [query whereKey:@"sender" equalTo:sender];
+    [query whereKey:@"recipient" equalTo:recipient];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *activeRequests, NSError *error) {
+        
+        if (activeRequests.count > 0) {
+            friendRequestFound(YES);
+        } else {
+            [query whereKey:@"sender" equalTo:recipient];
+            [query whereKey:@"recipient" equalTo:sender];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *activeRequests, NSError *error) {
+                
+                if (activeRequests.count > 0) {
+                    friendRequestFound(YES);
+                } else {
+                    friendRequestFound(NO);
+                }
+            }];
         }
     }];
 }

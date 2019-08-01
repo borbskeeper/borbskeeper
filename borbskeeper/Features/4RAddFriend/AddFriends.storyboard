@@ -45,6 +45,9 @@
                                 <rect key="frame" x="311" y="105" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="didTapAdd:" destination="baf-gR-X0c" eventType="touchUpInside" id="gLf-6H-Hhg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -57,6 +60,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="userNameTextField" destination="P4P-fn-jli" id="Ttx-L0-uk2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUk-XF-yNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
