@@ -127,8 +127,8 @@
 		A28F5C0C22DE6C14001FAFC7 /* Borb.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Borb.m; path = borbskeeper/Models/Borb.m; sourceTree = SOURCE_ROOT; };
 		A28F5C0E22DE6D43001FAFC7 /* Task.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Task.h; path = borbskeeper/Models/Task.h; sourceTree = SOURCE_ROOT; };
 		A28F5C0F22DE6D43001FAFC7 /* Task.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = borbskeeper/Models/Task.m; sourceTree = SOURCE_ROOT; };
-		A2A2922C22EA67B600276315 /* PushNotificationsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PushNotificationsManager.h; path = /Users/rodrigoandrade/Desktop/CodePath/borbskeeper/borbskeeper/Utility/PushNotificationsManager.h; sourceTree = "<absolute>"; };
-		A2A2922D22EA67B600276315 /* PushNotificationsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PushNotificationsManager.m; path = /Users/rodrigoandrade/Desktop/CodePath/borbskeeper/borbskeeper/Utility/PushNotificationsManager.m; sourceTree = "<absolute>"; };
+		A2A2922C22EA67B600276315 /* PushNotificationsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushNotificationsManager.h; sourceTree = "<group>"; };
+		A2A2922D22EA67B600276315 /* PushNotificationsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushNotificationsManager.m; sourceTree = "<group>"; };
 		A2BC23A822DD2CD60030EA51 /* borbskeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = borbskeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BC23AB22DD2CD60030EA51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A2BC23AC22DD2CD60030EA51 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
