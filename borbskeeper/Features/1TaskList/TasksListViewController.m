@@ -42,8 +42,7 @@ static const int SECS_TO_HOURS = 3600;
 
     self.current_username = [PFUser currentUser].username;
     [self.incompleteTaskListInfiniteScrollView setupTableView];
-    [self decayByIncompleteTask];
-    [self decayByTime];
+    [self decayHPByIncompleteTasksAndTime];
 }
 
 - (IBAction)didTapNewTask:(id)sender {
@@ -72,11 +71,12 @@ static const int SECS_TO_HOURS = 3600;
 - (void)fetchDataWithCompletion:(void (^)(void))completion {
     [BorbParseManager fetchIncompleteTasksOfUser:self.current_username WithCompletion:^(NSMutableArray *posts) {
         self.incompleteTaskList = posts;
+        [self decayHPByIncompleteTasksAndTime];
         completion();
     }];
 }
 
-- (void)decayByIncompleteTask {
+- (void)decayHPByIncompleteTasksAndTime {
     NSDate *today = [NSDate date];
     for (int i = START_INDEX; i < [self.incompleteTaskList count]; i++){
         Task *task = self.incompleteTaskList[i];
@@ -90,10 +90,6 @@ static const int SECS_TO_HOURS = 3600;
             }];
         }
     }
-}
-
-- (void)decayByTime{
-    NSDate *today = [NSDate date];
     NSTimeInterval secondsBetween = [today timeIntervalSinceDate: [User currentUser].userLogin];
     int numOfHours = secondsBetween / SECS_TO_HOURS;
     [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {

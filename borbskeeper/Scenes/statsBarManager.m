@@ -55,8 +55,7 @@ static int STAT_BAR_BORDER_GLOW = 1.5;
     emptyBar = [SKShapeNode shapeNodeWithRectOfSize:emptySize cornerRadius:STAT_BAR_CORNER_ROUNDING];
     if (stat == BORBSTAT_XP) {
         emptyBar.strokeColor = [SKColor orangeColor];
-    }
-    if (stat == BORBSTAT_HP) {
+    } else if (stat == BORBSTAT_HP) {
         double borbHealth = [borb.borbHealth doubleValue];
         if (borbHealth > HIGH_HP_THRESHOLD) {
             emptyBar.strokeColor = [SKColor greenColor];
