@@ -7,20 +7,66 @@
 //
 
 #import "FriendRequestsViewController.h"
+#import "FriendRequestListInfiniteScrollView.h"
+#import "FriendRequestCell.h"
+#import "BorbParseManager.h"
 
-@interface FriendRequestsViewController ()
+@interface FriendRequestsViewController () <InfiniteScrollDelegate>
+
+@property (strong, nonatomic) NSMutableArray *friendRequestList;
+@property NSDate *latestDate;
+@property (weak, nonatomic) IBOutlet FriendRequestListInfiniteScrollView *friendRequestListInfiniteScrollView;
 
 @end
 
 @implementation FriendRequestsViewController
+static NSString *const FRIEND_REQUEST_TABLE_VIEW_CELL_ID = @"FriendRequestCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.friendRequestListInfiniteScrollView.infiniteScrollDelegate = self;
+    [self.friendRequestListInfiniteScrollView setupTableView];
 }
 
 - (IBAction)didTapBack:(id)sender {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)didInteractWithFriendRequest {
+    [self.friendRequestListInfiniteScrollView fetchData];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.friendRequestList count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    FriendRequestCell *cell = [tableView dequeueReusableCellWithIdentifier:FRIEND_REQUEST_TABLE_VIEW_CELL_ID];
+    FriendRequest *friendRequest = self.friendRequestList[indexPath.row];
+    [cell setupWithFriendRequest:friendRequest];
+    return cell;
+}
+
+- (void)fetchDataWithCompletion:(void (^)(void))completion {
+    [BorbParseManager fetchFriendRequests:[User currentUser] withCompletion:^(NSMutableArray *friendRequests) {
+        self.friendRequestList = friendRequests;
+        completion();
+    }];
+}
+
+- (void)loadMoreData {
+    FriendRequest *latestFriendRequest = [self.friendRequestList lastObject];
+    self.latestDate = latestFriendRequest.createdAt;
+    
+    [BorbParseManager loadMoreFriendRequests:[User currentUser] withLaterDate:self.latestDate withCompletion:^(NSMutableArray *friendRequests) {
+        if ([friendRequests count] > 0){
+            [self.friendRequestList addObjectsFromArray:friendRequests];
+            [self.friendRequestListInfiniteScrollView.tableView reloadData];
+            self.friendRequestListInfiniteScrollView.isMoreDataLoading = false;
+        } else {
+            self.friendRequestListInfiniteScrollView.isMoreDataLoading = true;
+        }
+    }];
 }
 
 /*

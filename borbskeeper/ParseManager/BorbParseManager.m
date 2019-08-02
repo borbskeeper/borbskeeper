@@ -216,6 +216,22 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
++ (void) fetchUserFromID:(User*)user withCompletion: (void (^)(User *))completion {
+    NSLog(@"Object ID: %@", user);
+    PFQuery *query = [User query];
+    [query whereKey:@"user" equalTo:user];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
+        NSLog(@"Users Found: %@", users);
+        if (users.count > 0) {
+            completion(users[0]);
+        } else {
+            User *noUser;
+            completion(noUser);
+        }
+    }];
+}
+
 + (void) fetchFriendRequestFrom:(User*)sender withRecipient: (User*)recipient withCompletion: (void (^)(BOOL))friendRequestFound {
     PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
     [query whereKey:@"sender" equalTo:sender];
@@ -236,6 +252,39 @@ static int const PARSE_QUERY_LIMIT = 20;
                     friendRequestFound(NO);
                 }
             }];
+        }
+    }];
+}
+
++ (void) fetchFriendRequests:(User*)recipient withCompletion:(void (^)(NSMutableArray *))completion {
+    PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
+    [query whereKey:@"recipient" equalTo:recipient];
+    [query includeKey: @"recipient"];
+    [query includeKey:@"sender"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *activeRequests, NSError *error) {
+        if (activeRequests != nil) {
+            completion([NSMutableArray arrayWithArray:activeRequests]);
+        } else {
+            // TBD: Call completion with error
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
++ (void)loadMoreFriendRequests:(User*)recipient withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion {
+    PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
+    [query whereKey:@"recipient" equalTo:recipient];
+    query.limit = PARSE_QUERY_LIMIT;
+    [query orderByDescending: TASK_DATE_CREATED_KEY];
+    [query whereKey:TASK_DATE_CREATED_KEY lessThan:date];
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray *activeRequests, NSError *error) {
+        if (activeRequests != nil) {
+            completion([NSMutableArray arrayWithArray:activeRequests]);
+        } else {
+            // TBD: Call completion with error
+            NSLog(@"%@", error.localizedDescription);
         }
     }];
 }
