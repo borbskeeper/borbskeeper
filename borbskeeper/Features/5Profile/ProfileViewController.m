@@ -55,7 +55,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 }
 
 - (IBAction)didTapChangeProfilePicture:(id)sender {
-    [self.imageManip presentImagePickerFromViewController:self withImageSource:LIBRARY];
+    [self.imageManip presentImagePickerFromViewController:self withImageSource:IMAGESOURCE_LIBRARY];
 }
 
 - (void) saveImage:(UIImage *)selectedImage {
