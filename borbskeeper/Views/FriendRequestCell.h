@@ -12,11 +12,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol FriendRequestDelegate
+- (void)didInteractWithFriendRequest;
+
+@end
+
 @interface FriendRequestCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *timeAgo;
 @property (strong, nonatomic) FriendRequest *friendRequest;
+@property (assign, nonatomic) BOOL didInteractWithRequest;
+@property (nonatomic, weak) id <FriendRequestDelegate> delegate;
 
 - (void)setupWithFriendRequest:(FriendRequest *)friendRequest;
 

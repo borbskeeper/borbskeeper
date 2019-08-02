@@ -13,7 +13,7 @@
 @dynamic screenname;
 @dynamic username;
 @dynamic userCoins;
-@dynamic friendsList;
+@dynamic friendsListID;
 @dynamic profilePicture;
 @dynamic usersBorb;
 

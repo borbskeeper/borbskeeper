@@ -42,9 +42,15 @@ static int const PARSE_QUERY_LIMIT = 20;
     newUser.email = email;
     newUser.password = password;
     newUser.userCoins = @0;
-    newUser.friendsList = [[NSMutableArray alloc] init];
     newUser.userLogin = [NSDate date];
     
+    FriendsList *friendsList = [FriendsList createFriendsList];
+    [self saveFriendsList:friendsList withCompletion:^(BOOL succeeded, NSError *error) {
+        if (succeeded){
+        newUser.friendsListID = friendsList.objectId;
+        }
+    }];
+
     UIImage *defaultImage = [UIImage imageNamed:PLACEHOLDER_IMAGE_NAME];
     NSData *imageData = UIImagePNGRepresentation(defaultImage);
     newUser.profilePicture = [PFFileObject fileObjectWithName:PROFILE_IMAGE_KEY data:imageData];
@@ -88,6 +94,10 @@ static int const PARSE_QUERY_LIMIT = 20;
 
 + (void)saveFriendRequest:(FriendRequest*)friendRequest withCompletion: (PFBooleanResultBlock _Nullable)completion{
     [friendRequest saveInBackgroundWithBlock: completion];
+}
+
++ (void)saveFriendsList:(FriendsList*)friendsList withCompletion: (PFBooleanResultBlock  _Nullable)completion{
+    [friendsList saveInBackgroundWithBlock: completion];
 }
 
 + (void)fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion {
@@ -205,7 +215,8 @@ static int const PARSE_QUERY_LIMIT = 20;
 + (void) fetchUser:(NSString*)username withCompletion: (void (^)(User *))completion {
     PFQuery *query = [User query];
     [query whereKey:@"username" equalTo:username];
-
+    [query includeKey:@"friendsListID"];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
         if (users.count > 0) {
             completion(users[0]);
@@ -220,6 +231,7 @@ static int const PARSE_QUERY_LIMIT = 20;
     NSLog(@"Object ID: %@", user);
     PFQuery *query = [User query];
     [query whereKey:@"user" equalTo:user];
+    [query includeKey:@"friendsListID"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
         NSLog(@"Users Found: %@", users);
@@ -289,12 +301,34 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
++ (void)deleteFriendRequest: (FriendRequest*)friendRequest WithCompletion: (void (^)(BOOL))completion{
+    // NSLog(@"trying to delete %@", friendRequest);
+    
+    [friendRequest deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        completion(succeeded);
+    }];
+}
+
 + (void)signOutUser {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:LOGIN_STORYBOARD_ID bundle:nil];
         LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:LOGIN_VIEW_CONTROLLER_ID];
         appDelegate.window.rootViewController = loginViewController;
+    }];
+}
+
++ (void) fetchFriendListFromID:(NSString*)friendListID withCompletion: (void (^)(FriendsList *))completion {
+    PFQuery *query = [PFQuery queryWithClassName:@"FriendsList"];
+    [query whereKey:@"objectId" equalTo:friendListID];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *friendsLists, NSError *error) {
+        if (friendsLists.count > 0) {
+            completion(friendsLists[0]);
+        } else {
+            FriendsList *noFriendsList;
+            completion(noFriendsList);
+        }
     }];
 }
 

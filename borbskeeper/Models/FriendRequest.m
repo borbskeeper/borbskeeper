@@ -7,6 +7,7 @@
 //
 
 #import "FriendRequest.h"
+#import "BorbParseManager.h"
 
 @implementation FriendRequest
 
@@ -15,14 +16,6 @@
 
 + (NSString *)parseClassName {
     return @"FriendRequest";
-}
-
-+ (void)acceptFriendRequest{
-    
-}
-
-+ (void)rejectFriendRequest{
-    
 }
 
 + (FriendRequest*)createFriendRequestWithSender:(User*)sender withRecipient:(User*)recipient{

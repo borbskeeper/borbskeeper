@@ -11,7 +11,7 @@
 #import "FriendRequestCell.h"
 #import "BorbParseManager.h"
 
-@interface FriendRequestsViewController () <InfiniteScrollDelegate>
+@interface FriendRequestsViewController () <InfiniteScrollDelegate, FriendRequestDelegate>
 
 @property (strong, nonatomic) NSMutableArray *friendRequestList;
 @property NSDate *latestDate;
@@ -44,6 +44,7 @@ static NSString *const FRIEND_REQUEST_TABLE_VIEW_CELL_ID = @"FriendRequestCell";
     FriendRequestCell *cell = [tableView dequeueReusableCellWithIdentifier:FRIEND_REQUEST_TABLE_VIEW_CELL_ID];
     FriendRequest *friendRequest = self.friendRequestList[indexPath.row];
     [cell setupWithFriendRequest:friendRequest];
+    cell.delegate = self;
     return cell;
 }
 
