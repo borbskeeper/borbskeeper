@@ -121,7 +121,7 @@ static NSString *const CANCEL_ACTION_TITLE = @"Cancel";
     [viewController presentViewController:notEnoughCoinsAlert animated:YES completion:nil];
 }
 
-+ (void) presentSaveTaskNotSuccesfulAlert:(UIViewController*)viewController {
++ (void) presentSaveTaskNotSuccessfulAlert:(UIViewController*)viewController {
     UIAlertController *saveNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:UNSUCCESSFUL_TASK_SAVE_TITLE
                                                                                     message:UNSUCCESSFUL_TASK_SAVE_MESSAGE
                                                                              preferredStyle:(UIAlertControllerStyleAlert)];

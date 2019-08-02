@@ -9,6 +9,7 @@
 #import "PostCell.h"
 #import "DateTools.h"
 #import "UIImageView+AFNetworking.h"
+#import "BorbParseManager.h"
 
 @implementation PostCell
 
@@ -26,8 +27,11 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
     self.post = post;
     
     self.usernameLabel.text = post.author.username;
-    self.datePostedLabel.text = [post.updatedAt timeAgoSinceNow];
-    self.taskNameLabel.text = post.task.taskName;
+    self.datePostedLabel.text = [post.createdAt timeAgoSinceNow];
+    [BorbParseManager fetchTask:self.post.task.objectId WithCompletion:^(NSMutableArray *tasks) {
+        Task *task = tasks[0];
+        self.taskNameLabel.text = task.taskName;
+    }];
     
     PFFileObject *profileImageFile = post.author[USER_PROF_PIC_KEY];
     NSURL *profileImageURL = [NSURL URLWithString:profileImageFile.url];

@@ -28,7 +28,7 @@ static NSString *const QUERY_POST_NAME = @"Post";
 static NSString *const POST_VERIFIED_KEY = @"verified";
 
 static NSString *const QUERY_BORB_NAME = @"Borb";
-static NSString *const BORB_ID_KEY = @"objectId";
+static NSString *const ID_KEY = @"objectId";
 static NSString *const TASK_POSTED_KEY = @"posted";
 
 static NSString *const PLACEHOLDER_IMAGE_NAME = @"profile_placeholder";
@@ -64,9 +64,8 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
-+ (void)loginUser:(NSString*)username withPassword:(NSString*)password withCompletion:(void (^)(NSError *))completion{
-    
-    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
++ (void)loginUser:(NSString*)username withPassword:(NSString*)password withCompletion:(void (^)(NSError *))completion {
+    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
         completion(error);
     }];
 }
@@ -171,11 +170,25 @@ static int const PARSE_QUERY_LIMIT = 20;
 
 + (void)fetchBorb:(NSString *)borbID WithCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_BORB_NAME];
-    [query whereKey:BORB_ID_KEY equalTo:borbID];
+    [query whereKey:ID_KEY equalTo:borbID];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *borbs, NSError *error) {
         if (borbs != nil) {
             completion([NSMutableArray arrayWithArray:borbs]);
+        } else {
+            // TBD: Call completion with error
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
++ (void)fetchTask:(NSString *)taskID WithCompletion:(void (^)(NSMutableArray *))completion {
+    PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
+    [query whereKey:ID_KEY equalTo:taskID];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *tasks, NSError *error) {
+        if (tasks != nil) {
+            completion([NSMutableArray arrayWithArray:tasks]);
         } else {
             // TBD: Call completion with error
             NSLog(@"%@", error.localizedDescription);

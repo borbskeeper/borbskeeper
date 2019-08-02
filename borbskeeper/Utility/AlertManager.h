@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void) presentNotEnoughCoinsToBoostXPAlert:(UIViewController*)viewController;
 
-+ (void) presentSaveTaskNotSuccesfulAlert:(UIViewController*)viewController;
++ (void) presentSaveTaskNotSuccessfulAlert:(UIViewController*)viewController;
 
 + (void) presentNoCameraAlert:(UIViewController *)viewController;
 
