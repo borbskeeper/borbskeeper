@@ -28,7 +28,7 @@ static NSString *const TASK_LIST_SEGUE_ID = @"taskListSegue";
 }
 
 - (IBAction)didTapSignUp:(id)sender {
-    if ([Task checkForInvalidTextFields:@[self.usernameField.text, self.passwordField.text, self.emailField.text]] == YES){
+    if ([AlertManager isInvalidTextField:@[self.usernameField.text, self.passwordField.text, self.emailField.text]] == YES){
         [AlertManager presentSignUpNotSuccesfulAlert:self];
         
     } else {

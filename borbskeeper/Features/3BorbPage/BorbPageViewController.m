@@ -72,7 +72,6 @@ static NSString *const OK_ACTION_TITLE = @"OK";
         [AlertManager presentNotEnoughCoinsToFeedAlert:self];
     } else {
         [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
-            
             Borb *borb = borbs[0];
             
             if ([borb.borbHealth intValue] == MAX_HP){
@@ -90,13 +89,10 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 }
 
 - (IBAction)didTapXPBoost:(id)sender {
-    
     if ([self.user.userCoins intValue] < XP_BOOST_COST){
         [AlertManager presentNotEnoughCoinsToBoostXPAlert:self];
-        
     } else {
         [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
-            
             Borb *borb = borbs[0];
         
             [borb increaseExperiencePointsBy:AMOUNT_OF_XP_FROM_BOOST];
@@ -110,49 +106,23 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 }
 
 - (IBAction)didTapRenameBorb:(id)sender {
-    UIAlertController *renameBorbAlert = [UIAlertController alertControllerWithTitle:@"Rename your borb!"
-                                                                             message:@"Enter a new name: "
-                                                                      preferredStyle:(UIAlertControllerStyleAlert)];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
-                                                     style:UIAlertActionStyleDefault
-                                                   handler:^(UIAlertAction * _Nonnull action) {
-                                                     }];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:OK_ACTION_TITLE
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                         NSString* newName = renameBorbAlert.textFields[0].text;
-                                                         
-                                                         NSLog(@"%@", newName);
-                                                         [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
-                                                             Borb *borb = borbs[0];
-                                                             borb.borbName = newName;
-                                                             [BorbParseManager saveBorb:borb withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-                                                                 if (succeeded) {
-                                                                     [self reloadData];
-                                                                 } else {
-                                                                     NSLog(@"%@", error.localizedDescription);
-                                                                     
-                                                                     UIAlertController *renameErrorAlert = [UIAlertController alertControllerWithTitle:@"Unable to save borb name."
-                                                                                                                                              message:@"There was an error. Please try again."
-                                                                                                                                       preferredStyle:(UIAlertControllerStyleAlert)];
-                                                                     UIAlertAction *okAction = [UIAlertAction actionWithTitle:OK_ACTION_TITLE
-                                                                                                                        style:UIAlertActionStyleDefault
-                                                                                                                      handler:^(UIAlertAction * _Nonnull action) {
-                                                                                                                      }];
-                                                                     [renameErrorAlert addAction:okAction];
-                                                                     [self presentViewController:renameErrorAlert animated:YES completion:nil];
-                                                                 }
-                                                             }];
-                                                         }];
-                                                     }];
-    
-    [renameBorbAlert addAction:cancelAction];
-    [renameBorbAlert addAction:okAction];
-    [renameBorbAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = @"New borb name";
+    [AlertManager presentRenameBorbAlert:self withCompletion:^(NSString * _Nonnull newName) {
+        if ([AlertManager isInvalidTextField:@[newName]]) {
+            [AlertManager presentRenameNotSuccessfulAlert:self];
+        } else {
+            [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
+                Borb *borb = borbs[0];
+                borb.borbName = newName;
+                [BorbParseManager saveBorb:borb withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                    if (succeeded) {
+                        [self reloadData];
+                    } else {
+                        [AlertManager presentRenameNotSuccessfulAlert:self];
+                    }
+                }];
+            }];
+        }
     }];
-    
-    [self presentViewController:renameBorbAlert animated:YES completion:nil];
 }
 
 

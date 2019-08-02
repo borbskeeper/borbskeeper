@@ -54,11 +54,10 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
 }
 
 - (IBAction)didTapSaveTask:(id)sender {
-    if ([Task checkForInvalidTextFields:@[self.taskTitleTextField.text]] == YES){
+    if ([AlertManager isInvalidTextField:@[self.taskTitleTextField.text]] == YES){
         [AlertManager presentSaveTaskNotSuccesfulAlert:self];
     } else {
         if (self.task == nil) {
-
             Task *newTask = [Task createTask:self.taskTitleTextField.text
                              withDescription:self.taskDescTextView.text
                                  withDueDate:self.taskDeadlineDatePicker.date];
@@ -83,12 +82,12 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
                                              task.taskDescription = self.taskDescTextView.text;
                                              task.dueDate = self.taskDeadlineDatePicker.date;
                                              [BorbParseManager saveTask:task withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                                                 [PushNotificationsManager createNotificationForTask:(Task *)task withID:taskId];
                                                  [self.delegate didSaveTask];
+                                                 [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                                              }];
-                                             [PushNotificationsManager createNotificationForTask:(Task *)task withID:taskId];
                                          }];
             [PushNotificationsManager deleteNotificationForTaskWithID:taskId];
-            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }
     }
 }
