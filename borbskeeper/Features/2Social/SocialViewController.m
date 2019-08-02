@@ -17,7 +17,9 @@
 
 @end
 
+
 @implementation SocialViewController
+
 static NSString *const POST_CELL_REUSE_ID = @"PostCell";
 
 - (void)viewDidLoad {
@@ -41,7 +43,7 @@ static NSString *const POST_CELL_REUSE_ID = @"PostCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-        return [self.posts count];
+    return [self.posts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

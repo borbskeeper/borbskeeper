@@ -34,9 +34,7 @@
         UIImage *defaultImage = [UIImage imageNamed:@"borb_original"];
         NSData *imageData = UIImagePNGRepresentation(defaultImage);
         self.borbPicture = [PFFileObject fileObjectWithName:@"borb.png" data:imageData];
-
     }
-    
     return self;
 }
 
@@ -60,8 +58,7 @@
         if ([self.borbLevel intValue] < 0) {
             self.borbLevel = @0;
             newXP = 0;
-        }
-        else {
+        } else {
             int currMaxXP = [GameConstants maxXPForExperienceLevel:self.borbLevel];
             newXP = currMaxXP + newXP;
         }
@@ -84,12 +81,10 @@
         self.borbLevel = [NSNumber numberWithInteger:([self.borbLevel intValue] - 1)];
         self.borbExperience = @0;
         self.borbHealth = [NSNumber numberWithInteger:MAX_HP];
-    }
-    else {
+    } else {
         self.borbHealth = @(newHP);
     }
 }
-
 
 - (void)feedBorb {
     [self increaseHealthPointsBy:AMOUNT_OF_HP_FOOD_RESTORES];

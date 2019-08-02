@@ -16,13 +16,10 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void)setupWithPost:(Post *)post {

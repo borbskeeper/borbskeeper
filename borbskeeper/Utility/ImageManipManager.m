@@ -21,11 +21,9 @@
     
     if (imageSource == IMAGESOURCE_LIBRARY) {
         return [self setImageSourceToLibrary];
-    }
-    else if (imageSource == IMAGESOURCE_CAMERA) {
+    } else if (imageSource == IMAGESOURCE_CAMERA) {
         return [self attemptToSetImageSourceToCamera];
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -40,8 +38,7 @@
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self.originalViewController presentViewController:imagePickerVC animated:YES completion:nil];
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -55,8 +52,7 @@
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self.originalViewController presentViewController:imagePickerVC animated:YES completion:nil];
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }

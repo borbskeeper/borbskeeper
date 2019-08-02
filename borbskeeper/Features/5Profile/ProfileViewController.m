@@ -15,6 +15,7 @@
 #import "ImageManipManager.h"
 #import "ComposePostForTaskViewController.h"
 #import "CompletedTaskCell.h"
+
 @interface ProfileViewController ()<InfiniteScrollDelegate, ImageManipManagerDelegate, ComposePostViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
@@ -50,7 +51,6 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 -(void)loadUserProfilePicture {
     PFFileObject *PFObjectProfileImage = [User currentUser][USER_PROF_PIC_KEY];
     NSURL *profileImageURL = [NSURL URLWithString:PFObjectProfileImage.url];
-    // self.profilePicture.image = nil;
     [self.profilePicture setImageWithURL:profileImageURL];
 }
 
@@ -116,8 +116,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 
         if (task.posted) {
             NSLog(@"Already posted this task! Cannot.");
-        }
-        else {
+        } else {
             UINavigationController *navigationController = [segue destinationViewController];
             ComposePostForTaskViewController *composePostController = (ComposePostForTaskViewController*)navigationController.topViewController;
             composePostController.delegate = self;

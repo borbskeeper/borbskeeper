@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CompletedTaskCell : TaskCell
+
 @property (weak, nonatomic) IBOutlet UILabel *taskNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *checkboxButton;
 @property (weak, nonatomic) IBOutlet UILabel *dueDate;

@@ -20,14 +20,11 @@
 @dynamic verified;
 @dynamic posted;
 
-const int COIN_REWARD_FOR_TASK_OPT_OUT = 5;
-
 + (NSString *)parseClassName {
     return @"Task";
 }
 
 + (Task*)createTask:(NSString*)title withDescription:(NSString*)description withDueDate:(NSDate*)date{
-    
     Task *newTask = [Task new];
     newTask.author = [PFUser currentUser];
     newTask.taskName = title;
@@ -54,18 +51,5 @@ const int COIN_REWARD_FOR_TASK_OPT_OUT = 5;
     task.completed = NO;
 }
 
-+ (BOOL)checkForInvalidTextFields:(NSArray*)fieldsToBeChecked{
-    for (NSString *textFieldText in fieldsToBeChecked){
-        if (textFieldText == nil){
-            return  YES;
-        } else {
-            NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-            NSString *trimmed = [textFieldText stringByTrimmingCharactersInSet:whitespace];
-            if ([trimmed length] == 0) {
-                return YES;
-            }
-        } 
-    }
-    return NO;
-}
+
 @end

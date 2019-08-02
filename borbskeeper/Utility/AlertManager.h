@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AlertManager : NSObject
 
++ (BOOL)isInvalidTextField:(NSArray*)fieldsToBeChecked;
+
 + (void) presentLoginNotSuccesfulAlert:(UIViewController*)viewController;
 
 + (void) presentLoginAfterSignupNotSuccesfulAlert:(UIViewController*)viewController;
@@ -26,6 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (void) presentNotEnoughCoinsToBoostXPAlert:(UIViewController*)viewController;
 
 + (void) presentSaveTaskNotSuccesfulAlert:(UIViewController*)viewController;
+
++ (void) presentNoCameraAlert:(UIViewController *)viewController;
+
++ (void) presentRenameNotSuccessfulAlert:(UIViewController*)viewController;
+
++ (void) presentRenameBorbAlert:(UIViewController *)viewController withCompletion:(void (^)(NSString *)) completion;
 
 @end
 
