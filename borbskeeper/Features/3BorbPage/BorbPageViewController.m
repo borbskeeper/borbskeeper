@@ -10,6 +10,8 @@
 #import "GameConstants.h"
 #import "BorbParseManager.h"
 #import "Borb.h"
+#import <SpriteKit/SpriteKit.h>
+#import "statsBarManager.h"
 #import "AlertManager.h"
 
 @interface BorbPageViewController ()
@@ -23,6 +25,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *maxHPLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *feedBorbButton;
+
+@property (weak, nonatomic) IBOutlet SKView *hpBarSKView;
+@property (weak, nonatomic) IBOutlet SKView *xpBarSKView;
+
 
 @property (strong, nonatomic) User *user;
 
@@ -55,6 +61,9 @@ static NSString *const OK_ACTION_TITLE = @"OK";
         
         self.borbHPLabel.text = [NSString stringWithFormat:@"%@", borb.borbHealth];
         self.maxHPLabel.text = [NSString stringWithFormat:@"/ %d", MAX_HP];
+        
+        [statsBarManager drawStatsBarForStat:BORBSTAT_XP ForBorb:borb inSKView:self.xpBarSKView];
+        [statsBarManager drawStatsBarForStat:BORBSTAT_HP ForBorb:borb inSKView:self.hpBarSKView];
     }];
 }
 

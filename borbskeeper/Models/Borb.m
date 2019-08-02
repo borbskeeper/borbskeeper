@@ -53,12 +53,18 @@
 }
 
 - (void)decreaseExperiencePointsBy:(int)XP{
-    int newXP = [self.borbExperience intValue] + XP;
+    int newXP = [self.borbExperience intValue] - XP;
     
     if (newXP < 0) {
         self.borbLevel = [NSNumber numberWithInteger:([self.borbLevel intValue] - 1)];
-        int currMaxXP = [GameConstants maxXPForExperienceLevel:self.borbLevel];
-        newXP = currMaxXP + newXP;
+        if ([self.borbLevel intValue] < 0) {
+            self.borbLevel = @0;
+            newXP = 0;
+        }
+        else {
+            int currMaxXP = [GameConstants maxXPForExperienceLevel:self.borbLevel];
+            newXP = currMaxXP + newXP;
+        }
     }
     self.borbExperience = @(newXP);
 }
