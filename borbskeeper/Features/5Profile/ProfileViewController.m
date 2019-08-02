@@ -116,8 +116,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 
         if (task.posted) {
             NSLog(@"Already posted this task! Cannot.");
-        }
-        else {
+        } else {
             UINavigationController *navigationController = [segue destinationViewController];
             ComposePostForTaskViewController *composePostController = (ComposePostForTaskViewController*)navigationController.topViewController;
             composePostController.delegate = self;

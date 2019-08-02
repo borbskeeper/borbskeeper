@@ -42,6 +42,7 @@ static const int SECS_TO_HOURS = 3600;
 
     self.current_username = [PFUser currentUser].username;
     [self.incompleteTaskListInfiniteScrollView setupTableView];
+    [self decayByIncompleteTask];
     [self decayByTime];
 }
 
@@ -56,7 +57,6 @@ static const int SECS_TO_HOURS = 3600;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.incompleteTaskList count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TaskCell *cell = [tableView dequeueReusableCellWithIdentifier:TASK_TABLE_VIEW_CELL_ID];
@@ -73,37 +73,35 @@ static const int SECS_TO_HOURS = 3600;
     [BorbParseManager fetchIncompleteTasksOfUser:self.current_username WithCompletion:^(NSMutableArray *posts) {
         self.incompleteTaskList = posts;
         completion();
-        [self decayByIncompleteTask];
     }];
 }
 
-- (void)decayByIncompleteTask{
+- (void)decayByIncompleteTask {
     NSDate *today = [NSDate date];
-    NSComparisonResult result;
     for (int i = START_INDEX; i < [self.incompleteTaskList count]; i++){
         Task *task = self.incompleteTaskList[i];
-        result = [today compare: task.dueDate];
-        if (result == NSOrderedDescending){
+        bool taskPastDueDate = ([today compare: task.dueDate] == NSOrderedDescending);
+        bool taskAlreadyPenalized = ([[User currentUser].userLogin compare:task.dueDate] == NSOrderedDescending);
+        if (taskPastDueDate && !taskAlreadyPenalized){
             [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
                 Borb *userBorb = borbs[0];
                 [userBorb decreaseHealthPointsBy:BORB_HP_DECAY_PER_INCOMPLETE_TASK];
                 [BorbParseManager saveBorb:userBorb withCompletion:nil];
             }];
-            // NSLog(@"This task is past due");
-        } else if (result == NSOrderedAscending){
-            // NSLog(@"This task is not due yet");
         }
     }
 }
 
--(void)decayByTime{
-    NSDate *today = [NSDate date]; //get today's date
+- (void)decayByTime{
+    NSDate *today = [NSDate date];
     NSTimeInterval secondsBetween = [today timeIntervalSinceDate: [User currentUser].userLogin];
     int numOfHours = secondsBetween / SECS_TO_HOURS;
     [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
         Borb *userBorb = borbs[0];
         [userBorb decreaseHealthPointsBy:(BORB_HP_DECAY_PER_HOUR * numOfHours)];
         [BorbParseManager saveBorb:userBorb withCompletion:nil];
+        [User currentUser].userLogin = [NSDate date];
+        [BorbParseManager saveUser:[User currentUser] withCompletion:nil];
     }];
 }
 
@@ -125,18 +123,18 @@ static const int SECS_TO_HOURS = 3600;
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:EDIT_SEGUE_ID]){
+    if ([segue.identifier isEqualToString:EDIT_SEGUE_ID]) {
         UINavigationController *navigationController = [segue destinationViewController];
-        ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
+        ComposeTaskViewController *composeController = (ComposeTaskViewController *)navigationController.topViewController;
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.incompleteTaskListInfiniteScrollView.tableView indexPathForCell:tappedCell];
-        Task* task = self.incompleteTaskList[indexPath.row];
+        Task *task = self.incompleteTaskList[indexPath.row];
         composeController.delegate = self;
         composeController.task = task;
 
-    } else if([segue.identifier  isEqual: COMPOSE_SEGUE_ID]){
+    } else if ([segue.identifier isEqual:COMPOSE_SEGUE_ID]) {
         UINavigationController *navigationController = [segue destinationViewController];
-        ComposeTaskViewController *composeController = (ComposeTaskViewController*)navigationController.topViewController;
+        ComposeTaskViewController *composeController = (ComposeTaskViewController *)navigationController.topViewController;
         composeController.delegate = self;
         composeController.task = nil;
     }

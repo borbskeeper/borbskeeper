@@ -70,7 +70,6 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 - (IBAction)didTapFeed:(id)sender {
     if ([self.user.userCoins intValue] < FOOD_COST){
         [AlertManager presentNotEnoughCoinsToFeedAlert:self];
-
     } else {
         [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
             
@@ -130,8 +129,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
                                                              [BorbParseManager saveBorb:borb withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                                                                  if (succeeded) {
                                                                      [self reloadData];
-                                                                 }
-                                                                 else {
+                                                                 } else {
                                                                      NSLog(@"%@", error.localizedDescription);
                                                                      
                                                                      UIAlertController *renameErrorAlert = [UIAlertController alertControllerWithTitle:@"Unable to save borb name."

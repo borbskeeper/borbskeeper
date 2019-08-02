@@ -31,8 +31,7 @@ static int STAT_BAR_BORDER_GLOW = 1.5;
         bar.fillColor = [SKColor orangeColor];
         bar.position = CGPointMake((barScene.size.width / maxXP) * -((maxXP - [borb.borbExperience doubleValue]) / 2.0), 0);
         [barScene addChild:bar];
-    }
-    else if (stat == BORBSTAT_HP) {
+    } else if (stat == BORBSTAT_HP) {
         // creating HP bar
         double borbHealth = [borb.borbHealth doubleValue];
         
@@ -41,11 +40,9 @@ static int STAT_BAR_BORDER_GLOW = 1.5;
         bar = [SKShapeNode shapeNodeWithRectOfSize:barSize cornerRadius:STAT_BAR_CORNER_ROUNDING];
         if (borbHealth > HIGH_HP_THRESHOLD) {
             bar.fillColor = [SKColor greenColor];
-        }
-        else if (borbHealth > LOW_HP_THRESHOLD) {
+        } else if (borbHealth > LOW_HP_THRESHOLD) {
             bar.fillColor = [SKColor yellowColor];
-        }
-        else {
+        } else {
             bar.fillColor = [SKColor redColor];
         }
         bar.position = CGPointMake((barScene.size.width / (double)MAX_HP) * -(((double)MAX_HP - borbHealth) / 2.0), 0);
@@ -63,11 +60,9 @@ static int STAT_BAR_BORDER_GLOW = 1.5;
         double borbHealth = [borb.borbHealth doubleValue];
         if (borbHealth > HIGH_HP_THRESHOLD) {
             emptyBar.strokeColor = [SKColor greenColor];
-        }
-        else if (borbHealth > LOW_HP_THRESHOLD) {
+        } else if (borbHealth > LOW_HP_THRESHOLD) {
             emptyBar.strokeColor = [SKColor yellowColor];
-        }
-        else {
+        } else {
             emptyBar.strokeColor = [SKColor redColor];
         }
     }

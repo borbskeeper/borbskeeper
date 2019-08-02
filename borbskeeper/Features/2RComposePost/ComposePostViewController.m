@@ -116,8 +116,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     [BorbParseManager savePost:newPost withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Error composing Pos: %@", error.localizedDescription);
-        }
-        else {
+        } else {
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];

@@ -51,8 +51,7 @@
 - (IBAction)switchButtonTapped:(id)sender {
     if (self.switchButton.isOn) {
         NSLog(@"Swith is on and will display picker view");
-    }
-    else {
+    } else {
         self.minutePickerView.hidden = !self.minutePickerView.hidden;;
     }
 }
