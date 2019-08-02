@@ -34,9 +34,7 @@
         UIImage *defaultImage = [UIImage imageNamed:@"borb_original"];
         NSData *imageData = UIImagePNGRepresentation(defaultImage);
         self.borbPicture = [PFFileObject fileObjectWithName:@"borb.png" data:imageData];
-
     }
-    
     return self;
 }
 
@@ -87,7 +85,6 @@
         self.borbHealth = @(newHP);
     }
 }
-
 
 - (void)feedBorb {
     [self increaseHealthPointsBy:AMOUNT_OF_HP_FOOD_RESTORES];

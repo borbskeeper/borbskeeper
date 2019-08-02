@@ -40,9 +40,11 @@ static NSString *const SIGNUP_SEGUE_ID = @"signUpSegue";
 - (IBAction)didTapLogin:(id)sender {
     [self loginUser];
 }
+
 - (IBAction)didTapSignUp:(id)sender {
     [self performSegueWithIdentifier:SIGNUP_SEGUE_ID sender:nil];
 }
+
 - (IBAction)didTapLoginView:(id)sender {
     [self.view endEditing:YES];
 }

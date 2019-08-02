@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void) presentSaveTaskNotSuccesfulAlert:(UIViewController*)viewController;
 
++ (void) presentNoCameraAlert:(UIViewController *)viewController;
+
 + (void) presentRenameNotSuccessfulAlert:(UIViewController*)viewController;
 
 + (void) presentRenameBorbAlert:(UIViewController *)viewController withCompletion:(void (^)(NSString *)) completion;

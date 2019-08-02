@@ -20,14 +20,11 @@
 @dynamic verified;
 @dynamic posted;
 
-const int COIN_REWARD_FOR_TASK_OPT_OUT = 5;
-
 + (NSString *)parseClassName {
     return @"Task";
 }
 
 + (Task*)createTask:(NSString*)title withDescription:(NSString*)description withDueDate:(NSDate*)date{
-    
     Task *newTask = [Task new];
     newTask.author = [PFUser currentUser];
     newTask.taskName = title;

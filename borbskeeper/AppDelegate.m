@@ -19,8 +19,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
+    // Parse server configuration
     ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
         configuration.applicationId = @"borbsKeeper";
         configuration.server = @"http://borbskeeper.herokuapp.com/parse";
@@ -28,11 +27,13 @@
     
     [Parse initializeWithConfiguration:config];
  
+    // Notification permission request
     UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
     [center requestAuthorizationWithOptions: (UNAuthorizationOptionAlert + UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
         
     }];
     
+    // Show first view controller
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
@@ -42,10 +43,12 @@
     self.window.rootViewController = viewController;
     [self.window makeKeyAndVisible];
 
+    // Persisting log-in
     if (PFUser.currentUser) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TasksList" bundle:nil];
         self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"taskList"];
     }
+    
     return YES;
 }
 

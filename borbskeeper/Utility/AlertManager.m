@@ -129,6 +129,26 @@ static NSString *const CANCEL_ACTION_TITLE = @"Cancel";
     [viewController presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
 }
 
++ (void) presentNoCameraAlert:(UIViewController *)viewController {
+    UIAlertController *presentNoCameraAlert = [UIAlertController alertControllerWithTitle:@"No Camera"
+                                                                                  message:@"There is no camera."
+                                                                           preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    [self addOKActionToAlert:presentNoCameraAlert];
+    [viewController presentViewController:presentNoCameraAlert animated:YES completion:nil];
+}
+
+
+
++ (void) presentRenameNotSuccessfulAlert:(UIViewController *)viewController {
+    UIAlertController *renameErrorAlert = [UIAlertController alertControllerWithTitle:@"Unable to save borb name."
+                                                                              message:@"There was an error. Please try again."
+                                                                       preferredStyle:(UIAlertControllerStyleAlert)];
+    [self addOKActionToAlert:renameErrorAlert];
+    
+    [viewController presentViewController:renameErrorAlert animated:YES completion:nil];
+}
+
 + (void) presentRenameBorbAlert:(UIViewController *)viewController withCompletion:(void (^)(NSString *)) completion {
     UIAlertController *renameBorbAlert = [UIAlertController alertControllerWithTitle:@"Rename your borb!"
                                                                              message:@"Enter a new name: "
@@ -150,13 +170,6 @@ static NSString *const CANCEL_ACTION_TITLE = @"Cancel";
     [viewController presentViewController:renameBorbAlert animated:YES completion:nil];
 }
 
-+ (void) presentRenameNotSuccessfulAlert:(UIViewController*)viewController {
-    UIAlertController *renameErrorAlert = [UIAlertController alertControllerWithTitle:@"Unable to save borb name."
-                                                                              message:@"There was an error. Please try again."
-                                                                       preferredStyle:(UIAlertControllerStyleAlert)];
-    [self addOKActionToAlert:renameErrorAlert];
-    
-    [viewController presentViewController:renameErrorAlert animated:YES completion:nil];
-}
+
 
 @end
