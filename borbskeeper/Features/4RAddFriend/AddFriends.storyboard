@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-601" y="143"/>
         </scene>
-        <!--Add Friends View Controller-->
+        <!--Add Friends-->
         <scene sceneID="iOq-qA-jP0">
             <objects>
                 <viewController id="baf-gR-X0c" customClass="AddFriendsViewController" sceneMemberID="viewController">
@@ -53,7 +53,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="a1U-VA-rMw"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gGF-Zb-8VM">
+                    <navigationItem key="navigationItem" title="Add Friends" id="gGF-Zb-8VM">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="gQC-gV-iKV">
                             <connections>
                                 <action selector="didTapCancel:" destination="baf-gR-X0c" id="jvI-BQ-PAp"/>

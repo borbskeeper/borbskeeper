@@ -14,13 +14,10 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void)setupWithFriend:(User *)friend withBorb:(Borb *)friendsBorb{
@@ -30,11 +27,10 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
     self.userName.text = friend.username;
     self.borbName.text = friendsBorb.borbName;
     self.borbLevel.text = [NSString stringWithFormat:@"Level %@", friendsBorb.borbLevel];
-    self.borbLevel.text = [NSString stringWithFormat:@"XP %@", friendsBorb.borbExperience];
+    self.borbExperience.text = [NSString stringWithFormat:@"XP %@", friendsBorb.borbExperience];
     
     PFFileObject *profileImageFile = friend[USER_PROF_PIC_KEY];
     NSURL *profileImageURL = [NSURL URLWithString:profileImageFile.url];
     [self.profilePicture setImageWithURL:profileImageURL];
-
 }
 @end

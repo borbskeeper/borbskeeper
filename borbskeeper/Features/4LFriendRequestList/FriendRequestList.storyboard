@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Friend Requests View Controller-->
+        <!--Friend Requests-->
         <scene sceneID="VqK-DW-FHB">
             <objects>
                 <viewController id="s0N-CD-737" customClass="FriendRequestsViewController" sceneMemberID="viewController">
@@ -127,7 +127,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YK8-g1-ldB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ukm-pG-CIb">
+                    <navigationItem key="navigationItem" title="Friend Requests" id="Ukm-pG-CIb">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="0U5-fy-cMh">
                             <connections>
                                 <action selector="didTapBack:" destination="s0N-CD-737" id="Ahu-NT-z0y"/>

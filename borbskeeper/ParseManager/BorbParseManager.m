@@ -233,7 +233,6 @@ static int const PARSE_QUERY_LIMIT = 20;
     [query includeKey:@"usersBorb"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
-        NSLog(@"Users Found: %@", users);
         if (users.count > 0) {
             completion(users[0]);
         } else {
@@ -248,10 +247,9 @@ static int const PARSE_QUERY_LIMIT = 20;
     [query whereKey:@"objectId" equalTo:objectId];
     [query includeKey:@"friendsListID"];
     [query includeKey:@"usersBorb"];
+    
     NSArray *users = [query findObjects];
     User *user = users[0];
-    
-    NSLog(@"User Found: %@", user);
     return user;
 }
 
@@ -313,8 +311,6 @@ static int const PARSE_QUERY_LIMIT = 20;
 }
 
 + (void)deleteFriendRequest: (FriendRequest*)friendRequest WithCompletion: (void (^)(BOOL))completion{
-    // NSLog(@"trying to delete %@", friendRequest);
-    
     [friendRequest deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         completion(succeeded);
     }];
