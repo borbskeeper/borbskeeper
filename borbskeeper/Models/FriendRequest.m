@@ -13,6 +13,7 @@
 
 @dynamic recipient;
 @dynamic sender;
+@dynamic accepted;
 
 + (NSString *)parseClassName {
     return @"FriendRequest";
@@ -22,6 +23,7 @@
     FriendRequest *newRequest = [FriendRequest new];
     newRequest.sender = sender;
     newRequest.recipient = recipient;
+    newRequest.accepted = NO;
     
     return newRequest;
 }

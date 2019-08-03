@@ -29,11 +29,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="97" id="36a-ur-aER" customClass="FriendCell">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="97"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="106" id="36a-ur-aER" customClass="FriendCell">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="106"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="36a-ur-aER" id="TZa-Cr-mXb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="96.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="105.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Prk-TA-p8X">
@@ -74,10 +74,10 @@
                                                         <constraint firstItem="iXV-Wt-onK" firstAttribute="leading" secondItem="Prk-TA-p8X" secondAttribute="trailing" constant="10" id="B6o-4l-fJ3"/>
                                                         <constraint firstItem="Aon-wa-geh" firstAttribute="top" secondItem="iXV-Wt-onK" secondAttribute="bottom" constant="5" id="HWg-0r-rIu"/>
                                                         <constraint firstItem="8XX-am-2EX" firstAttribute="bottom" secondItem="Prk-TA-p8X" secondAttribute="bottom" id="LTM-fS-uh6"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="TFP-a4-S2T" secondAttribute="bottom" constant="10" id="Lgf-UG-4BT"/>
                                                         <constraint firstItem="8XX-am-2EX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Aon-wa-geh" secondAttribute="bottom" constant="5" id="Ni4-Wh-pkm"/>
                                                         <constraint firstItem="Aon-wa-geh" firstAttribute="leading" secondItem="iXV-Wt-onK" secondAttribute="leading" id="SNl-fB-gU9"/>
                                                         <constraint firstItem="iXV-Wt-onK" firstAttribute="top" secondItem="Prk-TA-p8X" secondAttribute="top" id="WjX-c8-Y0z"/>
-                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8XX-am-2EX" secondAttribute="bottom" constant="10" id="bAW-Eb-Kg4"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iXV-Wt-onK" secondAttribute="trailing" constant="10" id="iRS-Vh-vgR"/>
                                                         <constraint firstItem="8XX-am-2EX" firstAttribute="leading" secondItem="Aon-wa-geh" secondAttribute="leading" id="tJV-oJ-vcW"/>
                                                         <constraint firstItem="TFP-a4-S2T" firstAttribute="leading" secondItem="8XX-am-2EX" secondAttribute="trailing" constant="10" id="wsR-FM-WM8"/>

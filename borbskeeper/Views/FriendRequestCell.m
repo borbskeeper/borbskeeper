@@ -43,7 +43,8 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
         User *sender = self.friendRequest.sender;
         User *recipient = self.friendRequest.recipient;
         
-        [BorbParseManager deleteFriendRequest:self.friendRequest WithCompletion:^(BOOL succeeded) {
+        self.friendRequest.accepted = YES;
+        [BorbParseManager saveFriendRequest:self.friendRequest withCompletion:^(BOOL succeeded, NSError *error) {
             if (!succeeded){
                 self.didInteractWithRequest = NO;
             } else {

@@ -49,7 +49,7 @@ static NSString *const FRIEND_REQUEST_TABLE_VIEW_CELL_ID = @"FriendRequestCell";
 }
 
 - (void)fetchDataWithCompletion:(void (^)(void))completion {
-    [BorbParseManager fetchFriendRequests:[User currentUser] withCompletion:^(NSMutableArray *friendRequests) {
+    [BorbParseManager fetchFriendRequests:[User currentUser] ignoreAccepted:YES withCompletion:^(NSMutableArray *friendRequests) {
         self.friendRequestList = friendRequests;
         completion();
     }];
@@ -59,7 +59,7 @@ static NSString *const FRIEND_REQUEST_TABLE_VIEW_CELL_ID = @"FriendRequestCell";
     FriendRequest *latestFriendRequest = [self.friendRequestList lastObject];
     self.latestDate = latestFriendRequest.createdAt;
     
-    [BorbParseManager loadMoreFriendRequests:[User currentUser] withLaterDate:self.latestDate withCompletion:^(NSMutableArray *friendRequests) {
+    [BorbParseManager loadMoreFriendRequests:[User currentUser] ignoreAccepted:YES withLaterDate:self.latestDate withCompletion:^(NSMutableArray *friendRequests) {
         if ([friendRequests count] > 0){
             [self.friendRequestList addObjectsFromArray:friendRequests];
             [self.friendRequestListInfiniteScrollView.tableView reloadData];

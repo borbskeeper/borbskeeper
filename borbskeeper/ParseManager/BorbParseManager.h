@@ -50,9 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void) fetchFriendRequestFrom:(User*)sender withRecipient: (User*)recipient withCompletion: (void (^)(BOOL))friendRequestFound;
 
-+ (void) fetchFriendRequests:(User*)recipient withCompletion:(void (^)(NSMutableArray *))completion;
++ (void) fetchFriendRequests:(User*)recipient ignoreAccepted:(BOOL)ignoreAccepted withCompletion:(void (^)(NSMutableArray *))completion;
 
-+ (void)loadMoreFriendRequests:(User*)recipient withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion;
++ (void)loadMoreFriendRequests:(User*)recipient ignoreAccepted:(BOOL)ignoreAccepted withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion;
 
 + (void)deleteFriendRequest: (FriendRequest*)friendRequest WithCompletion: (void (^)(BOOL))completion;
 

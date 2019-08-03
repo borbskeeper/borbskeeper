@@ -10,6 +10,7 @@
 #import "BorbParseManager.h"
 #import "User.h"
 #import "FriendRequest.h"
+#import "AlertManager.h"
 
 @interface AddFriendsViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
@@ -30,29 +31,23 @@
 
 - (IBAction)didTapAdd:(id)sender {
     if ([self.userNameTextField.text isEqualToString:[User currentUser].username]){
-        NSLog(@"Cannot send friend request to yourself");
-        // Create alert
+        [AlertManager presentRequestToSelfAlert:self];
+        
     } else {
         [BorbParseManager fetchUser:self.userNameTextField.text withCompletion:^(User *recipient) {
             if (recipient == nil){
-                NSLog(@"Could not find user");
-                // Create alert
+                [AlertManager presentCannotFindUserAlert:self];
                 
             } else {
-                // NSLog(@"%@", recipient.username);
                 [BorbParseManager fetchFriendRequestFrom:[User currentUser] withRecipient:recipient withCompletion:^(BOOL friendRequestFound) {
                     if (friendRequestFound){
-                        NSLog(@"Active request already exists");
-                        // Create alert
+                        [AlertManager presentRequestAlreadyExistsAlert:self];
                         
                     } else {
                         FriendRequest *newRequest = [FriendRequest createFriendRequestWithSender:[User currentUser] withRecipient:recipient];
                         [BorbParseManager saveFriendRequest:newRequest withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                             if (!succeeded){
-                                NSLog(@"Couldn't save request");
-                                // Create alert
-                            } else {
-                                 NSLog(@"Created Friend Request");
+                                [AlertManager presentRequestNotSavedAlert:self];
                             }
                         }];
                     }

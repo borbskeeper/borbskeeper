@@ -27,6 +27,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void) presentSaveTaskNotSuccesfulAlert:(UIViewController*)viewController;
 
++ (void) presentRequestToSelfAlert:(UIViewController*)viewController;
+
++ (void) presentCannotFindUserAlert:(UIViewController*)viewController;
+
++ (void) presentRequestAlreadyExistsAlert:(UIViewController*)viewController;
+
++ (void) presentRequestNotSavedAlert:(UIViewController*)viewController;
+
 @end
 
 NS_ASSUME_NONNULL_END

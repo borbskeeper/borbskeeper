@@ -33,6 +33,7 @@ static NSString *const QUERY_BORB_KEY = @"usersBorb";
 static NSString *const QUERY_FRIENDSLIST_ID_KEY = @"friendsListID";
 static NSString *const QUERY_SENDER_KEY = @"sender";
 static NSString *const QUERY_RECIPIENT_KEY = @"recipient";
+static NSString *const QUERY_REQUEST_ACCEPTED_KEY = @"accepted";
 
 static NSString *const PLACEHOLDER_IMAGE_NAME = @"profile_placeholder";
 static NSString *const POST_PLACEHOLDER_IMAGE_NAME = @"image.png";
@@ -302,11 +303,15 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
-+ (void) fetchFriendRequests:(User*)recipient withCompletion:(void (^)(NSMutableArray *))completion {
++ (void) fetchFriendRequests:(User*)recipient ignoreAccepted:(BOOL)ignoreAccepted withCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_FRIEND_REQUEST_NAME];
     [query whereKey:QUERY_RECIPIENT_KEY equalTo:recipient];
     [query includeKey: QUERY_RECIPIENT_KEY];
     [query includeKey:QUERY_SENDER_KEY];
+    
+    if (ignoreAccepted){
+        [query whereKey:QUERY_REQUEST_ACCEPTED_KEY equalTo:@NO];
+    }
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *activeRequests, NSError *error) {
         if (activeRequests != nil) {
@@ -318,7 +323,7 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
-+ (void) loadMoreFriendRequests:(User*)recipient withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion {
++ (void) loadMoreFriendRequests:(User*)recipient ignoreAccepted:(BOOL)ignoreAccepted withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion {
     if (!date) {
         return;
     }
@@ -328,6 +333,10 @@ static int const PARSE_QUERY_LIMIT = 20;
     [query orderByDescending: QUERY_DATE_CREATED_KEY];
     [query whereKey:QUERY_DATE_CREATED_KEY lessThan:date];
 
+    if (ignoreAccepted){
+        [query whereKey:QUERY_REQUEST_ACCEPTED_KEY equalTo:@NO];
+    }
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *activeRequests, NSError *error) {
         if (activeRequests != nil) {
             completion([NSMutableArray arrayWithArray:activeRequests]);

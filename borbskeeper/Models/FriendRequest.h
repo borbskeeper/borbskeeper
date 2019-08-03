@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) User *sender;
 @property (nonatomic, strong) User *recipient;
+@property (nonatomic, assign) BOOL accepted;
 
 + (FriendRequest*)createFriendRequestWithSender:(User*)sender withRecipient:(User*)recipient;
 
