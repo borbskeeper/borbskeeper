@@ -13,7 +13,6 @@
 
 @implementation BorbParseManager
 
-
 static NSString *const LOGIN_STORYBOARD_ID = @"Login";
 static NSString *const LOGIN_VIEW_CONTROLLER_ID = @"login";
 
@@ -28,7 +27,7 @@ static NSString *const QUERY_POST_NAME = @"Post";
 static NSString *const POST_VERIFIED_KEY = @"verified";
 
 static NSString *const QUERY_BORB_NAME = @"Borb";
-static NSString *const BORB_ID_KEY = @"objectId";
+static NSString *const ID_KEY = @"objectId";
 static NSString *const TASK_POSTED_KEY = @"posted";
 
 static NSString *const PLACEHOLDER_IMAGE_NAME = @"profile_placeholder";
@@ -64,9 +63,8 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
-+ (void)loginUser:(NSString*)username withPassword:(NSString*)password withCompletion:(void (^)(NSError *))completion{
-    
-    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
++ (void)loginUser:(NSString*)username withPassword:(NSString*)password withCompletion:(void (^)(NSError *))completion {
+    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
         completion(error);
     }];
 }
@@ -106,6 +104,10 @@ static int const PARSE_QUERY_LIMIT = 20;
 }
 
 + (void)loadMoreIncompleteTasksOfUser:(NSString *)username withLaterDate:(NSDate *)date WithCompletion:(void (^)(NSMutableArray *))completion {
+    // NOTE: if date is nil, there are no tasks to show, so there is no need to query.
+    if (!date) {
+        return;
+    }
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     query.limit = PARSE_QUERY_LIMIT;
     [query orderByAscending:TASK_DATE_DUE_KEY];
@@ -147,6 +149,10 @@ static int const PARSE_QUERY_LIMIT = 20;
 }
 
 + (void)loadMoreCompleteTasksOfUser:(NSString *)username ifNotPosted:(BOOL)postedStatus withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion {
+    // NOTE: if date is nil, there are no tasks to show, so there is no need to query.
+    if (!date) {
+        return;
+    }
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     query.limit = PARSE_QUERY_LIMIT;
     [query orderByDescending:TASK_DATE_DUE_KEY];
@@ -171,11 +177,25 @@ static int const PARSE_QUERY_LIMIT = 20;
 
 + (void)fetchBorb:(NSString *)borbID WithCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_BORB_NAME];
-    [query whereKey:BORB_ID_KEY equalTo:borbID];
+    [query whereKey:ID_KEY equalTo:borbID];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *borbs, NSError *error) {
         if (borbs != nil) {
             completion([NSMutableArray arrayWithArray:borbs]);
+        } else {
+            // TBD: Call completion with error
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
++ (void)fetchTask:(NSString *)taskID WithCompletion:(void (^)(NSMutableArray *))completion {
+    PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
+    [query whereKey:ID_KEY equalTo:taskID];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *tasks, NSError *error) {
+        if (tasks != nil) {
+            completion([NSMutableArray arrayWithArray:tasks]);
         } else {
             // TBD: Call completion with error
             NSLog(@"%@", error.localizedDescription);

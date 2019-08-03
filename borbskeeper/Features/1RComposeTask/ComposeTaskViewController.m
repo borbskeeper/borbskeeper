@@ -55,7 +55,7 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
 
 - (IBAction)didTapSaveTask:(id)sender {
     if ([AlertManager isInvalidTextField:@[self.taskTitleTextField.text]] == YES){
-        [AlertManager presentSaveTaskNotSuccesfulAlert:self];
+        [AlertManager presentSaveTaskNotSuccessfulAlert:self];
     } else {
         if (self.task == nil) {
             Task *newTask = [Task createTask:self.taskTitleTextField.text
@@ -68,7 +68,7 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
                     [self.delegate didSaveTask];
                     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                 } else {
-                    [AlertManager presentSaveTaskNotSuccesfulAlert:self];
+                    [AlertManager presentSaveTaskNotSuccessfulAlert:self];
                 }
             }];
         } else {
