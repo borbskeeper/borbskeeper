@@ -250,7 +250,21 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
-+ (User *) fetchUserFromIdSynchronously:(NSString *)objectId{
++ (void) fetchUserFromIdUsingArray:(NSString *)objectId withCompletion: (void (^)(User *))completion {
+    PFQuery *query = [User query];
+    [query whereKey:@"objectId" equalTo:objectId];
+    [query includeKey:@"friendsListID"];
+    [query includeKey:@"usersBorb"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
+        if (users.count > 0) {
+            completion(users[0]);
+        }
+    }];
+}
+
++ (User *) fetchUserFromIdSynchronously:(NSString *)objectId {
+    // Don't use unless necessary
     PFQuery *query = [User query];
     [query whereKey:@"objectId" equalTo:objectId];
     [query includeKey:@"friendsListID"];
@@ -322,7 +336,7 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
-+ (void)deleteFriendRequest: (FriendRequest*)friendRequest WithCompletion: (void (^)(BOOL))completion{
++ (void)deleteFriendRequest: (FriendRequest*)friendRequest WithCompletion: (void (^)(BOOL))completion {
     [friendRequest deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         completion(succeeded);
     }];
@@ -347,6 +361,26 @@ static int const PARSE_QUERY_LIMIT = 20;
         } else {
             FriendsList *noFriendsList;
             completion(noFriendsList);
+        }
+    }];
+}
+
++ (void) fetchFriendListFromIDAsArray:(NSString*)friendListID withCompletion: (void (^)(NSMutableArray*))completion {
+    PFQuery *query = [PFQuery queryWithClassName:@"FriendsList"];
+    [query whereKey:@"objectId" equalTo:friendListID];
+    
+    NSMutableArray *friendsList = [NSMutableArray arrayWithCapacity:0];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *queriedFriendsLists, NSError *error) {
+        if (queriedFriendsLists.count > 0) {
+            FriendsList *friendListRaw = queriedFriendsLists[0];
+            
+            for (NSString *friendID in friendListRaw.friends){
+                [self fetchUserFromIdUsingArray:friendID withCompletion:^(User *user){
+                    [friendsList addObject:user];
+                    completion(friendsList);
+                }];
+            };
+            completion(friendsList);
         }
     }];
 }

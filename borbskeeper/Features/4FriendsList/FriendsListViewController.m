@@ -38,14 +38,10 @@ static NSString *const FRIEND_TABLE_VIEW_CELL_ID = @"FriendCell";
 
 - (void)fetchDataWithCompletion:(void (^)(void))completion {
     self.friendsList = [NSMutableArray arrayWithCapacity:0];
-    [BorbParseManager fetchFriendListFromID:[User currentUser].friendsListID withCompletion:^(FriendsList * friendsList) {
-        NSArray *friends = friendsList.friends;
-        for (NSString *friendID in friends){
-            User *friend = [BorbParseManager fetchUserFromIdSynchronously:friendID];
-            [self.friendsList addObject:friend];
-        };
+    
+    [BorbParseManager fetchFriendListFromIDAsArray:[User currentUser].friendsListID withCompletion:^(NSMutableArray * friendsList) {
+        self.friendsList = friendsList;
         completion();
-        
     }];
 }
 

@@ -60,6 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void) fetchFriendListFromID:(NSString*)friendListID withCompletion: (void (^)(FriendsList *))completion;
 
++ (void) fetchFriendListFromIDAsArray:(NSString*)friendListID withCompletion: (void (^)(NSMutableArray*))completion;
+
 + (User *) fetchUserFromIdSynchronously:(NSString *)objectId;
 
 + (void)signOutUser;
