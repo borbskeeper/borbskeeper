@@ -65,7 +65,6 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     return [self.completeTaskList count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TaskCell *cell = [tableView dequeueReusableCellWithIdentifier:COMPLETE_TASK_TABLE_VIEW_CELL_ID];
     
@@ -90,12 +89,13 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 }
 
 - (IBAction)postBarButtonClicked:(id)sender {
+    // self.selectedTask =
+    
     if (!self.selectedImage|| !self.selectedTask) {
         NSLog(@"error");
         // put a error alert here
         return;
     }
-    // self.selectedTask = ; 
     Post *newPost = [Post createPost:self.selectedImage withTask:self.selectedTask];
     if (self.shareOptionButton.selectedSegmentIndex == 0){
         newPost.sharedGlobally = NO;
