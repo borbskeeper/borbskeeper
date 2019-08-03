@@ -118,6 +118,11 @@ static int const PARSE_QUERY_LIMIT = 20;
 }
 
 + (void)loadMoreIncompleteTasksOfUser:(NSString *)username withLaterDate:(NSDate *)date WithCompletion:(void (^)(NSMutableArray *))completion {
+    // NOTE: if date is nil, there are no tasks to show, so there is no need to query.
+    if (!date) {
+        return;
+    }
+    
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     query.limit = PARSE_QUERY_LIMIT;
     [query orderByAscending:TASK_DATE_DUE_KEY];
@@ -159,6 +164,9 @@ static int const PARSE_QUERY_LIMIT = 20;
 }
 
 + (void)loadMoreCompleteTasksOfUser:(NSString *)username ifNotPosted:(BOOL)postedStatus withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion {
+    if (!date) {
+        return;
+    }
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     query.limit = PARSE_QUERY_LIMIT;
     [query orderByDescending:TASK_DATE_DUE_KEY];
@@ -294,6 +302,10 @@ static int const PARSE_QUERY_LIMIT = 20;
 }
 
 + (void) loadMoreFriendRequests:(User*)recipient withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion {
+    if (!date) {
+        return;
+    }
+    
     PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
     [query whereKey:@"recipient" equalTo:recipient];
     query.limit = PARSE_QUERY_LIMIT;

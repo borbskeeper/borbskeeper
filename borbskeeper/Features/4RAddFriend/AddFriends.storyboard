@@ -34,23 +34,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P4P-fn-jli">
-                                <rect key="frame" x="16" y="105" width="274" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P4P-fn-jli">
+                                <rect key="frame" x="20" y="84" width="273" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbd-Qt-762">
-                                <rect key="frame" x="311" y="105" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbd-Qt-762">
+                                <rect key="frame" x="313" y="84" width="42" height="30"/>
+                                <color key="backgroundColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="didTapAdd:" destination="baf-gR-X0c" eventType="touchUpInside" id="gLf-6H-Hhg"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="P4P-fn-jli" firstAttribute="leading" secondItem="a1U-VA-rMw" secondAttribute="leading" constant="20" id="Anf-Gh-HP3"/>
+                            <constraint firstItem="Nbd-Qt-762" firstAttribute="leading" secondItem="P4P-fn-jli" secondAttribute="trailing" constant="20" id="RL3-3O-GyB"/>
+                            <constraint firstItem="a1U-VA-rMw" firstAttribute="trailing" secondItem="Nbd-Qt-762" secondAttribute="trailing" constant="20" id="d3J-tQ-G1H"/>
+                            <constraint firstItem="a1U-VA-rMw" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="P4P-fn-jli" secondAttribute="bottom" constant="20" id="e1b-zX-ceb"/>
+                            <constraint firstItem="P4P-fn-jli" firstAttribute="top" secondItem="a1U-VA-rMw" secondAttribute="top" constant="20" id="gEP-hq-zC3"/>
+                            <constraint firstItem="Nbd-Qt-762" firstAttribute="top" secondItem="P4P-fn-jli" secondAttribute="top" id="gEj-FE-B4l"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="a1U-VA-rMw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Friends" id="gGF-Zb-8VM">
