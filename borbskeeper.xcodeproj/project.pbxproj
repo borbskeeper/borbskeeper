@@ -35,6 +35,8 @@
 		4A944D4D22DE49F00065782C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A944D4C22DE49F00065782C /* SignUpViewController.m */; };
 		4A944D6222DE8EF00065782C /* BorbParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A944D6122DE8EF00065782C /* BorbParseManager.m */; };
 		4AAF0EF222F4EC7F00AA6E42 /* FriendsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0EF122F4EC7F00AA6E42 /* FriendsList.m */; };
+		4AAF0EF522F4FF9000AA6E42 /* FriendsListInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0EF422F4FF9000AA6E42 /* FriendsListInfiniteScrollView.m */; };
+		4AAF0EF822F5022500AA6E42 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0EF722F5022500AA6E42 /* FriendCell.m */; };
 		4AB260CE22E0F5890062DD14 /* ComposeTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB260CD22E0F5890062DD14 /* ComposeTaskViewController.m */; };
 		4AB260D022E0F5B70062DD14 /* ComposeTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */; };
 		A2284FD022E24217006217C9 /* BorbPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2284FCF22E24217006217C9 /* BorbPageViewController.m */; };
@@ -130,6 +132,10 @@
 		4A944D6122DE8EF00065782C /* BorbParseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorbParseManager.m; sourceTree = "<group>"; };
 		4AAF0EF022F4EC7F00AA6E42 /* FriendsList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsList.h; sourceTree = "<group>"; };
 		4AAF0EF122F4EC7F00AA6E42 /* FriendsList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsList.m; sourceTree = "<group>"; };
+		4AAF0EF322F4FF9000AA6E42 /* FriendsListInfiniteScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsListInfiniteScrollView.h; sourceTree = "<group>"; };
+		4AAF0EF422F4FF9000AA6E42 /* FriendsListInfiniteScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsListInfiniteScrollView.m; sourceTree = "<group>"; };
+		4AAF0EF622F5022500AA6E42 /* FriendCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
+		4AAF0EF722F5022500AA6E42 /* FriendCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
 		4AB260CC22E0F5890062DD14 /* ComposeTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeTaskViewController.h; sourceTree = "<group>"; };
 		4AB260CD22E0F5890062DD14 /* ComposeTaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeTaskViewController.m; sourceTree = "<group>"; };
 		4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComposeTask.storyboard; sourceTree = "<group>"; };
@@ -239,6 +245,8 @@
 				4A2ECAFE22F36092003C880B /* FriendsList.storyboard */,
 				4A2ECAFB22F3607C003C880B /* FriendsListViewController.h */,
 				4A2ECAFC22F3607C003C880B /* FriendsListViewController.m */,
+				4AAF0EF322F4FF9000AA6E42 /* FriendsListInfiniteScrollView.h */,
+				4AAF0EF422F4FF9000AA6E42 /* FriendsListInfiniteScrollView.m */,
 			);
 			path = 4FriendsList;
 			sourceTree = "<group>";
@@ -307,6 +315,8 @@
 				A2FAE71A22EFAEDD0081DAE7 /* PostCell.m */,
 				4A2ECB0C22F3B3E3003C880B /* FriendRequestCell.h */,
 				4A2ECB0D22F3B3E3003C880B /* FriendRequestCell.m */,
+				4AAF0EF622F5022500AA6E42 /* FriendCell.h */,
+				4AAF0EF722F5022500AA6E42 /* FriendCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -758,12 +768,14 @@
 				4A2ECB0E22F3B3E3003C880B /* FriendRequestCell.m in Sources */,
 				4A2ECB0822F36A12003C880B /* FriendRequest.m in Sources */,
 				A2FAE71822EFA5870081DAE7 /* ComposePostForTaskViewController.m in Sources */,
+				4AAF0EF522F4FF9000AA6E42 /* FriendsListInfiniteScrollView.m in Sources */,
 				4A944D6222DE8EF00065782C /* BorbParseManager.m in Sources */,
 				4A55B94D22EA2EBF00CA5400 /* ProfileViewController.m in Sources */,
 				4A944D4622DE49390065782C /* LoginViewController.m in Sources */,
 				4A944D4D22DE49F00065782C /* SignUpViewController.m in Sources */,
 				4A55B95622EB818700CA5400 /* IncompleteTaskListInfiniteScrollView.m in Sources */,
 				4A2ECAF722F240B4003C880B /* AlertManager.m in Sources */,
+				4AAF0EF822F5022500AA6E42 /* FriendCell.m in Sources */,
 				A2FBF61622EB8FD800464637 /* SocialViewController.m in Sources */,
 				A28F5C0A22DE598E001FAFC7 /* User.m in Sources */,
 				4A2ECB0422F360BE003C880B /* FriendRequestsViewController.m in Sources */,

@@ -56,9 +56,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)deleteFriendRequest: (FriendRequest*)friendRequest WithCompletion: (void (^)(BOOL))completion;
 
-+ (void) fetchUserFromID:(User*)user withCompletion: (void (^)(User *))completion;
++ (void) fetchUserFromID:(NSString*)objectId withCompletion: (void (^)(User *))completion;
 
 + (void) fetchFriendListFromID:(NSString*)friendListID withCompletion: (void (^)(FriendsList *))completion;
+
++ (User *) fetchUserFromIdSynchronously:(NSString *)objectId;
 
 + (void)signOutUser;
 

@@ -7,18 +7,51 @@
 //
 
 #import "FriendsListViewController.h"
+#import "FriendsListInfiniteScrollView.h"
+#import "FriendCell.h"
+#import "BorbParseManager.h"
 
-@interface FriendsListViewController ()
-
+@interface FriendsListViewController () <InfiniteScrollDelegate>
+@property (weak, nonatomic) IBOutlet FriendsListInfiniteScrollView *friendsListInfiniteScrollView;
+@property (strong, nonatomic) __block NSMutableArray *friendsList;
 @end
 
 @implementation FriendsListViewController
+static NSString *const FRIEND_TABLE_VIEW_CELL_ID = @"FriendCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.friendsListInfiniteScrollView.infiniteScrollDelegate = self;
+    [self.friendsListInfiniteScrollView setupTableView];
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.friendsList count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    FriendCell *cell = [tableView dequeueReusableCellWithIdentifier:FRIEND_TABLE_VIEW_CELL_ID];
+    User *friend = self.friendsList[indexPath.row];
+    [cell setupWithFriend:friend withBorb:friend.usersBorb];
+    return cell;
+}
+
+- (void)fetchDataWithCompletion:(void (^)(void))completion {
+    self.friendsList = [NSMutableArray arrayWithCapacity:0];
+    [BorbParseManager fetchFriendListFromID:[User currentUser].friendsListID withCompletion:^(FriendsList * friendsList) {
+        NSArray *friends = friendsList.friends;
+        for (NSString *friendID in friends){
+            User *friend = [BorbParseManager fetchUserFromIdSynchronously:friendID];
+            [self.friendsList addObject:friend];
+        };
+        completion();
+        
+    }];
+}
+
+- (void)loadMoreData {
+    self.friendsListInfiniteScrollView.isMoreDataLoading = true;
+}
 /*
 #pragma mark - Navigation
 

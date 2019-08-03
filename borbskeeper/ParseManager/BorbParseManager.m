@@ -12,7 +12,6 @@
 
 @implementation BorbParseManager
 
-
 static NSString *const LOGIN_STORYBOARD_ID = @"Login";
 static NSString *const LOGIN_VIEW_CONTROLLER_ID = @"login";
 
@@ -227,11 +226,11 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
-+ (void) fetchUserFromID:(User*)user withCompletion: (void (^)(User *))completion {
-    NSLog(@"Object ID: %@", user);
++ (void) fetchUserFromID:(NSString *)objectId withCompletion: (void (^)(User *))completion {
     PFQuery *query = [User query];
-    [query whereKey:@"user" equalTo:user];
+    [query whereKey:@"objectId" equalTo:objectId];
     [query includeKey:@"friendsListID"];
+    [query includeKey:@"usersBorb"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
         NSLog(@"Users Found: %@", users);
@@ -242,6 +241,18 @@ static int const PARSE_QUERY_LIMIT = 20;
             completion(noUser);
         }
     }];
+}
+
++ (User *) fetchUserFromIdSynchronously:(NSString *)objectId{
+    PFQuery *query = [User query];
+    [query whereKey:@"objectId" equalTo:objectId];
+    [query includeKey:@"friendsListID"];
+    [query includeKey:@"usersBorb"];
+    NSArray *users = [query findObjects];
+    User *user = users[0];
+    
+    NSLog(@"User Found: %@", user);
+    return user;
 }
 
 + (void) fetchFriendRequestFrom:(User*)sender withRecipient: (User*)recipient withCompletion: (void (^)(BOOL))friendRequestFound {
@@ -284,7 +295,7 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
-+ (void)loadMoreFriendRequests:(User*)recipient withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion {
++ (void) loadMoreFriendRequests:(User*)recipient withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
     [query whereKey:@"recipient" equalTo:recipient];
     query.limit = PARSE_QUERY_LIMIT;
