@@ -39,7 +39,6 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
 
 - (IBAction)didTapConfirm:(id)sender {
     if (!self.didInteractWithRequest){
-        // NSLog(@"Friend Request: %@", self.friendRequest);
         self.didInteractWithRequest = YES;
         User *sender = self.friendRequest.sender;
         User *recipient = self.friendRequest.recipient;

@@ -16,18 +16,23 @@ static NSString *const LOGIN_STORYBOARD_ID = @"Login";
 static NSString *const LOGIN_VIEW_CONTROLLER_ID = @"login";
 
 static NSString *const QUERY_TASK_NAME = @"Task";
-static NSString *const TASK_DATE_CREATED_KEY = @"createdAt";
-static NSString *const TASK_DATE_DUE_KEY = @"dueDate";
-
-static NSString *const AUTHOR_KEY = @"author";
-static NSString *const TASK_COMPLETED_KEY = @"completed";
-
 static NSString *const QUERY_POST_NAME = @"Post";
-static NSString *const POST_VERIFIED_KEY = @"verified";
-
 static NSString *const QUERY_BORB_NAME = @"Borb";
-static NSString *const BORB_ID_KEY = @"objectId";
-static NSString *const TASK_POSTED_KEY = @"posted";
+static NSString *const QUERY_FRIEND_REQUEST_NAME = @"FriendRequest";
+static NSString *const QUERY_FRIENDSLIST_NAME = @"FriendsList";
+
+static NSString *const QUERY_DATE_CREATED_KEY = @"createdAt";
+static NSString *const QUERY_TASK_DATE_DUE_KEY = @"dueDate";
+static NSString *const QUERY_AUTHOR_KEY = @"author";
+static NSString *const QUERY_TASK_COMPLETED_KEY = @"completed";
+static NSString *const QUERY_TASK_POSTED_KEY = @"posted";
+static NSString *const QUERY_POST_VERIFIED_KEY = @"verified";
+static NSString *const QUERY_OBJECT_ID_KEY = @"objectId";
+static NSString *const QUERY_USERNAME_KEY = @"username";
+static NSString *const QUERY_BORB_KEY = @"usersBorb";
+static NSString *const QUERY_FRIENDSLIST_ID_KEY = @"friendsListID";
+static NSString *const QUERY_SENDER_KEY = @"sender";
+static NSString *const QUERY_RECIPIENT_KEY = @"recipient";
 
 static NSString *const PLACEHOLDER_IMAGE_NAME = @"profile_placeholder";
 static NSString *const POST_PLACEHOLDER_IMAGE_NAME = @"image.png";
@@ -102,10 +107,10 @@ static int const PARSE_QUERY_LIMIT = 20;
 + (void)fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     query.limit = PARSE_QUERY_LIMIT;
-    [query orderByAscending:TASK_DATE_DUE_KEY];
-    [query includeKey:AUTHOR_KEY];
-    [query whereKey:AUTHOR_KEY equalTo:[PFUser currentUser]];
-    [query whereKey:TASK_COMPLETED_KEY equalTo:@NO];
+    [query orderByAscending:QUERY_TASK_DATE_DUE_KEY];
+    [query includeKey:QUERY_AUTHOR_KEY];
+    [query whereKey:QUERY_AUTHOR_KEY equalTo:[PFUser currentUser]];
+    [query whereKey:QUERY_TASK_COMPLETED_KEY equalTo:@NO];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
@@ -125,11 +130,11 @@ static int const PARSE_QUERY_LIMIT = 20;
     
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     query.limit = PARSE_QUERY_LIMIT;
-    [query orderByAscending:TASK_DATE_DUE_KEY];
-    [query includeKey:AUTHOR_KEY];
-    [query whereKey:AUTHOR_KEY equalTo:[PFUser currentUser]];
-    [query whereKey:TASK_COMPLETED_KEY equalTo:@NO];
-    [query whereKey:TASK_DATE_DUE_KEY greaterThan:date];
+    [query orderByAscending:QUERY_TASK_DATE_DUE_KEY];
+    [query includeKey:QUERY_AUTHOR_KEY];
+    [query whereKey:QUERY_AUTHOR_KEY equalTo:[PFUser currentUser]];
+    [query whereKey:QUERY_TASK_COMPLETED_KEY equalTo:@NO];
+    [query whereKey:QUERY_TASK_DATE_DUE_KEY greaterThan:date];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
@@ -144,13 +149,13 @@ static int const PARSE_QUERY_LIMIT = 20;
 + (void)fetchCompleteTasksOfUser:(NSString *)username ifNotPosted:(BOOL)postedStatus withCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     query.limit = PARSE_QUERY_LIMIT;
-    [query orderByDescending:TASK_DATE_DUE_KEY];
-    [query includeKey:AUTHOR_KEY];
-    [query whereKey:AUTHOR_KEY equalTo:[PFUser currentUser]];
-    [query whereKey:TASK_COMPLETED_KEY equalTo:@YES];
+    [query orderByDescending:QUERY_TASK_DATE_DUE_KEY];
+    [query includeKey:QUERY_AUTHOR_KEY];
+    [query whereKey:QUERY_AUTHOR_KEY equalTo:[PFUser currentUser]];
+    [query whereKey:QUERY_TASK_COMPLETED_KEY equalTo:@YES];
     
     if (postedStatus == YES){
-        [query whereKey:TASK_POSTED_KEY equalTo:@NO];
+        [query whereKey:QUERY_TASK_POSTED_KEY equalTo:@NO];
     }
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -169,14 +174,14 @@ static int const PARSE_QUERY_LIMIT = 20;
     }
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     query.limit = PARSE_QUERY_LIMIT;
-    [query orderByDescending:TASK_DATE_DUE_KEY];
-    [query includeKey:AUTHOR_KEY];
-    [query whereKey:AUTHOR_KEY equalTo:[PFUser currentUser]];
-    [query whereKey:TASK_COMPLETED_KEY equalTo:@YES];
-    [query whereKey:TASK_DATE_DUE_KEY lessThan:date];
+    [query orderByDescending:QUERY_TASK_DATE_DUE_KEY];
+    [query includeKey:QUERY_AUTHOR_KEY];
+    [query whereKey:QUERY_AUTHOR_KEY equalTo:[PFUser currentUser]];
+    [query whereKey:QUERY_TASK_COMPLETED_KEY equalTo:@YES];
+    [query whereKey:QUERY_TASK_DATE_DUE_KEY lessThan:date];
     
     if (postedStatus == YES){
-        [query whereKey:TASK_POSTED_KEY equalTo:@YES];
+        [query whereKey:QUERY_TASK_POSTED_KEY equalTo:@YES];
     }
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -191,7 +196,7 @@ static int const PARSE_QUERY_LIMIT = 20;
 
 + (void)fetchBorb:(NSString *)borbID WithCompletion:(void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_BORB_NAME];
-    [query whereKey:BORB_ID_KEY equalTo:borbID];
+    [query whereKey:QUERY_OBJECT_ID_KEY equalTo:borbID];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *borbs, NSError *error) {
         if (borbs != nil) {
@@ -205,10 +210,10 @@ static int const PARSE_QUERY_LIMIT = 20;
 
 + (void) fetchGlobalPostsWithCompletion: (void (^)(NSMutableArray *))completion {
     PFQuery *query = [PFQuery queryWithClassName:QUERY_POST_NAME];
-    [query includeKey:AUTHOR_KEY];
-    [query orderByDescending:TASK_DATE_CREATED_KEY];
+    [query includeKey:QUERY_AUTHOR_KEY];
+    [query orderByDescending:QUERY_DATE_CREATED_KEY];
     query.limit = PARSE_QUERY_LIMIT;
-    [query whereKey:POST_VERIFIED_KEY equalTo:@NO];
+    [query whereKey:QUERY_POST_VERIFIED_KEY equalTo:@NO];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
@@ -221,8 +226,8 @@ static int const PARSE_QUERY_LIMIT = 20;
 
 + (void) fetchUser:(NSString*)username withCompletion: (void (^)(User *))completion {
     PFQuery *query = [User query];
-    [query whereKey:@"username" equalTo:username];
-    [query includeKey:@"friendsListID"];
+    [query whereKey:QUERY_USERNAME_KEY equalTo:username];
+    [query includeKey:QUERY_FRIENDSLIST_ID_KEY];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
         if (users.count > 0) {
@@ -236,9 +241,9 @@ static int const PARSE_QUERY_LIMIT = 20;
 
 + (void) fetchUserFromID:(NSString *)objectId withCompletion: (void (^)(User *))completion {
     PFQuery *query = [User query];
-    [query whereKey:@"objectId" equalTo:objectId];
-    [query includeKey:@"friendsListID"];
-    [query includeKey:@"usersBorb"];
+    [query whereKey:QUERY_OBJECT_ID_KEY equalTo:objectId];
+    [query includeKey:QUERY_FRIENDSLIST_ID_KEY];
+    [query includeKey:QUERY_BORB_KEY];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
         if (users.count > 0) {
@@ -252,9 +257,8 @@ static int const PARSE_QUERY_LIMIT = 20;
 
 + (void) fetchUserFromIdUsingArray:(NSString *)objectId withCompletion: (void (^)(User *))completion {
     PFQuery *query = [User query];
-    [query whereKey:@"objectId" equalTo:objectId];
-    [query includeKey:@"friendsListID"];
-    [query includeKey:@"usersBorb"];
+    [query whereKey:QUERY_OBJECT_ID_KEY equalTo:objectId];
+    [query includeKey:QUERY_BORB_KEY];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
         if (users.count > 0) {
@@ -266,9 +270,8 @@ static int const PARSE_QUERY_LIMIT = 20;
 + (User *) fetchUserFromIdSynchronously:(NSString *)objectId {
     // Don't use unless necessary
     PFQuery *query = [User query];
-    [query whereKey:@"objectId" equalTo:objectId];
-    [query includeKey:@"friendsListID"];
-    [query includeKey:@"usersBorb"];
+    [query whereKey:QUERY_OBJECT_ID_KEY equalTo:objectId];
+    [query includeKey:QUERY_OBJECT_ID_KEY];
     
     NSArray *users = [query findObjects];
     User *user = users[0];
@@ -276,17 +279,17 @@ static int const PARSE_QUERY_LIMIT = 20;
 }
 
 + (void) fetchFriendRequestFrom:(User*)sender withRecipient: (User*)recipient withCompletion: (void (^)(BOOL))friendRequestFound {
-    PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
-    [query whereKey:@"sender" equalTo:sender];
-    [query whereKey:@"recipient" equalTo:recipient];
+    PFQuery *query = [PFQuery queryWithClassName:QUERY_FRIEND_REQUEST_NAME];
+    [query whereKey:QUERY_SENDER_KEY equalTo:sender];
+    [query whereKey:QUERY_RECIPIENT_KEY equalTo:recipient];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *activeRequests, NSError *error) {
         
         if (activeRequests.count > 0) {
             friendRequestFound(YES);
         } else {
-            [query whereKey:@"sender" equalTo:recipient];
-            [query whereKey:@"recipient" equalTo:sender];
+            [query whereKey:QUERY_SENDER_KEY equalTo:recipient];
+            [query whereKey:QUERY_RECIPIENT_KEY equalTo:sender];
             [query findObjectsInBackgroundWithBlock:^(NSArray *activeRequests, NSError *error) {
                 
                 if (activeRequests.count > 0) {
@@ -300,10 +303,10 @@ static int const PARSE_QUERY_LIMIT = 20;
 }
 
 + (void) fetchFriendRequests:(User*)recipient withCompletion:(void (^)(NSMutableArray *))completion {
-    PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
-    [query whereKey:@"recipient" equalTo:recipient];
-    [query includeKey: @"recipient"];
-    [query includeKey:@"sender"];
+    PFQuery *query = [PFQuery queryWithClassName:QUERY_FRIEND_REQUEST_NAME];
+    [query whereKey:QUERY_RECIPIENT_KEY equalTo:recipient];
+    [query includeKey: QUERY_RECIPIENT_KEY];
+    [query includeKey:QUERY_SENDER_KEY];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *activeRequests, NSError *error) {
         if (activeRequests != nil) {
@@ -319,12 +322,11 @@ static int const PARSE_QUERY_LIMIT = 20;
     if (!date) {
         return;
     }
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"FriendRequest"];
-    [query whereKey:@"recipient" equalTo:recipient];
+    PFQuery *query = [PFQuery queryWithClassName:QUERY_FRIEND_REQUEST_NAME];
+    [query whereKey:QUERY_RECIPIENT_KEY equalTo:recipient];
     query.limit = PARSE_QUERY_LIMIT;
-    [query orderByDescending: TASK_DATE_CREATED_KEY];
-    [query whereKey:TASK_DATE_CREATED_KEY lessThan:date];
+    [query orderByDescending: QUERY_DATE_CREATED_KEY];
+    [query whereKey:QUERY_DATE_CREATED_KEY lessThan:date];
 
     [query findObjectsInBackgroundWithBlock:^(NSArray *activeRequests, NSError *error) {
         if (activeRequests != nil) {
@@ -352,8 +354,8 @@ static int const PARSE_QUERY_LIMIT = 20;
 }
 
 + (void) fetchFriendListFromID:(NSString*)friendListID withCompletion: (void (^)(FriendsList *))completion {
-    PFQuery *query = [PFQuery queryWithClassName:@"FriendsList"];
-    [query whereKey:@"objectId" equalTo:friendListID];
+    PFQuery *query = [PFQuery queryWithClassName:QUERY_FRIENDSLIST_NAME];
+    [query whereKey:QUERY_OBJECT_ID_KEY equalTo:friendListID];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *friendsLists, NSError *error) {
         if (friendsLists.count > 0) {
@@ -366,8 +368,8 @@ static int const PARSE_QUERY_LIMIT = 20;
 }
 
 + (void) fetchFriendListFromIDAsArray:(NSString*)friendListID withCompletion: (void (^)(NSMutableArray*))completion {
-    PFQuery *query = [PFQuery queryWithClassName:@"FriendsList"];
-    [query whereKey:@"objectId" equalTo:friendListID];
+    PFQuery *query = [PFQuery queryWithClassName:QUERY_FRIENDSLIST_NAME];
+    [query whereKey:QUERY_OBJECT_ID_KEY equalTo:friendListID];
     
     NSMutableArray *friendsList = [NSMutableArray arrayWithCapacity:0];
     [query findObjectsInBackgroundWithBlock:^(NSArray *queriedFriendsLists, NSError *error) {
