@@ -48,6 +48,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)fetchGlobalPostsWithCompletion: (void (^)(NSMutableArray *))completion;
 
++ (void) loadMoreGlobalPostsWithLaterDate:(NSDate *)date withCompletion: (void (^)(NSMutableArray *))completion;
+
++ (void) fetchFriendsPostsFromFriendsListID:(NSString*)friendListID WithCompletion:(void (^)(NSMutableArray *))completion;
+
++ (void) loadMoreFriendsPostsFromFriendsListID:(NSString*)friendListID WithLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion;
+
 + (void) fetchUser:(NSString*)username withCompletion: (void (^)(User *))completion;
 
 + (void) fetchFriendRequestFrom:(User*)sender withRecipient: (User*)recipient withCompletion: (void (^)(BOOL))friendRequestFound;

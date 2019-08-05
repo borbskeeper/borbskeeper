@@ -18,6 +18,7 @@
 @dynamic verified;
 @dynamic sharedWithFriends;
 @dynamic sharedGlobally;
+@dynamic authorID;
 
 + (nonnull NSString *)parseClassName {
     return @"Post";
@@ -29,6 +30,7 @@
     newPost.image = [self getPFFileFromImage:image];
     newPost.task = task;
     newPost.verified = NO;
+    newPost.authorID = [PFUser currentUser].objectId;
     
     return newPost; 
 }

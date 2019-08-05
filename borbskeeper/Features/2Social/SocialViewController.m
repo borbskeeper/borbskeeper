@@ -9,14 +9,15 @@
 #import "SocialViewController.h"
 #import "BorbParseManager.h"
 #import "PostCell.h"
+#import "FeedInfiniteScrollView.h"
 
-@interface SocialViewController () <UITableViewDataSource, UITableViewDelegate>
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@interface SocialViewController () <InfiniteScrollDelegate>
+@property (weak, nonatomic) IBOutlet UISegmentedControl *shareOptionButton;
+@property (weak, nonatomic) IBOutlet FeedInfiniteScrollView *feedInfiniteScrollView;
 @property (strong, nonatomic) NSMutableArray* posts;
+@property (strong, nonatomic) NSDate *latestDate;
 
 @end
-
 
 @implementation SocialViewController
 
@@ -25,21 +26,50 @@ static NSString *const POST_CELL_REUSE_ID = @"PostCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
-    [self.tableView insertSubview:refreshControl atIndex:0];
-    [self beginRefresh:nil];
+    self.feedInfiniteScrollView.infiniteScrollDelegate = self;
+    [self.feedInfiniteScrollView setupTableView];
 }
 
-- (void)beginRefresh:(UIRefreshControl * _Nullable)refreshControl {
-    [BorbParseManager fetchGlobalPostsWithCompletion:^(NSMutableArray * _Nonnull posts) {
-        self.posts = posts;
-        [self.tableView reloadData];
-        [refreshControl endRefreshing];
-    }];
+- (void)fetchDataWithCompletion:(void (^)(void))completion {
+    if (self.shareOptionButton.selectedSegmentIndex == 0){
+        [BorbParseManager fetchFriendsPostsFromFriendsListID:[User currentUser].friendsListID WithCompletion:^(NSMutableArray *posts) {
+            self.posts = posts;
+            completion();
+        }];
+    } else {
+        [BorbParseManager fetchGlobalPostsWithCompletion:^(NSMutableArray *posts) {
+            self.posts = posts;
+            completion();
+        }];
+    }
+}
+
+- (void)loadMoreData {
+    Post *latestPost = [self.posts lastObject];
+    self.latestDate = latestPost.createdAt;
+    
+    if (self.shareOptionButton.selectedSegmentIndex == 0){
+        [BorbParseManager loadMoreFriendsPostsFromFriendsListID:[User currentUser].friendsListID WithLaterDate:self.latestDate withCompletion:^(NSMutableArray *newPosts) {
+            if ([newPosts count] > 0){
+                [self.posts addObjectsFromArray:newPosts];
+                [self.feedInfiniteScrollView.tableView reloadData];
+                self.feedInfiniteScrollView.isMoreDataLoading = false;
+            } else {
+                self.feedInfiniteScrollView.isMoreDataLoading = true;
+            }
+        }];
+
+    } else {
+        [BorbParseManager loadMoreGlobalPostsWithLaterDate:self.latestDate withCompletion:^(NSMutableArray *newPosts) {
+            if ([newPosts count] > 0){
+                [self.posts addObjectsFromArray:newPosts];
+                [self.feedInfiniteScrollView.tableView reloadData];
+                self.feedInfiniteScrollView.isMoreDataLoading = false;
+            } else {
+                self.feedInfiniteScrollView.isMoreDataLoading = true;
+            }
+        }];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

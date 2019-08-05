@@ -37,12 +37,14 @@
 		4AAF0EF222F4EC7F00AA6E42 /* FriendsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0EF122F4EC7F00AA6E42 /* FriendsList.m */; };
 		4AAF0EF522F4FF9000AA6E42 /* FriendsListInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0EF422F4FF9000AA6E42 /* FriendsListInfiniteScrollView.m */; };
 		4AAF0EF822F5022500AA6E42 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0EF722F5022500AA6E42 /* FriendCell.m */; };
+		4AAF0EFB22F8A58800AA6E42 /* FeedInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0EFA22F8A58800AA6E42 /* FeedInfiniteScrollView.m */; };
+		4AAF0F0122F8D9A400AA6E42 /* ComposePostTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0F0022F8D9A400AA6E42 /* ComposePostTaskCell.m */; };
 		4AB260CE22E0F5890062DD14 /* ComposeTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB260CD22E0F5890062DD14 /* ComposeTaskViewController.m */; };
 		4AB260D022E0F5B70062DD14 /* ComposeTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */; };
 		A2284FD022E24217006217C9 /* BorbPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2284FCF22E24217006217C9 /* BorbPageViewController.m */; };
 		A2284FD222E24229006217C9 /* BorbPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2284FD122E24229006217C9 /* BorbPage.storyboard */; };
-		A228EF9122F24A5500F5C6F6 /* statsBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = A228EF9022F24A5500F5C6F6 /* statsBar.sks */; };
 		A228EF8E22F20D2F00F5C6F6 /* ImageManipManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A228EF8D22F20D2F00F5C6F6 /* ImageManipManager.m */; };
+		A228EF9122F24A5500F5C6F6 /* statsBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = A228EF9022F24A5500F5C6F6 /* statsBar.sks */; };
 		A2660C4422E64331008C39C7 /* GameConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A2660C4322E64331008C39C7 /* GameConstants.m */; };
 		A28F5C0A22DE598E001FAFC7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0922DE598E001FAFC7 /* User.m */; };
 		A28F5C0D22DE6C14001FAFC7 /* Borb.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0C22DE6C14001FAFC7 /* Borb.m */; };
@@ -138,6 +140,10 @@
 		4AAF0EF422F4FF9000AA6E42 /* FriendsListInfiniteScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsListInfiniteScrollView.m; sourceTree = "<group>"; };
 		4AAF0EF622F5022500AA6E42 /* FriendCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
 		4AAF0EF722F5022500AA6E42 /* FriendCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
+		4AAF0EF922F8A58800AA6E42 /* FeedInfiniteScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedInfiniteScrollView.h; sourceTree = "<group>"; };
+		4AAF0EFA22F8A58800AA6E42 /* FeedInfiniteScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedInfiniteScrollView.m; sourceTree = "<group>"; };
+		4AAF0EFF22F8D9A400AA6E42 /* ComposePostTaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposePostTaskCell.h; sourceTree = "<group>"; };
+		4AAF0F0022F8D9A400AA6E42 /* ComposePostTaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposePostTaskCell.m; sourceTree = "<group>"; };
 		4AB260CC22E0F5890062DD14 /* ComposeTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeTaskViewController.h; sourceTree = "<group>"; };
 		4AB260CD22E0F5890062DD14 /* ComposeTaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeTaskViewController.m; sourceTree = "<group>"; };
 		4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComposeTask.storyboard; sourceTree = "<group>"; };
@@ -147,9 +153,9 @@
 		A2284FCE22E24217006217C9 /* BorbPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorbPageViewController.h; sourceTree = "<group>"; };
 		A2284FCF22E24217006217C9 /* BorbPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorbPageViewController.m; sourceTree = "<group>"; };
 		A2284FD122E24229006217C9 /* BorbPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BorbPage.storyboard; sourceTree = "<group>"; };
-		A228EF9022F24A5500F5C6F6 /* statsBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = statsBar.sks; sourceTree = "<group>"; };
 		A228EF8C22F20D2F00F5C6F6 /* ImageManipManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageManipManager.h; sourceTree = "<group>"; };
 		A228EF8D22F20D2F00F5C6F6 /* ImageManipManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageManipManager.m; sourceTree = "<group>"; };
+		A228EF9022F24A5500F5C6F6 /* statsBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = statsBar.sks; sourceTree = "<group>"; };
 		A2660C4222E64331008C39C7 /* GameConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
 		A2660C4322E64331008C39C7 /* GameConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameConstants.m; sourceTree = "<group>"; };
 		A28F5C0822DE598E001FAFC7 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = User.h; path = borbskeeper/Models/User.h; sourceTree = SOURCE_ROOT; };
@@ -160,8 +166,6 @@
 		A28F5C0F22DE6D43001FAFC7 /* Task.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = borbskeeper/Models/Task.m; sourceTree = SOURCE_ROOT; };
 		A2A103C222F3802A001406D6 /* statsBarManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = statsBarManager.h; sourceTree = "<group>"; };
 		A2A103C322F3802A001406D6 /* statsBarManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = statsBarManager.m; sourceTree = "<group>"; };
-		A2A2922C22EA67B600276315 /* PushNotificationsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PushNotificationsManager.h; path = /Users/juliapark628/Documents/borbskeeper/borbskeeper/Utility/PushNotificationsManager.h; sourceTree = "<absolute>"; };
-		A2A2922D22EA67B600276315 /* PushNotificationsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PushNotificationsManager.m; path = /Users/juliapark628/Documents/borbskeeper/borbskeeper/Utility/PushNotificationsManager.m; sourceTree = "<absolute>"; };
 		A2A2922C22EA67B600276315 /* PushNotificationsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushNotificationsManager.h; sourceTree = "<group>"; };
 		A2A2922D22EA67B600276315 /* PushNotificationsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushNotificationsManager.m; sourceTree = "<group>"; };
 		A2BC23A822DD2CD60030EA51 /* borbskeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = borbskeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -318,6 +322,8 @@
 				3432CFB522DE6CA700B6C47E /* TaskCell.m */,
 				4A55B95A22EF67FA00CA5400 /* CompletedTaskCell.h */,
 				4A55B95B22EF67FA00CA5400 /* CompletedTaskCell.m */,
+				4AAF0EFF22F8D9A400AA6E42 /* ComposePostTaskCell.h */,
+				4AAF0F0022F8D9A400AA6E42 /* ComposePostTaskCell.m */,
 				A2FAE71922EFAEDD0081DAE7 /* PostCell.h */,
 				A2FAE71A22EFAEDD0081DAE7 /* PostCell.m */,
 				4A2ECB0C22F3B3E3003C880B /* FriendRequestCell.h */,
@@ -519,6 +525,8 @@
 				A2FBF61722EB8FE700464637 /* Social.storyboard */,
 				A2FBF61422EB8FD800464637 /* SocialViewController.h */,
 				A2FBF61522EB8FD800464637 /* SocialViewController.m */,
+				4AAF0EF922F8A58800AA6E42 /* FeedInfiniteScrollView.h */,
+				4AAF0EFA22F8A58800AA6E42 /* FeedInfiniteScrollView.m */,
 			);
 			path = 2Social;
 			sourceTree = "<group>";
@@ -804,6 +812,7 @@
 				A2284FD022E24217006217C9 /* BorbPageViewController.m in Sources */,
 				4A55B95922EB84AB00CA5400 /* CompleteTaskListInfiniteScrollView.m in Sources */,
 				4AB260CE22E0F5890062DD14 /* ComposeTaskViewController.m in Sources */,
+				4AAF0EFB22F8A58800AA6E42 /* FeedInfiniteScrollView.m in Sources */,
 				4A55B96522EFA97D00CA5400 /* ComposePostTaskListInfiniteScrollView.m in Sources */,
 				A2FBF62222EB969D00464637 /* ComposePostViewController.m in Sources */,
 				A2A2922E22EA67B600276315 /* PushNotificationsManager.m in Sources */,
@@ -813,6 +822,7 @@
 				4A55B95C22EF67FA00CA5400 /* CompletedTaskCell.m in Sources */,
 				A2BC23BB22DD2CD70030EA51 /* main.m in Sources */,
 				A2BC23AD22DD2CD60030EA51 /* AppDelegate.m in Sources */,
+				4AAF0F0122F8D9A400AA6E42 /* ComposePostTaskCell.m in Sources */,
 				3432CFB322DE6BE800B6C47E /* TasksListViewController.m in Sources */,
 				4AAF0EF222F4EC7F00AA6E42 /* FriendsList.m in Sources */,
 				A2FBF62722EBBDBF00464637 /* Post.m in Sources */,
