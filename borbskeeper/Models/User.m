@@ -16,6 +16,7 @@
 @dynamic friendsListID;
 @dynamic profilePicture;
 @dynamic usersBorb;
+@dynamic userLogin;
 
 - (void)increaseUserCoinsBy:(int)numCoins{
     int currentCoins = [self.userCoins intValue];

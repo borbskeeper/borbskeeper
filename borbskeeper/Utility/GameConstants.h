@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 extern int const MAX_HP;
+extern int const HIGH_HP_THRESHOLD;
+extern int const LOW_HP_THRESHOLD;
 
 extern int const COIN_REWARD_WITHOUT_VERIFY;
 extern int const COIN_REWARD_WITH_VERIFY;

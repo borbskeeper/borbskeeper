@@ -24,12 +24,11 @@
 }
 
 + (Post *)createPost:(UIImage *)image withTask:(Task *)task {
-    
     Post *newPost = [Post new];
     newPost.author = [PFUser currentUser];
     newPost.image = [self getPFFileFromImage:image];
     newPost.task = task;
-    newPost.verified = @NO;
+    newPost.verified = NO;
     
     return newPost; 
 }

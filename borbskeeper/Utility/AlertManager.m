@@ -43,12 +43,35 @@ static NSString *const REQUEST_NOT_SAVED_ALERT_MESSAGE = @"Possible network erro
 static NSString *const OK_ACTION_TITLE = @"OK";
 static NSString *const CANCEL_ACTION_TITLE = @"Cancel";
 
++ (BOOL)isInvalidTextField:(NSArray*)fieldsToBeChecked{
+    for (NSString *textFieldText in fieldsToBeChecked){
+        if (textFieldText == nil){
+            return YES;
+        } else {
+            NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+            NSString *trimmed = [textFieldText stringByTrimmingCharactersInSet:whitespace];
+            if ([trimmed length] == 0) {
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
+
 + (void) addOKActionToAlert:(UIAlertController*)alert{
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:OK_ACTION_TITLE
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
                                                      }];
     [alert addAction:okAction];
+}
+
++ (void) addCancelActionToAlert:(UIAlertController*)alert{
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:CANCEL_ACTION_TITLE
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                     }];
+    [alert addAction:cancelAction];
 }
 
 + (void) presentLoginNotSuccesfulAlert:(UIViewController*)viewController {
@@ -104,7 +127,7 @@ static NSString *const CANCEL_ACTION_TITLE = @"Cancel";
     [viewController presentViewController:notEnoughCoinsAlert animated:YES completion:nil];
 }
 
-+ (void) presentSaveTaskNotSuccesfulAlert:(UIViewController*)viewController {
++ (void) presentSaveTaskNotSuccessfulAlert:(UIViewController*)viewController {
     UIAlertController *saveNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:UNSUCCESSFUL_TASK_SAVE_TITLE
                                                                                     message:UNSUCCESSFUL_TASK_SAVE_MESSAGE
                                                                              preferredStyle:(UIAlertControllerStyleAlert)];
@@ -146,4 +169,46 @@ static NSString *const CANCEL_ACTION_TITLE = @"Cancel";
     [self addOKActionToAlert:requestNotSuccessfulAlert];
     [viewController presentViewController:requestNotSuccessfulAlert animated:YES completion:nil];
 }
+
++ (void) presentNoCameraAlert:(UIViewController *)viewController {
+    UIAlertController *presentNoCameraAlert = [UIAlertController alertControllerWithTitle:@"No Camera"
+                                                                                  message:@"There is no camera."
+                                                                           preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    [self addOKActionToAlert:presentNoCameraAlert];
+    [viewController presentViewController:presentNoCameraAlert animated:YES completion:nil];
+}
+
+
+
++ (void) presentRenameNotSuccessfulAlert:(UIViewController *)viewController {
+    UIAlertController *renameErrorAlert = [UIAlertController alertControllerWithTitle:@"Unable to save borb name."
+                                                                              message:@"There was an error. Please try again."
+                                                                       preferredStyle:(UIAlertControllerStyleAlert)];
+    [self addOKActionToAlert:renameErrorAlert];
+    
+    [viewController presentViewController:renameErrorAlert animated:YES completion:nil];
+}
+
++ (void) presentRenameBorbAlert:(UIViewController *)viewController withCompletion:(void (^)(NSString *)) completion {
+    UIAlertController *renameBorbAlert = [UIAlertController alertControllerWithTitle:@"Rename your borb!"
+                                                                             message:@"Enter a new name: "
+                                                                      preferredStyle:(UIAlertControllerStyleAlert)];
+    [self addCancelActionToAlert:renameBorbAlert];
+
+    UIAlertAction *okNewNameAction = [UIAlertAction actionWithTitle:OK_ACTION_TITLE
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                         NSString* newName = renameBorbAlert.textFields[0].text;
+                                                         completion(newName);
+                                                     }];
+    [renameBorbAlert addAction:okNewNameAction];
+
+    [renameBorbAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"New borb name";
+    }];
+    
+    [viewController presentViewController:renameBorbAlert animated:YES completion:nil];
+}
+
 @end

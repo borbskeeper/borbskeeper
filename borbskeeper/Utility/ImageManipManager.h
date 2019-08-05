@@ -20,8 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ImageManipManager : NSObject <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 typedef enum {
-    CAMERA,
-    LIBRARY
+    IMAGESOURCE_CAMERA,
+    IMAGESOURCE_LIBRARY
 } imageSource;
 
 - (bool) presentImagePickerFromViewController:(UIViewController *)viewController withImageSource:(imageSource) imageSource;

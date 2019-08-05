@@ -13,6 +13,7 @@
 #import "TaskCell.h"
 #import "ComposePostTaskListInfiniteScrollView.h"
 #import "ImageManipManager.h"
+#import "AlertManager.h"
 
 @interface ComposePostViewController () <UITableViewDataSource, UITableViewDelegate, InfiniteScrollDelegate, ImageManipManagerDelegate>
 
@@ -64,7 +65,6 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     return [self.completeTaskList count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TaskCell *cell = [tableView dequeueReusableCellWithIdentifier:COMPLETE_TASK_TABLE_VIEW_CELL_ID];
     
@@ -74,21 +74,12 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 }
 
 - (IBAction)choosePhotoButtonClicked:(id)sender {
-    [self.imageManip presentImagePickerFromViewController:self withImageSource:LIBRARY];
+    [self.imageManip presentImagePickerFromViewController:self withImageSource:IMAGESOURCE_LIBRARY];
 }
 
 - (IBAction)takePhotoButtonClicked:(id)sender {
-    if (![self.imageManip presentImagePickerFromViewController:self withImageSource:CAMERA]) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Camera" message:@"There is no camera." preferredStyle:(UIAlertControllerStyleAlert)];
-        
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        }];
-        
-        [alert addAction:cancelAction];
-        
-        [self presentViewController:alert animated:YES completion:^{
-            // do nothing
-        }];
+    if (![self.imageManip presentImagePickerFromViewController:self withImageSource:IMAGESOURCE_CAMERA]) {
+        [AlertManager presentNoCameraAlert:self];
     }
 }
 
@@ -98,12 +89,13 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 }
 
 - (IBAction)postBarButtonClicked:(id)sender {
+    // self.selectedTask =
+    
     if (!self.selectedImage|| !self.selectedTask) {
         NSLog(@"error");
         // put a error alert here
         return;
     }
-    // self.selectedTask = ; 
     Post *newPost = [Post createPost:self.selectedImage withTask:self.selectedTask];
     if (self.shareOptionButton.selectedSegmentIndex == 0){
         newPost.sharedGlobally = NO;
@@ -116,8 +108,7 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     [BorbParseManager savePost:newPost withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Error composing Pos: %@", error.localizedDescription);
-        }
-        else {
+        } else {
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];

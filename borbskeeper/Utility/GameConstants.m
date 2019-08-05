@@ -9,6 +9,8 @@
 #import "GameConstants.h"
 
 const int MAX_HP = 100;
+const int HIGH_HP_THRESHOLD = 70;
+const int LOW_HP_THRESHOLD = 40;
 
 const int COIN_REWARD_WITHOUT_VERIFY = 1;
 const int COIN_REWARD_WITH_VERIFY = 10;

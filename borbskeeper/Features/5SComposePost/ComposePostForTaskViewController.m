@@ -10,6 +10,7 @@
 #import "Post.h"
 #import "BorbParseManager.h"
 #import "ImageManipManager.h"
+#import "AlertManager.h"
 
 @interface ComposePostForTaskViewController () <ImageManipManagerDelegate>
 
@@ -44,21 +45,12 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
 }
 
 - (IBAction)choosePhotoButtonClicked:(id)sender {
-    [self.imageManip presentImagePickerFromViewController:self withImageSource:LIBRARY];
+    [self.imageManip presentImagePickerFromViewController:self withImageSource:IMAGESOURCE_LIBRARY];
 }
 
 - (IBAction)takePhotoButtonClicked:(id)sender {
-    if (![self.imageManip presentImagePickerFromViewController:self withImageSource:CAMERA]) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Camera" message:@"There is no camera." preferredStyle:(UIAlertControllerStyleAlert)];
-        
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        }];
-        
-        [alert addAction:cancelAction];
-        
-        [self presentViewController:alert animated:YES completion:^{
-            // do nothing
-        }];
+    if (![self.imageManip presentImagePickerFromViewController:self withImageSource:IMAGESOURCE_CAMERA]) {
+        [AlertManager presentNoCameraAlert:self];
     }
 }
 
@@ -89,8 +81,7 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
     [BorbParseManager savePost:newPost withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Error composing Pos: %@", error.localizedDescription);
-        }
-        else {
+        } else {
             self.selectedTask.posted = YES;
             [BorbParseManager saveTask:self.selectedTask withCompletion:nil];
             [self.delegate didPostTask];

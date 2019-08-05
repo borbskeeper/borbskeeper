@@ -36,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)fetchBorb:(NSString *)borbID WithCompletion:(void (^)(NSMutableArray *))completion;
 
++ (void)fetchTask:(NSString *)taskID WithCompletion:(void (^)(NSMutableArray *))completion;
+
 + (void)fetchIncompleteTasksOfUser:(NSString *)username WithCompletion:(void (^)(NSMutableArray *))completion;
 
 + (void)loadMoreIncompleteTasksOfUser:(NSString *)username withLaterDate:(NSDate *)date WithCompletion:(void (^)(NSMutableArray *))completion;
@@ -44,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)loadMoreCompleteTasksOfUser:(NSString *)username ifNotPosted:(BOOL)postedStatus withLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion;
 
-+ (void) fetchGlobalPostsWithCompletion: (void (^)(NSMutableArray *))completion;
++ (void)fetchGlobalPostsWithCompletion: (void (^)(NSMutableArray *))completion;
 
 + (void) fetchUser:(NSString*)username withCompletion: (void (^)(User *))completion;
 

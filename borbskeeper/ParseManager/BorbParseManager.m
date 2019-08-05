@@ -74,9 +74,8 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
-+ (void)loginUser:(NSString*)username withPassword:(NSString*)password withCompletion:(void (^)(NSError *))completion{
-    
-    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
++ (void)loginUser:(NSString*)username withPassword:(NSString*)password withCompletion:(void (^)(NSError *))completion {
+    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
         completion(error);
     }];
 }
@@ -128,7 +127,6 @@ static int const PARSE_QUERY_LIMIT = 20;
     if (!date) {
         return;
     }
-    
     PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
     query.limit = PARSE_QUERY_LIMIT;
     [query orderByAscending:QUERY_TASK_DATE_DUE_KEY];
@@ -202,6 +200,20 @@ static int const PARSE_QUERY_LIMIT = 20;
     [query findObjectsInBackgroundWithBlock:^(NSArray *borbs, NSError *error) {
         if (borbs != nil) {
             completion([NSMutableArray arrayWithArray:borbs]);
+        } else {
+            // TBD: Call completion with error
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
++ (void)fetchTask:(NSString *)taskID WithCompletion:(void (^)(NSMutableArray *))completion {
+    PFQuery *query = [PFQuery queryWithClassName:QUERY_TASK_NAME];
+    [query whereKey:QUERY_OBJECT_ID_KEY equalTo:taskID];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *tasks, NSError *error) {
+        if (tasks != nil) {
+            completion([NSMutableArray arrayWithArray:tasks]);
         } else {
             // TBD: Call completion with error
             NSLog(@"%@", error.localizedDescription);
