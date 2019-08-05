@@ -86,6 +86,7 @@ static NSString *const POST_CELL_REUSE_ID = @"PostCell";
 
 - (IBAction)didChageShareOptionValue:(id)sender {
     [self.feedInfiniteScrollView fetchData];
+    [self.feedInfiniteScrollView.tableView setContentOffset:CGPointMake(self.feedInfiniteScrollView.tableView.contentInset.left, self.feedInfiniteScrollView.tableView.contentInset.top) animated:NO];
 }
 
 /*
