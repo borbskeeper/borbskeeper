@@ -26,6 +26,12 @@
     return [self.infiniteScrollDelegate tableView:tableView cellForRowAtIndexPath:indexPath];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([(NSObject *)self.infiniteScrollDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
+        return [self.infiniteScrollDelegate tableView:tableView didSelectRowAtIndexPath:indexPath];
+    }
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if(!self.isMoreDataLoading){
         int scrollViewContentHeight = self.tableView.contentSize.height;

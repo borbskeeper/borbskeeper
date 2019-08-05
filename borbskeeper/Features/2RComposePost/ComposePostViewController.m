@@ -88,12 +88,13 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     self.selectedImageView.image = self.selectedImage;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectedTask = self.completeTaskList[indexPath.row];
+}
+
 - (IBAction)postBarButtonClicked:(id)sender {
-    // self.selectedTask =
-    
     if (!self.selectedImage|| !self.selectedTask) {
         NSLog(@"error");
-        // put a error alert here
         return;
     }
     Post *newPost = [Post createPost:self.selectedImage withTask:self.selectedTask];

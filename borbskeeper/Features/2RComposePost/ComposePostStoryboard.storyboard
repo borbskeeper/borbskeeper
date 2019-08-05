@@ -59,7 +59,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompletedTaskCell" rowHeight="134" id="Pd7-VJ-pk0" customClass="TaskCell">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="CompletedTaskCell" rowHeight="134" id="Pd7-VJ-pk0" customClass="TaskCell">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="134"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pd7-VJ-pk0" id="Ksz-Kd-WeV" customClass="TaskCell">
@@ -98,6 +98,7 @@
                                                         <constraint firstItem="LMe-A1-t2S" firstAttribute="top" secondItem="16N-Tj-Tva" secondAttribute="bottom" constant="10" id="uBu-09-F4U"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <outlet property="dueDate" destination="LMe-A1-t2S" id="TSZ-7L-5XU"/>
                                                     <outlet property="selectedBackgroundView" destination="Ksz-Kd-WeV" id="cL1-ib-OXF"/>
