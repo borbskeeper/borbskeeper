@@ -32,7 +32,7 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
     [super viewDidLoad];
     [self setupTextView];
     [self setupDatePicker];
-    if (self.task == nil){
+    if (self.task == nil) {
         self.deleteTaskButton.hidden = YES;
     } else {
         self.navigationItem.title = @"Edit Task";
