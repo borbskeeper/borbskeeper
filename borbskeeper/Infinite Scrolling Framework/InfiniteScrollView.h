@@ -17,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 
+@optional
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath; 
+
 @end
 
 @interface InfiniteScrollView : UIView <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
