@@ -38,6 +38,7 @@
 		4AAF0EF522F4FF9000AA6E42 /* FriendsListInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0EF422F4FF9000AA6E42 /* FriendsListInfiniteScrollView.m */; };
 		4AAF0EF822F5022500AA6E42 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0EF722F5022500AA6E42 /* FriendCell.m */; };
 		4AAF0EFB22F8A58800AA6E42 /* FeedInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0EFA22F8A58800AA6E42 /* FeedInfiniteScrollView.m */; };
+		4AAF0F0122F8D9A400AA6E42 /* ComposePostTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0F0022F8D9A400AA6E42 /* ComposePostTaskCell.m */; };
 		4AB260CE22E0F5890062DD14 /* ComposeTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB260CD22E0F5890062DD14 /* ComposeTaskViewController.m */; };
 		4AB260D022E0F5B70062DD14 /* ComposeTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */; };
 		A2284FD022E24217006217C9 /* BorbPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2284FCF22E24217006217C9 /* BorbPageViewController.m */; };
@@ -141,6 +142,8 @@
 		4AAF0EF722F5022500AA6E42 /* FriendCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
 		4AAF0EF922F8A58800AA6E42 /* FeedInfiniteScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedInfiniteScrollView.h; sourceTree = "<group>"; };
 		4AAF0EFA22F8A58800AA6E42 /* FeedInfiniteScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedInfiniteScrollView.m; sourceTree = "<group>"; };
+		4AAF0EFF22F8D9A400AA6E42 /* ComposePostTaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposePostTaskCell.h; sourceTree = "<group>"; };
+		4AAF0F0022F8D9A400AA6E42 /* ComposePostTaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposePostTaskCell.m; sourceTree = "<group>"; };
 		4AB260CC22E0F5890062DD14 /* ComposeTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeTaskViewController.h; sourceTree = "<group>"; };
 		4AB260CD22E0F5890062DD14 /* ComposeTaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeTaskViewController.m; sourceTree = "<group>"; };
 		4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComposeTask.storyboard; sourceTree = "<group>"; };
@@ -319,6 +322,8 @@
 				3432CFB522DE6CA700B6C47E /* TaskCell.m */,
 				4A55B95A22EF67FA00CA5400 /* CompletedTaskCell.h */,
 				4A55B95B22EF67FA00CA5400 /* CompletedTaskCell.m */,
+				4AAF0EFF22F8D9A400AA6E42 /* ComposePostTaskCell.h */,
+				4AAF0F0022F8D9A400AA6E42 /* ComposePostTaskCell.m */,
 				A2FAE71922EFAEDD0081DAE7 /* PostCell.h */,
 				A2FAE71A22EFAEDD0081DAE7 /* PostCell.m */,
 				4A2ECB0C22F3B3E3003C880B /* FriendRequestCell.h */,
@@ -817,6 +822,7 @@
 				4A55B95C22EF67FA00CA5400 /* CompletedTaskCell.m in Sources */,
 				A2BC23BB22DD2CD70030EA51 /* main.m in Sources */,
 				A2BC23AD22DD2CD60030EA51 /* AppDelegate.m in Sources */,
+				4AAF0F0122F8D9A400AA6E42 /* ComposePostTaskCell.m in Sources */,
 				3432CFB322DE6BE800B6C47E /* TasksListViewController.m in Sources */,
 				4AAF0EF222F4EC7F00AA6E42 /* FriendsList.m in Sources */,
 				A2FBF62722EBBDBF00464637 /* Post.m in Sources */,
