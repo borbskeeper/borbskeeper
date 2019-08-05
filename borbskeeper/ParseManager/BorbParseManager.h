@@ -45,6 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
 
++ (void)deleteTask:(Task*)task;
+
 @end
 
 NS_ASSUME_NONNULL_END

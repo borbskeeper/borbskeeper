@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "Task.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -34,6 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void) presentRenameNotSuccessfulAlert:(UIViewController*)viewController;
 
 + (void) presentRenameBorbAlert:(UIViewController *)viewController withCompletion:(void (^)(NSString *)) completion;
+
++ (void) presentDeleteTaskComfirmationAlert:(UIViewController*)viewController forTask:(Task* )task;
 
 @end
 

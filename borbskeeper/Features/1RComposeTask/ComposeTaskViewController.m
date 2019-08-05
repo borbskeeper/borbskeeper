@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *taskTitleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *taskDescTextView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *taskDeadlineDatePicker;
+@property (weak, nonatomic) IBOutlet UIButton *deleteTaskButton;
 
 @end
 
@@ -31,6 +32,11 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
     [super viewDidLoad];
     [self setupTextView];
     [self setupDatePicker];
+    if (self.task == nil){
+        self.deleteTaskButton.hidden = YES;
+    } else {
+        self.navigationItem.title = @"Edit Task";
+    }
 }
 
 - (void)setupDatePicker {
@@ -95,15 +101,16 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
 - (IBAction)didTapCreateTaskView:(id)sender {
     [self.view endEditing:YES];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)tapDelete:(id)sender {
+    [AlertManager presentDeleteTaskComfirmationAlert:self forTask:self.task];
 }
-*/
+
+//#pragma mark - Navigation
+//
+//// In a storyboard-based application, you will often want to do a little preparation before navigation
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    // Get the new view controller using [segue destinationViewController].
+//    // Pass the selected object to the new view controller.
+//}
 
 @end
