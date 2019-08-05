@@ -219,7 +219,7 @@ static int const PARSE_QUERY_LIMIT = 20;
     return [PFFileObject fileObjectWithName:POST_PLACEHOLDER_IMAGE_NAME data:imageData];
 }
 
-+ (void)deleteTask:(Task*)task{
++ (void)deleteTask:(Task*)task {
     [task deleteInBackground];
 }
 
