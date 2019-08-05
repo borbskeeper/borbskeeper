@@ -17,6 +17,8 @@
 @dynamic profilePicture;
 @dynamic usersBorb;
 @dynamic userLogin;
+@dynamic remindTime;
+
 
 - (void)increaseUserCoinsBy:(int)numCoins{
     int currentCoins = [self.userCoins intValue];
