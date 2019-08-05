@@ -237,6 +237,23 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
++ (void) fetchMoreGlobalPostsWithLaterDate:(NSDate *)date withCompletion: (void (^)(NSMutableArray *))completion {
+    PFQuery *query = [PFQuery queryWithClassName:QUERY_POST_NAME];
+    [query includeKey:QUERY_AUTHOR_KEY];
+    [query orderByDescending:QUERY_DATE_CREATED_KEY];
+    query.limit = PARSE_QUERY_LIMIT;
+    [query whereKey:QUERY_POST_VERIFIED_KEY equalTo:@NO];
+    [query whereKey:QUERY_DATE_CREATED_KEY lessThan:date];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            completion([NSMutableArray arrayWithArray:posts]);
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
 + (void) fetchUser:(NSString*)username withCompletion: (void (^)(User *))completion {
     PFQuery *query = [User query];
     [query whereKey:QUERY_USERNAME_KEY equalTo:username];
