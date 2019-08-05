@@ -83,6 +83,11 @@ static NSString *const POST_CELL_REUSE_ID = @"PostCell";
     [cell setupWithPost:post];
     return cell;
 }
+
+- (IBAction)didChageShareOptionValue:(id)sender {
+    [self.feedInfiniteScrollView fetchData];
+}
+
 /*
 #pragma mark - Navigation
 

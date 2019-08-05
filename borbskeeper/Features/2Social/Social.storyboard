@@ -144,6 +144,9 @@
                                     <segment title="Friends"/>
                                     <segment title="Global"/>
                                 </segments>
+                                <connections>
+                                    <action selector="didChageShareOptionValue:" destination="qbN-9e-LGJ" eventType="valueChanged" id="e0f-8K-MAz"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
