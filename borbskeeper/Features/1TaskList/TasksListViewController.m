@@ -86,7 +86,6 @@ static const int SECS_TO_HOURS = 3600;
             [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
                 Borb *userBorb = borbs[0];
                 [userBorb decreaseHealthPointsBy:BORB_HP_DECAY_PER_INCOMPLETE_TASK];
-                NSLog(@"%@", userBorb.borbHealth);
                 [BorbParseManager saveBorb:userBorb withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                     NSTimeInterval secondsBetween = [today timeIntervalSinceDate: [User currentUser].userLogin];
                     int numOfHours = secondsBetween / SECS_TO_HOURS;

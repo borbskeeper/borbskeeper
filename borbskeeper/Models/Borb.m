@@ -78,14 +78,12 @@
 
 - (void)decreaseHealthPointsBy:(int)HP {
     int newHP = [self.borbHealth intValue] - HP;
-    NSLog(@"newHP: %d", newHP);
     if (newHP < 0) {
         self.borbLevel = [NSNumber numberWithInteger:([self.borbLevel intValue] - 1)];
         self.borbExperience = @0;
         self.borbHealth = [NSNumber numberWithInteger:MAX_HP];
     } else {
         self.borbHealth = @(newHP);
-        NSLog(@"savedNewHP: %@", self.borbHealth);
     }
 }
 

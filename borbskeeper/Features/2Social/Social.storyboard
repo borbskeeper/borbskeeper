@@ -126,6 +126,7 @@
                                             <outlet property="profilePhotoImageView" destination="FTq-t2-8kg" id="7jV-xv-hIW"/>
                                             <outlet property="taskNameLabel" destination="83H-bK-O7L" id="uDL-qr-UcC"/>
                                             <outlet property="usernameLabel" destination="OhD-sc-In2" id="afe-Tm-yUg"/>
+                                            <outlet property="verifyButton" destination="Sq6-9y-gHq" id="w5R-aH-iwP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
