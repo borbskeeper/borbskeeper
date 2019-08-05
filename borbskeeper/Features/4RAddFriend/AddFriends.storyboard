@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="tfs-EK-JNc">
+            <objects>
+                <navigationController storyboardIdentifier="AddFriends" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nHq-9x-5cG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vl1-5Y-TEr">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="baf-gR-X0c" kind="relationship" relationship="rootViewController" id="jw0-HU-2DZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MzZ-SF-078" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-601" y="143"/>
+        </scene>
+        <!--Add Friends-->
+        <scene sceneID="iOq-qA-jP0">
+            <objects>
+                <viewController id="baf-gR-X0c" customClass="AddFriendsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cQe-1N-op1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P4P-fn-jli">
+                                <rect key="frame" x="20" y="84" width="273" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbd-Qt-762">
+                                <rect key="frame" x="313" y="84" width="42" height="30"/>
+                                <color key="backgroundColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapAdd:" destination="baf-gR-X0c" eventType="touchUpInside" id="gLf-6H-Hhg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="P4P-fn-jli" firstAttribute="leading" secondItem="a1U-VA-rMw" secondAttribute="leading" constant="20" id="Anf-Gh-HP3"/>
+                            <constraint firstItem="Nbd-Qt-762" firstAttribute="leading" secondItem="P4P-fn-jli" secondAttribute="trailing" constant="20" id="RL3-3O-GyB"/>
+                            <constraint firstItem="a1U-VA-rMw" firstAttribute="trailing" secondItem="Nbd-Qt-762" secondAttribute="trailing" constant="20" id="d3J-tQ-G1H"/>
+                            <constraint firstItem="a1U-VA-rMw" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="P4P-fn-jli" secondAttribute="bottom" constant="20" id="e1b-zX-ceb"/>
+                            <constraint firstItem="P4P-fn-jli" firstAttribute="top" secondItem="a1U-VA-rMw" secondAttribute="top" constant="20" id="gEP-hq-zC3"/>
+                            <constraint firstItem="Nbd-Qt-762" firstAttribute="top" secondItem="P4P-fn-jli" secondAttribute="top" id="gEj-FE-B4l"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="a1U-VA-rMw"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Friends" id="gGF-Zb-8VM">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="gQC-gV-iKV">
+                            <connections>
+                                <action selector="didTapCancel:" destination="baf-gR-X0c" id="jvI-BQ-PAp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="userNameTextField" destination="P4P-fn-jli" id="Ttx-L0-uk2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUk-XF-yNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="284" y="142.57871064467767"/>
+        </scene>
+    </scenes>
+</document>
