@@ -19,7 +19,6 @@
 
 @end
 
-
 @implementation SocialViewController
 
 static NSString *const POST_CELL_REUSE_ID = @"PostCell";
