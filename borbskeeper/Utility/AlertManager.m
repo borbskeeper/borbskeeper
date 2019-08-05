@@ -20,6 +20,7 @@ static NSString *const UNSUCCESSFUL_TASK_SAVE_TITLE = @"Could not save task";
 static NSString *const RENAME_BORB_ALERT_TITLE = @"Rename your borb!";
 static NSString *const BORB_MAXHP_ALERT_TITLE = @"This Borb is already full!";
 static NSString *const NOT_ENOUGH_COINS_ALERT_TITLE = @"Not enough Coins!";
+static NSString *const FRIEND_REQUEST_ALERT_TITLE = @"Friend Request not sent!";
 
 // Alert Messages
 static NSString *const UNSUCCESSFUL_LOGIN_ALERT_MESSAGE = @"Please try to login in again.";
@@ -32,6 +33,11 @@ static NSString *const RENAME_BORB_ALERT_MESSAGE = @"Enter a new name: ";
 static NSString *const BORB_MAXHP_ALERT_MESSAGE = @"Your Borb is at max HP";
 static NSString *const NOT_ENOUGH_COINS_XPBOOST_ALERT_MESSAGE = @"You need at least 75 coins to boost your Borb's XP";
 static NSString *const NOT_ENOUGH_COINS_FEED_ALERT_MESSAGE = @"You need at least 7 coins to feed your Borb";
+
+static NSString *const CANNOT_REQUEST_SELF_ALERT_MESSAGE = @"You cannot send a friend request to yourself.";
+static NSString *const CANNOT_FIND_USER_MESSAGE = @"Could not find user.";
+static NSString *const REQUEST_ALREADY_EXISTS_ALERT_MESSAGE = @"Already friends or request pending.";
+static NSString *const REQUEST_NOT_SAVED_ALERT_MESSAGE = @"Possible network error. Please try again.";
 
 // Alert Actions
 static NSString *const OK_ACTION_TITLE = @"OK";
@@ -129,6 +135,41 @@ static NSString *const CANCEL_ACTION_TITLE = @"Cancel";
     [viewController presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
 }
 
++ (void) presentRequestToSelfAlert:(UIViewController*)viewController {
+    UIAlertController *requestNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:FRIEND_REQUEST_ALERT_TITLE
+                                                                                     message:CANNOT_REQUEST_SELF_ALERT_MESSAGE
+                                                                              preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    [self addOKActionToAlert:requestNotSuccessfulAlert];
+    [viewController presentViewController:requestNotSuccessfulAlert animated:YES completion:nil];
+}
+
++ (void) presentCannotFindUserAlert:(UIViewController*)viewController {
+    UIAlertController *requestNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:FRIEND_REQUEST_ALERT_TITLE
+                                                                                       message:CANNOT_FIND_USER_MESSAGE
+                                                                                preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    [self addOKActionToAlert:requestNotSuccessfulAlert];
+    [viewController presentViewController:requestNotSuccessfulAlert animated:YES completion:nil];
+}
+
++ (void) presentRequestAlreadyExistsAlert:(UIViewController*)viewController {
+    UIAlertController *requestNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:FRIEND_REQUEST_ALERT_TITLE
+                                                                                       message:REQUEST_ALREADY_EXISTS_ALERT_MESSAGE
+                                                                                preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    [self addOKActionToAlert:requestNotSuccessfulAlert];
+    [viewController presentViewController:requestNotSuccessfulAlert animated:YES completion:nil];
+}
+
++ (void) presentRequestNotSavedAlert:(UIViewController*)viewController {
+    UIAlertController *requestNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:FRIEND_REQUEST_ALERT_TITLE
+                                                                                       message:REQUEST_NOT_SAVED_ALERT_MESSAGE                                                                                preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    [self addOKActionToAlert:requestNotSuccessfulAlert];
+    [viewController presentViewController:requestNotSuccessfulAlert animated:YES completion:nil];
+}
+
 + (void) presentNoCameraAlert:(UIViewController *)viewController {
     UIAlertController *presentNoCameraAlert = [UIAlertController alertControllerWithTitle:@"No Camera"
                                                                                   message:@"There is no camera."
@@ -169,7 +210,5 @@ static NSString *const CANCEL_ACTION_TITLE = @"Cancel";
     
     [viewController presentViewController:renameBorbAlert animated:YES completion:nil];
 }
-
-
 
 @end

@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL verified;
 @property (nonatomic) BOOL sharedWithFriends;
 @property (nonatomic) BOOL sharedGlobally;
+@property (nonatomic, strong) NSString *authorID;
 
 + (Post *)createPost:(UIImage *)image withTask:(Task *)task; 
 
