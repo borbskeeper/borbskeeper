@@ -226,6 +226,7 @@ static int const PARSE_QUERY_LIMIT = 20;
     [query includeKey:QUERY_AUTHOR_KEY];
     [query orderByDescending:QUERY_DATE_CREATED_KEY];
     query.limit = PARSE_QUERY_LIMIT;
+    [query whereKey:@"sharedGlobally" equalTo:@YES];
     [query whereKey:QUERY_POST_VERIFIED_KEY equalTo:@NO];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -237,11 +238,16 @@ static int const PARSE_QUERY_LIMIT = 20;
     }];
 }
 
-+ (void) fetchMoreGlobalPostsWithLaterDate:(NSDate *)date withCompletion: (void (^)(NSMutableArray *))completion {
++ (void) loadMoreGlobalPostsWithLaterDate:(NSDate *)date withCompletion: (void (^)(NSMutableArray *))completion {
+    if (!date) {
+        return;
+    }
+    
     PFQuery *query = [PFQuery queryWithClassName:QUERY_POST_NAME];
     [query includeKey:QUERY_AUTHOR_KEY];
     [query orderByDescending:QUERY_DATE_CREATED_KEY];
     query.limit = PARSE_QUERY_LIMIT;
+    [query whereKey:@"sharedGlobally" equalTo:@YES];
     [query whereKey:QUERY_POST_VERIFIED_KEY equalTo:@NO];
     [query whereKey:QUERY_DATE_CREATED_KEY lessThan:date];
     
@@ -251,6 +257,55 @@ static int const PARSE_QUERY_LIMIT = 20;
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
+    }];
+}
+
++ (void) fetchFriendsPostsFromFriendsListID:(NSString*)friendListID WithCompletion:(void (^)(NSMutableArray *))completion {
+    [self fetchFriendListFromID:friendListID withCompletion:^(FriendsList *friendsListObj) {
+        NSArray *friendsList = friendsListObj.friends;
+        
+        PFQuery *query = [PFQuery queryWithClassName:QUERY_POST_NAME];
+        [query includeKey:QUERY_AUTHOR_KEY];
+        [query whereKey:@"authorID" containedIn:friendsList];
+        [query orderByDescending:QUERY_DATE_CREATED_KEY];
+        query.limit = PARSE_QUERY_LIMIT;
+        [query whereKey:@"sharedWithFriends" equalTo:@YES];
+        [query whereKey:QUERY_POST_VERIFIED_KEY equalTo:@NO];
+        
+        [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+            if (posts != nil) {
+                completion([NSMutableArray arrayWithArray:posts]);
+            } else {
+                NSLog(@"%@", error.localizedDescription);
+            }
+        }];
+    }];
+}
+
++ (void) loadMoreFriendsPostsFromFriendsListID:(NSString*)friendListID WithLaterDate:(NSDate *)date withCompletion:(void (^)(NSMutableArray *))completion {
+    if (!date) {
+        return;
+    }
+    
+    [self fetchFriendListFromID:friendListID withCompletion:^(FriendsList *friendsListObj) {
+        NSArray *friendsList = friendsListObj.friends;
+        
+        PFQuery *query = [PFQuery queryWithClassName:QUERY_POST_NAME];
+        [query includeKey:QUERY_AUTHOR_KEY];
+        [query whereKey:@"authorID" containedIn:friendsList];
+        [query orderByDescending:QUERY_DATE_CREATED_KEY];
+        [query whereKey:@"sharedWithFriends" equalTo:@YES];
+        [query whereKey:QUERY_DATE_CREATED_KEY lessThan:date];
+        query.limit = PARSE_QUERY_LIMIT;
+        [query whereKey:QUERY_POST_VERIFIED_KEY equalTo:@NO];
+        
+        [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+            if (posts != nil) {
+                completion([NSMutableArray arrayWithArray:posts]);
+            } else {
+                NSLog(@"%@", error.localizedDescription);
+            }
+        }];
     }];
 }
 

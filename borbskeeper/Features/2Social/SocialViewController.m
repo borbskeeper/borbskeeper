@@ -32,25 +32,45 @@ static NSString *const POST_CELL_REUSE_ID = @"PostCell";
 }
 
 - (void)fetchDataWithCompletion:(void (^)(void))completion {
-    [BorbParseManager fetchGlobalPostsWithCompletion:^(NSMutableArray * _Nonnull posts) {
-        self.posts = posts;
-        completion();
-    }];
+    if (self.shareOptionButton.selectedSegmentIndex == 0){
+        [BorbParseManager fetchFriendsPostsFromFriendsListID:[User currentUser].friendsListID WithCompletion:^(NSMutableArray *posts) {
+            self.posts = posts;
+            completion();
+        }];
+    } else {
+        [BorbParseManager fetchGlobalPostsWithCompletion:^(NSMutableArray *posts) {
+            self.posts = posts;
+            completion();
+        }];
+    }
 }
 
 - (void)loadMoreData {
     Post *latestPost = [self.posts lastObject];
     self.latestDate = latestPost.createdAt;
     
-    [BorbParseManager fetchMoreGlobalPostsWithLaterDate:self.latestDate withCompletion:^(NSMutableArray *newPosts) {
-        if ([newPosts count] > 0){
-            [self.posts addObjectsFromArray:newPosts];
-            [self.feedInfiniteScrollView.tableView reloadData];
-            self.feedInfiniteScrollView.isMoreDataLoading = false;
-        } else {
-            self.feedInfiniteScrollView.isMoreDataLoading = true;
-        }
-    }];
+    if (self.shareOptionButton.selectedSegmentIndex == 0){
+        [BorbParseManager loadMoreFriendsPostsFromFriendsListID:[User currentUser].friendsListID WithLaterDate:self.latestDate withCompletion:^(NSMutableArray *newPosts) {
+            if ([newPosts count] > 0){
+                [self.posts addObjectsFromArray:newPosts];
+                [self.feedInfiniteScrollView.tableView reloadData];
+                self.feedInfiniteScrollView.isMoreDataLoading = false;
+            } else {
+                self.feedInfiniteScrollView.isMoreDataLoading = true;
+            }
+        }];
+
+    } else {
+        [BorbParseManager loadMoreGlobalPostsWithLaterDate:self.latestDate withCompletion:^(NSMutableArray *newPosts) {
+            if ([newPosts count] > 0){
+                [self.posts addObjectsFromArray:newPosts];
+                [self.feedInfiniteScrollView.tableView reloadData];
+                self.feedInfiniteScrollView.isMoreDataLoading = false;
+            } else {
+                self.feedInfiniteScrollView.isMoreDataLoading = true;
+            }
+        }];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

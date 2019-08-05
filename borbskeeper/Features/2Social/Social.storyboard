@@ -44,17 +44,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TjO-BH-Bq5" customClass="FeedInfiniteScrollView">
-                                <rect key="frame" x="0.0" y="109" width="375" height="558"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TjO-BH-Bq5" customClass="FeedInfiniteScrollView">
+                                <rect key="frame" x="0.0" y="112" width="375" height="555"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1IA-bH-eEw">
                                         <rect key="frame" x="177" y="269" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </activityIndicatorView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4eR-g3-Jx6">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="558"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4eR-g3-Jx6">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="555"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="517" id="BPh-ma-I8i" customClass="PostCell">
@@ -129,14 +127,19 @@
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="4eR-g3-Jx6" secondAttribute="bottom" id="Ex8-hA-Bek"/>
+                                    <constraint firstItem="4eR-g3-Jx6" firstAttribute="leading" secondItem="TjO-BH-Bq5" secondAttribute="leading" id="XEz-o5-KTf"/>
+                                    <constraint firstItem="4eR-g3-Jx6" firstAttribute="top" secondItem="TjO-BH-Bq5" secondAttribute="top" id="iu6-6G-7Gx"/>
+                                    <constraint firstAttribute="trailing" secondItem="4eR-g3-Jx6" secondAttribute="trailing" id="yX3-AQ-7pd"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="activityIndicator" destination="1IA-bH-eEw" id="tNm-9R-YWt"/>
                                     <outlet property="tableView" destination="4eR-g3-Jx6" id="f0l-aU-0xP"/>
                                 </connections>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="dH6-a9-dH6">
-                                <rect key="frame" x="16" y="73" width="343" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="dH6-a9-dH6">
+                                <rect key="frame" x="10" y="74" width="355" height="29"/>
                                 <segments>
                                     <segment title="Friends"/>
                                     <segment title="Global"/>
@@ -144,6 +147,15 @@
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TjO-BH-Bq5" firstAttribute="leading" secondItem="GTZ-vb-Ly0" secondAttribute="leading" id="FUE-ra-Xah"/>
+                            <constraint firstItem="TjO-BH-Bq5" firstAttribute="top" secondItem="dH6-a9-dH6" secondAttribute="bottom" constant="10" id="GyJ-Sb-kAp"/>
+                            <constraint firstItem="COc-bA-chM" firstAttribute="trailing" secondItem="dH6-a9-dH6" secondAttribute="trailing" constant="10" id="L1z-hP-uIP"/>
+                            <constraint firstAttribute="bottom" secondItem="TjO-BH-Bq5" secondAttribute="bottom" id="LQ7-YQ-bko"/>
+                            <constraint firstItem="dH6-a9-dH6" firstAttribute="leading" secondItem="COc-bA-chM" secondAttribute="leading" constant="10" id="TUS-Mc-jmg"/>
+                            <constraint firstAttribute="trailing" secondItem="TjO-BH-Bq5" secondAttribute="trailing" id="Xos-c1-kUS"/>
+                            <constraint firstItem="dH6-a9-dH6" firstAttribute="top" secondItem="COc-bA-chM" secondAttribute="top" constant="10" id="k4T-sN-KRp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="COc-bA-chM"/>
                     </view>
                     <navigationItem key="navigationItem" title="Social" id="m0k-nq-sNK">
