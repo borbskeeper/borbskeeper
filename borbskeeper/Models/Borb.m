@@ -17,6 +17,7 @@
 @dynamic borbExperience;
 @dynamic borbLevel;
 @dynamic borbPicture;
+@dynamic borbCoins;
 
 + (NSString *)parseClassName {
     return @"Borb";
@@ -30,6 +31,7 @@
         self.borbHealth = [NSNumber numberWithInt:MAX_HP];
         self.borbExperience = @0;
         self.borbLevel = @0;
+        self.borbCoins = @0; 
         
         UIImage *defaultImage = [UIImage imageNamed:@"borb_original"];
         NSData *imageData = UIImagePNGRepresentation(defaultImage);
@@ -76,18 +78,33 @@
 
 - (void)decreaseHealthPointsBy:(int)HP {
     int newHP = [self.borbHealth intValue] - HP;
-    
+    NSLog(@"newHP: %d", newHP);
     if (newHP < 0) {
         self.borbLevel = [NSNumber numberWithInteger:([self.borbLevel intValue] - 1)];
         self.borbExperience = @0;
         self.borbHealth = [NSNumber numberWithInteger:MAX_HP];
     } else {
         self.borbHealth = @(newHP);
+        NSLog(@"savedNewHP: %@", self.borbHealth);
     }
 }
 
 - (void)feedBorb {
     [self increaseHealthPointsBy:AMOUNT_OF_HP_FOOD_RESTORES];
+}
+
+- (void)increaseBorbCoinsBy:(int)numCoins{
+    int currentCoins = [self.borbCoins intValue];
+    self.borbCoins = @(currentCoins + numCoins);
+}
+
+/*
+ NOTE: in certain scenarios (e.g. when user marks an complete task incomplete), the user's coins must be allowed to be negative.
+ It is the caller's responsibility to check whether this action is invalid or not.
+ */
+- (void)decreaseBorbCoinsBy:(int)numCoins{
+    int currentCoins = [self.borbCoins intValue];
+    self.borbCoins = @(currentCoins - numCoins);
 }
 
 @end

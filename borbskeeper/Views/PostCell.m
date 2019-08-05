@@ -42,5 +42,14 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
     [self.photoImageView setImageWithURL:imageURL];
 }
 
+- (IBAction)didClickVerify:(id)sender {
+    if ([User currentUser] == self.post.author) {
+        NSLog(@"error");
+        return;
+    }
+    self.post.task.verified = true; 
+}
+
+
 
 @end

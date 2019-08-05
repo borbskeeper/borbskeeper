@@ -93,6 +93,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sq6-9y-gHq">
                                                     <rect key="frame" x="316" y="451.5" width="44" height="44.5"/>
                                                     <state key="normal" title="Verify!"/>
+                                                    <connections>
+                                                        <action selector="didClickVerify:" destination="BPh-ma-I8i" eventType="touchUpInside" id="dao-hD-ZrR"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Posted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wv9-3U-s9d">
                                                     <rect key="frame" x="189" y="30.5" width="94" height="21"/>

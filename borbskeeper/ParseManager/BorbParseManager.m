@@ -41,7 +41,6 @@ static int const PARSE_QUERY_LIMIT = 20;
     newUser.username = username;
     newUser.email = email;
     newUser.password = password;
-    newUser.userCoins = @0;
     newUser.friendsList = [[NSMutableArray alloc] init];
     newUser.userLogin = [NSDate date];
     
