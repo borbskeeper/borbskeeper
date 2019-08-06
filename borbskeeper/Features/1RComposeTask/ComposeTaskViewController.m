@@ -31,10 +31,16 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
     [super viewDidLoad];
     [self setupTextView];
     [self setupDatePicker];
+    [self setupNavBar];
 }
 
 - (void)setupDatePicker {
     self.taskDeadlineDatePicker.minimumDate = [NSDate date];
+}
+
+- (void) setupNavBar {
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      NSFontAttributeName:[UIFont fontWithName:@"OpenSans-SemiBold" size:18]}];
 }
 
 - (void)setupTextView {

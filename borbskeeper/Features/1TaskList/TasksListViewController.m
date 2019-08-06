@@ -42,15 +42,18 @@ static const int SECS_TO_HOURS = 3600;
 
     self.current_username = [PFUser currentUser].username;
     [self.incompleteTaskListInfiniteScrollView setupTableView];
+    [self setupNavBar];
     [self decayHPByIncompleteTasksAndTime];
+    
+}
+
+- (void) setupNavBar {
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                NSFontAttributeName:[UIFont fontWithName:@"OpenSans-SemiBold" size:18]}];
 }
 
 - (IBAction)didTapNewTask:(id)sender {
     [self performSegueWithIdentifier:COMPOSE_SEGUE_ID sender:nil];
-}
-
-- (IBAction)didTapSignOut:(id)sender {
-    [BorbParseManager signOutUser];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

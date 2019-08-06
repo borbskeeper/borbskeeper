@@ -39,7 +39,13 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     [self.composePostTaskListInfiniteScrollView setupTableView];
     self.imageManip = [[ImageManipManager alloc] init];
     self.imageManip.imageManipManagerDelegate = self;
+    [self setupSegmentedControl];
     self.posting = NO;
+}
+
+- (void) setupSegmentedControl{
+    [self.shareOptionButton setTitleTextAttributes:@{
+                                                     NSFontAttributeName:[UIFont fontWithName:@"OpenSans-SemiBold" size:14]} forState: UIControlStateNormal];
 }
 
 - (void)fetchDataWithCompletion:(void (^)(void))completion {

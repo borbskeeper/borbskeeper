@@ -29,6 +29,18 @@ static NSString *const POST_CELL_REUSE_ID = @"PostCell";
     
     self.feedInfiniteScrollView.infiniteScrollDelegate = self;
     [self.feedInfiniteScrollView setupTableView];
+    [self setupNavBar];
+    [self setupSegmentedControl];
+}
+
+- (void) setupNavBar {
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      NSFontAttributeName:[UIFont fontWithName:@"OpenSans-SemiBold" size:18]}];
+}
+
+- (void) setupSegmentedControl{
+    [self.shareOptionButton setTitleTextAttributes:@{
+                                                     NSFontAttributeName:[UIFont fontWithName:@"OpenSans-SemiBold" size:14]} forState: UIControlStateNormal];
 }
 
 - (void) didPost {
