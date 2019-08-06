@@ -113,6 +113,7 @@
                     <connections>
                         <outlet property="emailField" destination="nQ1-fd-w1p" id="acc-PN-B0c"/>
                         <outlet property="passwordField" destination="kFg-rI-yKE" id="HrK-od-FTS"/>
+                        <outlet property="signUpButton" destination="kY1-yC-s8d" id="bWe-8q-VIR"/>
                         <outlet property="usernameField" destination="RJ8-f6-HXq" id="lUo-Rq-aBo"/>
                         <segue destination="Cxr-Se-waV" kind="presentation" identifier="taskListSegue" id="mA1-Bq-1pe"/>
                     </connections>

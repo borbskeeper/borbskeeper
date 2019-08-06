@@ -41,10 +41,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbd-Qt-762">
-                                <rect key="frame" x="313" y="84" width="42" height="30"/>
+                                <rect key="frame" x="303" y="84" width="52" height="30"/>
                                 <color key="backgroundColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                                 <state key="normal" title="Add">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -56,7 +56,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="P4P-fn-jli" firstAttribute="leading" secondItem="a1U-VA-rMw" secondAttribute="leading" constant="20" id="Anf-Gh-HP3"/>
-                            <constraint firstItem="Nbd-Qt-762" firstAttribute="leading" secondItem="P4P-fn-jli" secondAttribute="trailing" constant="20" id="RL3-3O-GyB"/>
+                            <constraint firstItem="Nbd-Qt-762" firstAttribute="leading" secondItem="P4P-fn-jli" secondAttribute="trailing" constant="10" id="RL3-3O-GyB"/>
                             <constraint firstItem="a1U-VA-rMw" firstAttribute="trailing" secondItem="Nbd-Qt-762" secondAttribute="trailing" constant="20" id="d3J-tQ-G1H"/>
                             <constraint firstItem="a1U-VA-rMw" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="P4P-fn-jli" secondAttribute="bottom" constant="20" id="e1b-zX-ceb"/>
                             <constraint firstItem="P4P-fn-jli" firstAttribute="top" secondItem="a1U-VA-rMw" secondAttribute="top" constant="20" id="gEP-hq-zC3"/>
@@ -65,13 +65,15 @@
                         <viewLayoutGuide key="safeArea" id="a1U-VA-rMw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Friends" id="gGF-Zb-8VM">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="gQC-gV-iKV">
+                        <barButtonItem key="leftBarButtonItem" image="Back" id="gQC-gV-iKV">
+                            <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapCancel:" destination="baf-gR-X0c" id="jvI-BQ-PAp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addFriendsButton" destination="Nbd-Qt-762" id="VhT-GN-asO"/>
                         <outlet property="userNameTextField" destination="P4P-fn-jli" id="Ttx-L0-uk2"/>
                     </connections>
                 </viewController>
@@ -80,4 +82,7 @@
             <point key="canvasLocation" x="284" y="142.57871064467767"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Back" width="25" height="25"/>
+    </resources>
 </document>

@@ -35,6 +35,12 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
     self.imageManip = [[ImageManipManager alloc] init];
     self.imageManip.imageManipManagerDelegate = self;
     self.posting = NO;
+    [self setupSegmentedControl];
+}
+
+- (void) setupSegmentedControl{
+    [self.shareOptionButton setTitleTextAttributes:@{
+                                                     NSFontAttributeName:[UIFont fontWithName:@"OpenSans-SemiBold" size:14]} forState: UIControlStateNormal];
 }
 
 - (void) loadTask {

@@ -97,6 +97,8 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="confirmButton" destination="xPP-J9-LO3" id="0eB-6V-9gG"/>
+                                                    <outlet property="deleteButton" destination="2sR-md-2Mf" id="8YL-FV-PTi"/>
                                                     <outlet property="profilePicture" destination="mkX-Ly-HnL" id="2UJ-mg-4HS"/>
                                                     <outlet property="timeAgo" destination="MJn-yS-76w" id="hp5-FA-LM6"/>
                                                     <outlet property="userName" destination="j2J-km-zns" id="7sH-4j-Tdx"/>
@@ -128,7 +130,7 @@
                         <viewLayoutGuide key="safeArea" id="YK8-g1-ldB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Friend Requests" id="Ukm-pG-CIb">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="0U5-fy-cMh">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="Back" id="0U5-fy-cMh">
                             <connections>
                                 <action selector="didTapBack:" destination="s0N-CD-737" id="Ahu-NT-z0y"/>
                             </connections>
@@ -161,4 +163,7 @@
             <point key="canvasLocation" x="58" y="68"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Back" width="25" height="25"/>
+    </resources>
 </document>

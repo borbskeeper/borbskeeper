@@ -26,6 +26,12 @@ static NSString *const FRIEND_REQUEST_TABLE_VIEW_CELL_ID = @"FriendRequestCell";
     [super viewDidLoad];
     self.friendRequestListInfiniteScrollView.infiniteScrollDelegate = self;
     [self.friendRequestListInfiniteScrollView setupTableView];
+    [self setupNavBar];
+}
+
+- (void)setupNavBar {
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      NSFontAttributeName:[UIFont fontWithName:@"OpenSans-SemiBold" size:18]}];
 }
 
 - (IBAction)didTapBack:(id)sender {
