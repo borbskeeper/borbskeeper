@@ -53,6 +53,8 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
         NSLog(@"Cannot verify own posts");
         return;
     }
+    self.post.verified = YES;
+    [BorbParseManager savePost:self.post withCompletion:nil];
     [BorbParseManager fetchTask:self.post.task.objectId WithCompletion:^(NSMutableArray *tasks) {
         Task *task = tasks[0];
         if (task.verified) {
