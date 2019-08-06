@@ -97,6 +97,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sq6-9y-gHq">
                                                             <rect key="frame" x="316" y="451.5" width="44" height="44.5"/>
                                                             <state key="normal" title="Verify!"/>
+                                                            <connections>
+                                                                <action selector="didClickVerify:" destination="BPh-ma-I8i" eventType="touchUpInside" id="xlf-GV-Eu3"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
