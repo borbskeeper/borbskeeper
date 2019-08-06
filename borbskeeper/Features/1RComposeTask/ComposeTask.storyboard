@@ -67,6 +67,7 @@
                                     <color key="titleColor" red="1" green="0.096373205370000006" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
+                                    <action selector="tapDelete:" destination="CPZ-OX-dnB" eventType="touchUpInside" id="95J-VN-iKI"/>
                                     <action selector="tapDelete:" destination="CvE-Kd-8dx" eventType="touchUpInside" id="Yfl-Vn-Fag"/>
                                 </connections>
                             </button>
