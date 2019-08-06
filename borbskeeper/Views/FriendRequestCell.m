@@ -11,6 +11,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "BorbParseManager.h"
 #import "FriendsList.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation FriendRequestCell
 static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
@@ -31,10 +32,18 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
     PFFileObject *profileImageFile = sender[USER_PROF_PIC_KEY];
     NSURL *profileImageURL = [NSURL URLWithString:profileImageFile.url];
     [self.profilePicture setImageWithURL:profileImageURL];
+    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2;
+    self.profilePicture.clipsToBounds = YES;
     
     NSString *formattedDate = friendRequest.createdAt.shortTimeAgoSinceNow;
     self.timeAgo.text = formattedDate;
     self.didInteractWithRequest = NO;
+    
+    self.confirmButton.layer.cornerRadius = 5;
+    self.confirmButton.clipsToBounds = YES;
+    
+    self.deleteButton.layer.cornerRadius = 5;
+    self.deleteButton.clipsToBounds = YES;
 }
 
 - (IBAction)didTapConfirm:(id)sender {

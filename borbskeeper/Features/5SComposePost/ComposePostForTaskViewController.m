@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *shareOptionButton;
 @property (strong, nonatomic) UIImage *selectedImage;
 @property (strong, nonatomic) ImageManipManager *imageManip;
+@property BOOL posting;
 
 @end
 
@@ -33,6 +34,13 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
     [self loadTask];
     self.imageManip = [[ImageManipManager alloc] init];
     self.imageManip.imageManipManagerDelegate = self;
+    self.posting = NO;
+    [self setupSegmentedControl];
+}
+
+- (void) setupSegmentedControl{
+    [self.shareOptionButton setTitleTextAttributes:@{
+                                                     NSFontAttributeName:[UIFont fontWithName:@"OpenSans-SemiBold" size:14]} forState: UIControlStateNormal];
 }
 
 - (void) loadTask {
@@ -64,11 +72,14 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
 }
 
 - (IBAction)didTapPost:(id)sender {
-    if (!self.selectedImage) {
+    if (self.posting) {
+        return;
+    } else if (!self.selectedImage) {
         NSLog(@"error");
         // put a error alert here
         return;
     }
+    self.posting = YES;
     Post *newPost = [Post createPost:self.selectedImage withTask:self.selectedTask];
     if (self.shareOptionButton.selectedSegmentIndex == 0){
         newPost.sharedGlobally = NO;
@@ -83,8 +94,10 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
             NSLog(@"Error composing Pos: %@", error.localizedDescription);
         } else {
             self.selectedTask.posted = YES;
-            [BorbParseManager saveTask:self.selectedTask withCompletion:nil];
-            [self.delegate didPostTask];
+            [BorbParseManager saveTask:self.selectedTask withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                [self.delegate didPostTask];
+            }];
+            self.posting = NO;
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }
     }];

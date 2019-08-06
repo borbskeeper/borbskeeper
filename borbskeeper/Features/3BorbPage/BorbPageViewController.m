@@ -45,6 +45,12 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupNavBar];
+}
+
+- (void) setupNavBar {
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      NSFontAttributeName:[UIFont fontWithName:@"OpenSans-SemiBold" size:18]}];
 }
 
 - (void)reloadData {

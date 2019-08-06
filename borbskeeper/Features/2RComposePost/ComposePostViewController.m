@@ -25,6 +25,8 @@
 @property (strong, nonatomic) NSMutableArray *completeTaskList;
 @property (strong, nonatomic) NSDate *latestDate;
 @property (strong, nonatomic) ImageManipManager *imageManip;
+@property BOOL posting;
+
 @end
 
 static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
@@ -37,6 +39,13 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     [self.composePostTaskListInfiniteScrollView setupTableView];
     self.imageManip = [[ImageManipManager alloc] init];
     self.imageManip.imageManipManagerDelegate = self;
+    [self setupSegmentedControl];
+    self.posting = NO;
+}
+
+- (void) setupSegmentedControl{
+    [self.shareOptionButton setTitleTextAttributes:@{
+                                                     NSFontAttributeName:[UIFont fontWithName:@"OpenSans-SemiBold" size:14]} forState: UIControlStateNormal];
 }
 
 - (void)fetchDataWithCompletion:(void (^)(void))completion {
@@ -93,10 +102,14 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 }
 
 - (IBAction)postBarButtonClicked:(id)sender {
-    if (!self.selectedImage|| !self.selectedTask) {
+    if (self.posting) {
+        return;
+    } else if (!self.selectedImage || !self.selectedTask) {
         NSLog(@"error");
         return;
     }
+    self.posting = YES;
+    
     Post *newPost = [Post createPost:self.selectedImage withTask:self.selectedTask];
     if (self.shareOptionButton.selectedSegmentIndex == 0){
         newPost.sharedGlobally = NO;
@@ -110,6 +123,11 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
         if (error) {
             NSLog(@"Error composing Pos: %@", error.localizedDescription);
         } else {
+            self.selectedTask.posted = YES;
+            [BorbParseManager saveTask:self.selectedTask withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                [self.delegate didPost];
+            }];
+            self.posting = NO;
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];

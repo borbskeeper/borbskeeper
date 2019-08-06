@@ -26,10 +26,16 @@
     self.minutePickerView.dataSource = self;
     self.minutePickerView.delegate = self;
     self.minutePickerView.hidden = YES;
+    [self setupNavBar];
     self.pickerData = @[@"Remind me 5 mins before", @"Remind me 10 mins before", @"Remind me 15 mins before", @"Remind me 20 mins before", @"Remind me 30 mins before"];
     [self.minutePickerView setShowsSelectionIndicator:YES];
     UIToolbar *toolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
     [toolBar setTintColor:[UIColor grayColor]];
+}
+
+- (void)setupNavBar {
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      NSFontAttributeName:[UIFont fontWithName:@"OpenSans-SemiBold" size:18]}];
 }
 
 - (IBAction)didTapLogout:(id)sender {

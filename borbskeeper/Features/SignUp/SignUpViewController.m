@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 
 @end
 
@@ -24,6 +25,8 @@ static NSString *const TASK_LIST_SEGUE_ID = @"taskListSegue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.signUpButton.layer.cornerRadius = 5;
+    self.signUpButton.clipsToBounds = YES;
 }
 
 - (IBAction)didTapSignUp:(id)sender {

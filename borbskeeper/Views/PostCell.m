@@ -41,6 +41,8 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
     PFFileObject *profileImageFile = post.author[USER_PROF_PIC_KEY];
     NSURL *profileImageURL = [NSURL URLWithString:profileImageFile.url];
     [self.profilePhotoImageView setImageWithURL:profileImageURL];
+    self.profilePhotoImageView.layer.cornerRadius = self.profilePhotoImageView.frame.size.width / 2;
+    self.profilePhotoImageView.clipsToBounds = YES;
     
     PFFileObject *userImageFile = post.image;
     NSURL *imageURL = [NSURL URLWithString:userImageFile.url];
@@ -53,6 +55,8 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
         NSLog(@"Cannot verify own posts");
         return;
     }
+    self.post.verified = YES;
+    [BorbParseManager savePost:self.post withCompletion:nil];
     [BorbParseManager fetchTask:self.post.task.objectId WithCompletion:^(NSMutableArray *tasks) {
         Task *task = tasks[0];
         if (task.verified) {

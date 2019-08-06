@@ -11,9 +11,11 @@
 #import "User.h"
 #import "FriendRequest.h"
 #import "AlertManager.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AddFriendsViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
+@property (weak, nonatomic) IBOutlet UIButton *addFriendsButton;
 
 
 @end
@@ -22,7 +24,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setupNavBar];
+    self.addFriendsButton.layer.cornerRadius = 5;
+    self.addFriendsButton.clipsToBounds = YES;
+}
+
+- (void) setupNavBar {
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      NSFontAttributeName:[UIFont fontWithName:@"OpenSans-SemiBold" size:18]}];
 }
 
 - (IBAction)didTapCancel:(id)sender {

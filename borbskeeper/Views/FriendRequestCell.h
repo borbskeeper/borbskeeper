@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) FriendRequest *friendRequest;
 @property (assign, nonatomic) BOOL didInteractWithRequest;
 @property (nonatomic, weak) id <FriendRequestDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 - (void)setupWithFriendRequest:(FriendRequest *)friendRequest;
 

@@ -15,8 +15,9 @@
 #import "ImageManipManager.h"
 #import "ComposePostForTaskViewController.h"
 #import "CompletedTaskCell.h"
+#import <QuartzCore/QuartzCore.h>
 
-@interface ProfileViewController ()<InfiniteScrollDelegate, ImageManipManagerDelegate, ComposePostViewControllerDelegate>
+@interface ProfileViewController () <InfiniteScrollDelegate, ImageManipManagerDelegate, ComposePostForTaskViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
@@ -24,6 +25,7 @@
 @property (strong, nonatomic) NSMutableArray *completeTaskList;
 @property (strong, nonatomic) NSDate *latestDate;
 @property (strong, nonatomic) ImageManipManager *imageManip;
+@property (weak, nonatomic) IBOutlet UIButton *changeProfilePictureButton;
 
 @end
 
@@ -42,23 +44,33 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     self.imageManip.imageManipManagerDelegate = self;
 }
 
+- (void)setupNavBar {
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      NSFontAttributeName:[UIFont fontWithName:@"OpenSans-SemiBold" size:18]}];
+}
+
 - (void)setupProfile {
     NSString *userName = User.currentUser.username;
     self.userName.text = userName;
+    self.changeProfilePictureButton.layer.cornerRadius = 5;
+    self.changeProfilePictureButton.clipsToBounds = YES;
     [self loadUserProfilePicture];
+    [self setupNavBar];
 }
 
 -(void)loadUserProfilePicture {
     PFFileObject *PFObjectProfileImage = [User currentUser][USER_PROF_PIC_KEY];
     NSURL *profileImageURL = [NSURL URLWithString:PFObjectProfileImage.url];
     [self.profilePicture setImageWithURL:profileImageURL];
+    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2;
+    self.profilePicture.clipsToBounds = YES;
 }
 
 - (IBAction)didTapChangeProfilePicture:(id)sender {
     [self.imageManip presentImagePickerFromViewController:self withImageSource:IMAGESOURCE_LIBRARY];
 }
 
-- (void) saveImage:(UIImage *)selectedImage {
+- (void)saveImage:(UIImage *)selectedImage {
     [self.profilePicture setImage:selectedImage];
     
     [User currentUser][USER_PROF_PIC_KEY] = [BorbParseManager getPFFileFromImage:selectedImage];
