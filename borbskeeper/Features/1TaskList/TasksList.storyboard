@@ -28,7 +28,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zg5-Bw-cKP">
                                         <rect key="frame" x="0.0" y="-50" width="375" height="204"/>
-                                        <color key="backgroundColor" red="0.34266522526741028" green="0.37474671006202698" blue="0.58434110879898071" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.36508476734161377" green="0.37326100468635559" blue="0.87848275899887085" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="myp-aS-eSa">
                                         <rect key="frame" x="178" y="267" width="20" height="20"/>
@@ -123,7 +123,7 @@
                                         </connections>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.93170401094825372" green="0.92720302538811727" blue="0.93620499650839017" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.93492665676249509" green="0.93041010286509174" blue="0.93944321065989844" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="dqx-VY-PXF" secondAttribute="trailing" id="1qf-0w-hJm"/>
                                     <constraint firstItem="dqx-VY-PXF" firstAttribute="top" secondItem="nWO-30-XmH" secondAttribute="top" id="8q8-D4-h6W"/>
@@ -147,7 +147,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tasks List" id="1bU-8H-YLW">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="Compose" id="bqi-oh-UKH">
-                            <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.45748412609100342" green="0.6784629225730896" blue="0.84316599369049072" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapNewTask:" destination="G0u-nK-hFo" id="0vf-58-QdK"/>
                                 <segue destination="AfF-Xx-8zw" kind="presentation" identifier="composeTaskSegue" id="OR7-sw-UMd"/>
@@ -239,7 +239,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="Hh4-1o-jIE" kind="relationship" relationship="viewControllers" id="hJq-4y-cI5"/>
