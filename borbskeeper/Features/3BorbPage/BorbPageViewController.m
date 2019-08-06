@@ -16,7 +16,7 @@
 
 @interface BorbPageViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *userCoinsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *borbCoinsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *borbNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *borbLevelLabel;
 @property (weak, nonatomic) IBOutlet UILabel *borbXPLabel;
@@ -51,7 +51,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
     [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
         Borb *borb = borbs[0];
         
-        self.userCoinsLabel.text = [NSString stringWithFormat:@"Coins: %@", self.user.userCoins];
+        self.borbCoinsLabel.text = [NSString stringWithFormat:@"Coins: %@", borb.borbCoins];
         self.borbNameLabel.text = borb.borbName;
         self.borbLevelLabel.text = [NSString stringWithFormat:@"Level %@", borb.borbLevel];
         
@@ -68,41 +68,35 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 }
 
 - (IBAction)didTapFeed:(id)sender {
-    if ([self.user.userCoins intValue] < FOOD_COST){
-        [AlertManager presentNotEnoughCoinsToFeedAlert:self];
-    } else {
-        [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
-            Borb *borb = borbs[0];
-            
+    [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
+        Borb *borb = borbs[0];
+        if ([borb.borbCoins intValue] < FOOD_COST){
+            [AlertManager presentNotEnoughCoinsToFeedAlert:self];
+        } else {
             if ([borb.borbHealth intValue] == MAX_HP){
                 [AlertManager presentCannotFeedBorbMaxHPAlert:self];
             } else {
                 [borb feedBorb];
-                [self.user decreaseUserCoinsBy:FOOD_COST];
-
-                [BorbParseManager saveBorb:borb withCompletion:nil];
-                [BorbParseManager saveUser:self.user withCompletion:nil];
-                [self reloadData];
+                [borb decreaseBorbCoinsBy:FOOD_COST];
             }
-        }];
-    }
+        }
+        [BorbParseManager saveBorb:borb withCompletion:nil];
+        [self reloadData];
+    }];
 }
 
 - (IBAction)didTapXPBoost:(id)sender {
-    if ([self.user.userCoins intValue] < XP_BOOST_COST){
-        [AlertManager presentNotEnoughCoinsToBoostXPAlert:self];
-    } else {
-        [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
-            Borb *borb = borbs[0];
-        
+    [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
+        Borb *borb = borbs[0];
+        if ([borb.borbCoins intValue] < XP_BOOST_COST) {
+             [AlertManager presentNotEnoughCoinsToBoostXPAlert:self];
+        } else {
             [borb increaseExperiencePointsBy:AMOUNT_OF_XP_FROM_BOOST];
-            [self.user decreaseUserCoinsBy:XP_BOOST_COST];
-            
-            [BorbParseManager saveBorb:borb withCompletion:nil];
-            [BorbParseManager saveUser:self.user withCompletion:nil];
-            [self reloadData];
-        }];
-    }
+            [borb decreaseBorbCoinsBy:XP_BOOST_COST];
+        }
+        [BorbParseManager saveBorb:borb withCompletion:nil];
+        [self reloadData];
+    }];
 }
 
 - (IBAction)didTapRenameBorb:(id)sender {
