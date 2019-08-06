@@ -163,6 +163,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Obv-Yu-1aB"/>
                     <connections>
+                        <outlet property="borbCoinsLabel" destination="CEP-dj-MNX" id="UZb-0i-Xkj"/>
                         <outlet property="borbHPLabel" destination="ioE-XB-YkM" id="TFH-p4-PsL"/>
                         <outlet property="borbLevelLabel" destination="Zwb-P1-AfX" id="xAT-Va-9pb"/>
                         <outlet property="borbNameLabel" destination="Mtj-Pr-phh" id="6ee-aP-C1Q"/>
@@ -171,7 +172,6 @@
                         <outlet property="hpBarSKView" destination="h6h-iV-KUs" id="WZo-kY-vDH"/>
                         <outlet property="maxHPLabel" destination="nCu-yv-Ux9" id="Ick-wt-PCB"/>
                         <outlet property="maxXPLabel" destination="sml-gq-1XI" id="SqQ-Yl-Nws"/>
-                        <outlet property="userCoinsLabel" destination="CEP-dj-MNX" id="UZb-0i-Xkj"/>
                         <outlet property="xpBarSKView" destination="cuM-QM-moe" id="DBF-tO-nl5"/>
                     </connections>
                 </viewController>

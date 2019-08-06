@@ -89,9 +89,9 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Posted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wv9-3U-s9d">
-                                                            <rect key="frame" x="189" y="30.5" width="94" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="189" y="33" width="74.5" height="16"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sq6-9y-gHq">
@@ -121,6 +121,7 @@
                                                     <outlet property="profilePhotoImageView" destination="FTq-t2-8kg" id="7jV-xv-hIW"/>
                                                     <outlet property="taskNameLabel" destination="83H-bK-O7L" id="uDL-qr-UcC"/>
                                                     <outlet property="usernameLabel" destination="OhD-sc-In2" id="afe-Tm-yUg"/>
+                                                    <outlet property="verifyButton" destination="Sq6-9y-gHq" id="w5R-aH-iwP"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
