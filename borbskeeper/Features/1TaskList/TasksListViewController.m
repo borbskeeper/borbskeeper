@@ -14,6 +14,7 @@
 #import "GameConstants.h"
 #import "User.h"
 #import "IncompleteTaskListInfiniteScrollView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TasksListViewController () <InfiniteScrollDelegate, ComposeViewControllerDelegate>
 
@@ -22,6 +23,7 @@
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSDate *latestDate;
 @property (weak, nonatomic) IBOutlet IncompleteTaskListInfiniteScrollView *incompleteTaskListInfiniteScrollView;
+@property (weak, nonatomic) IBOutlet UIView *backgroundView;
 
 
 @end
@@ -44,7 +46,8 @@ static const int SECS_TO_HOURS = 3600;
     [self.incompleteTaskListInfiniteScrollView setupTableView];
     [self setupNavBar];
     [self decayHPByIncompleteTasksAndTime];
-    
+    self.backgroundView.layer.cornerRadius = 30;
+    self.backgroundView.clipsToBounds = YES;
 }
 
 - (void) setupNavBar {
