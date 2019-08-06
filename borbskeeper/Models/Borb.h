@@ -16,7 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *borbName;
 @property (nonatomic, strong) NSNumber *borbHealth;
 @property (nonatomic, strong) NSNumber *borbExperience;
-@property (nonatomic, strong) NSNumber *borbLevel; 
+@property (nonatomic, strong) NSNumber *borbLevel;
+@property (nonatomic, strong) NSNumber *borbCoins; 
 @property (nonatomic, strong) PFFileObject *borbPicture;
 
 + (NSString *)parseClassName;
@@ -32,6 +33,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)decreaseHealthPointsBy:(int)HP;
 
 - (void)feedBorb;
+
+- (void)increaseBorbCoinsBy:(int)numCoins;
+
+- (void)decreaseBorbCoinsBy:(int)numCoins;
 
 @end
 

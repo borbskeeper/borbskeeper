@@ -15,6 +15,13 @@
 		349420A522EB855E00FDA714 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 349420A422EB855E00FDA714 /* SettingsTableViewController.m */; };
 		4703D7F77889CBBF77A2AD92 /* Pods_borbskeeperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FF1C08AACA2E8CCDBEA0B8 /* Pods_borbskeeperTests.framework */; };
 		4A2ECAF722F240B4003C880B /* AlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ECAF622F240B4003C880B /* AlertManager.m */; };
+		4A2ECAFD22F3607C003C880B /* FriendsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ECAFC22F3607C003C880B /* FriendsListViewController.m */; };
+		4A2ECAFF22F36092003C880B /* FriendsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ECAFE22F36092003C880B /* FriendsList.storyboard */; };
+		4A2ECB0122F360A9003C880B /* FriendRequestList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A2ECB0022F360A9003C880B /* FriendRequestList.storyboard */; };
+		4A2ECB0422F360BE003C880B /* FriendRequestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ECB0322F360BD003C880B /* FriendRequestsViewController.m */; };
+		4A2ECB0822F36A12003C880B /* FriendRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ECB0722F36A12003C880B /* FriendRequest.m */; };
+		4A2ECB0B22F3B33D003C880B /* FriendRequestListInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ECB0A22F3B33D003C880B /* FriendRequestListInfiniteScrollView.m */; };
+		4A2ECB0E22F3B3E3003C880B /* FriendRequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2ECB0D22F3B3E3003C880B /* FriendRequestCell.m */; };
 		4A55B93C22E8FA7500CA5400 /* InfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A55B93B22E8FA7500CA5400 /* InfiniteScrollView.m */; };
 		4A55B94A22EA2EB000CA5400 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A55B94922EA2EB000CA5400 /* Profile.storyboard */; };
 		4A55B94D22EA2EBF00CA5400 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A55B94C22EA2EBF00CA5400 /* ProfileViewController.m */; };
@@ -27,12 +34,17 @@
 		4A944D4A22DE49A20065782C /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A944D4922DE49A20065782C /* SignUp.storyboard */; };
 		4A944D4D22DE49F00065782C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A944D4C22DE49F00065782C /* SignUpViewController.m */; };
 		4A944D6222DE8EF00065782C /* BorbParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A944D6122DE8EF00065782C /* BorbParseManager.m */; };
+		4AAF0EF222F4EC7F00AA6E42 /* FriendsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0EF122F4EC7F00AA6E42 /* FriendsList.m */; };
+		4AAF0EF522F4FF9000AA6E42 /* FriendsListInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0EF422F4FF9000AA6E42 /* FriendsListInfiniteScrollView.m */; };
+		4AAF0EF822F5022500AA6E42 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0EF722F5022500AA6E42 /* FriendCell.m */; };
+		4AAF0EFB22F8A58800AA6E42 /* FeedInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0EFA22F8A58800AA6E42 /* FeedInfiniteScrollView.m */; };
+		4AAF0F0122F8D9A400AA6E42 /* ComposePostTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0F0022F8D9A400AA6E42 /* ComposePostTaskCell.m */; };
 		4AB260CE22E0F5890062DD14 /* ComposeTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB260CD22E0F5890062DD14 /* ComposeTaskViewController.m */; };
 		4AB260D022E0F5B70062DD14 /* ComposeTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */; };
 		A2284FD022E24217006217C9 /* BorbPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2284FCF22E24217006217C9 /* BorbPageViewController.m */; };
 		A2284FD222E24229006217C9 /* BorbPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2284FD122E24229006217C9 /* BorbPage.storyboard */; };
-		A228EF9122F24A5500F5C6F6 /* statsBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = A228EF9022F24A5500F5C6F6 /* statsBar.sks */; };
 		A228EF8E22F20D2F00F5C6F6 /* ImageManipManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A228EF8D22F20D2F00F5C6F6 /* ImageManipManager.m */; };
+		A228EF9122F24A5500F5C6F6 /* statsBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = A228EF9022F24A5500F5C6F6 /* statsBar.sks */; };
 		A2660C4422E64331008C39C7 /* GameConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A2660C4322E64331008C39C7 /* GameConstants.m */; };
 		A28F5C0A22DE598E001FAFC7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0922DE598E001FAFC7 /* User.m */; };
 		A28F5C0D22DE6C14001FAFC7 /* Borb.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F5C0C22DE6C14001FAFC7 /* Borb.m */; };
@@ -88,6 +100,18 @@
 		482BEA8B4EC67026AE80FB32 /* Pods-borbskeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeper.release.xcconfig"; path = "Target Support Files/Pods-borbskeeper/Pods-borbskeeper.release.xcconfig"; sourceTree = "<group>"; };
 		4A2ECAF522F240B4003C880B /* AlertManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertManager.h; sourceTree = "<group>"; };
 		4A2ECAF622F240B4003C880B /* AlertManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertManager.m; sourceTree = "<group>"; };
+		4A2ECAFB22F3607C003C880B /* FriendsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsListViewController.h; sourceTree = "<group>"; };
+		4A2ECAFC22F3607C003C880B /* FriendsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsListViewController.m; sourceTree = "<group>"; };
+		4A2ECAFE22F36092003C880B /* FriendsList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendsList.storyboard; sourceTree = "<group>"; };
+		4A2ECB0022F360A9003C880B /* FriendRequestList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendRequestList.storyboard; sourceTree = "<group>"; };
+		4A2ECB0222F360BD003C880B /* FriendRequestsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendRequestsViewController.h; sourceTree = "<group>"; };
+		4A2ECB0322F360BD003C880B /* FriendRequestsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRequestsViewController.m; sourceTree = "<group>"; };
+		4A2ECB0622F36A12003C880B /* FriendRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendRequest.h; sourceTree = "<group>"; };
+		4A2ECB0722F36A12003C880B /* FriendRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRequest.m; sourceTree = "<group>"; };
+		4A2ECB0922F3B33D003C880B /* FriendRequestListInfiniteScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendRequestListInfiniteScrollView.h; sourceTree = "<group>"; };
+		4A2ECB0A22F3B33D003C880B /* FriendRequestListInfiniteScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRequestListInfiniteScrollView.m; sourceTree = "<group>"; };
+		4A2ECB0C22F3B3E3003C880B /* FriendRequestCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendRequestCell.h; sourceTree = "<group>"; };
+		4A2ECB0D22F3B3E3003C880B /* FriendRequestCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRequestCell.m; sourceTree = "<group>"; };
 		4A55B93A22E8FA7500CA5400 /* InfiniteScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfiniteScrollView.h; sourceTree = "<group>"; };
 		4A55B93B22E8FA7500CA5400 /* InfiniteScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfiniteScrollView.m; sourceTree = "<group>"; };
 		4A55B94922EA2EB000CA5400 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -110,6 +134,16 @@
 		4A944D4C22DE49F00065782C /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		4A944D6022DE8EF00065782C /* BorbParseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorbParseManager.h; sourceTree = "<group>"; };
 		4A944D6122DE8EF00065782C /* BorbParseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorbParseManager.m; sourceTree = "<group>"; };
+		4AAF0EF022F4EC7F00AA6E42 /* FriendsList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsList.h; sourceTree = "<group>"; };
+		4AAF0EF122F4EC7F00AA6E42 /* FriendsList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsList.m; sourceTree = "<group>"; };
+		4AAF0EF322F4FF9000AA6E42 /* FriendsListInfiniteScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsListInfiniteScrollView.h; sourceTree = "<group>"; };
+		4AAF0EF422F4FF9000AA6E42 /* FriendsListInfiniteScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsListInfiniteScrollView.m; sourceTree = "<group>"; };
+		4AAF0EF622F5022500AA6E42 /* FriendCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
+		4AAF0EF722F5022500AA6E42 /* FriendCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
+		4AAF0EF922F8A58800AA6E42 /* FeedInfiniteScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedInfiniteScrollView.h; sourceTree = "<group>"; };
+		4AAF0EFA22F8A58800AA6E42 /* FeedInfiniteScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedInfiniteScrollView.m; sourceTree = "<group>"; };
+		4AAF0EFF22F8D9A400AA6E42 /* ComposePostTaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposePostTaskCell.h; sourceTree = "<group>"; };
+		4AAF0F0022F8D9A400AA6E42 /* ComposePostTaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposePostTaskCell.m; sourceTree = "<group>"; };
 		4AB260CC22E0F5890062DD14 /* ComposeTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeTaskViewController.h; sourceTree = "<group>"; };
 		4AB260CD22E0F5890062DD14 /* ComposeTaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeTaskViewController.m; sourceTree = "<group>"; };
 		4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComposeTask.storyboard; sourceTree = "<group>"; };
@@ -119,9 +153,9 @@
 		A2284FCE22E24217006217C9 /* BorbPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorbPageViewController.h; sourceTree = "<group>"; };
 		A2284FCF22E24217006217C9 /* BorbPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorbPageViewController.m; sourceTree = "<group>"; };
 		A2284FD122E24229006217C9 /* BorbPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BorbPage.storyboard; sourceTree = "<group>"; };
-		A228EF9022F24A5500F5C6F6 /* statsBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = statsBar.sks; sourceTree = "<group>"; };
 		A228EF8C22F20D2F00F5C6F6 /* ImageManipManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageManipManager.h; sourceTree = "<group>"; };
 		A228EF8D22F20D2F00F5C6F6 /* ImageManipManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageManipManager.m; sourceTree = "<group>"; };
+		A228EF9022F24A5500F5C6F6 /* statsBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = statsBar.sks; sourceTree = "<group>"; };
 		A2660C4222E64331008C39C7 /* GameConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
 		A2660C4322E64331008C39C7 /* GameConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameConstants.m; sourceTree = "<group>"; };
 		A28F5C0822DE598E001FAFC7 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = User.h; path = borbskeeper/Models/User.h; sourceTree = SOURCE_ROOT; };
@@ -218,6 +252,40 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		4A2ECAF822F35F1B003C880B /* 4FriendsList */ = {
+			isa = PBXGroup;
+			children = (
+				4A2ECAFE22F36092003C880B /* FriendsList.storyboard */,
+				4A2ECAFB22F3607C003C880B /* FriendsListViewController.h */,
+				4A2ECAFC22F3607C003C880B /* FriendsListViewController.m */,
+				4AAF0EF322F4FF9000AA6E42 /* FriendsListInfiniteScrollView.h */,
+				4AAF0EF422F4FF9000AA6E42 /* FriendsListInfiniteScrollView.m */,
+			);
+			path = 4FriendsList;
+			sourceTree = "<group>";
+		};
+		4A2ECAF922F35F64003C880B /* 4LFriendRequestList */ = {
+			isa = PBXGroup;
+			children = (
+				4A2ECB0022F360A9003C880B /* FriendRequestList.storyboard */,
+				4A2ECB0222F360BD003C880B /* FriendRequestsViewController.h */,
+				4A2ECB0322F360BD003C880B /* FriendRequestsViewController.m */,
+				4A2ECB0922F3B33D003C880B /* FriendRequestListInfiniteScrollView.h */,
+				4A2ECB0A22F3B33D003C880B /* FriendRequestListInfiniteScrollView.m */,
+			);
+			path = 4LFriendRequestList;
+			sourceTree = "<group>";
+		};
+		4A2ECAFA22F35F89003C880B /* 4RAddFriend */ = {
+			isa = PBXGroup;
+			children = (
+				A2FBF61A22EB95F700464637 /* AddFriends.storyboard */,
+				A2FBF61C22EB960D00464637 /* AddFriendsViewController.h */,
+				A2FBF61D22EB960D00464637 /* AddFriendsViewController.m */,
+			);
+			path = 4RAddFriend;
+			sourceTree = "<group>";
+		};
 		4A55B94822EA2EA200CA5400 /* 5Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +309,10 @@
 				A28F5C0F22DE6D43001FAFC7 /* Task.m */,
 				A2FBF62522EBBDBF00464637 /* Post.h */,
 				A2FBF62622EBBDBF00464637 /* Post.m */,
+				4A2ECB0622F36A12003C880B /* FriendRequest.h */,
+				4A2ECB0722F36A12003C880B /* FriendRequest.m */,
+				4AAF0EF022F4EC7F00AA6E42 /* FriendsList.h */,
+				4AAF0EF122F4EC7F00AA6E42 /* FriendsList.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -252,8 +324,14 @@
 				3432CFB522DE6CA700B6C47E /* TaskCell.m */,
 				4A55B95A22EF67FA00CA5400 /* CompletedTaskCell.h */,
 				4A55B95B22EF67FA00CA5400 /* CompletedTaskCell.m */,
+				4AAF0EFF22F8D9A400AA6E42 /* ComposePostTaskCell.h */,
+				4AAF0F0022F8D9A400AA6E42 /* ComposePostTaskCell.m */,
 				A2FAE71922EFAEDD0081DAE7 /* PostCell.h */,
 				A2FAE71A22EFAEDD0081DAE7 /* PostCell.m */,
+				4A2ECB0C22F3B3E3003C880B /* FriendRequestCell.h */,
+				4A2ECB0D22F3B3E3003C880B /* FriendRequestCell.m */,
+				4AAF0EF622F5022500AA6E42 /* FriendCell.h */,
+				4AAF0EF722F5022500AA6E42 /* FriendCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -265,8 +343,10 @@
 				4AB260CB22E0F4110062DD14 /* 1RComposeTask */,
 				A2FBF61322EB8F8B00464637 /* 2Social */,
 				A2FBF61F22EB968900464637 /* 2RComposePost */,
-				A2FBF61922EB959E00464637 /* 2LAddFriends */,
 				A2284FCD22E241EB006217C9 /* 3BorbPage */,
+				4A2ECAF822F35F1B003C880B /* 4FriendsList */,
+				4A2ECAFA22F35F89003C880B /* 4RAddFriend */,
+				4A2ECAF922F35F64003C880B /* 4LFriendRequestList */,
 				4A55B94822EA2EA200CA5400 /* 5Profile */,
 				A2FAE71022EFA3390081DAE7 /* 5SComposePost */,
 				3494209D22EB7BA700FDA714 /* Settings */,
@@ -339,9 +419,9 @@
 		A2284FCD22E241EB006217C9 /* 3BorbPage */ = {
 			isa = PBXGroup;
 			children = (
+				A2284FD122E24229006217C9 /* BorbPage.storyboard */,
 				A2284FCE22E24217006217C9 /* BorbPageViewController.h */,
 				A2284FCF22E24217006217C9 /* BorbPageViewController.m */,
-				A2284FD122E24229006217C9 /* BorbPage.storyboard */,
 			);
 			path = 3BorbPage;
 			sourceTree = "<group>";
@@ -444,21 +524,13 @@
 		A2FBF61322EB8F8B00464637 /* 2Social */ = {
 			isa = PBXGroup;
 			children = (
+				A2FBF61722EB8FE700464637 /* Social.storyboard */,
 				A2FBF61422EB8FD800464637 /* SocialViewController.h */,
 				A2FBF61522EB8FD800464637 /* SocialViewController.m */,
-				A2FBF61722EB8FE700464637 /* Social.storyboard */,
+				4AAF0EF922F8A58800AA6E42 /* FeedInfiniteScrollView.h */,
+				4AAF0EFA22F8A58800AA6E42 /* FeedInfiniteScrollView.m */,
 			);
 			path = 2Social;
-			sourceTree = "<group>";
-		};
-		A2FBF61922EB959E00464637 /* 2LAddFriends */ = {
-			isa = PBXGroup;
-			children = (
-				A2FBF61A22EB95F700464637 /* AddFriends.storyboard */,
-				A2FBF61C22EB960D00464637 /* AddFriendsViewController.h */,
-				A2FBF61D22EB960D00464637 /* AddFriendsViewController.m */,
-			);
-			path = 2LAddFriends;
 			sourceTree = "<group>";
 		};
 		A2FBF61F22EB968900464637 /* 2RComposePost */ = {
@@ -603,9 +675,11 @@
 				A2284FD222E24229006217C9 /* BorbPage.storyboard in Resources */,
 				A2BC23B522DD2CD70030EA51 /* Assets.xcassets in Resources */,
 				3494209F22EB7BC500FDA714 /* Settings.storyboard in Resources */,
+				4A2ECAFF22F36092003C880B /* FriendsList.storyboard in Resources */,
 				4A944D4A22DE49A20065782C /* SignUp.storyboard in Resources */,
 				A2FBF61B22EB95F700464637 /* AddFriends.storyboard in Resources */,
 				3432CFA722DE597700B6C47E /* TasksList.storyboard in Resources */,
+				4A2ECB0122F360A9003C880B /* FriendRequestList.storyboard in Resources */,
 				A228EF9122F24A5500F5C6F6 /* statsBar.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -718,22 +792,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				349420A522EB855E00FDA714 /* SettingsTableViewController.m in Sources */,
+				4A2ECAFD22F3607C003C880B /* FriendsListViewController.m in Sources */,
 				3432CFB622DE6CA700B6C47E /* TaskCell.m in Sources */,
+				4A2ECB0E22F3B3E3003C880B /* FriendRequestCell.m in Sources */,
+				4A2ECB0822F36A12003C880B /* FriendRequest.m in Sources */,
 				A2FAE71822EFA5870081DAE7 /* ComposePostForTaskViewController.m in Sources */,
+				4AAF0EF522F4FF9000AA6E42 /* FriendsListInfiniteScrollView.m in Sources */,
 				4A944D6222DE8EF00065782C /* BorbParseManager.m in Sources */,
 				4A55B94D22EA2EBF00CA5400 /* ProfileViewController.m in Sources */,
 				4A944D4622DE49390065782C /* LoginViewController.m in Sources */,
 				4A944D4D22DE49F00065782C /* SignUpViewController.m in Sources */,
 				4A55B95622EB818700CA5400 /* IncompleteTaskListInfiniteScrollView.m in Sources */,
 				4A2ECAF722F240B4003C880B /* AlertManager.m in Sources */,
+				4AAF0EF822F5022500AA6E42 /* FriendCell.m in Sources */,
 				A2FBF61622EB8FD800464637 /* SocialViewController.m in Sources */,
 				A28F5C0A22DE598E001FAFC7 /* User.m in Sources */,
+				4A2ECB0422F360BE003C880B /* FriendRequestsViewController.m in Sources */,
 				A2FAE71B22EFAEDD0081DAE7 /* PostCell.m in Sources */,
 				A2FBF61E22EB960D00464637 /* AddFriendsViewController.m in Sources */,
 				A28F5C1022DE6D43001FAFC7 /* Task.m in Sources */,
 				A2284FD022E24217006217C9 /* BorbPageViewController.m in Sources */,
 				4A55B95922EB84AB00CA5400 /* CompleteTaskListInfiniteScrollView.m in Sources */,
 				4AB260CE22E0F5890062DD14 /* ComposeTaskViewController.m in Sources */,
+				4AAF0EFB22F8A58800AA6E42 /* FeedInfiniteScrollView.m in Sources */,
 				4A55B96522EFA97D00CA5400 /* ComposePostTaskListInfiniteScrollView.m in Sources */,
 				A2FBF62222EB969D00464637 /* ComposePostViewController.m in Sources */,
 				A2A2922E22EA67B600276315 /* PushNotificationsManager.m in Sources */,
@@ -743,10 +824,13 @@
 				4A55B95C22EF67FA00CA5400 /* CompletedTaskCell.m in Sources */,
 				A2BC23BB22DD2CD70030EA51 /* main.m in Sources */,
 				A2BC23AD22DD2CD60030EA51 /* AppDelegate.m in Sources */,
+				4AAF0F0122F8D9A400AA6E42 /* ComposePostTaskCell.m in Sources */,
 				3432CFB322DE6BE800B6C47E /* TasksListViewController.m in Sources */,
+				4AAF0EF222F4EC7F00AA6E42 /* FriendsList.m in Sources */,
 				A2FBF62722EBBDBF00464637 /* Post.m in Sources */,
 				A2660C4422E64331008C39C7 /* GameConstants.m in Sources */,
 				4A55B93C22E8FA7500CA5400 /* InfiniteScrollView.m in Sources */,
+				4A2ECB0B22F3B33D003C880B /* FriendRequestListInfiniteScrollView.m in Sources */,
 				A2A103C422F3802A001406D6 /* statsBarManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

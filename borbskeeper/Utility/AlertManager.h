@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void) presentNotEnoughCoinsToBoostXPAlert:(UIViewController*)viewController;
 
-+ (void) presentSaveTaskNotSuccesfulAlert:(UIViewController*)viewController;
++ (void) presentSaveTaskNotSuccessfulAlert:(UIViewController*)viewController;
 
 + (void) presentNoCameraAlert:(UIViewController *)viewController;
 
@@ -37,6 +37,15 @@ NS_ASSUME_NONNULL_BEGIN
 + (void) presentRenameBorbAlert:(UIViewController *)viewController withCompletion:(void (^)(NSString *)) completion;
 
 + (void) presentDeleteTaskComfirmationAlert:(UIViewController*)viewController forTask:(Task* )task;
+
++ (void) presentRequestToSelfAlert:(UIViewController*)viewController;
+
++ (void) presentCannotFindUserAlert:(UIViewController*)viewController;
+
++ (void) presentRequestAlreadyExistsAlert:(UIViewController*)viewController;
+
++ (void) presentRequestNotSavedAlert:(UIViewController*)viewController;
+
 
 @end
 

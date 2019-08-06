@@ -23,7 +23,7 @@ static NSString *const RENAME_BORB_ALERT_TITLE = @"Rename your borb!";
 static NSString *const BORB_MAXHP_ALERT_TITLE = @"This Borb is already full!";
 static NSString *const NOT_ENOUGH_COINS_ALERT_TITLE = @"Not enough Coins!";
 static NSString *const DELETE_CONFIRMATION_TITLE = @"Are you sure you want to delete this task?";
-
+static NSString *const FRIEND_REQUEST_ALERT_TITLE = @"Friend Request not sent!";
 // Alert Messages
 static NSString *const UNSUCCESSFUL_LOGIN_ALERT_MESSAGE = @"Please try to login in again.";
 static NSString *const UNSUCCESSFUL_SIGNUP_ALERT_MESSAGE = @"Please try signing up again.";
@@ -38,6 +38,11 @@ static NSString *const NOT_ENOUGH_COINS_FEED_ALERT_MESSAGE = @"You need at least
 static NSString *const BLANK_MESSAGE = @"";
 
 
+
+static NSString *const CANNOT_REQUEST_SELF_ALERT_MESSAGE = @"You cannot send a friend request to yourself.";
+static NSString *const CANNOT_FIND_USER_MESSAGE = @"Could not find user.";
+static NSString *const REQUEST_ALREADY_EXISTS_ALERT_MESSAGE = @"Already friends or request pending.";
+static NSString *const REQUEST_NOT_SAVED_ALERT_MESSAGE = @"Possible network error. Please try again.";
 
 // Alert Actions
 static NSString *const OK_ACTION_TITLE = @"OK";
@@ -136,12 +141,47 @@ static NSString *const DELETE_ACTION_TITLE = @"Delete";
     [viewController presentViewController:notEnoughCoinsAlert animated:YES completion:nil];
 }
 
-+ (void) presentSaveTaskNotSuccesfulAlert:(UIViewController*)viewController {
++ (void) presentSaveTaskNotSuccessfulAlert:(UIViewController*)viewController {
     UIAlertController *saveNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:UNSUCCESSFUL_TASK_SAVE_TITLE
                                                                                     message:UNSUCCESSFUL_TASK_SAVE_MESSAGE
                                                                              preferredStyle:(UIAlertControllerStyleAlert)];
     [self addOKActionToAlert:saveNotSuccessfulAlert];
     [viewController presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
+}
+
++ (void) presentRequestToSelfAlert:(UIViewController*)viewController {
+    UIAlertController *requestNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:FRIEND_REQUEST_ALERT_TITLE
+                                                                                     message:CANNOT_REQUEST_SELF_ALERT_MESSAGE
+                                                                              preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    [self addOKActionToAlert:requestNotSuccessfulAlert];
+    [viewController presentViewController:requestNotSuccessfulAlert animated:YES completion:nil];
+}
+
++ (void) presentCannotFindUserAlert:(UIViewController*)viewController {
+    UIAlertController *requestNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:FRIEND_REQUEST_ALERT_TITLE
+                                                                                       message:CANNOT_FIND_USER_MESSAGE
+                                                                                preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    [self addOKActionToAlert:requestNotSuccessfulAlert];
+    [viewController presentViewController:requestNotSuccessfulAlert animated:YES completion:nil];
+}
+
++ (void) presentRequestAlreadyExistsAlert:(UIViewController*)viewController {
+    UIAlertController *requestNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:FRIEND_REQUEST_ALERT_TITLE
+                                                                                       message:REQUEST_ALREADY_EXISTS_ALERT_MESSAGE
+                                                                                preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    [self addOKActionToAlert:requestNotSuccessfulAlert];
+    [viewController presentViewController:requestNotSuccessfulAlert animated:YES completion:nil];
+}
+
++ (void) presentRequestNotSavedAlert:(UIViewController*)viewController {
+    UIAlertController *requestNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:FRIEND_REQUEST_ALERT_TITLE
+                                                                                       message:REQUEST_NOT_SAVED_ALERT_MESSAGE                                                                                preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    [self addOKActionToAlert:requestNotSuccessfulAlert];
+    [viewController presentViewController:requestNotSuccessfulAlert animated:YES completion:nil];
 }
 
 + (void) presentNoCameraAlert:(UIViewController *)viewController {
