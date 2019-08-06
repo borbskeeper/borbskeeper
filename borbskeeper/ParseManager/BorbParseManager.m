@@ -116,9 +116,9 @@ static int const PARSE_QUERY_LIMIT = 20;
     [query whereKey:QUERY_AUTHOR_KEY equalTo:[PFUser currentUser]];
     [query whereKey:QUERY_TASK_COMPLETED_KEY equalTo:@NO];
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
-        if (posts != nil) {
-            completion([NSMutableArray arrayWithArray:posts]);
+    [query findObjectsInBackgroundWithBlock:^(NSArray *tasks, NSError *error) {
+        if (tasks != nil) {
+            completion([NSMutableArray arrayWithArray:tasks]);
         } else {
             // TBD: Call completion with error
             NSLog(@"%@", error.localizedDescription);
@@ -139,9 +139,9 @@ static int const PARSE_QUERY_LIMIT = 20;
     [query whereKey:QUERY_TASK_COMPLETED_KEY equalTo:@NO];
     [query whereKey:QUERY_TASK_DATE_DUE_KEY greaterThan:date];
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
-        if (posts != nil) {
-            completion([NSMutableArray arrayWithArray:posts]);
+    [query findObjectsInBackgroundWithBlock:^(NSArray *tasks, NSError *error) {
+        if (tasks != nil) {
+            completion([NSMutableArray arrayWithArray:tasks]);
         } else {
             // TBD: Call completion with error
             NSLog(@"%@", error.localizedDescription);
@@ -161,9 +161,9 @@ static int const PARSE_QUERY_LIMIT = 20;
         [query whereKey:QUERY_TASK_POSTED_KEY equalTo:@NO];
     }
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
-        if (posts != nil) {
-            completion([NSMutableArray arrayWithArray:posts]);
+    [query findObjectsInBackgroundWithBlock:^(NSArray *tasks, NSError *error) {
+        if (tasks != nil) {
+            completion([NSMutableArray arrayWithArray:tasks]);
         } else {
             // TBD: Call completion with error
             NSLog(@"%@", error.localizedDescription);
@@ -187,9 +187,9 @@ static int const PARSE_QUERY_LIMIT = 20;
         [query whereKey:QUERY_TASK_POSTED_KEY equalTo:@YES];
     }
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
-        if (posts != nil) {
-            completion([NSMutableArray arrayWithArray:posts]);
+    [query findObjectsInBackgroundWithBlock:^(NSArray *tasks, NSError *error) {
+        if (tasks != nil) {
+            completion([NSMutableArray arrayWithArray:tasks]);
         } else {
             // TBD: Call completion with error
             NSLog(@"%@", error.localizedDescription);

@@ -149,7 +149,7 @@
                                     <segment title="Global"/>
                                 </segments>
                                 <connections>
-                                    <action selector="didChageShareOptionValue:" destination="qbN-9e-LGJ" eventType="valueChanged" id="e0f-8K-MAz"/>
+                                    <action selector="didChangeShareOptionValue:" destination="qbN-9e-LGJ" eventType="valueChanged" id="e0f-8K-MAz"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -168,7 +168,7 @@
                     <navigationItem key="navigationItem" title="Social" id="m0k-nq-sNK">
                         <barButtonItem key="rightBarButtonItem" title="New Post" id="A40-Og-7H5">
                             <connections>
-                                <segue destination="dMX-No-ieI" kind="presentation" id="WLd-bf-Qdm"/>
+                                <segue destination="dMX-No-ieI" kind="presentation" identifier="composePostSegue" id="WLd-bf-Qdm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
