@@ -268,9 +268,10 @@ static int const PARSE_QUERY_LIMIT = 20;
     [self fetchFriendListFromID:friendListID withCompletion:^(FriendsList *friendsListObj) {
         NSArray *friendsList = friendsListObj.friends;
         
+        NSArray *friendsListWithSelf = [friendsList arrayByAddingObject:[User currentUser].objectId];
         PFQuery *query = [PFQuery queryWithClassName:QUERY_POST_NAME];
         [query includeKey:QUERY_AUTHOR_KEY];
-        [query whereKey:QUERY_AUTHOR_ID_KEY containedIn:friendsList];
+        [query whereKey:QUERY_AUTHOR_ID_KEY containedIn:friendsListWithSelf];
         [query orderByDescending:QUERY_DATE_CREATED_KEY];
         query.limit = PARSE_QUERY_LIMIT;
         [query whereKey:QUERY_SHARED_WITH_FRIENDS_KEY equalTo:@YES];
