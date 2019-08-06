@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Feed-->
         <scene sceneID="zCf-qX-fZs">
@@ -36,7 +41,7 @@
             </objects>
             <point key="canvasLocation" x="536" y="49"/>
         </scene>
-        <!--Social-->
+        <!--Feed-->
         <scene sceneID="CbT-pR-k15">
             <objects>
                 <viewController id="qbN-9e-LGJ" customClass="SocialViewController" sceneMemberID="viewController">
@@ -70,32 +75,34 @@
                                                             </constraints>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uaa-vg-aRd">
-                                                            <rect key="frame" x="20" y="106.5" width="340" height="340"/>
+                                                            <rect key="frame" x="20" y="107" width="340" height="340"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="340" id="Q8r-CT-QVE"/>
                                                                 <constraint firstAttribute="height" constant="340" id="uHc-0c-oUx"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83H-bK-O7L">
-                                                            <rect key="frame" x="20" y="76" width="84.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="20" y="76" width="94.5" height="21"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhD-sc-In2">
-                                                            <rect key="frame" x="80" y="30.5" width="79" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="80" y="30.5" width="89" height="21"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Posted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wv9-3U-s9d">
-                                                            <rect key="frame" x="189" y="33" width="74.5" height="16"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <rect key="frame" x="199" y="30.5" width="105" height="21"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sq6-9y-gHq">
-                                                            <rect key="frame" x="316" y="451.5" width="44" height="44.5"/>
+                                                            <rect key="frame" x="307" y="452" width="53" height="44"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                                            <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <state key="normal" title="Verify!"/>
                                                             <connections>
                                                                 <action selector="didClickVerify:" destination="BPh-ma-I8i" eventType="touchUpInside" id="xlf-GV-Eu3"/>
@@ -148,8 +155,9 @@
                                     <segment title="Friends"/>
                                     <segment title="Global"/>
                                 </segments>
+                                <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
-                                    <action selector="didChageShareOptionValue:" destination="qbN-9e-LGJ" eventType="valueChanged" id="e0f-8K-MAz"/>
+                                    <action selector="didChangeShareOptionValue:" destination="qbN-9e-LGJ" eventType="valueChanged" id="e0f-8K-MAz"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -165,10 +173,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="COc-bA-chM"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Social" id="m0k-nq-sNK">
-                        <barButtonItem key="rightBarButtonItem" title="New Post" id="A40-Og-7H5">
+                    <navigationItem key="navigationItem" title="Feed" id="m0k-nq-sNK">
+                        <barButtonItem key="rightBarButtonItem" title="New Post" image="Compose" id="A40-Og-7H5">
+                            <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <segue destination="dMX-No-ieI" kind="presentation" id="WLd-bf-Qdm"/>
+                                <segue destination="dMX-No-ieI" kind="presentation" identifier="composePostSegue" id="WLd-bf-Qdm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -183,6 +192,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Compose" width="25" height="25"/>
         <image name="Feed" width="30" height="30"/>
     </resources>
 </document>

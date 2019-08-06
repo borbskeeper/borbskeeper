@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Tasks List-->
         <scene sceneID="Ohc-qN-KX8">
@@ -37,8 +42,8 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Task" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgu-Tl-acG">
-                                                            <rect key="frame" x="55" y="21" width="104" height="20"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                            <rect key="frame" x="55" y="21" width="115.5" height="21"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -55,8 +60,8 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/20/2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IX0-qu-3M6">
-                                                            <rect key="frame" x="55" y="46" width="64" height="17"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                            <rect key="frame" x="55" y="47" width="69" height="17"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -107,12 +112,8 @@
                         <viewLayoutGuide key="safeArea" id="kVV-gW-JQ3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tasks List" id="1bU-8H-YLW">
-                        <barButtonItem key="leftBarButtonItem" title="Sign out" id="MGf-Dp-tQi">
-                            <connections>
-                                <action selector="didTapSignOut:" destination="G0u-nK-hFo" id="8Sb-DJ-HxW"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="New Task" id="bqi-oh-UKH">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Compose" id="bqi-oh-UKH">
+                            <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapNewTask:" destination="G0u-nK-hFo" id="0vf-58-QdK"/>
                                 <segue destination="AfF-Xx-8zw" kind="presentation" identifier="composeTaskSegue" id="OR7-sw-UMd"/>
@@ -203,6 +204,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="Hh4-1o-jIE" kind="relationship" relationship="viewControllers" id="hJq-4y-cI5"/>
@@ -218,6 +220,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Compose" width="25" height="25"/>
         <image name="Task List" width="30" height="30"/>
         <image name="checkbox_checked" width="96" height="96"/>
         <image name="checkbox_empty" width="96" height="96"/>

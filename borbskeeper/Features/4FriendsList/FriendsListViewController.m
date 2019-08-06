@@ -23,6 +23,12 @@ static NSString *const FRIEND_TABLE_VIEW_CELL_ID = @"FriendCell";
     [super viewDidLoad];
     self.friendsListInfiniteScrollView.infiniteScrollDelegate = self;
     [self.friendsListInfiniteScrollView setupTableView];
+    [self setupNavBar];
+}
+
+- (void) setupNavBar {
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      NSFontAttributeName:[UIFont fontWithName:@"OpenSans-SemiBold" size:18]}];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

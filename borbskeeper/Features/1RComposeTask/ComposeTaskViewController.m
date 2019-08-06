@@ -37,10 +37,16 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
     } else {
         self.navigationItem.title = @"Edit Task";
     }
+    [self setupNavBar];
 }
 
 - (void)setupDatePicker {
     self.taskDeadlineDatePicker.minimumDate = [NSDate date];
+}
+
+- (void) setupNavBar {
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      NSFontAttributeName:[UIFont fontWithName:@"OpenSans-SemiBold" size:18]}];
 }
 
 - (void)setupTextView {

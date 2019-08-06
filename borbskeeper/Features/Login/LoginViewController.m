@@ -25,6 +25,9 @@ static NSString *const SIGNUP_SEGUE_ID = @"signUpSegue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.loginButton.layer.cornerRadius = 5;
+    self.loginButton.clipsToBounds = YES;
+    
 }
 
 - (void)loginUser {
