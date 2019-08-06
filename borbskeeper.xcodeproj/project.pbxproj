@@ -192,6 +192,8 @@
 		A28F5C0F22DE6D43001FAFC7 /* Task.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = borbskeeper/Models/Task.m; sourceTree = SOURCE_ROOT; };
 		A2A103C222F3802A001406D6 /* statsBarManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = statsBarManager.h; sourceTree = "<group>"; };
 		A2A103C322F3802A001406D6 /* statsBarManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = statsBarManager.m; sourceTree = "<group>"; };
+		A2A2922C22EA67B600276315 /* PushNotificationsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PushNotificationsManager.h; path = /Users/juliapark628/Documents/borbskeeper/borbskeeper/Utility/PushNotificationsManager.h; sourceTree = "<absolute>"; };
+		A2A2922D22EA67B600276315 /* PushNotificationsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PushNotificationsManager.m; path = /Users/juliapark628/Documents/borbskeeper/borbskeeper/Utility/PushNotificationsManager.m; sourceTree = "<absolute>"; };
 		A2A2922C22EA67B600276315 /* PushNotificationsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushNotificationsManager.h; sourceTree = "<group>"; };
 		A2A2922D22EA67B600276315 /* PushNotificationsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushNotificationsManager.m; sourceTree = "<group>"; };
 		A2BC23A822DD2CD60030EA51 /* borbskeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = borbskeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };

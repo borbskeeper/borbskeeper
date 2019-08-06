@@ -68,6 +68,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hb8-G6-CaO">
+                                <rect key="frame" x="287" y="81" width="80" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete Task">
+                                    <color key="titleColor" red="1" green="0.096373205370000006" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapDelete:" destination="CPZ-OX-dnB" eventType="touchUpInside" id="95J-VN-iKI"/>
+                                    <action selector="tapDelete:" destination="CvE-Kd-8dx" eventType="touchUpInside" id="Yfl-Vn-Fag"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -109,12 +120,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="deleteTaskButton" destination="Hb8-G6-CaO" id="ENf-3z-e5R"/>
                         <outlet property="taskDeadlineDatePicker" destination="VJt-cU-FQc" id="RSy-do-aes"/>
                         <outlet property="taskDescTextView" destination="sf4-0N-C2D" id="yk4-2d-bzO"/>
                         <outlet property="taskTitleTextField" destination="DmC-d1-ge6" id="eRT-Ze-4me"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k68-TF-JTX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="CvE-Kd-8dx" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="WWr-3c-UwL">
                     <connections>
                         <action selector="didTapCreateTaskView:" destination="CPZ-OX-dnB" id="gZ6-Gp-5Cs"/>

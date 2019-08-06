@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "Task.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -35,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void) presentRenameBorbAlert:(UIViewController *)viewController withCompletion:(void (^)(NSString *)) completion;
 
++ (void) presentDeleteTaskComfirmationAlert:(UIViewController*)viewController forTask:(Task* )task;
+
 + (void) presentRequestToSelfAlert:(UIViewController*)viewController;
 
 + (void) presentCannotFindUserAlert:(UIViewController*)viewController;
@@ -42,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void) presentRequestAlreadyExistsAlert:(UIViewController*)viewController;
 
 + (void) presentRequestNotSavedAlert:(UIViewController*)viewController;
+
 
 @end
 
