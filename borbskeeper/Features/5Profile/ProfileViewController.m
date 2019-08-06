@@ -52,6 +52,8 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     PFFileObject *PFObjectProfileImage = [User currentUser][USER_PROF_PIC_KEY];
     NSURL *profileImageURL = [NSURL URLWithString:PFObjectProfileImage.url];
     [self.profilePicture setImageWithURL:profileImageURL];
+    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2;
+    self.profilePicture.clipsToBounds = YES;
 }
 
 - (IBAction)didTapChangeProfilePicture:(id)sender {

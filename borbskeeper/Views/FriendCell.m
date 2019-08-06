@@ -32,5 +32,7 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
     PFFileObject *profileImageFile = friend[USER_PROF_PIC_KEY];
     NSURL *profileImageURL = [NSURL URLWithString:profileImageFile.url];
     [self.profilePicture setImageWithURL:profileImageURL];
+    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2;
+    self.profilePicture.clipsToBounds = YES;
 }
 @end

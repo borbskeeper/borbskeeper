@@ -41,6 +41,8 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
     PFFileObject *profileImageFile = post.author[USER_PROF_PIC_KEY];
     NSURL *profileImageURL = [NSURL URLWithString:profileImageFile.url];
     [self.profilePhotoImageView setImageWithURL:profileImageURL];
+    self.profilePhotoImageView.layer.cornerRadius = self.profilePhotoImageView.frame.size.width / 2;
+    self.profilePhotoImageView.clipsToBounds = YES;
     
     PFFileObject *userImageFile = post.image;
     NSURL *imageURL = [NSURL URLWithString:userImageFile.url];
