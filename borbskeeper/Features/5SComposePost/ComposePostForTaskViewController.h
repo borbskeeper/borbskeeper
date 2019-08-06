@@ -12,13 +12,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol ComposePostViewControllerDelegate
+@protocol ComposePostForTaskViewControllerDelegate
+
 - (void)didPostTask;
 
 @end
 
 @interface ComposePostForTaskViewController : UIViewController
-@property (nonatomic, weak) id<ComposePostViewControllerDelegate> delegate;
+@property (nonatomic, weak) id<ComposePostForTaskViewControllerDelegate> delegate;
 @property (nonatomic, strong) Task *selectedTask;
 
 @end

@@ -10,8 +10,9 @@
 #import "BorbParseManager.h"
 #import "PostCell.h"
 #import "FeedInfiniteScrollView.h"
+#import "ComposePostViewController.h"
 
-@interface SocialViewController () <InfiniteScrollDelegate>
+@interface SocialViewController () <InfiniteScrollDelegate, ComposePostViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *shareOptionButton;
 @property (weak, nonatomic) IBOutlet FeedInfiniteScrollView *feedInfiniteScrollView;
 @property (strong, nonatomic) NSMutableArray* posts;
@@ -28,6 +29,10 @@ static NSString *const POST_CELL_REUSE_ID = @"PostCell";
     
     self.feedInfiniteScrollView.infiniteScrollDelegate = self;
     [self.feedInfiniteScrollView setupTableView];
+}
+
+- (void) didPost {
+    [self.feedInfiniteScrollView fetchData];
 }
 
 - (void)fetchDataWithCompletion:(void (^)(void))completion {
@@ -84,19 +89,22 @@ static NSString *const POST_CELL_REUSE_ID = @"PostCell";
     return cell;
 }
 
-- (IBAction)didChageShareOptionValue:(id)sender {
+- (IBAction)didChangeShareOptionValue:(id)sender {
     [self.feedInfiniteScrollView fetchData];
     [self.feedInfiniteScrollView.tableView setContentOffset:CGPointMake(self.feedInfiniteScrollView.tableView.contentInset.left, self.feedInfiniteScrollView.tableView.contentInset.top) animated:NO];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"composePostSegue"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposePostViewController *composePostController = (ComposePostViewController *)navigationController.topViewController;
+        composePostController.delegate = self;
+    }
 }
-*/
+
 
 @end

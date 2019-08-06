@@ -16,7 +16,7 @@
 #import "ComposePostForTaskViewController.h"
 #import "CompletedTaskCell.h"
 
-@interface ProfileViewController ()<InfiniteScrollDelegate, ImageManipManagerDelegate, ComposePostViewControllerDelegate>
+@interface ProfileViewController () <InfiniteScrollDelegate, ImageManipManagerDelegate, ComposePostForTaskViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *userName;

@@ -88,8 +88,9 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
             NSLog(@"Error composing Pos: %@", error.localizedDescription);
         } else {
             self.selectedTask.posted = YES;
-            [BorbParseManager saveTask:self.selectedTask withCompletion:nil];
-            [self.delegate didPostTask];
+            [BorbParseManager saveTask:self.selectedTask withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                [self.delegate didPostTask];
+            }];
             self.posting = NO;
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }
