@@ -51,7 +51,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
     [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
         Borb *borb = borbs[0];
         
-        self.borbCoinsLabel.text = [NSString stringWithFormat:@"Coins: %@", borb.borbCoins];
+        self.borbCoinsLabel.text = [NSString stringWithFormat:@"%@", borb.borbCoins];
         self.borbNameLabel.text = borb.borbName;
         self.borbLevelLabel.text = [NSString stringWithFormat:@"Level %@", borb.borbLevel];
         
