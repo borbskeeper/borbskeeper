@@ -70,6 +70,9 @@ static int const PARSE_QUERY_LIMIT = 20;
             newUser.usersBorb = newBorb;
             
             [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+                friendsList.friends = [friendsList.friends arrayByAddingObject:newUser.objectId];
+                
+                [BorbParseManager saveFriendsList:friendsList withCompletion:nil];
                 completion(error);
             }];
         } else {
