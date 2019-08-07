@@ -60,7 +60,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="555"/>
                                         <color key="backgroundColor" red="0.93727463483810425" green="0.92916423082351685" blue="0.94118666648864746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="517" id="BPh-ma-I8i" customClass="PostCell">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="517" id="BPh-ma-I8i" customClass="PostCell">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="517"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BPh-ma-I8i" id="JS3-GS-IBU">
