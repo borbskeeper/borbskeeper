@@ -38,6 +38,8 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
         
         if ([[User currentUser].username isEqualToString:post.author.username] || task.verified) {
             self.verifyButton.hidden = YES;
+            self.verifyButtonHeight.constant = 0;
+            [self layoutIfNeeded];
         }
     }];
     

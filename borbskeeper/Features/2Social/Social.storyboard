@@ -84,14 +84,14 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uaa-vg-aRd">
-                                                                    <rect key="frame" x="16" y="94" width="340" height="340"/>
+                                                                    <rect key="frame" x="16" y="92" width="340" height="340"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="340" id="Q8r-CT-QVE"/>
                                                                         <constraint firstAttribute="height" constant="340" id="uHc-0c-oUx"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83H-bK-O7L">
-                                                                    <rect key="frame" x="16" y="76" width="94.5" height="8"/>
+                                                                    <rect key="frame" x="16" y="76" width="94.5" height="6"/>
                                                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -103,8 +103,11 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sq6-9y-gHq">
-                                                                    <rect key="frame" x="16" y="444" width="340" height="33"/>
+                                                                    <rect key="frame" x="16" y="442" width="340" height="35"/>
                                                                     <color key="backgroundColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="35" id="OyU-dI-XKG"/>
+                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" title="Verify!"/>
@@ -147,6 +150,7 @@
                                                     <outlet property="taskNameLabel" destination="83H-bK-O7L" id="uDL-qr-UcC"/>
                                                     <outlet property="usernameLabel" destination="OhD-sc-In2" id="afe-Tm-yUg"/>
                                                     <outlet property="verifyButton" destination="Sq6-9y-gHq" id="w5R-aH-iwP"/>
+                                                    <outlet property="verifyButtonHeight" destination="OyU-dI-XKG" id="DaE-cE-NTS"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
