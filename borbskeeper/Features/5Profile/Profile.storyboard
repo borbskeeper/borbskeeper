@@ -13,6 +13,9 @@
         <array key="Montserrat-Regular.ttf">
             <string>Montserrat-Regular</string>
         </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--settings-->
@@ -57,13 +60,13 @@
                                                 </connections>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMy-OK-GGN">
-                                                <rect key="frame" x="125" y="20" width="55" height="24.5"/>
-                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+                                                <rect key="frame" x="130" y="20" width="78.5" height="90"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed Tasks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gp2-TU-0Tz">
-                                                <rect key="frame" x="125" y="54.5" width="235" height="21"/>
+                                                <rect key="frame" x="20" y="120" width="335" height="21"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -72,22 +75,22 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstItem="Gp2-TU-0Tz" firstAttribute="leading" secondItem="gWZ-Cu-ltZ" secondAttribute="trailing" constant="15" id="AqB-Qv-kgp"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gp2-TU-0Tz" secondAttribute="trailing" constant="20" id="DUs-ai-uN3"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yMy-OK-GGN" secondAttribute="trailing" constant="10" id="NxH-KY-QLG"/>
                                             <constraint firstItem="yMy-OK-GGN" firstAttribute="top" secondItem="gWZ-Cu-ltZ" secondAttribute="top" id="SE0-EW-MC1"/>
-                                            <constraint firstAttribute="trailing" secondItem="Gp2-TU-0Tz" secondAttribute="trailing" constant="15" id="dx3-Ab-kcr"/>
-                                            <constraint firstItem="Gp2-TU-0Tz" firstAttribute="top" secondItem="yMy-OK-GGN" secondAttribute="bottom" constant="10" id="hV8-So-Xra"/>
-                                            <constraint firstItem="Gp2-TU-0Tz" firstAttribute="centerY" secondItem="gWZ-Cu-ltZ" secondAttribute="centerY" id="iuI-QG-Zoy"/>
-                                            <constraint firstItem="yMy-OK-GGN" firstAttribute="leading" secondItem="Gp2-TU-0Tz" secondAttribute="leading" id="rid-rb-UsN"/>
+                                            <constraint firstItem="Gp2-TU-0Tz" firstAttribute="leading" secondItem="QOZ-Tq-zpM" secondAttribute="leading" constant="20" id="XYA-V2-AYp"/>
+                                            <constraint firstItem="Gp2-TU-0Tz" firstAttribute="top" secondItem="gWZ-Cu-ltZ" secondAttribute="bottom" constant="10" id="o6u-RQ-o2N"/>
+                                            <constraint firstItem="yMy-OK-GGN" firstAttribute="leading" secondItem="gWZ-Cu-ltZ" secondAttribute="trailing" constant="20" id="pLw-4b-ADF"/>
                                             <constraint firstItem="gWZ-Cu-ltZ" firstAttribute="top" secondItem="QOZ-Tq-zpM" secondAttribute="top" constant="20" id="sgr-cI-a08"/>
+                                            <constraint firstItem="yMy-OK-GGN" firstAttribute="centerY" secondItem="gWZ-Cu-ltZ" secondAttribute="centerY" id="wnQ-ga-QjD"/>
                                             <constraint firstItem="gWZ-Cu-ltZ" firstAttribute="leading" secondItem="QOZ-Tq-zpM" secondAttribute="leading" constant="20" id="y75-AE-QOi"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iua-m0-cvN" customClass="CompleteTaskListInfiniteScrollView">
-                                        <rect key="frame" x="0.0" y="120" width="375" height="434"/>
+                                        <rect key="frame" x="0.0" y="143.5" width="375" height="410.5"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B9J-XS-sJS">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="434"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="410.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CompletedTaskCell" rowHeight="99" id="DGo-ka-m6r" customClass="CompletedTaskCell">
@@ -203,13 +206,13 @@
                                     <constraint firstAttribute="trailing" secondItem="iua-m0-cvN" secondAttribute="trailing" id="AXK-ht-n1B"/>
                                     <constraint firstItem="iua-m0-cvN" firstAttribute="leading" secondItem="cJg-eU-vkL" secondAttribute="leading" id="Bpc-7N-UlC"/>
                                     <constraint firstItem="2M7-2r-nrh" firstAttribute="leading" secondItem="cJg-eU-vkL" secondAttribute="leading" id="Jpd-jo-5eV"/>
-                                    <constraint firstItem="iua-m0-cvN" firstAttribute="top" secondItem="gWZ-Cu-ltZ" secondAttribute="bottom" constant="10" id="MQK-4r-Gtp"/>
                                     <constraint firstAttribute="trailing" secondItem="QOZ-Tq-zpM" secondAttribute="trailing" id="ZEi-0k-Pdf"/>
                                     <constraint firstItem="QOZ-Tq-zpM" firstAttribute="top" secondItem="cJg-eU-vkL" secondAttribute="top" id="ZSy-IY-ct2"/>
                                     <constraint firstItem="QOZ-Tq-zpM" firstAttribute="leading" secondItem="cJg-eU-vkL" secondAttribute="leading" id="afE-9P-5Mp"/>
                                     <constraint firstItem="2M7-2r-nrh" firstAttribute="top" secondItem="cJg-eU-vkL" secondAttribute="top" constant="-50" id="duK-T7-MBM"/>
                                     <constraint firstItem="gWZ-Cu-ltZ" firstAttribute="top" secondItem="2M7-2r-nrh" secondAttribute="bottom" constant="5" id="sZH-uP-17c"/>
                                     <constraint firstAttribute="bottom" secondItem="QOZ-Tq-zpM" secondAttribute="bottom" constant="400" id="wYK-H2-tbL"/>
+                                    <constraint firstItem="iua-m0-cvN" firstAttribute="top" secondItem="Gp2-TU-0Tz" secondAttribute="bottom" constant="2.5" id="zCE-Fb-BQN"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -224,7 +227,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="Uxd-T4-WLf">
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="Settings" id="4vd-db-V7f">
-                            <color key="tintColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="eAT-L5-jge" kind="presentation" id="qcQ-8R-1wF"/>
                             </connections>

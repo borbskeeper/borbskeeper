@@ -11,6 +11,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "BorbParseManager.h"
 #import "GameConstants.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation PostCell
 
@@ -32,9 +33,11 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
     [BorbParseManager fetchTask:self.post.task.objectId WithCompletion:^(NSMutableArray *tasks) {
         Task *task = tasks[0];
         self.taskNameLabel.text = task.taskName;
+        self.verifyButton.layer.cornerRadius = 5;
+        self.verifyButton.clipsToBounds = YES;
         
         if ([[User currentUser].username isEqualToString:post.author.username] || task.verified) {
-            self.verifyButton.enabled = NO;
+            self.verifyButton.hidden = YES;
         }
     }];
     
@@ -47,12 +50,14 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
     PFFileObject *userImageFile = post.image;
     NSURL *imageURL = [NSURL URLWithString:userImageFile.url];
     [self.photoImageView setImageWithURL:imageURL];
+    self.photoImageView.layer.cornerRadius = 5;
+    self.photoImageView.clipsToBounds = YES;
 }
 
 - (IBAction)didClickVerify:(id)sender {
     User *poster = (User *)self.post.author;
     if ([[User currentUser].username isEqualToString:poster.username]) {
-        NSLog(@"Cannot verify own posts");
+        // NSLog(@"Cannot verify own posts");
         return;
     }
     self.post.verified = YES;
@@ -60,7 +65,7 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
     [BorbParseManager fetchTask:self.post.task.objectId WithCompletion:^(NSMutableArray *tasks) {
         Task *task = tasks[0];
         if (task.verified) {
-            NSLog(@"Task is already verified");
+            // NSLog(@"Task is already verified");
             return;
         }
         task.verified = true;

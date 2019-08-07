@@ -51,7 +51,7 @@
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPP-J9-LO3">
                                                             <rect key="frame" x="124" y="77" width="71" height="30"/>
-                                                            <color key="backgroundColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <color key="backgroundColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
@@ -131,6 +131,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Friend Requests" id="Ukm-pG-CIb">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="Back" id="0U5-fy-cMh">
+                            <color key="tintColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapBack:" destination="s0N-CD-737" id="Ahu-NT-z0y"/>
                             </connections>

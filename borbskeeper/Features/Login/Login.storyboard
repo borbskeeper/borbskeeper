@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Borbs Keeper" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuG-JI-2M6">
-                                <rect key="frame" x="64" y="84" width="247" height="40"/>
+                                <rect key="frame" x="54.333333333333343" y="84" width="266.33333333333326" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1pZ-lp-iXX"/>
                                 </constraints>
@@ -53,18 +53,18 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ai7-Ae-YOV">
-                                <rect key="frame" x="25" y="483.66666666666669" width="325" height="36.000000000000057"/>
-                                <color key="backgroundColor" red="0.98655503990000004" green="0.91717892889999997" blue="0.30568772550000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="25" y="483.66666666666669" width="325" height="37.000000000000057"/>
+                                <color key="backgroundColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
                                 <state key="normal" title="Log In">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapLogin:" destination="AF6-AU-1km" eventType="touchUpInside" id="t5p-jy-G9Y"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Brr-ra-Jqe">
-                                <rect key="frame" x="77.666666666666686" y="728" width="220" height="30"/>
+                                <rect key="frame" x="66.666666666666686" y="727" width="242" height="31"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                                 <state key="normal" title="Don't have an account? Sign up.">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

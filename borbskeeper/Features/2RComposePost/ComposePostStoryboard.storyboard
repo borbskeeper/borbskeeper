@@ -168,13 +168,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="nro-oJ-OOk">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="2lr-mG-PcT">
-                            <color key="tintColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapCancel:" destination="rMV-5C-x8P" id="MO1-Mc-WIx"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Post" image="Post" id="UKC-Ze-NXx">
-                            <color key="tintColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="postBarButtonClicked:" destination="rMV-5C-x8P" id="nOZ-bB-6D0"/>
                             </connections>

@@ -39,75 +39,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9lz-Ps-eyj">
-                                <rect key="frame" x="100" y="88" width="175" height="175"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="9lz-Ps-eyj">
+                                <rect key="frame" x="100" y="74" width="175" height="175"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="175" id="Dls-Rf-hg6"/>
+                                    <constraint firstAttribute="width" constant="175" id="QHR-kU-5an"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKU-WJ-QJz">
-                                <rect key="frame" x="36" y="266" width="149" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKU-WJ-QJz">
+                                <rect key="frame" x="30" y="254" width="149" height="31"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                                 <state key="normal" title="Choose from library">
-                                    <color key="titleColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="choosePhotoButtonClicked:" destination="Nwz-sn-vfe" eventType="touchUpInside" id="bb5-rJ-cOA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktC-7F-0hb">
-                                <rect key="frame" x="226" y="266" width="98" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktC-7F-0hb">
+                                <rect key="frame" x="257" y="254" width="98" height="31"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                                 <state key="normal" title="Take a Photo">
-                                    <color key="titleColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="takePhotoButtonClicked:" destination="Nwz-sn-vfe" eventType="touchUpInside" id="bBz-Pd-j2U"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4/20/2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKu-p2-S3w">
-                                <rect key="frame" x="26" y="342" width="309" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/20/2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKu-p2-S3w">
+                                <rect key="frame" x="20" y="364" width="335" height="17"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of Task" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTe-9D-U15">
-                                <rect key="frame" x="26" y="323" width="309" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Task" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTe-9D-U15">
+                                <rect key="frame" x="20" y="333" width="335" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZQ-Qp-HVR">
-                                <rect key="frame" x="26" y="374" width="309" height="213"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5hj-OT-GAV">
-                                <rect key="frame" x="35" y="293" width="324" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5hj-OT-GAV">
+                                <rect key="frame" x="30" y="295" width="325" height="29"/>
                                 <segments>
                                     <segment title="Friends"/>
                                     <segment title="Global"/>
                                 </segments>
-                                <color key="tintColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZQ-Qp-HVR">
+                                <rect key="frame" x="20" y="391" width="335" height="21"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9lz-Ps-eyj" firstAttribute="centerX" secondItem="vYC-1P-lh1" secondAttribute="centerX" id="13F-EA-75r"/>
+                            <constraint firstItem="8ZQ-Qp-HVR" firstAttribute="leading" secondItem="HKu-p2-S3w" secondAttribute="leading" id="3Fb-vb-YDR"/>
+                            <constraint firstItem="9lz-Ps-eyj" firstAttribute="top" secondItem="vYC-1P-lh1" secondAttribute="top" constant="10" id="3ZI-EA-IYm"/>
+                            <constraint firstItem="ktC-7F-0hb" firstAttribute="top" secondItem="9lz-Ps-eyj" secondAttribute="bottom" constant="5" id="8Px-kn-9S2"/>
+                            <constraint firstItem="vYC-1P-lh1" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8ZQ-Qp-HVR" secondAttribute="bottom" constant="15" id="BkH-1z-wSw"/>
+                            <constraint firstItem="WKU-WJ-QJz" firstAttribute="top" secondItem="9lz-Ps-eyj" secondAttribute="bottom" constant="5" id="BuO-JI-7ba"/>
+                            <constraint firstItem="vYC-1P-lh1" firstAttribute="trailing" secondItem="5hj-OT-GAV" secondAttribute="trailing" constant="20" id="LBC-od-y1N"/>
+                            <constraint firstItem="8ZQ-Qp-HVR" firstAttribute="trailing" secondItem="HKu-p2-S3w" secondAttribute="trailing" id="Mpt-Ai-CsE"/>
+                            <constraint firstItem="HKu-p2-S3w" firstAttribute="leading" secondItem="kTe-9D-U15" secondAttribute="leading" id="SYK-EN-46W"/>
+                            <constraint firstItem="5hj-OT-GAV" firstAttribute="leading" secondItem="vYC-1P-lh1" secondAttribute="leading" constant="30" id="XzB-Y7-Hnu"/>
+                            <constraint firstItem="8ZQ-Qp-HVR" firstAttribute="top" secondItem="HKu-p2-S3w" secondAttribute="bottom" constant="10" id="Z8y-cL-EwW"/>
+                            <constraint firstItem="ktC-7F-0hb" firstAttribute="trailing" secondItem="5hj-OT-GAV" secondAttribute="trailing" id="bUL-EL-vi2"/>
+                            <constraint firstItem="vYC-1P-lh1" firstAttribute="trailing" secondItem="kTe-9D-U15" secondAttribute="trailing" constant="20" id="fa1-Rh-nNF"/>
+                            <constraint firstItem="kTe-9D-U15" firstAttribute="leading" secondItem="vYC-1P-lh1" secondAttribute="leading" constant="20" id="jMR-9M-pvN"/>
+                            <constraint firstItem="kTe-9D-U15" firstAttribute="top" secondItem="5hj-OT-GAV" secondAttribute="bottom" constant="10" id="k0D-6f-KNu"/>
+                            <constraint firstItem="HKu-p2-S3w" firstAttribute="trailing" secondItem="kTe-9D-U15" secondAttribute="trailing" id="kBO-wE-TOZ"/>
+                            <constraint firstItem="WKU-WJ-QJz" firstAttribute="leading" secondItem="5hj-OT-GAV" secondAttribute="leading" id="lem-xw-3wf"/>
+                            <constraint firstItem="HKu-p2-S3w" firstAttribute="top" secondItem="kTe-9D-U15" secondAttribute="bottom" constant="10" id="n4n-Hn-Bsk"/>
+                            <constraint firstItem="5hj-OT-GAV" firstAttribute="top" secondItem="WKU-WJ-QJz" secondAttribute="bottom" constant="10" id="uAN-E9-FYV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vYC-1P-lh1"/>
                     </view>
                     <navigationItem key="navigationItem" id="9ya-TA-uqC">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="99h-nC-z7j">
-                            <color key="tintColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapCancel:" destination="Nwz-sn-vfe" id="YOD-CJ-F2E"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Post" image="Post" id="19w-Fe-sxN">
-                            <color key="tintColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapPost:" destination="Nwz-sn-vfe" id="p5c-rg-kYN"/>
                             </connections>
@@ -127,6 +145,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ImagePlaceholder" width="600" height="600"/>
         <image name="Post" width="25" height="25"/>
     </resources>
 </document>
