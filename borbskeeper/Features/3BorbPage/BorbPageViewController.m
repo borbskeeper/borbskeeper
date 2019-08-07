@@ -28,6 +28,7 @@
 
 @property (weak, nonatomic) IBOutlet SKView *hpBarSKView;
 @property (weak, nonatomic) IBOutlet SKView *xpBarSKView;
+@property (weak, nonatomic) IBOutlet UIImageView *coinTextBox;
 
 
 @property (strong, nonatomic) User *user;
