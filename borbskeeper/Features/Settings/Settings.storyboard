@@ -22,10 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <pickerView key="tableFooterView" contentMode="scaleToFill" id="g56-35-6I2">
-                            <rect key="frame" x="0.0" y="190" width="375" height="222"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                        </pickerView>
                         <sections>
                             <tableViewSection id="ihs-v2-YAC">
                                 <cells>
@@ -37,7 +33,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHV-qP-bea">
-                                                    <rect key="frame" x="144" y="5" width="62" height="33"/>
+                                                    <rect key="frame" x="156" y="5" width="62" height="33"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                                     <state key="normal" title="Logout">
@@ -82,26 +78,45 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="UNx-4G-nc1">
-                                        <rect key="frame" x="0.0" y="146" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="350" id="UNx-4G-nc1">
+                                        <rect key="frame" x="0.0" y="146" width="375" height="350"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UNx-4G-nc1" id="Abv-Vw-7NQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="349.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Alerts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ld-2Y-VSq">
-                                                    <rect key="frame" x="16" y="12" width="85" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remind me of task deadlines...." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ld-2Y-VSq">
+                                                    <rect key="frame" x="16" y="11" width="211" height="59"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdn-cW-igO">
-                                                    <rect key="frame" x="265" y="7" width="100" height="30"/>
+                                                    <rect key="frame" x="306" y="41" width="53" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Set Reminders"/>
+                                                    <state key="normal" title="Change"/>
                                                     <connections>
-                                                        <action selector="tapSetReminders:" destination="OPb-Uf-jOe" eventType="touchUpInside" id="bTe-fz-nAG"/>
+                                                        <action selector="tapChangeReminders:" destination="OPb-Uf-jOe" eventType="touchUpInside" id="bTe-fz-nAG"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="current choice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfP-yv-Ivn">
+                                                    <rect key="frame" x="248" y="19" width="111" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g56-35-6I2">
+                                                    <rect key="frame" x="0.0" y="78" width="375" height="222"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                </pickerView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eV-hV-Ump">
+                                                    <rect key="frame" x="165" y="308" width="44" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Select"/>
+                                                    <connections>
+                                                        <action selector="didTapSelectReminders:" destination="OPb-Uf-jOe" eventType="touchUpInside" id="dEN-cD-GYu"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -124,8 +139,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="changeRemindersButton" destination="Vdn-cW-igO" id="bhH-Wy-Rsg"/>
+                        <outlet property="currentReminderChoiceLabel" destination="WfP-yv-Ivn" id="bS9-Lb-8zE"/>
                         <outlet property="minutePickerView" destination="g56-35-6I2" id="rlA-uh-fbb"/>
-                        <outlet property="setRemindersButton" destination="Vdn-cW-igO" id="bhH-Wy-Rsg"/>
+                        <outlet property="selectRemindersButton" destination="2eV-hV-Ump" id="wbG-2Q-2kx"/>
                         <outlet property="socialSwitchButton" destination="gUl-dN-Sz7" id="TTz-uY-suO"/>
                     </connections>
                 </tableViewController>
