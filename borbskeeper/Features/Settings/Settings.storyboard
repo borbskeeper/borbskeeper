@@ -41,7 +41,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                                     <state key="normal" title="Logout">
-                                                        <color key="titleColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="titleColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="didTapLogout:" destination="OPb-Uf-jOe" eventType="touchUpInside" id="lG1-3R-Jsg"/>

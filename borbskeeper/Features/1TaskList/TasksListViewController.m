@@ -46,7 +46,7 @@ static const int SECS_TO_HOURS = 3600;
     [self.incompleteTaskListInfiniteScrollView setupTableView];
     [self setupNavBar];
     [self decayHPByIncompleteTasksAndTime];
-    self.backgroundView.layer.cornerRadius = 30;
+    self.backgroundView.layer.cornerRadius = 20;
     self.backgroundView.clipsToBounds = YES;
 }
 

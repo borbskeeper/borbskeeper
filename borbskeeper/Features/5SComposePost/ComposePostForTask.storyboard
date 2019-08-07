@@ -48,7 +48,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                                 <state key="normal" title="Choose from library">
-                                    <color key="titleColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="choosePhotoButtonClicked:" destination="Nwz-sn-vfe" eventType="touchUpInside" id="bb5-rJ-cOA"/>
@@ -59,7 +59,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                                 <state key="normal" title="Take a Photo">
-                                    <color key="titleColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="takePhotoButtonClicked:" destination="Nwz-sn-vfe" eventType="touchUpInside" id="bBz-Pd-j2U"/>
@@ -93,7 +93,7 @@
                                     <segment title="Friends"/>
                                     <segment title="Global"/>
                                 </segments>
-                                <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,13 +101,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="9ya-TA-uqC">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="99h-nC-z7j">
-                            <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapCancel:" destination="Nwz-sn-vfe" id="YOD-CJ-F2E"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Post" image="Post" id="19w-Fe-sxN">
-                            <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapPost:" destination="Nwz-sn-vfe" id="p5c-rg-kYN"/>
                             </connections>

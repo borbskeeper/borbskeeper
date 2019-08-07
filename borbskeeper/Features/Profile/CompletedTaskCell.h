@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *dueDate;
 @property (weak, nonatomic) IBOutlet UIButton *sharedIcon;
 @property (weak, nonatomic) IBOutlet UIButton *verifiedIcon;
+@property (weak, nonatomic) IBOutlet UIView *noteCardView;
 
 @end
 

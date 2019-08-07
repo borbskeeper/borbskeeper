@@ -147,7 +147,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tasks List" id="1bU-8H-YLW">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="Compose" id="bqi-oh-UKH">
-                            <color key="tintColor" red="0.45748412609100342" green="0.6784629225730896" blue="0.84316599369049072" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapNewTask:" destination="G0u-nK-hFo" id="0vf-58-QdK"/>
                                 <segue destination="AfF-Xx-8zw" kind="presentation" identifier="composeTaskSegue" id="OR7-sw-UMd"/>

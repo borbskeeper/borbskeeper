@@ -50,7 +50,7 @@
                                 <rect key="frame" x="30" y="259" width="149" height="31"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                                 <state key="normal" title="Choose from library">
-                                    <color key="titleColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="choosePhotoButtonClicked:" destination="rMV-5C-x8P" eventType="touchUpInside" id="ngM-OC-Ydr"/>
@@ -62,7 +62,7 @@
                                     <segment title="Friends"/>
                                     <segment title="Global"/>
                                 </segments>
-                                <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jW3-Tx-CDL" customClass="ComposePostTaskListInfiniteScrollView">
                                 <rect key="frame" x="0.0" y="338" width="375" height="329"/>
@@ -140,7 +140,7 @@
                                 <rect key="frame" x="247" y="259" width="98" height="31"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                                 <state key="normal" title="Take a Photo">
-                                    <color key="titleColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="takePhotoButtonClicked:" destination="rMV-5C-x8P" eventType="touchUpInside" id="9Fb-yN-q7z"/>
@@ -167,13 +167,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="nro-oJ-OOk">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="2lr-mG-PcT">
-                            <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapCancel:" destination="rMV-5C-x8P" id="MO1-Mc-WIx"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Post" image="Post" id="UKC-Ze-NXx">
-                            <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.48111206290000003" green="0.70964360240000002" blue="0.88238292929999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="postBarButtonClicked:" destination="rMV-5C-x8P" id="nOZ-bB-6D0"/>
                             </connections>
