@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="tfs-EK-JNc">
@@ -35,15 +40,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P4P-fn-jli">
-                                <rect key="frame" x="20" y="84" width="273" height="30"/>
+                                <rect key="frame" x="20" y="84" width="269" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbd-Qt-762">
-                                <rect key="frame" x="303" y="84" width="52" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="765" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbd-Qt-762">
+                                <rect key="frame" x="299" y="84" width="56" height="31"/>
                                 <color key="backgroundColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                                 <state key="normal" title="Add">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -52,12 +57,21 @@
                                     <action selector="didTapAdd:" destination="baf-gR-X0c" eventType="touchUpInside" id="gLf-6H-Hhg"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend request was sent!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xa-Nc-CAL">
+                                <rect key="frame" x="20" y="124" width="184" height="18"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
+                                <color key="textColor" red="0.58675710530000003" green="0.58675710530000003" blue="0.58675710530000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="3Xa-Nc-CAL" firstAttribute="leading" secondItem="P4P-fn-jli" secondAttribute="leading" id="2Z8-w8-vl0"/>
                             <constraint firstItem="P4P-fn-jli" firstAttribute="leading" secondItem="a1U-VA-rMw" secondAttribute="leading" constant="20" id="Anf-Gh-HP3"/>
                             <constraint firstItem="Nbd-Qt-762" firstAttribute="leading" secondItem="P4P-fn-jli" secondAttribute="trailing" constant="10" id="RL3-3O-GyB"/>
+                            <constraint firstItem="a1U-VA-rMw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3Xa-Nc-CAL" secondAttribute="trailing" constant="10" id="ak8-ID-TqD"/>
                             <constraint firstItem="a1U-VA-rMw" firstAttribute="trailing" secondItem="Nbd-Qt-762" secondAttribute="trailing" constant="20" id="d3J-tQ-G1H"/>
+                            <constraint firstItem="3Xa-Nc-CAL" firstAttribute="top" secondItem="P4P-fn-jli" secondAttribute="bottom" constant="10" id="dKV-ka-LTW"/>
                             <constraint firstItem="a1U-VA-rMw" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="P4P-fn-jli" secondAttribute="bottom" constant="20" id="e1b-zX-ceb"/>
                             <constraint firstItem="P4P-fn-jli" firstAttribute="top" secondItem="a1U-VA-rMw" secondAttribute="top" constant="20" id="gEP-hq-zC3"/>
                             <constraint firstItem="Nbd-Qt-762" firstAttribute="top" secondItem="P4P-fn-jli" secondAttribute="top" id="gEj-FE-B4l"/>
@@ -74,6 +88,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addFriendsButton" destination="Nbd-Qt-762" id="VhT-GN-asO"/>
+                        <outlet property="friendRequestSentLabel" destination="3Xa-Nc-CAL" id="Di3-yc-Vkk"/>
                         <outlet property="userNameTextField" destination="P4P-fn-jli" id="Ttx-L0-uk2"/>
                     </connections>
                 </viewController>

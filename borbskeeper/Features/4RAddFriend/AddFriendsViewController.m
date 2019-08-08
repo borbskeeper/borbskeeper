@@ -16,6 +16,7 @@
 @interface AddFriendsViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UIButton *addFriendsButton;
+@property (weak, nonatomic) IBOutlet UILabel *friendRequestSentLabel;
 
 
 @end
@@ -25,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNavBar];
+    self.friendRequestSentLabel.hidden = YES;
     self.addFriendsButton.layer.cornerRadius = 5;
     self.addFriendsButton.clipsToBounds = YES;
     self.userNameTextField.delegate = self;
@@ -58,6 +60,14 @@
                         [BorbParseManager saveFriendRequest:newRequest withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                             if (!succeeded){
                                 [AlertManager presentGenericErrorAlert:self withFailedAction:@"Sending Friend Request" andMessageToTry:@"try again."];
+                            } else {
+                                self.friendRequestSentLabel.hidden = NO;
+                                self.friendRequestSentLabel.alpha = 1.0f;
+                                [UILabel animateWithDuration:0.5 delay:2.0 options:0 animations:^{
+                                    self.friendRequestSentLabel.alpha = 0.0f;
+                                } completion:^(BOOL finished) {
+                                    self.friendRequestSentLabel.hidden = YES;
+                                }];
                             }
                         }];
                     }

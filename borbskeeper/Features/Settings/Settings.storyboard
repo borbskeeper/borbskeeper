@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Montserrat-Medium.ttf">
+            <string>Montserrat-Medium</string>
+        </array>
         <array key="Montserrat-Regular.ttf">
             <string>Montserrat-Regular</string>
         </array>
@@ -35,10 +38,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHV-qP-bea">
-                                                    <rect key="frame" x="156" y="7" width="63" height="33"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHV-qP-bea">
+                                                    <rect key="frame" x="157" y="8" width="62" height="33"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
                                                     <state key="normal" title="Logout">
                                                         <color key="titleColor" red="0.89813512559999997" green="0.055440489910000001" blue="0.24994520519999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
@@ -47,6 +49,10 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AHV-qP-bea" firstAttribute="centerX" secondItem="GAE-gM-u35" secondAttribute="centerX" id="BIy-p2-KU8"/>
+                                                <constraint firstItem="AHV-qP-bea" firstAttribute="centerY" secondItem="GAE-gM-u35" secondAttribute="centerY" id="NbK-8U-fgd"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="BSu-M9-PFK">
@@ -56,10 +62,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hj4-de-vuW">
-                                                    <rect key="frame" x="81" y="5" width="213" height="33"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hj4-de-vuW">
+                                                    <rect key="frame" x="80" y="6" width="216" height="33"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
                                                     <state key="normal" title="How to Use BorbsKeeper">
                                                         <color key="titleColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
@@ -68,6 +73,10 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hj4-de-vuW" firstAttribute="centerX" secondItem="gVj-Z7-1B3" secondAttribute="centerX" id="38O-8i-Sp1"/>
+                                                <constraint firstItem="hj4-de-vuW" firstAttribute="centerY" secondItem="gVj-Z7-1B3" secondAttribute="centerY" id="nR4-b0-pn5"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="102" id="zYu-5R-SqP">
@@ -103,7 +112,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="350" id="UNx-4G-nc1">
-                                        <rect key="frame" x="0.0" y="146" width="375" height="350"/>
+                                        <rect key="frame" x="0.0" y="190" width="375" height="350"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UNx-4G-nc1" id="Abv-Vw-7NQ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="349.5"/>
