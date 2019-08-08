@@ -14,7 +14,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation TaskCell
-static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
+static NSString *const DATE_FORMAT = @"MM/dd/yyyy 'at' hh:mm a";
 
 - (void)awakeFromNib {
     [super awakeFromNib];

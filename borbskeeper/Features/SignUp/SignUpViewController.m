@@ -11,7 +11,7 @@
 #import "Task.h"
 #import "AlertManager.h"
 
-@interface SignUpViewController ()
+@interface SignUpViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
@@ -27,6 +27,9 @@ static NSString *const TASK_LIST_SEGUE_ID = @"taskListSegue";
     [super viewDidLoad];
     self.signUpButton.layer.cornerRadius = 5;
     self.signUpButton.clipsToBounds = YES;
+    self.usernameField.delegate = self;
+    self.passwordField.delegate = self;
+    self.emailField.delegate = self;
 }
 
 - (IBAction)didTapSignUp:(id)sender {
@@ -57,6 +60,10 @@ static NSString *const TASK_LIST_SEGUE_ID = @"taskListSegue";
     [self.view endEditing:YES];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 /*
 #pragma mark - Navigation
 

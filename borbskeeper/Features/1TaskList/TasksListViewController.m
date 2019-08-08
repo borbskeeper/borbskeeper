@@ -36,7 +36,6 @@ static NSString *const TASK_TABLE_VIEW_CELL_ID = @"TaskCell";
 static const int START_INDEX = 0;
 static const int SECS_TO_HOURS = 3600;
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -48,6 +47,10 @@ static const int SECS_TO_HOURS = 3600;
     [self decayHPByIncompleteTasksAndTime];
     self.backgroundView.layer.cornerRadius = 20;
     self.backgroundView.clipsToBounds = YES;
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [self.incompleteTaskListInfiniteScrollView fetchData];
 }
 
 - (void) setupNavBar {
