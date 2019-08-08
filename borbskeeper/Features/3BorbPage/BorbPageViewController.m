@@ -59,14 +59,11 @@ static NSString *const OK_ACTION_TITLE = @"OK";
         
         self.borbCoinsLabel.text = [NSString stringWithFormat:@"%@", borb.borbCoins];
         self.borbNameLabel.text = borb.borbName;
-        self.borbLevelLabel.text = [NSString stringWithFormat:@"Level %@", borb.borbLevel];
-        
-        self.borbXPLabel.text = [NSString stringWithFormat:@"%@", borb.borbExperience];
+        self.borbLevelLabel.text = [NSString stringWithFormat:@"LEVEL %@", borb.borbLevel];
         int borbsMaxXP = [GameConstants maxXPForExperienceLevel:borb.borbLevel];
-        self.maxXPLabel.text = [NSString stringWithFormat:@"/ %d", borbsMaxXP];
+        self.borbXPLabel.text = [NSString stringWithFormat:@"%@ / %d", borb.borbExperience, borbsMaxXP];
         
-        self.borbHPLabel.text = [NSString stringWithFormat:@"%@", borb.borbHealth];
-        self.maxHPLabel.text = [NSString stringWithFormat:@"/ %d", MAX_HP];
+        self.borbHPLabel.text = [NSString stringWithFormat:@"%@ / %d ", borb.borbHealth, MAX_HP];
         
         [statsBarManager drawStatsBarForStat:BORBSTAT_XP ForBorb:borb inSKView:self.xpBarSKView];
         [statsBarManager drawStatsBarForStat:BORBSTAT_HP ForBorb:borb inSKView:self.hpBarSKView];
