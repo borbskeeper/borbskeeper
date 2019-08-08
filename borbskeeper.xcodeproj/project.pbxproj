@@ -41,7 +41,7 @@
 		4AAF0F0122F8D9A400AA6E42 /* ComposePostTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0F0022F8D9A400AA6E42 /* ComposePostTaskCell.m */; };
 		4AAF0F0D22FA02FA00AA6E42 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AAF0F0422FA02FA00AA6E42 /* Montserrat-Bold.ttf */; };
 		4AAF0F0E22FA02FA00AA6E42 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AAF0F0522FA02FA00AA6E42 /* Montserrat-Thin.ttf */; };
-		4AAF0F0F22FA02FA00AA6E42 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AAF0F0622FA02FA00AA6E42 /* OpenSans-Light.ttf */; };
+		4AAF0F0F22FA02FA00AA6E42 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AAF0F0622FA02FA00AA6E42 /* Montserrat-Light.ttf */; };
 		4AAF0F1022FA02FA00AA6E42 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AAF0F0722FA02FA00AA6E42 /* Montserrat-SemiBold.ttf */; };
 		4AAF0F1122FA02FA00AA6E42 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AAF0F0822FA02FA00AA6E42 /* Montserrat-Regular.ttf */; };
 		4AAF0F1222FA02FA00AA6E42 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AAF0F0922FA02FA00AA6E42 /* Montserrat-Black.ttf */; };
@@ -54,6 +54,12 @@
 		4AAF0F1D22FA053300AA6E42 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AAF0F1922FA053300AA6E42 /* OpenSans-Light.ttf */; };
 		4AB260CE22E0F5890062DD14 /* ComposeTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB260CD22E0F5890062DD14 /* ComposeTaskViewController.m */; };
 		4AB260D022E0F5B70062DD14 /* ComposeTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */; };
+		4AFA8E8522FCC087007B9851 /* BorbTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFA8E8422FCC087007B9851 /* BorbTutorialViewController.m */; };
+		4AFA8E8A22FCC0C3007B9851 /* FeedTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFA8E8922FCC0C3007B9851 /* FeedTutorialViewController.m */; };
+		4AFA8E8D22FCC0D0007B9851 /* SocialTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFA8E8C22FCC0D0007B9851 /* SocialTutorialViewController.m */; };
+		4AFA8E9122FCC0FC007B9851 /* FeedTutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AFA8E9022FCC0FC007B9851 /* FeedTutorial.storyboard */; };
+		4AFA8E9322FCC125007B9851 /* BorbTutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AFA8E9222FCC125007B9851 /* BorbTutorial.storyboard */; };
+		4AFA8E9722FCC433007B9851 /* SocialTutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AFA8E9622FCC433007B9851 /* SocialTutorial.storyboard */; };
 		A2284FD022E24217006217C9 /* BorbPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2284FCF22E24217006217C9 /* BorbPageViewController.m */; };
 		A2284FD222E24229006217C9 /* BorbPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2284FD122E24229006217C9 /* BorbPage.storyboard */; };
 		A228EF8E22F20D2F00F5C6F6 /* ImageManipManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A228EF8D22F20D2F00F5C6F6 /* ImageManipManager.m */; };
@@ -159,7 +165,6 @@
 		4AAF0F0022F8D9A400AA6E42 /* ComposePostTaskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposePostTaskCell.m; sourceTree = "<group>"; };
 		4AAF0F0422FA02FA00AA6E42 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		4AAF0F0522FA02FA00AA6E42 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
-		4AAF0F0622FA02FA00AA6E42 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		4AAF0F0622FA02FA00AA6E42 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		4AAF0F0722FA02FA00AA6E42 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		4AAF0F0822FA02FA00AA6E42 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
@@ -174,6 +179,15 @@
 		4AB260CC22E0F5890062DD14 /* ComposeTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeTaskViewController.h; sourceTree = "<group>"; };
 		4AB260CD22E0F5890062DD14 /* ComposeTaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeTaskViewController.m; sourceTree = "<group>"; };
 		4AB260CF22E0F5B70062DD14 /* ComposeTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComposeTask.storyboard; sourceTree = "<group>"; };
+		4AFA8E8322FCC087007B9851 /* BorbTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorbTutorialViewController.h; sourceTree = "<group>"; };
+		4AFA8E8422FCC087007B9851 /* BorbTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorbTutorialViewController.m; sourceTree = "<group>"; };
+		4AFA8E8822FCC0C3007B9851 /* FeedTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedTutorialViewController.h; sourceTree = "<group>"; };
+		4AFA8E8922FCC0C3007B9851 /* FeedTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedTutorialViewController.m; sourceTree = "<group>"; };
+		4AFA8E8B22FCC0D0007B9851 /* SocialTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialTutorialViewController.h; sourceTree = "<group>"; };
+		4AFA8E8C22FCC0D0007B9851 /* SocialTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialTutorialViewController.m; sourceTree = "<group>"; };
+		4AFA8E9022FCC0FC007B9851 /* FeedTutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedTutorial.storyboard; sourceTree = "<group>"; };
+		4AFA8E9222FCC125007B9851 /* BorbTutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BorbTutorial.storyboard; sourceTree = "<group>"; };
+		4AFA8E9622FCC433007B9851 /* SocialTutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SocialTutorial.storyboard; sourceTree = "<group>"; };
 		6560A7C3F09F08802BCEFA4B /* Pods_borbskeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_borbskeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66FF1C08AACA2E8CCDBEA0B8 /* Pods_borbskeeperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_borbskeeperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6CE0DA0FA1890902E8CD27 /* Pods-borbskeeperUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-borbskeeperUITests.debug.xcconfig"; path = "Target Support Files/Pods-borbskeeperUITests/Pods-borbskeeperUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -375,8 +389,9 @@
 				4A55B94822EA2EA200CA5400 /* 5Profile */,
 				A2FAE71022EFA3390081DAE7 /* 5SComposePost */,
 				3494209D22EB7BA700FDA714 /* Settings */,
-				4A944D3F22DE42960065782C /* SignUp */,
 				4A944D3D22DE42750065782C /* Login */,
+				4A944D3F22DE42960065782C /* SignUp */,
+				4AFA8E6A22FCA0C8007B9851 /* Tutorial */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -431,7 +446,7 @@
 				4AAF0F0C22FA02FA00AA6E42 /* Montserrat-Medium.ttf */,
 				4AAF0F0822FA02FA00AA6E42 /* Montserrat-Regular.ttf */,
 				4AAF0F0B22FA02FA00AA6E42 /* Montserrat-RegularItalic.ttf */,
-				4AAF0F0622FA02FA00AA6E42 /* OpenSans-Light.ttf */,
+				4AAF0F0622FA02FA00AA6E42 /* Montserrat-Light.ttf */,
 				4AAF0F0A22FA02FA00AA6E42 /* Montserrat-ExtraLight.ttf */,
 				4AAF0F0522FA02FA00AA6E42 /* Montserrat-Thin.ttf */,
 				4AAF0F1622FA053300AA6E42 /* OpenSans-Bold.ttf */,
@@ -459,6 +474,46 @@
 				4A55B93B22E8FA7500CA5400 /* InfiniteScrollView.m */,
 			);
 			path = "Infinite Scrolling Framework";
+			sourceTree = "<group>";
+		};
+		4AFA8E6A22FCA0C8007B9851 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				4AFA8E8222FCBFE3007B9851 /* BorbTutorial */,
+				4AFA8E8622FCC08B007B9851 /* FeedTutorial */,
+				4AFA8E8722FCC09D007B9851 /* SocialTutorial */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		4AFA8E8222FCBFE3007B9851 /* BorbTutorial */ = {
+			isa = PBXGroup;
+			children = (
+				4AFA8E9222FCC125007B9851 /* BorbTutorial.storyboard */,
+				4AFA8E8322FCC087007B9851 /* BorbTutorialViewController.h */,
+				4AFA8E8422FCC087007B9851 /* BorbTutorialViewController.m */,
+			);
+			path = BorbTutorial;
+			sourceTree = "<group>";
+		};
+		4AFA8E8622FCC08B007B9851 /* FeedTutorial */ = {
+			isa = PBXGroup;
+			children = (
+				4AFA8E9022FCC0FC007B9851 /* FeedTutorial.storyboard */,
+				4AFA8E8822FCC0C3007B9851 /* FeedTutorialViewController.h */,
+				4AFA8E8922FCC0C3007B9851 /* FeedTutorialViewController.m */,
+			);
+			path = FeedTutorial;
+			sourceTree = "<group>";
+		};
+		4AFA8E8722FCC09D007B9851 /* SocialTutorial */ = {
+			isa = PBXGroup;
+			children = (
+				4AFA8E9622FCC433007B9851 /* SocialTutorial.storyboard */,
+				4AFA8E8B22FCC0D0007B9851 /* SocialTutorialViewController.h */,
+				4AFA8E8C22FCC0D0007B9851 /* SocialTutorialViewController.m */,
+			);
+			path = SocialTutorial;
 			sourceTree = "<group>";
 		};
 		A2284FCD22E241EB006217C9 /* 3BorbPage */ = {
@@ -717,6 +772,7 @@
 				4A944D4822DE497C0065782C /* Login.storyboard in Resources */,
 				A2FBF61822EB8FE700464637 /* Social.storyboard in Resources */,
 				A2FBF62422EB96AB00464637 /* ComposePostStoryboard.storyboard in Resources */,
+				4AFA8E9722FCC433007B9851 /* SocialTutorial.storyboard in Resources */,
 				4A55B94A22EA2EB000CA5400 /* Profile.storyboard in Resources */,
 				A2BC23B822DD2CD70030EA51 /* LaunchScreen.storyboard in Resources */,
 				4AAF0F1222FA02FA00AA6E42 /* Montserrat-Black.ttf in Resources */,
@@ -730,6 +786,7 @@
 				4AAF0F0E22FA02FA00AA6E42 /* Montserrat-Thin.ttf in Resources */,
 				4AAF0F0D22FA02FA00AA6E42 /* Montserrat-Bold.ttf in Resources */,
 				4A2ECAFF22F36092003C880B /* FriendsList.storyboard in Resources */,
+				4AFA8E9122FCC0FC007B9851 /* FeedTutorial.storyboard in Resources */,
 				4AAF0F1322FA02FA00AA6E42 /* Montserrat-ExtraLight.ttf in Resources */,
 				4AAF0F1D22FA053300AA6E42 /* OpenSans-Light.ttf in Resources */,
 				4AAF0F1B22FA053300AA6E42 /* OpenSans-SemiBold.ttf in Resources */,
@@ -737,7 +794,8 @@
 				4AAF0F1022FA02FA00AA6E42 /* Montserrat-SemiBold.ttf in Resources */,
 				A2FBF61B22EB95F700464637 /* AddFriends.storyboard in Resources */,
 				3432CFA722DE597700B6C47E /* TasksList.storyboard in Resources */,
-				4AAF0F0F22FA02FA00AA6E42 /* OpenSans-Light.ttf in Resources */,
+				4AAF0F0F22FA02FA00AA6E42 /* Montserrat-Light.ttf in Resources */,
+				4AFA8E9322FCC125007B9851 /* BorbTutorial.storyboard in Resources */,
 				4A2ECB0122F360A9003C880B /* FriendRequestList.storyboard in Resources */,
 				A228EF9122F24A5500F5C6F6 /* statsBar.sks in Resources */,
 			);
@@ -857,12 +915,14 @@
 				4A2ECB0822F36A12003C880B /* FriendRequest.m in Sources */,
 				A2FAE71822EFA5870081DAE7 /* ComposePostForTaskViewController.m in Sources */,
 				4AAF0EF522F4FF9000AA6E42 /* FriendsListInfiniteScrollView.m in Sources */,
+				4AFA8E8522FCC087007B9851 /* BorbTutorialViewController.m in Sources */,
 				4A944D6222DE8EF00065782C /* BorbParseManager.m in Sources */,
 				4A55B94D22EA2EBF00CA5400 /* ProfileViewController.m in Sources */,
 				4A944D4622DE49390065782C /* LoginViewController.m in Sources */,
 				4A944D4D22DE49F00065782C /* SignUpViewController.m in Sources */,
 				4A55B95622EB818700CA5400 /* IncompleteTaskListInfiniteScrollView.m in Sources */,
 				4A2ECAF722F240B4003C880B /* AlertManager.m in Sources */,
+				4AFA8E8A22FCC0C3007B9851 /* FeedTutorialViewController.m in Sources */,
 				4AAF0EF822F5022500AA6E42 /* FriendCell.m in Sources */,
 				A2FBF61622EB8FD800464637 /* SocialViewController.m in Sources */,
 				A28F5C0A22DE598E001FAFC7 /* User.m in Sources */,
@@ -887,6 +947,7 @@
 				3432CFB322DE6BE800B6C47E /* TasksListViewController.m in Sources */,
 				4AAF0EF222F4EC7F00AA6E42 /* FriendsList.m in Sources */,
 				A2FBF62722EBBDBF00464637 /* Post.m in Sources */,
+				4AFA8E8D22FCC0D0007B9851 /* SocialTutorialViewController.m in Sources */,
 				A2660C4422E64331008C39C7 /* GameConstants.m in Sources */,
 				4A55B93C22E8FA7500CA5400 /* InfiniteScrollView.m in Sources */,
 				4A2ECB0B22F3B33D003C880B /* FriendRequestListInfiniteScrollView.m in Sources */,

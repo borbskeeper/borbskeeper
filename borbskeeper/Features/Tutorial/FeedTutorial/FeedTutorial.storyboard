@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Feed Tutorial View Controller-->
+        <scene sceneID="bNH-Hx-Eow">
+            <objects>
+                <viewController storyboardIdentifier="FeedTutorial" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nFw-an-BPN" customClass="FeedTutorialViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Yn-YT-64B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Task List" translatesAutoresizingMaskIntoConstraints="NO" id="fzb-rz-qIf">
+                                <rect key="frame" x="87.666666666666686" y="144" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="1Lz-31-11S"/>
+                                    <constraint firstAttribute="width" constant="200" id="jtb-4j-i89"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pH-4y-C3W">
+                                <rect key="frame" x="30" y="644" width="315" height="34"/>
+                                <color key="backgroundColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
+                                <state key="normal" title="NEXT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="8wM-zs-Z7p" kind="presentation" id="Vs5-ez-vQV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Borb Tutorial Desc PlaceHolder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZp-nP-uvI">
+                                <rect key="frame" x="54.666666666666657" y="449" width="266" height="21"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutorial TItle PlaceHolder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWl-XE-eoL">
+                                <rect key="frame" x="72.666666666666686" y="394" width="230" height="25"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XWl-XE-eoL" firstAttribute="centerX" secondItem="fzb-rz-qIf" secondAttribute="centerX" id="Dkx-Bf-l53"/>
+                            <constraint firstItem="fzb-rz-qIf" firstAttribute="centerX" secondItem="7Us-75-Xi5" secondAttribute="centerX" id="EFD-80-IMO"/>
+                            <constraint firstItem="fzb-rz-qIf" firstAttribute="top" secondItem="7Us-75-Xi5" secondAttribute="top" constant="100" id="GlJ-lh-Suk"/>
+                            <constraint firstItem="5pH-4y-C3W" firstAttribute="leading" secondItem="7Us-75-Xi5" secondAttribute="leading" constant="30" id="OaB-yc-fbt"/>
+                            <constraint firstItem="XWl-XE-eoL" firstAttribute="top" secondItem="fzb-rz-qIf" secondAttribute="bottom" constant="50" id="UI9-4w-M7x"/>
+                            <constraint firstItem="FZp-nP-uvI" firstAttribute="centerX" secondItem="fzb-rz-qIf" secondAttribute="centerX" id="kgT-LU-aUt"/>
+                            <constraint firstItem="7Us-75-Xi5" firstAttribute="trailing" secondItem="5pH-4y-C3W" secondAttribute="trailing" constant="30" id="n6m-bD-Vp3"/>
+                            <constraint firstItem="7Us-75-Xi5" firstAttribute="bottom" secondItem="5pH-4y-C3W" secondAttribute="bottom" constant="100" id="pyc-85-sOL"/>
+                            <constraint firstItem="FZp-nP-uvI" firstAttribute="top" secondItem="XWl-XE-eoL" secondAttribute="bottom" constant="30" id="wb0-p0-OWy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7Us-75-Xi5"/>
+                    </view>
+                    <connections>
+                        <outlet property="nextButton" destination="5pH-4y-C3W" id="4xm-CV-rAr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2sH-30-tdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="84" y="113"/>
+        </scene>
+        <!--SocialTutorial-->
+        <scene sceneID="fiY-0T-khv">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SocialTutorial" storyboardName="SocialTutorial" referencedIdentifier="SocialTutorial" id="8wM-zs-Z7p" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J1Z-qE-bp5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="742" y="112"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Task List" width="30" height="30"/>
+    </resources>
+</document>
