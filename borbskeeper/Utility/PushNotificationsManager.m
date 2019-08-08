@@ -8,8 +8,13 @@
 
 #import "PushNotificationsManager.h"
 #import <UserNotifications/UserNotifications.h>
+#import "User.h"
+#import "BorbParseManager.h"
 
 static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
+
+const remindBefore DEFAULT_REMIND_BEFORE = REMIND_BEFORE_THIRTY_MINUTES;
+const int MINUTES_TO_SECONDS_CONVERSION = 60;
 
 @implementation PushNotificationsManager
 
@@ -27,7 +32,9 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
     NSCalendar *gregorian = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSUInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute;
-    NSDateComponents *dueDateComponents = [gregorian components:unitFlags fromDate:task.dueDate];
+    NSTimeInterval secondsBefore = -1 * [self secondsOfRemindBefore:([User currentUser].remindBeforeChoice)];
+    NSDate *notificationTime = [task.dueDate dateByAddingTimeInterval:secondsBefore];
+    NSDateComponents *dueDateComponents = [gregorian components:unitFlags fromDate:notificationTime];
     UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:dueDateComponents repeats:NO];
     
     // creating push notif and adding it
@@ -43,4 +50,50 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
     [center removePendingNotificationRequestsWithIdentifiers:identifiers];
 }
 
++ (void)updateAllNotificationsWithNewRemindBefore {
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center getPendingNotificationRequestsWithCompletionHandler:^(NSArray<UNNotificationRequest *> * _Nonnull requests) {
+        if (requests) {
+            for (UNNotificationRequest *notification in requests) {
+                [BorbParseManager fetchTask:notification.identifier WithCompletion:^(NSMutableArray * _Nonnull tasks) {
+                    if (tasks) {
+                        Task *task = tasks[0];
+                        [self deleteNotificationForTaskWithID:notification.identifier];
+                        [self createNotificationForTask:task withID:[task objectId]];
+                    }
+                }];
+            }
+        }
+    }];
+}
+
++ (NSString *)descriptionOfRemindBefore:(remindBefore)remindBeforeChoice {
+    if (remindBeforeChoice == REMIND_BEFORE_FIVE_MINUTES) {
+        return @"5 minutes before";
+    } else if (remindBeforeChoice == REMIND_BEFORE_FIFTEEN_MINUTES) {
+        return @"15 minutes before";
+    } else if (remindBeforeChoice == REMIND_BEFORE_THIRTY_MINUTES) {
+        return @"30 minutes before";
+    } else if (remindBeforeChoice == REMIND_BEFORE_SIXTY_MINUTES) {
+        return @"1 hour before";
+    }
+    return nil;
+}
+
++ (NSArray *)allDescriptionsOfRemindBefore{
+    return @[[self descriptionOfRemindBefore:REMIND_BEFORE_FIVE_MINUTES], [self descriptionOfRemindBefore:REMIND_BEFORE_FIFTEEN_MINUTES], [self descriptionOfRemindBefore:REMIND_BEFORE_THIRTY_MINUTES], [self descriptionOfRemindBefore:REMIND_BEFORE_SIXTY_MINUTES]];
+}
+
++ (NSTimeInterval)secondsOfRemindBefore:(remindBefore)remindBeforeChoice {
+    if (remindBeforeChoice == REMIND_BEFORE_FIVE_MINUTES) {
+        return 5 * MINUTES_TO_SECONDS_CONVERSION;
+    } else if (remindBeforeChoice == REMIND_BEFORE_FIFTEEN_MINUTES) {
+        return 15 * MINUTES_TO_SECONDS_CONVERSION;
+    } else if (remindBeforeChoice == REMIND_BEFORE_THIRTY_MINUTES) {
+        return 30 * MINUTES_TO_SECONDS_CONVERSION;
+    } else if (remindBeforeChoice == REMIND_BEFORE_SIXTY_MINUTES) {
+        return 60 * MINUTES_TO_SECONDS_CONVERSION;
+    }
+    return 0;
+}
 @end

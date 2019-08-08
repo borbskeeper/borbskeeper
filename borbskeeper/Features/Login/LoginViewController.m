@@ -33,8 +33,8 @@ static NSString *const SIGNUP_SEGUE_ID = @"signUpSegue";
 
 - (void)loginUser {
     [BorbParseManager loginUser:self.usernameField.text withPassword:self.passwordField.text withCompletion: ^(NSError * error) {
-        if (error != nil) {
-            [AlertManager presentLoginNotSuccesfulAlert:self];
+        if (error) {
+            [AlertManager presentGenericErrorAlert:self withFailedAction:@"Login" andMessageToTry:@"try logging in again"];
         } else {
             [self performSegueWithIdentifier:TASK_LIST_SEGUE_ID sender:nil];
         }
