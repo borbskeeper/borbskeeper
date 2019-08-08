@@ -68,7 +68,7 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
 
 - (IBAction)didTapSaveTask:(id)sender {
     if ([AlertManager isInvalidTextField:@[self.taskTitleTextField.text]] == YES){
-        [AlertManager presentSaveTaskNotSuccessfulAlert:self];
+        [AlertManager presentInvalidTaskAlert:self];
     } else {
         if (self.task == nil) {
             Task *newTask = [Task createTask:self.taskTitleTextField.text
@@ -81,7 +81,7 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
                     [self.delegate didSaveTask];
                     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                 } else {
-                    [AlertManager presentSaveTaskNotSuccessfulAlert:self];
+                    [AlertManager presentGenericErrorAlert:self withFailedAction:@"Saving task" andMessageToTry:@"try to save task again."];
                 }
             }];
         } else {
@@ -113,7 +113,13 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
     [self.view endEditing:YES];
 }
 - (IBAction)tapDelete:(id)sender {
-    [AlertManager presentDeleteTaskComfirmationAlert:self forTask:self.task];
+    [AlertManager presentDeleteTaskComfirmationAlert:self forTask:self.task withConfirmCompletion:^(bool confirmed) {
+        if (confirmed) {
+            [BorbParseManager deleteTask:self.task];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
+
 }
 
 //#pragma mark - Navigation

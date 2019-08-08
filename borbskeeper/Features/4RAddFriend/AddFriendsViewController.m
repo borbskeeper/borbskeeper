@@ -57,7 +57,7 @@
                         FriendRequest *newRequest = [FriendRequest createFriendRequestWithSender:[User currentUser] withRecipient:recipient];
                         [BorbParseManager saveFriendRequest:newRequest withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                             if (!succeeded){
-                                [AlertManager presentRequestNotSavedAlert:self];
+                                [AlertManager presentGenericErrorAlert:self withFailedAction:@"Sending Friend Request" andMessageToTry:@"try again."];
                             }
                         }];
                     }

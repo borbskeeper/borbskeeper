@@ -31,7 +31,11 @@ static NSString *const DATE_FORMAT = @"MM/dd/yyyy 'at' hh:mm a";
         [PushNotificationsManager deleteNotificationForTaskWithID:[self.task objectId]];
         [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
             Borb *userBorb = borbs[0];
-            [userBorb increaseBorbCoinsBy:COIN_REWARD_OPTOUT];
+            if ([User currentUser].verificationEnabled) {
+                [userBorb increaseBorbCoinsBy:COIN_REWARD_WITHOUT_VERIFY];
+            } else {
+                [userBorb increaseBorbCoinsBy:COIN_REWARD_OPTOUT];
+            }
             [userBorb increaseExperiencePointsBy:XP_GAINED_PER_COMPLETE_TASK];
             [BorbParseManager saveBorb:userBorb withCompletion:nil];
         }];
@@ -41,8 +45,12 @@ static NSString *const DATE_FORMAT = @"MM/dd/yyyy 'at' hh:mm a";
         [PushNotificationsManager createNotificationForTask:self.task withID:[self.task objectId]];
         [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
             Borb *userBorb = borbs[0];
+            if ([User currentUser].verificationEnabled) {
+                [userBorb decreaseBorbCoinsBy:COIN_REWARD_WITHOUT_VERIFY];
+            } else {
+                [userBorb decreaseBorbCoinsBy:COIN_REWARD_OPTOUT];
+            }
             [userBorb decreaseExperiencePointsBy:XP_GAINED_PER_COMPLETE_TASK];
-            [userBorb decreaseBorbCoinsBy:COIN_REWARD_OPTOUT];
             [BorbParseManager saveBorb:userBorb withCompletion:nil];
         }];
     }

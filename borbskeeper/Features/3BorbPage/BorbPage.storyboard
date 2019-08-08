@@ -10,8 +10,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Montserrat-Bold.ttf">
+            <string>Montserrat-Bold</string>
+        </array>
         <array key="Montserrat-Regular.ttf">
             <string>Montserrat-Regular</string>
+        </array>
+        <array key="Montserrat-RegularItalic.ttf">
+            <string>Montserrat-Italic</string>
+        </array>
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
         </array>
     </customFonts>
     <scenes>
@@ -41,138 +50,252 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Borb_ Background_2" translatesAutoresizingMaskIntoConstraints="NO" id="JdI-Kh-FSY">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="borb_original" translatesAutoresizingMaskIntoConstraints="NO" id="OM8-ET-3fD">
+                                <rect key="frame" x="82" y="198" width="217" height="219"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="219" id="7gG-QW-Kea"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="217" id="ZbB-uo-doQ"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Borb Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtj-Pr-phh">
-                                <rect key="frame" x="143" y="118" width="99" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Level #lvl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwb-P1-AfX">
-                                <rect key="frame" x="150" y="154" width="79" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6n-yM-h3k">
-                                <rect key="frame" x="14" y="506" width="180" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                <state key="normal" title="Sunflower seeds   C 7"/>
-                                <state key="disabled">
-                                    <color key="titleColor" red="1" green="0.31665022329999998" blue="0.27053768500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" red="1" green="0.31665022329999998" blue="0.27053768500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapFeed:" destination="1Lh-AC-ibU" eventType="touchUpInside" id="ns7-8i-71O"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="borb_original" translatesAutoresizingMaskIntoConstraints="NO" id="OM8-ET-3fD">
-                                <rect key="frame" x="76" y="195" width="238" height="249"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coins: #coins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEP-dj-MNX">
-                                <rect key="frame" x="16" y="74" width="112" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#HP" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioE-XB-YkM">
-                                <rect key="frame" x="64" y="421" width="29" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grants 40 XP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOg-5D-KBB">
+                                <rect key="frame" x="242" y="600" width="79.5" height="15"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Italic" family="Montserrat" pointSize="12"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HP:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdG-QG-Jvr">
-                                <rect key="frame" x="20" y="399" width="30" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="/ #maxHP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCu-yv-Ux9">
-                                <rect key="frame" x="95" y="421" width="66" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofT-bF-gCd" userLabel="Feed Borb Button View">
+                                <rect key="frame" x="19" y="553" width="153" height="46"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Seed_Icon-2" translatesAutoresizingMaskIntoConstraints="NO" id="fS7-FY-bFP">
+                                        <rect key="frame" x="4" y="10" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6n-yM-h3k">
+                                        <rect key="frame" x="8" y="0.0" width="145" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
+                                        <state key="normal" title="Feed Borb!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" red="1" green="0.31665022329999998" blue="0.27053768500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="1" green="0.31665022329999998" blue="0.27053768500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapFeed:" destination="1Lh-AC-ibU" eventType="touchUpInside" id="ns7-8i-71O"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.37254901959999998" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="Aah-ou-oL7"/>
+                                    <constraint firstAttribute="width" constant="153" id="mkV-Su-XxV"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restores 15 HP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFd-Hy-wC7">
+                                <rect key="frame" x="51" y="600" width="88" height="15"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Italic" family="Montserrat" pointSize="12"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aio-az-EKq">
-                                <rect key="frame" x="246" y="74" width="123" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                <state key="normal" title="Rename Borb!"/>
-                                <connections>
-                                    <action selector="didTapRenameBorb:" destination="1Lh-AC-ibU" eventType="touchUpInside" id="rXL-eS-Wl0"/>
-                                </connections>
-                            </button>
-                            <skView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cuM-QM-moe">
-                                <rect key="frame" x="67" y="497" width="278" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </skView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="/ #maxXP" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sml-gq-1XI">
-                                <rect key="frame" x="99" y="470" width="58" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#XP" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGV-7n-LyG">
-                                <rect key="frame" x="62" y="510" width="37" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="XP: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="og9-D4-lNw">
-                                <rect key="frame" x="20" y="450" width="32" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <skView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h6h-iV-KUs">
-                                <rect key="frame" x="67" y="436" width="278" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </skView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Restores 15 HP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFd-Hy-wC7">
-                                <rect key="frame" x="54" y="546" width="103" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Grants 40 XP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOg-5D-KBB">
-                                <rect key="frame" x="237" y="546" width="92" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYV-28-TcF">
-                                <rect key="frame" x="215" y="506" width="131" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                <state key="normal" title="XP Boost    C 75"/>
-                                <connections>
-                                    <action selector="didTapXPBoost:" destination="1Lh-AC-ibU" eventType="touchUpInside" id="kCq-eW-VRD"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Borb_Coin" translatesAutoresizingMaskIntoConstraints="NO" id="Nws-0I-6Vm">
-                                <rect key="frame" x="4" y="68" width="53" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLH-6i-gRf" userLabel="Borb Name View">
+                                <rect key="frame" x="69" y="128" width="240" height="62"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEVEL #lvl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwb-P1-AfX">
+                                        <rect key="frame" x="87.5" y="41" width="65" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="65" id="C6s-mg-my0"/>
+                                            <constraint firstAttribute="height" constant="21" id="gYC-1f-glN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="12"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="3"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Borb Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtj-Pr-phh">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="ABQ-ye-3pB"/>
+                                            <constraint firstAttribute="width" constant="240" id="WyF-yk-bSb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="30"/>
+                                        <color key="textColor" red="0.36078431370000003" green="0.37254901959999998" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="0.0" height="3"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.9508550938" blue="0.081025942470000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="Mtj-Pr-phh" firstAttribute="top" secondItem="SLH-6i-gRf" secondAttribute="top" id="0vN-vo-BwY"/>
+                                    <constraint firstItem="Mtj-Pr-phh" firstAttribute="leading" secondItem="SLH-6i-gRf" secondAttribute="leading" id="G4l-ZV-Xpt"/>
+                                    <constraint firstItem="Zwb-P1-AfX" firstAttribute="leading" secondItem="SLH-6i-gRf" secondAttribute="leading" constant="87.5" id="ZIG-87-BrI"/>
+                                    <constraint firstItem="Zwb-P1-AfX" firstAttribute="centerX" secondItem="Mtj-Pr-phh" secondAttribute="centerX" id="aDo-Ei-V8w"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mtj-Pr-phh" secondAttribute="trailing" id="an9-Zw-N1j"/>
+                                    <constraint firstAttribute="height" constant="62" id="gny-kd-37f"/>
+                                    <constraint firstAttribute="width" constant="240" id="hh1-gW-x8i"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zwb-P1-AfX" secondAttribute="bottom" id="rZC-qP-lFw"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zwb-P1-AfX" secondAttribute="trailing" constant="87.5" id="uf5-GS-ilp"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8d-tt-pWG" userLabel="Health Meter View">
+                                <rect key="frame" x="39" y="425" width="293" height="41"/>
+                                <subviews>
+                                    <skView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h6h-iV-KUs">
+                                        <rect key="frame" x="25" y="15" width="246" height="10"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </skView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Heart_Icon-2" translatesAutoresizingMaskIntoConstraints="NO" id="A3y-0s-I3f">
+                                        <rect key="frame" x="8" y="0.0" width="37" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#HP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioE-XB-YkM">
+                                        <rect key="frame" x="122" y="26" width="52" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="293" id="BaP-xD-TMo"/>
+                                    <constraint firstAttribute="height" constant="41" id="E7E-NM-Oqi"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ImG-jG-9OX" userLabel="XP Boost Button View">
+                                <rect key="frame" x="205" y="553" width="153" height="46"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYV-28-TcF">
+                                        <rect key="frame" x="16" y="0.0" width="137" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
+                                        <state key="normal" title="XP Boost!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapXPBoost:" destination="1Lh-AC-ibU" eventType="touchUpInside" id="kCq-eW-VRD"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Boost_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="0oq-vy-Zko">
+                                        <rect key="frame" x="8" y="10" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.37254901959999998" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="QXX-qd-3zc"/>
+                                    <constraint firstAttribute="width" constant="153" id="fjW-ju-eSY"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfz-KC-57P" userLabel="Borb Coins View">
+                                <rect key="frame" x="10" y="80" width="351" height="33"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#coins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEP-dj-MNX">
+                                        <rect key="frame" x="48" y="6" width="57" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Borb_Coin" translatesAutoresizingMaskIntoConstraints="NO" id="Nws-0I-6Vm">
+                                        <rect key="frame" x="0.0" y="-6" width="45" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aio-az-EKq">
+                                        <rect key="frame" x="227" y="-1" width="123.5" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                        <state key="normal" title="Rename Borb!">
+                                            <color key="titleColor" red="0.36078431370000003" green="0.37254901959999998" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapRenameBorb:" destination="1Lh-AC-ibU" eventType="touchUpInside" id="rXL-eS-Wl0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="Pfb-gw-6vQ"/>
+                                    <constraint firstAttribute="width" constant="351" id="hec-VG-XbN"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Xu-9C-4T6" userLabel="Experience Meter View">
+                                <rect key="frame" x="39" y="489" width="293" height="41"/>
+                                <subviews>
+                                    <skView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cuM-QM-moe">
+                                        <rect key="frame" x="25" y="15" width="246" height="10"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </skView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#XP" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGV-7n-LyG">
+                                        <rect key="frame" x="120" y="26" width="52" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Star_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ldo-p3-xFW">
+                                        <rect key="frame" x="8" y="0.0" width="35" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="0ex-Wk-FcX"/>
+                                    <constraint firstAttribute="width" constant="293" id="Mku-3J-ZXq"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OM8-ET-3fD" firstAttribute="leading" secondItem="K60-s8-iJW" secondAttribute="leading" constant="82" id="0mB-4N-mbl"/>
+                            <constraint firstItem="BOg-5D-KBB" firstAttribute="top" secondItem="ImG-jG-9OX" secondAttribute="bottom" constant="1" id="1nl-Gi-Pce"/>
+                            <constraint firstItem="K60-s8-iJW" firstAttribute="trailing" secondItem="SLH-6i-gRf" secondAttribute="trailing" constant="66" id="82a-6a-nqJ"/>
+                            <constraint firstItem="SLH-6i-gRf" firstAttribute="leading" secondItem="K60-s8-iJW" secondAttribute="leading" constant="69" id="96u-gP-kgc"/>
+                            <constraint firstItem="K60-s8-iJW" firstAttribute="trailing" secondItem="Qfz-KC-57P" secondAttribute="trailing" constant="14" id="Amb-kb-O9G"/>
+                            <constraint firstItem="5Xu-9C-4T6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="L8d-tt-pWG" secondAttribute="bottom" constant="23" id="CXv-rR-y0v"/>
+                            <constraint firstItem="K60-s8-iJW" firstAttribute="trailing" secondItem="L8d-tt-pWG" secondAttribute="trailing" constant="43" id="F5F-Rn-RfZ"/>
+                            <constraint firstItem="L8d-tt-pWG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OM8-ET-3fD" secondAttribute="bottom" constant="8" id="Fz2-hC-ObB"/>
+                            <constraint firstItem="K60-s8-iJW" firstAttribute="bottom" secondItem="XFd-Hy-wC7" secondAttribute="bottom" constant="3" id="JP3-03-rZU"/>
+                            <constraint firstItem="K60-s8-iJW" firstAttribute="trailing" secondItem="BOg-5D-KBB" secondAttribute="trailing" constant="53.5" id="MSc-Bb-uy0"/>
+                            <constraint firstItem="ofT-bF-gCd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5Xu-9C-4T6" secondAttribute="bottom" constant="23" id="TVQ-eD-Er6"/>
+                            <constraint firstItem="ImG-jG-9OX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5Xu-9C-4T6" secondAttribute="bottom" constant="23" id="TaO-oE-2UN"/>
+                            <constraint firstItem="Qfz-KC-57P" firstAttribute="leading" secondItem="K60-s8-iJW" secondAttribute="leading" constant="10" id="Tcm-DQ-eEB"/>
+                            <constraint firstItem="BOg-5D-KBB" firstAttribute="leading" secondItem="XFd-Hy-wC7" secondAttribute="trailing" constant="103" id="V66-LX-dqW"/>
+                            <constraint firstItem="K60-s8-iJW" firstAttribute="bottom" secondItem="BOg-5D-KBB" secondAttribute="bottom" constant="3" id="X4R-yB-Dgz"/>
+                            <constraint firstItem="5Xu-9C-4T6" firstAttribute="leading" secondItem="K60-s8-iJW" secondAttribute="leading" constant="39" id="XOq-i5-Uyf"/>
+                            <constraint firstItem="K60-s8-iJW" firstAttribute="trailing" secondItem="OM8-ET-3fD" secondAttribute="trailing" constant="76" id="Y8W-dm-TbU"/>
+                            <constraint firstItem="Qfz-KC-57P" firstAttribute="top" secondItem="K60-s8-iJW" secondAttribute="top" constant="16" id="ZfJ-lp-9r0"/>
+                            <constraint firstItem="K60-s8-iJW" firstAttribute="trailing" secondItem="5Xu-9C-4T6" secondAttribute="trailing" constant="43" id="cNZ-tA-MAs"/>
+                            <constraint firstItem="XFd-Hy-wC7" firstAttribute="leading" secondItem="K60-s8-iJW" secondAttribute="leading" constant="51" id="fT2-Vn-enQ"/>
+                            <constraint firstItem="SLH-6i-gRf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Qfz-KC-57P" secondAttribute="bottom" constant="15" id="heI-LA-61j"/>
+                            <constraint firstItem="XFd-Hy-wC7" firstAttribute="top" secondItem="ofT-bF-gCd" secondAttribute="bottom" constant="1" id="jTG-mT-1hB"/>
+                            <constraint firstItem="OM8-ET-3fD" firstAttribute="top" secondItem="SLH-6i-gRf" secondAttribute="bottom" constant="8" id="m8M-UN-fxc"/>
+                            <constraint firstItem="ImG-jG-9OX" firstAttribute="leading" secondItem="ofT-bF-gCd" secondAttribute="trailing" constant="33" id="tph-J7-X5t"/>
+                            <constraint firstItem="BOg-5D-KBB" firstAttribute="top" secondItem="ImG-jG-9OX" secondAttribute="bottom" constant="1" id="vGt-pH-j3X"/>
+                            <constraint firstItem="K60-s8-iJW" firstAttribute="trailing" secondItem="ImG-jG-9OX" secondAttribute="trailing" constant="17" id="vIK-I2-ZRZ"/>
+                            <constraint firstItem="L8d-tt-pWG" firstAttribute="leading" secondItem="K60-s8-iJW" secondAttribute="leading" constant="39" id="vto-m0-A19"/>
+                            <constraint firstItem="ofT-bF-gCd" firstAttribute="leading" secondItem="K60-s8-iJW" secondAttribute="leading" constant="19" id="xJ7-M9-1y5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="K60-s8-iJW"/>
                     </view>
                     <navigationItem key="navigationItem" title="BorbsKeeper" id="Obv-Yu-1aB"/>
@@ -184,8 +307,6 @@
                         <outlet property="borbXPLabel" destination="vGV-7n-LyG" id="Pig-Ls-Eqc"/>
                         <outlet property="feedBorbButton" destination="v6n-yM-h3k" id="6Bt-pV-F14"/>
                         <outlet property="hpBarSKView" destination="h6h-iV-KUs" id="WZo-kY-vDH"/>
-                        <outlet property="maxHPLabel" destination="nCu-yv-Ux9" id="Ick-wt-PCB"/>
-                        <outlet property="maxXPLabel" destination="sml-gq-1XI" id="SqQ-Yl-Nws"/>
                         <outlet property="xpBarSKView" destination="cuM-QM-moe" id="DBF-tO-nl5"/>
                     </connections>
                 </viewController>
@@ -195,9 +316,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Boost_Icon" width="512" height="512"/>
         <image name="Borb Icon" width="30" height="30"/>
-        <image name="Borb_ Background_2" width="640" height="1136"/>
         <image name="Borb_Coin" width="999" height="889"/>
+        <image name="Heart_Icon-2" width="300" height="300"/>
+        <image name="Seed_Icon-2" width="698" height="997"/>
+        <image name="Star_Icon" width="997" height="949"/>
         <image name="borb_original" width="300" height="300"/>
     </resources>
 </document>
