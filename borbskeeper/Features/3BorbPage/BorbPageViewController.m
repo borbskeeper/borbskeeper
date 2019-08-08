@@ -108,7 +108,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 - (IBAction)didTapRenameBorb:(id)sender {
     [AlertManager presentRenameBorbAlert:self withCompletion:^(NSString * _Nonnull newName) {
         if ([AlertManager isInvalidTextField:@[newName]]) {
-            [AlertManager presentRenameNotSuccessfulAlert:self];
+            [AlertManager presentInvalidBorbNameAlert:self];
         } else {
             [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
                 Borb *borb = borbs[0];
@@ -117,7 +117,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
                     if (succeeded) {
                         [self reloadData];
                     } else {
-                        [AlertManager presentRenameNotSuccessfulAlert:self];
+                        [AlertManager presentGenericErrorAlert:self withFailedAction:@"Saving the borb's name" andMessageToTry:@"try again."];
                     }
                 }];
             }];

@@ -16,6 +16,7 @@
 #import "ComposePostForTaskViewController.h"
 #import "CompletedTaskCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AlertManager.h"
 
 @interface ProfileViewController () <InfiniteScrollDelegate, ImageManipManagerDelegate, ComposePostForTaskViewControllerDelegate>
 
@@ -125,9 +126,12 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.completeTaskListInfiniteScrollView.tableView indexPathForCell:tappedCell];
         Task* task = self.completeTaskList[indexPath.row];
-
-        if (task.posted) {
-            NSLog(@"Already posted this task! Cannot.");
+        
+        if (![User currentUser].verificationEnabled) {
+            [AlertManager presentVerificationDisabledAlert:self];
+        } else if (task.posted) {
+            [AlertManager presentAlreadyPostedTaskAlert:self]; 
+            return;
         } else {
             UINavigationController *navigationController = [segue destinationViewController];
             ComposePostForTaskViewController *composePostController = (ComposePostForTaskViewController*)navigationController.topViewController;

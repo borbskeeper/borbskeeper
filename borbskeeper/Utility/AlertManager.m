@@ -14,7 +14,7 @@
 @implementation AlertManager
 
 // Alert Titles
-static NSString *const UNSUCCESSFUL_LOGIN_ALERT_TITLE = @"Login not succesful";
+static NSString *const UNSUCCESSFUL_LOGIN_ALERT_TITLE = @"Login not successful";
 static NSString *const UNSUCCESSFUL_SIGNUP_ALERT_TITLE = @"Signup not successful";
 
 static NSString *const UNSUCCESSFUL_TASK_SAVE_TITLE = @"Could not save task";
@@ -24,6 +24,7 @@ static NSString *const BORB_MAXHP_ALERT_TITLE = @"This Borb is already full!";
 static NSString *const NOT_ENOUGH_COINS_ALERT_TITLE = @"Not enough Coins!";
 static NSString *const DELETE_CONFIRMATION_TITLE = @"Are you sure you want to delete this task?";
 static NSString *const FRIEND_REQUEST_ALERT_TITLE = @"Friend Request not sent!";
+
 // Alert Messages
 static NSString *const UNSUCCESSFUL_LOGIN_ALERT_MESSAGE = @"Please try to login in again.";
 static NSString *const UNSUCCESSFUL_SIGNUP_ALERT_MESSAGE = @"Please try signing up again.";
@@ -64,6 +65,7 @@ static NSString *const DELETE_ACTION_TITLE = @"Delete";
     return NO;
 }
 
+#pragma mark - alert actions
 + (void) addOKActionToAlert:(UIAlertController*)alert{
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:OK_ACTION_TITLE
                                                        style:UIAlertActionStyleDefault
@@ -88,33 +90,29 @@ static NSString *const DELETE_ACTION_TITLE = @"Delete";
     [alert addAction:deleteAction];
 }
 
-+ (void) presentLoginNotSuccesfulAlert:(UIViewController*)viewController {
-    UIAlertController *loginNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:UNSUCCESSFUL_LOGIN_ALERT_TITLE
-                                                                                     message:UNSUCCESSFUL_LOGIN_ALERT_MESSAGE
+#pragma mark - Generic error alert
+// [actionNoun] not successful. Please [actionVerb].
++ (void) presentGenericErrorAlert:(UIViewController *)viewController withFailedAction:(NSString *)actionNoun andMessageToTry:(NSString *)actionVerb {
+    UIAlertController *notSuccessfulAlert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"%@ not successful", actionNoun]
+                                                                                message:[NSString stringWithFormat:@"There was an error. Please %@.", actionVerb]
                                                                               preferredStyle:(UIAlertControllerStyleAlert)];
     
-    [self addOKActionToAlert:loginNotSuccessfulAlert];
-    [viewController presentViewController:loginNotSuccessfulAlert animated:YES completion:nil];
+    [self addOKActionToAlert:notSuccessfulAlert];
+    [viewController presentViewController:notSuccessfulAlert animated:YES completion:nil];
 }
 
-+ (void) presentLoginAfterSignupNotSuccesfulAlert:(UIViewController*)viewController {
-    UIAlertController *loginNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:UNSUCCESSFUL_LOGIN_ALERT_TITLE
-                                                                                      message:UNSUCCESSFUL_LOGIN_UPON_SIGNUP_ALERT_MESSAGE
+#pragma mark - Login/Signup error alerts
++ (void) presentInvalidSignupAlert:(UIViewController*)viewController {
+    UIAlertController *invalidSignupAlert = [UIAlertController alertControllerWithTitle:@"Invalid signup information."
+                                                                                      message:@"Your username and password cannot be empty or composed of only spaces, and your email must be valid."
                                                                                preferredStyle:(UIAlertControllerStyleAlert)];
     
-    [self addOKActionToAlert:loginNotSuccessfulAlert];
-    [viewController presentViewController:loginNotSuccessfulAlert animated:YES completion:nil];
+    [self addOKActionToAlert:invalidSignupAlert];
+    [viewController presentViewController:invalidSignupAlert animated:YES completion:nil];
 }
 
-+ (void) presentSignUpNotSuccesfulAlert:(UIViewController*)viewController {
-    UIAlertController *signUpNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:UNSUCCESSFUL_SIGNUP_ALERT_TITLE
-                                                                                      message:UNSUCCESSFUL_SIGNUP_ALERT_MESSAGE
-                                                                               preferredStyle:(UIAlertControllerStyleAlert)];
-    
-    [self addOKActionToAlert:signUpNotSuccessfulAlert];
-    [viewController presentViewController:signUpNotSuccessfulAlert animated:YES completion:nil];
-}
 
+#pragma mark - game error alerts
 + (void) presentCannotFeedBorbMaxHPAlert:(UIViewController*)viewController {
     UIAlertController *cannotFeedBorbAlert = [UIAlertController alertControllerWithTitle:BORB_MAXHP_ALERT_TITLE
                                                                                  message:BORB_MAXHP_ALERT_MESSAGE
@@ -141,14 +139,25 @@ static NSString *const DELETE_ACTION_TITLE = @"Delete";
     [viewController presentViewController:notEnoughCoinsAlert animated:YES completion:nil];
 }
 
-+ (void) presentSaveTaskNotSuccessfulAlert:(UIViewController*)viewController {
-    UIAlertController *saveNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:UNSUCCESSFUL_TASK_SAVE_TITLE
-                                                                                    message:UNSUCCESSFUL_TASK_SAVE_MESSAGE
-                                                                             preferredStyle:(UIAlertControllerStyleAlert)];
-    [self addOKActionToAlert:saveNotSuccessfulAlert];
-    [viewController presentViewController:saveNotSuccessfulAlert animated:YES completion:nil];
++ (void) presentInvalidBorbNameAlert:(UIViewController *)viewController {
+    UIAlertController *renameErrorAlert = [UIAlertController alertControllerWithTitle:@"Invalid borb name"
+                                                                              message:@"Borb name cannot be empty or composed of only spaces."
+                                                                       preferredStyle:(UIAlertControllerStyleAlert)];
+    [self addOKActionToAlert:renameErrorAlert];
+    
+    [viewController presentViewController:renameErrorAlert animated:YES completion:nil];
 }
 
+#pragma mark - task error alerts
++ (void) presentInvalidTaskAlert:(UIViewController*)viewController {
+    UIAlertController *invalidTaskAlert = [UIAlertController alertControllerWithTitle:@"Invalid task title"
+                                                                                    message:@"You must enter a title without spaces for your task."
+                                                                             preferredStyle:(UIAlertControllerStyleAlert)];
+    [self addOKActionToAlert:invalidTaskAlert];
+    [viewController presentViewController:invalidTaskAlert animated:YES completion:nil];
+}
+
+#pragma mark - social error alerts
 + (void) presentRequestToSelfAlert:(UIViewController*)viewController {
     UIAlertController *requestNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:FRIEND_REQUEST_ALERT_TITLE
                                                                                      message:CANNOT_REQUEST_SELF_ALERT_MESSAGE
@@ -176,14 +185,23 @@ static NSString *const DELETE_ACTION_TITLE = @"Delete";
     [viewController presentViewController:requestNotSuccessfulAlert animated:YES completion:nil];
 }
 
-+ (void) presentRequestNotSavedAlert:(UIViewController*)viewController {
-    UIAlertController *requestNotSuccessfulAlert = [UIAlertController alertControllerWithTitle:FRIEND_REQUEST_ALERT_TITLE
-                                                                                       message:REQUEST_NOT_SAVED_ALERT_MESSAGE                                                                                preferredStyle:(UIAlertControllerStyleAlert)];
++ (void) presentVerificationDisabledAlert:(UIViewController *)viewController {
+    UIAlertController *verificationDisabledAlert = [UIAlertController alertControllerWithTitle:@"You cannot post tasks when verification is disabled."
+                                                                                        message:@"Go to Profile > Settings to enable verification."                                                                               preferredStyle:(UIAlertControllerStyleAlert)];
     
-    [self addOKActionToAlert:requestNotSuccessfulAlert];
-    [viewController presentViewController:requestNotSuccessfulAlert animated:YES completion:nil];
+    [self addOKActionToAlert:verificationDisabledAlert];
+    [viewController presentViewController:verificationDisabledAlert animated:YES completion:nil];
 }
 
++ (void) presentAlreadyPostedTaskAlert:(UIViewController *)viewController {
+    UIAlertController *alreadyPostedTaskAlert = [UIAlertController alertControllerWithTitle:@"You've already posted this task!"
+                                                                                       message:@"You cannot post the same task twice."                                                                               preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    [self addOKActionToAlert:alreadyPostedTaskAlert];
+    [viewController presentViewController:alreadyPostedTaskAlert animated:YES completion:nil];
+}
+
+#pragma mark - camera error alerts
 + (void) presentNoCameraAlert:(UIViewController *)viewController {
     UIAlertController *presentNoCameraAlert = [UIAlertController alertControllerWithTitle:@"No Camera"
                                                                                   message:@"There is no camera."
@@ -193,17 +211,47 @@ static NSString *const DELETE_ACTION_TITLE = @"Delete";
     [viewController presentViewController:presentNoCameraAlert animated:YES completion:nil];
 }
 
-
-
-+ (void) presentRenameNotSuccessfulAlert:(UIViewController *)viewController {
-    UIAlertController *renameErrorAlert = [UIAlertController alertControllerWithTitle:@"Unable to save borb name."
-                                                                              message:@"There was an error. Please try again."
-                                                                       preferredStyle:(UIAlertControllerStyleAlert)];
-    [self addOKActionToAlert:renameErrorAlert];
+#pragma mark - confirmation alerts
++ (void) presentDisableVerificationConfirmationAlert:(UIViewController *)viewController withCancelCompletion: (void (^) (bool))completion {
+    UIAlertController *disableVerificationAlert = [UIAlertController alertControllerWithTitle:@"Are you sure you want to disable verification?"
+                                                                                      message:@"You will not be able to receive verification for any completed tasks already posted. You may still verify other user's posts."
+                                                                               preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertAction *cancelDisableAction = [UIAlertAction actionWithTitle:CANCEL_ACTION_TITLE
+                                                                  style:UIAlertActionStyleDefault
+                                                                handler:^(UIAlertAction * _Nonnull action) {
+                                                                    completion(TRUE);
+                                                                }];
     
-    [viewController presentViewController:renameErrorAlert animated:YES completion:nil];
+    [disableVerificationAlert addAction:cancelDisableAction];
+    
+    UIAlertAction *OKDisableAction = [UIAlertAction actionWithTitle:@"Yes, disable verification"
+                                                              style:UIAlertActionStyleDefault
+                                                            handler:^(UIAlertAction * _Nonnull action) {
+                                                                completion(FALSE);
+                                                            }];
+    [disableVerificationAlert addAction:OKDisableAction];
+    
+    
+    [viewController presentViewController:disableVerificationAlert animated:YES completion:nil];
 }
 
++ (void) presentDeleteTaskComfirmationAlert:(UIViewController*)viewController forTask:(Task* )task withConfirmCompletion: (void (^) (bool)) completion {
+    UIAlertController *deleteTaskConfirmation = [UIAlertController alertControllerWithTitle:DELETE_CONFIRMATION_TITLE
+                                                                                    message:BLANK_MESSAGE preferredStyle:(UIAlertControllerStyleAlert)];
+    [self addCancelActionToAlert:deleteTaskConfirmation];
+    
+    UIAlertAction *confirmDeleteAction = [UIAlertAction actionWithTitle:DELETE_ACTION_TITLE
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * _Nonnull action) {
+                                                                 completion(YES);
+                                                             }];
+    
+    [deleteTaskConfirmation addAction:confirmDeleteAction];
+    
+    [viewController presentViewController:deleteTaskConfirmation animated:YES completion:nil];
+}
+
+#pragma mark - other alerts
 + (void) presentRenameBorbAlert:(UIViewController *)viewController withCompletion:(void (^)(NSString *)) completion {
     UIAlertController *renameBorbAlert = [UIAlertController alertControllerWithTitle:@"Rename your borb!"
                                                                              message:@"Enter a new name: "
@@ -224,46 +272,5 @@ static NSString *const DELETE_ACTION_TITLE = @"Delete";
     
     [viewController presentViewController:renameBorbAlert animated:YES completion:nil];
 }
-
-+ (void) presentDisableVerificationConfirmationAlert:(UIViewController *)viewController withCancelCompletion: (void (^) (bool))completion {
-    UIAlertController *disableVerificationAlert = [UIAlertController alertControllerWithTitle:@"Are you sure you want to disable verification?"
-                                                                              message:@"You will not be able to receive verification for any completed tasks already posted. You may still verify other user's posts."
-                                                                       preferredStyle:(UIAlertControllerStyleAlert)];
-    UIAlertAction *cancelDisableAction = [UIAlertAction actionWithTitle:@"Cancel"
-                                                               style:UIAlertActionStyleDefault
-                                                             handler:^(UIAlertAction * _Nonnull action) {
-                                                                 completion(TRUE);
-                                                             }];
-    
-    [disableVerificationAlert addAction:cancelDisableAction];
-    
-    UIAlertAction *OKDisableAction = [UIAlertAction actionWithTitle:@"Yes, disable verification"
-                                                                  style:UIAlertActionStyleDefault
-                                                                handler:^(UIAlertAction * _Nonnull action) {
-                                                                    completion(FALSE);
-                                                                }];
-    [disableVerificationAlert addAction:OKDisableAction];
-
-    
-    [viewController presentViewController:disableVerificationAlert animated:YES completion:nil];
-}
-
-+ (void) presentDeleteTaskComfirmationAlert:(UIViewController*)viewController forTask:(Task* )task {
-    UIAlertController *deleteTaskConfirmation = [UIAlertController alertControllerWithTitle:DELETE_CONFIRMATION_TITLE
-                                                                                    message:BLANK_MESSAGE preferredStyle:(UIAlertControllerStyleAlert)];
-    [self addCancelActionToAlert:deleteTaskConfirmation];
-    
-    UIAlertAction *deleteTaskAction = [UIAlertAction actionWithTitle:DELETE_ACTION_TITLE
-                                                              style:UIAlertActionStyleDefault
-                                                            handler:^(UIAlertAction * _Nonnull action) {
-                                                                [BorbParseManager deleteTask:task];
-                                                                [viewController dismissViewControllerAnimated:YES completion:nil];
-                                                            }];
-    
-    [deleteTaskConfirmation addAction:deleteTaskAction];
-    
-    [viewController presentViewController:deleteTaskConfirmation animated:YES completion:nil];
-}
-
 
 @end

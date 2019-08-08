@@ -12,8 +12,8 @@ const int MAX_HP = 100;
 const int HIGH_HP_THRESHOLD = 70;
 const int LOW_HP_THRESHOLD = 40;
 
-const int COIN_REWARD_WITHOUT_VERIFY = 1;
-const int COIN_REWARD_WITH_VERIFY = 10;
+const int COIN_REWARD_WITHOUT_VERIFY = 2;
+const int COIN_REWARD_WITH_VERIFY = 9;
 const int COIN_REWARD_OPTOUT = 5;
 
 const int AMOUNT_OF_HP_FOOD_RESTORES = 15;
@@ -29,7 +29,6 @@ const int XP_GAINED_PER_COMPLETE_TASK = 13;
 @implementation GameConstants
 
 + (int) maxXPForExperienceLevel:(NSNumber *)borbLevel {
-    
     if (borbLevel.integerValue == 0) {
         return 50;
     } else if (borbLevel.integerValue == 1) {

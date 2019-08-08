@@ -58,8 +58,10 @@ static int const PARSE_QUERY_LIMIT = 20;
     
     FriendsList *friendsList = [FriendsList createFriendsList];
     [self saveFriendsList:friendsList withCompletion:^(BOOL succeeded, NSError *error) {
-        if (succeeded){
-        newUser.friendsListID = friendsList.objectId;
+        if (succeeded) {
+            newUser.friendsListID = friendsList.objectId;
+        } else {
+            completion(error);
         }
     }];
 

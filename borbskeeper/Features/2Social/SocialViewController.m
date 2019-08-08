@@ -11,6 +11,7 @@
 #import "PostCell.h"
 #import "FeedInfiniteScrollView.h"
 #import "ComposePostViewController.h"
+#import "AlertManager.h"
 
 @interface SocialViewController () <InfiniteScrollDelegate, ComposePostViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *shareOptionButton;
@@ -111,7 +112,11 @@ static NSString *const POST_CELL_REUSE_ID = @"PostCell";
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"composePostSegue"]) {
+    
+    if (![User currentUser].verificationEnabled) {
+        [AlertManager presentVerificationDisabledAlert:self]; 
+        return;
+    } else if ([[segue identifier] isEqualToString:@"composePostSegue"]) {
         UINavigationController *navigationController = [segue destinationViewController];
         ComposePostViewController *composePostController = (ComposePostViewController *)navigationController.topViewController;
         composePostController.delegate = self;
