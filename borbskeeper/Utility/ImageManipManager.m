@@ -15,6 +15,8 @@
 @end
 
 @implementation ImageManipManager
+const int IMAGE_DIMENSION = 500;
+const int ORIGIN_POS = 0;
 
 - (bool) presentImagePickerFromViewController:(UIViewController *)viewController withImageSource:(imageSource) imageSource {
     self.originalViewController = viewController;
@@ -60,7 +62,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    UIImage *editedImage = [self resizeImage:originalImage withSize:CGSizeMake(500, 500)];
+    UIImage *editedImage = [self resizeImage:originalImage withSize:CGSizeMake(IMAGE_DIMENSION, IMAGE_DIMENSION)];
     
     [self.imageManipManagerDelegate saveImage:editedImage];
 
@@ -69,7 +71,7 @@
 }
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
-    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ORIGIN_POS, ORIGIN_POS, size.width, size.height)];
     
     resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
     resizeImageView.image = image;

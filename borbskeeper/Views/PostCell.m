@@ -59,7 +59,6 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
 - (IBAction)didClickVerify:(id)sender {
     User *poster = (User *)self.post.author;
     if ([[User currentUser].username isEqualToString:poster.username]) {
-        // NSLog(@"Cannot verify own posts");
         return;
     }
     self.post.verified = YES;
@@ -67,7 +66,6 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
     [BorbParseManager fetchTask:self.post.task.objectId WithCompletion:^(NSMutableArray *tasks) {
         Task *task = tasks[0];
         if (task.verified) {
-            // NSLog(@"Task is already verified");
             return;
         }
         task.verified = true;
