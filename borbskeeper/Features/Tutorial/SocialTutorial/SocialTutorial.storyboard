@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Social Tutorial View Controller-->
+        <scene sceneID="NdK-Ao-5NK">
+            <objects>
+                <viewController storyboardIdentifier="SocialTutorial" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EDv-fb-ghb" customClass="SocialTutorialViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VBb-Cr-vw3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Globe shared" translatesAutoresizingMaskIntoConstraints="NO" id="2a9-C1-TmM">
+                                <rect key="frame" x="107" y="144" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="azB-iR-vsd"/>
+                                    <constraint firstAttribute="height" constant="200" id="sfc-lk-lgL"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1P-2f-Hgm">
+                                <rect key="frame" x="30" y="728" width="354" height="34"/>
+                                <color key="backgroundColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
+                                <state key="normal" title="GET STARTED">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="pJO-Kb-DJw" kind="presentation" id="a0n-ii-0cJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Borb Tutorial Desc PlaceHolder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEo-03-H9a">
+                                <rect key="frame" x="74" y="449" width="266" height="21"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutorial TItle PlaceHolder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3D-XM-4PR">
+                                <rect key="frame" x="92" y="394" width="230" height="25"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="m3D-XM-4PR" firstAttribute="top" secondItem="2a9-C1-TmM" secondAttribute="bottom" constant="50" id="5tO-dh-qLm"/>
+                            <constraint firstItem="2a9-C1-TmM" firstAttribute="centerX" secondItem="Ne5-rP-s1B" secondAttribute="centerX" id="6fn-Ns-B4p"/>
+                            <constraint firstItem="DEo-03-H9a" firstAttribute="centerX" secondItem="2a9-C1-TmM" secondAttribute="centerX" id="NM8-nN-zR9"/>
+                            <constraint firstItem="m3D-XM-4PR" firstAttribute="centerX" secondItem="2a9-C1-TmM" secondAttribute="centerX" id="Obu-Fm-Xeo"/>
+                            <constraint firstItem="2a9-C1-TmM" firstAttribute="top" secondItem="Ne5-rP-s1B" secondAttribute="top" constant="100" id="Vw1-CB-CuT"/>
+                            <constraint firstItem="Ne5-rP-s1B" firstAttribute="bottom" secondItem="U1P-2f-Hgm" secondAttribute="bottom" constant="100" id="ZgT-5e-0v6"/>
+                            <constraint firstItem="U1P-2f-Hgm" firstAttribute="leading" secondItem="Ne5-rP-s1B" secondAttribute="leading" constant="30" id="gmt-XM-tub"/>
+                            <constraint firstItem="DEo-03-H9a" firstAttribute="top" secondItem="m3D-XM-4PR" secondAttribute="bottom" constant="30" id="jdU-wH-KZp"/>
+                            <constraint firstItem="Ne5-rP-s1B" firstAttribute="trailing" secondItem="U1P-2f-Hgm" secondAttribute="trailing" constant="30" id="nWR-qP-eTW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ne5-rP-s1B"/>
+                    </view>
+                    <connections>
+                        <outlet property="getStartedButton" destination="U1P-2f-Hgm" id="Igg-Pt-Lsp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xps-rJ-Qnp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="129" y="116"/>
+        </scene>
+        <!--taskList-->
+        <scene sceneID="R3R-y1-2fW">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="taskList" storyboardName="TasksList" referencedIdentifier="taskList" id="pJO-Kb-DJw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WDa-1w-pEW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="644" y="109"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Globe shared" width="700" height="700"/>
+    </resources>
+</document>
