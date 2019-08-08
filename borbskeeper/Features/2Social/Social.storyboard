@@ -41,7 +41,7 @@
             </objects>
             <point key="canvasLocation" x="536" y="49"/>
         </scene>
-        <!--Feed-->
+        <!--Social View Controller-->
         <scene sceneID="CbT-pR-k15">
             <objects>
                 <viewController id="qbN-9e-LGJ" customClass="SocialViewController" sceneMemberID="viewController">
@@ -50,14 +50,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TjO-BH-Bq5" customClass="FeedInfiniteScrollView">
-                                <rect key="frame" x="0.0" y="112" width="375" height="555"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1IA-bH-eEw">
                                         <rect key="frame" x="177" y="269" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </activityIndicatorView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4eR-g3-Jx6">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="555"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <color key="backgroundColor" red="0.93727463483810425" green="0.92916423082351685" blue="0.94118666648864746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="517" id="BPh-ma-I8i" customClass="PostCell">
@@ -170,32 +170,31 @@
                                     <outlet property="tableView" destination="4eR-g3-Jx6" id="f0l-aU-0xP"/>
                                 </connections>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="dH6-a9-dH6">
-                                <rect key="frame" x="10" y="74" width="355" height="29"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <segments>
-                                    <segment title="Friends"/>
-                                    <segment title="Global"/>
-                                </segments>
-                                <color key="tintColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <connections>
-                                    <action selector="didChangeShareOptionValue:" destination="qbN-9e-LGJ" eventType="valueChanged" id="e0f-8K-MAz"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.93727463483810425" green="0.92916423082351685" blue="0.94118666648864746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="TjO-BH-Bq5" firstAttribute="leading" secondItem="GTZ-vb-Ly0" secondAttribute="leading" id="FUE-ra-Xah"/>
-                            <constraint firstItem="TjO-BH-Bq5" firstAttribute="top" secondItem="dH6-a9-dH6" secondAttribute="bottom" constant="10" id="GyJ-Sb-kAp"/>
-                            <constraint firstItem="COc-bA-chM" firstAttribute="trailing" secondItem="dH6-a9-dH6" secondAttribute="trailing" constant="10" id="L1z-hP-uIP"/>
                             <constraint firstAttribute="bottom" secondItem="TjO-BH-Bq5" secondAttribute="bottom" id="LQ7-YQ-bko"/>
-                            <constraint firstItem="dH6-a9-dH6" firstAttribute="leading" secondItem="COc-bA-chM" secondAttribute="leading" constant="10" id="TUS-Mc-jmg"/>
+                            <constraint firstItem="TjO-BH-Bq5" firstAttribute="top" secondItem="COc-bA-chM" secondAttribute="top" id="V0m-DM-Zoh"/>
                             <constraint firstAttribute="trailing" secondItem="TjO-BH-Bq5" secondAttribute="trailing" id="Xos-c1-kUS"/>
-                            <constraint firstItem="dH6-a9-dH6" firstAttribute="top" secondItem="COc-bA-chM" secondAttribute="top" constant="10" id="k4T-sN-KRp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="COc-bA-chM"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Feed" id="m0k-nq-sNK">
+                    <navigationItem key="navigationItem" id="m0k-nq-sNK">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" id="dH6-a9-dH6">
+                            <rect key="frame" x="16" y="7" width="301" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <segments>
+                                <segment title="Friends" width="150"/>
+                                <segment title="Global" width="150"/>
+                            </segments>
+                            <color key="tintColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="didChangeShareOptionValue:" destination="qbN-9e-LGJ" eventType="valueChanged" id="e0f-8K-MAz"/>
+                            </connections>
+                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" title="New Post" image="Compose" id="A40-Og-7H5">
                             <color key="tintColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
