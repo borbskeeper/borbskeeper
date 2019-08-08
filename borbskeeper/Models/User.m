@@ -18,5 +18,6 @@
 @dynamic userCoins;
 @dynamic usersBorb;
 @dynamic userLogin;
+@dynamic remindBeforeChoice;
 
 @end
