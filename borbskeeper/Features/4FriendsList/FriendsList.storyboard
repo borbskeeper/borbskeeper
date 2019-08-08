@@ -125,13 +125,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Friends" id="CuG-wG-6Oy">
                         <barButtonItem key="leftBarButtonItem" title="requests" image="Alert" id="jbq-SQ-GBs">
-                            <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="Eog-hC-o8v" kind="presentation" id="Qvm-4S-t4u"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="AddFriend" id="SKt-Lo-faX">
-                            <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="cXf-G8-UMw" kind="presentation" id="fCD-xS-OFR"/>
                             </connections>

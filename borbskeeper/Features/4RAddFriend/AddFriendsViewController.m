@@ -13,7 +13,7 @@
 #import "AlertManager.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface AddFriendsViewController ()
+@interface AddFriendsViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UIButton *addFriendsButton;
 
@@ -27,6 +27,7 @@
     [self setupNavBar];
     self.addFriendsButton.layer.cornerRadius = 5;
     self.addFriendsButton.clipsToBounds = YES;
+    self.userNameTextField.delegate = self;
 }
 
 - (void) setupNavBar {
@@ -66,6 +67,10 @@
     }
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 /*
 #pragma mark - Navigation

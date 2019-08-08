@@ -10,7 +10,7 @@
 #import "BorbParseManager.h"
 #import "AlertManager.h"
 
-@interface LoginViewController ()
+@interface LoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
@@ -27,7 +27,8 @@ static NSString *const SIGNUP_SEGUE_ID = @"signUpSegue";
     [super viewDidLoad];
     self.loginButton.layer.cornerRadius = 5;
     self.loginButton.clipsToBounds = YES;
-    
+    self.usernameField.delegate = self;
+    self.passwordField.delegate = self;
 }
 
 - (void)loginUser {
@@ -50,6 +51,11 @@ static NSString *const SIGNUP_SEGUE_ID = @"signUpSegue";
 
 - (IBAction)didTapLoginView:(id)sender {
     [self.view endEditing:YES];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 /*
