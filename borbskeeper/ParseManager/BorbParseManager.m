@@ -54,6 +54,7 @@ static int const PARSE_QUERY_LIMIT = 20;
     newUser.userCoins = @0;
     newUser.userLogin = [NSDate date];
     newUser.remindBeforeChoice = DEFAULT_REMIND_BEFORE;
+    newUser.verificationEnabled = YES;
     
     FriendsList *friendsList = [FriendsList createFriendsList];
     [self saveFriendsList:friendsList withCompletion:^(BOOL succeeded, NSError *error) {

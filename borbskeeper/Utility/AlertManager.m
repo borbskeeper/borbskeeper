@@ -225,6 +225,29 @@ static NSString *const DELETE_ACTION_TITLE = @"Delete";
     [viewController presentViewController:renameBorbAlert animated:YES completion:nil];
 }
 
++ (void) presentDisableVerificationConfirmationAlert:(UIViewController *)viewController withCancelCompletion: (void (^) (bool))completion {
+    UIAlertController *disableVerificationAlert = [UIAlertController alertControllerWithTitle:@"Are you sure you want to disable verification?"
+                                                                              message:@"You will not be able to receive verification for any completed tasks already posted. You may still verify other user's posts."
+                                                                       preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertAction *cancelDisableAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * _Nonnull action) {
+                                                                 completion(TRUE);
+                                                             }];
+    
+    [disableVerificationAlert addAction:cancelDisableAction];
+    
+    UIAlertAction *OKDisableAction = [UIAlertAction actionWithTitle:@"Yes, disable verification"
+                                                                  style:UIAlertActionStyleDefault
+                                                                handler:^(UIAlertAction * _Nonnull action) {
+                                                                    completion(FALSE);
+                                                                }];
+    [disableVerificationAlert addAction:OKDisableAction];
+
+    
+    [viewController presentViewController:disableVerificationAlert animated:YES completion:nil];
+}
+
 + (void) presentDeleteTaskComfirmationAlert:(UIViewController*)viewController forTask:(Task* )task {
     UIAlertController *deleteTaskConfirmation = [UIAlertController alertControllerWithTitle:DELETE_CONFIRMATION_TITLE
                                                                                     message:BLANK_MESSAGE preferredStyle:(UIAlertControllerStyleAlert)];

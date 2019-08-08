@@ -64,7 +64,7 @@
                                                     <rect key="frame" x="312" y="7" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="switchButtonTapped:" destination="OPb-Uf-jOe" eventType="valueChanged" id="D7m-bA-UPx"/>
+                                                        <action selector="socialSwitchChanged:" destination="OPb-Uf-jOe" eventType="valueChanged" id="vY9-JV-a3K"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yce-OJ-pUr">

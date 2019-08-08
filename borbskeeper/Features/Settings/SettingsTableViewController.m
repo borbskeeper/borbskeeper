@@ -9,6 +9,7 @@
 #import "SettingsTableViewController.h"
 #import "BorbParseManager.h"
 #import "PushNotificationsManager.h"
+#import "AlertManager.h"
 
 @interface SettingsTableViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -18,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *changeRemindersButton;
 @property (weak, nonatomic) IBOutlet UIButton *selectRemindersButton;
 @property (weak, nonatomic) IBOutlet UILabel *currentReminderChoiceLabel;
-
 
 @end
 
@@ -41,6 +41,23 @@
 - (void)setupNavBar {
     [self.navigationController.navigationBar setTitleTextAttributes:@{
                                                                       NSFontAttributeName:[UIFont fontWithName:@"OpenSans-SemiBold" size:18]}];
+}
+
+- (IBAction)socialSwitchChanged:(id)sender {
+    if (!self.socialSwitchButton.on) {
+        [AlertManager presentDisableVerificationConfirmationAlert:self withCancelCompletion:^(bool clickedCancel) {
+            if (clickedCancel) {
+                [self.socialSwitchButton setOn:YES animated:YES];
+            }
+            else {
+                [User currentUser].verificationEnabled = NO;
+                [BorbParseManager saveUser:[User currentUser] withCompletion:nil];
+            }
+        }];
+    } else {
+        [User currentUser].verificationEnabled = YES;
+        [BorbParseManager saveUser:[User currentUser] withCompletion:nil];
+    }
 }
 
 - (IBAction)tapChangeReminders:(id)sender {

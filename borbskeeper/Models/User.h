@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) Borb *usersBorb;
 @property (nonatomic, strong) NSDate *userLogin;
 @property remindBefore remindBeforeChoice;
+@property BOOL verificationEnabled; 
 
 @end
 

@@ -38,6 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void) presentDeleteTaskComfirmationAlert:(UIViewController*)viewController forTask:(Task* )task;
 
++ (void) presentDisableVerificationConfirmationAlert:(UIViewController *)viewController withCancelCompletion: (void (^) (bool))completion;
+
 + (void) presentRequestToSelfAlert:(UIViewController*)viewController;
 
 + (void) presentCannotFindUserAlert:(UIViewController*)viewController;
