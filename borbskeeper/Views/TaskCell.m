@@ -39,20 +39,6 @@ static NSString *const DATE_FORMAT = @"MM/dd/yyyy 'at' hh:mm a";
             [userBorb increaseExperiencePointsBy:XP_GAINED_PER_COMPLETE_TASK];
             [BorbParseManager saveBorb:userBorb withCompletion:nil];
         }];
-    } else {
-        self.checkboxButton.selected = NO;
-        [Task markTaskAsUnfinished:self.task];
-        [PushNotificationsManager createNotificationForTask:self.task withID:[self.task objectId]];
-        [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
-            Borb *userBorb = borbs[0];
-            if ([User currentUser].verificationEnabled) {
-                [userBorb decreaseBorbCoinsBy:COIN_REWARD_WITHOUT_VERIFY];
-            } else {
-                [userBorb decreaseBorbCoinsBy:COIN_REWARD_OPTOUT];
-            }
-            [userBorb decreaseExperiencePointsBy:XP_GAINED_PER_COMPLETE_TASK];
-            [BorbParseManager saveBorb:userBorb withCompletion:nil];
-        }];
     }
     [BorbParseManager saveTask:self.task withCompletion:nil];
 }

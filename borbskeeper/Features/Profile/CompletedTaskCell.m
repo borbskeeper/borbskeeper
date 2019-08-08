@@ -7,6 +7,10 @@
 //
 
 #import "CompletedTaskCell.h"
+#import "User.h"
+#import "Borb.h"
+#import "GameConstants.h"
+#import "PushNotificationsManager.h"
 
 @implementation CompletedTaskCell
 
@@ -53,6 +57,25 @@ static NSString *const DATE_FORMAT = @"MM/dd/yyyy 'at' hh:mm a";
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = DATE_FORMAT;
     self.dueDate.text = [dateFormatter stringFromDate:self.task.dueDate];
+}
+
+- (IBAction)didTapCheckbox:(id)sender {
+    if (self.task.completed == YES){
+        self.checkboxButton.selected = NO;
+        [Task markTaskAsUnfinished:self.task];
+        [PushNotificationsManager createNotificationForTask:self.task withID:[self.task objectId]];
+        [BorbParseManager fetchBorb:[User currentUser].usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
+            Borb *userBorb = borbs[0];
+            if ([User currentUser].verificationEnabled) {
+                [userBorb decreaseBorbCoinsBy:COIN_REWARD_WITHOUT_VERIFY];
+            } else {
+                [userBorb decreaseBorbCoinsBy:COIN_REWARD_OPTOUT];
+            }
+            [userBorb decreaseExperiencePointsBy:XP_GAINED_PER_COMPLETE_TASK];
+            [BorbParseManager saveBorb:userBorb withCompletion:nil];
+        }];
+    }
+    [BorbParseManager saveTask:self.task withCompletion:nil];
 }
 
 
