@@ -107,13 +107,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create Task" id="ee0-gP-BfB">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="DPV-H5-FNR">
-                            <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapCancel:" destination="CPZ-OX-dnB" id="c5Z-oL-fUa"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="save" id="ShH-xf-qKZ">
-                            <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapSaveTask:" destination="CPZ-OX-dnB" id="KjQ-Tm-wyv"/>
                             </connections>

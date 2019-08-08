@@ -11,9 +11,10 @@
 #import "Borb.h"
 #import "GameConstants.h"
 #import "PushNotificationsManager.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation TaskCell
-static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
+static NSString *const DATE_FORMAT = @"MM/dd/yyyy 'at' hh:mm a";
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -59,6 +60,9 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = DATE_FORMAT;
     self.dueDate.text = [dateFormatter stringFromDate:self.task.dueDate];
+    
+    self.noteCardView.layer.cornerRadius = 10;
+    self.noteCardView.clipsToBounds = YES;
 }
 
 @end

@@ -25,7 +25,8 @@
 @property (strong, nonatomic) NSMutableArray *completeTaskList;
 @property (strong, nonatomic) NSDate *latestDate;
 @property (strong, nonatomic) ImageManipManager *imageManip;
-@property (weak, nonatomic) IBOutlet UIButton *changeProfilePictureButton;
+@property (weak, nonatomic) IBOutlet UIView *backgroundView;
+@property (weak, nonatomic) IBOutlet UILabel *completedTasksLabel;
 
 @end
 
@@ -52,8 +53,10 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 - (void)setupProfile {
     NSString *userName = User.currentUser.username;
     self.userName.text = userName;
-    self.changeProfilePictureButton.layer.cornerRadius = 5;
-    self.changeProfilePictureButton.clipsToBounds = YES;
+    self.backgroundView.layer.cornerRadius = 20;
+    self.backgroundView.clipsToBounds = YES;
+    self.completedTasksLabel.layer.cornerRadius = 10;
+    self.completedTasksLabel.clipsToBounds = YES;
     [self loadUserProfilePicture];
     [self setupNavBar];
 }
@@ -66,7 +69,8 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
     self.profilePicture.clipsToBounds = YES;
 }
 
-- (IBAction)didTapChangeProfilePicture:(id)sender {
+
+- (IBAction)didTapProfilePicture:(id)sender {
     [self.imageManip presentImagePickerFromViewController:self withImageSource:IMAGESOURCE_LIBRARY];
 }
 

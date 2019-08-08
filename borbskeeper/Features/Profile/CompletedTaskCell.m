@@ -13,8 +13,9 @@
 @dynamic taskNameLabel;
 @dynamic checkboxButton;
 @dynamic dueDate;
+@dynamic noteCardView;
 
-static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
+static NSString *const DATE_FORMAT = @"MM/dd/yyyy 'at' hh:mm a";
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -45,6 +46,9 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
     } else {
         self.verifiedIcon.selected = NO;
     }
+    
+    self.noteCardView.layer.cornerRadius = 10;
+    self.noteCardView.clipsToBounds = YES;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = DATE_FORMAT;

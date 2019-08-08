@@ -41,7 +41,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                                     <state key="normal" title="Logout">
-                                                        <color key="titleColor" red="0.89813512559999997" green="0.055440489910000001" blue="0.24994520519999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="titleColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="didTapLogout:" destination="OPb-Uf-jOe" eventType="touchUpInside" id="lG1-3R-Jsg"/>
@@ -117,7 +117,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="YA5-Mn-dsJ">
                         <barButtonItem key="leftBarButtonItem" title="Back" image="Back" id="OFL-yV-DKw">
-                            <color key="tintColor" red="0.51623558999999997" green="0.704975307" blue="0.9059150815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapBack:" destination="OPb-Uf-jOe" id="1Xc-id-L5Q"/>
                             </connections>

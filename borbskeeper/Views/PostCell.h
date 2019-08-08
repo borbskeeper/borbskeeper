@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (weak, nonatomic) IBOutlet UIButton *verifyButton;
 @property (strong, nonatomic) Post *post;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verifyButtonHeight;
 
 - (void)setupWithPost:(Post *)post;
 

@@ -13,7 +13,7 @@
 #import "PushNotificationsManager.h"
 #import "AlertManager.h"
 
-@interface ComposeTaskViewController () <UITextViewDelegate>
+@interface ComposeTaskViewController () <UITextViewDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *taskTitleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *taskDescTextView;
@@ -52,6 +52,7 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
 - (void)setupTextView {
     if (self.task == nil) {
         self.taskDescTextView.delegate = self;
+        self.taskTitleTextField.delegate = self;
         self.taskDescTextView.placeholder = TASK_DESCRIPTION_PLACEHOLDER;
         self.taskDescTextView.placeholderColor = [UIColor lightGrayColor];
     } else {
@@ -102,6 +103,10 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
             [PushNotificationsManager deleteNotificationForTaskWithID:taskId];
         }
     }
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (IBAction)didTapCreateTaskView:(id)sender {
