@@ -18,5 +18,7 @@
 @dynamic userCoins;
 @dynamic usersBorb;
 @dynamic userLogin;
+@dynamic remindBeforeChoice;
+@dynamic verificationEnabled;
 
 @end

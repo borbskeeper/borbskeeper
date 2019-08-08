@@ -9,6 +9,7 @@
 #import "BorbParseManager.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "PushNotificationsManager.h"
 
 @implementation BorbParseManager
 
@@ -52,11 +53,15 @@ static int const PARSE_QUERY_LIMIT = 20;
     newUser.friendsList = [[NSMutableArray alloc] init];
     newUser.userCoins = @0;
     newUser.userLogin = [NSDate date];
+    newUser.remindBeforeChoice = DEFAULT_REMIND_BEFORE;
+    newUser.verificationEnabled = YES;
     
     FriendsList *friendsList = [FriendsList createFriendsList];
     [self saveFriendsList:friendsList withCompletion:^(BOOL succeeded, NSError *error) {
-        if (succeeded){
-        newUser.friendsListID = friendsList.objectId;
+        if (succeeded) {
+            newUser.friendsListID = friendsList.objectId;
+        } else {
+            completion(error);
         }
     }];
 

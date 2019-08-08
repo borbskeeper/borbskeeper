@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Parse/Parse.h"
 #import "Borb.h"
+#import "PushNotificationsManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber *userCoins;
 @property (nonatomic, strong) Borb *usersBorb;
 @property (nonatomic, strong) NSDate *userLogin;
+@property remindBefore remindBeforeChoice;
+@property BOOL verificationEnabled; 
 
 @end
 

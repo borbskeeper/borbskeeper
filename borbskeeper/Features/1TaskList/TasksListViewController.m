@@ -15,6 +15,7 @@
 #import "User.h"
 #import "IncompleteTaskListInfiniteScrollView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AlertManager.h"
 
 @interface TasksListViewController () <InfiniteScrollDelegate, ComposeViewControllerDelegate>
 
@@ -126,6 +127,8 @@ static const int SECS_TO_HOURS = 3600;
         }
     }];
 }
+
+
 
 #pragma mark - Navigation
 
