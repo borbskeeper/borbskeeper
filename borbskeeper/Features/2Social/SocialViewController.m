@@ -109,14 +109,19 @@ static NSString *const POST_CELL_REUSE_ID = @"PostCell";
 
 
 #pragma mark - Navigation
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([identifier isEqualToString:@"composePostSegue"]) {
+        if (![User currentUser].verificationEnabled) {
+            [AlertManager presentVerificationDisabledAlert:self];
+            return false;
+        }
+    }
+    return true;
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if (![User currentUser].verificationEnabled) {
-        [AlertManager presentVerificationDisabledAlert:self]; 
-        return;
-    } else if ([[segue identifier] isEqualToString:@"composePostSegue"]) {
+    if ([[segue identifier] isEqualToString:@"composePostSegue"]) {
         UINavigationController *navigationController = [segue destinationViewController];
         ComposePostViewController *composePostController = (ComposePostViewController *)navigationController.topViewController;
         composePostController.delegate = self;

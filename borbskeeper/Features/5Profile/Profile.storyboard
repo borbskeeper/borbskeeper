@@ -183,7 +183,7 @@
                                                             <outlet property="sharedIcon" destination="Y8v-a4-jvV" id="Pcd-I0-i4G"/>
                                                             <outlet property="taskNameLabel" destination="VXb-Xr-TS4" id="YSM-M5-ZIU"/>
                                                             <outlet property="verifiedIcon" destination="3Zn-Gj-bng" id="nli-nj-VNi"/>
-                                                            <segue destination="Of9-3a-UzL" kind="presentation" identifier="composePostForTaskSegue" id="eEJ-bj-Ruv"/>
+                                                            <segue destination="Of9-3a-UzL" kind="presentation" identifier="composePostForTaskSegue" id="jBK-pf-0Rx"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -259,7 +259,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="composePostForTask" storyboardName="ComposePostForTask" referencedIdentifier="ComposePostForTask" id="Of9-3a-UzL" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iK0-c0-m6n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1964" y="209"/>
+            <point key="canvasLocation" x="1802" y="187"/>
         </scene>
         <!--Profile-->
         <scene sceneID="NUa-YD-4ip">

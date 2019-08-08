@@ -34,6 +34,7 @@
     self.pickerData = [PushNotificationsManager allDescriptionsOfRemindBefore];
     [self.minutePickerView setShowsSelectionIndicator:YES];
     self.currentReminderChoiceLabel.text = [PushNotificationsManager descriptionOfRemindBefore:([User currentUser].remindBeforeChoice)];
+    [self.socialSwitchButton setOn:[User currentUser].verificationEnabled];
     UIToolbar *toolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
     [toolBar setTintColor:[UIColor grayColor]];
 }

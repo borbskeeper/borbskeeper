@@ -27,19 +27,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grc-d6-dZI">
-                                <rect key="frame" x="22" y="90" width="38" height="21"/>
+                                <rect key="frame" x="22" y="90" width="331" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sf4-0N-C2D">
-                                <rect key="frame" x="22" y="203" width="328" height="226"/>
+                                <rect key="frame" x="22" y="203" width="328" height="183"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VJt-cU-FQc">
-                                <rect key="frame" x="22" y="483" width="328" height="164"/>
+                                <rect key="frame" x="22" y="440" width="328" height="164"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VJt-cU-FQc" secondAttribute="height" multiplier="2:1" id="HeF-9b-Pog"/>
                                 </constraints>
@@ -63,14 +63,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdO-0x-tuP">
-                                <rect key="frame" x="22" y="454" width="79" height="21"/>
+                                <rect key="frame" x="22" y="411" width="79" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hb8-G6-CaO">
-                                <rect key="frame" x="287" y="81" width="80" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hb8-G6-CaO">
+                                <rect key="frame" x="136.5" y="619" width="102" height="33"/>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                                 <state key="normal" title="Delete Task">
                                     <color key="titleColor" red="1" green="0.096373205370000006" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -87,18 +87,21 @@
                             <constraint firstItem="sf4-0N-C2D" firstAttribute="trailing" secondItem="DmC-d1-ge6" secondAttribute="trailing" id="4tn-kU-PXM"/>
                             <constraint firstItem="grc-d6-dZI" firstAttribute="top" secondItem="ncA-dk-B6x" secondAttribute="topMargin" constant="26" id="7Fn-G9-AcM"/>
                             <constraint firstItem="IdO-0x-tuP" firstAttribute="top" secondItem="sf4-0N-C2D" secondAttribute="bottom" constant="25" id="7mi-ha-tBS"/>
-                            <constraint firstItem="4N7-wk-ARu" firstAttribute="bottom" secondItem="VJt-cU-FQc" secondAttribute="bottom" constant="20" id="AbQ-ge-lc6"/>
                             <constraint firstItem="VJt-cU-FQc" firstAttribute="trailing" secondItem="sf4-0N-C2D" secondAttribute="trailing" id="H0v-M9-sjb"/>
                             <constraint firstItem="R3k-98-oPQ" firstAttribute="top" secondItem="DmC-d1-ge6" secondAttribute="bottom" constant="25" id="HDz-PZ-hbx"/>
+                            <constraint firstItem="Hb8-G6-CaO" firstAttribute="top" secondItem="VJt-cU-FQc" secondAttribute="bottom" constant="15" id="HPG-SI-lLm"/>
                             <constraint firstItem="R3k-98-oPQ" firstAttribute="leading" secondItem="DmC-d1-ge6" secondAttribute="leading" id="NgD-xS-NZC"/>
                             <constraint firstItem="4N7-wk-ARu" firstAttribute="trailing" secondItem="DmC-d1-ge6" secondAttribute="trailing" constant="25" id="Noa-E6-JhH"/>
+                            <constraint firstItem="4N7-wk-ARu" firstAttribute="trailing" secondItem="grc-d6-dZI" secondAttribute="trailing" constant="22" id="TeI-Vh-wI6"/>
                             <constraint firstItem="DmC-d1-ge6" firstAttribute="top" secondItem="grc-d6-dZI" secondAttribute="bottom" constant="8" id="Yva-7O-N6W"/>
                             <constraint firstItem="VJt-cU-FQc" firstAttribute="leading" secondItem="IdO-0x-tuP" secondAttribute="leading" id="dCD-bL-EmZ"/>
                             <constraint firstItem="VJt-cU-FQc" firstAttribute="leading" secondItem="sf4-0N-C2D" secondAttribute="leading" id="eq6-qI-kSi"/>
+                            <constraint firstItem="4N7-wk-ARu" firstAttribute="bottom" secondItem="Hb8-G6-CaO" secondAttribute="bottom" constant="15" id="g1n-I4-LGz"/>
                             <constraint firstItem="sf4-0N-C2D" firstAttribute="top" secondItem="R3k-98-oPQ" secondAttribute="bottom" constant="8" id="qf7-Ga-9vp"/>
                             <constraint firstItem="grc-d6-dZI" firstAttribute="leading" secondItem="4N7-wk-ARu" secondAttribute="leading" constant="22" id="s2A-nD-cxu"/>
                             <constraint firstItem="VJt-cU-FQc" firstAttribute="top" secondItem="IdO-0x-tuP" secondAttribute="bottom" constant="8" id="sZE-kk-UGR"/>
                             <constraint firstItem="DmC-d1-ge6" firstAttribute="leading" secondItem="grc-d6-dZI" secondAttribute="leading" id="wOA-qg-jD7"/>
+                            <constraint firstItem="Hb8-G6-CaO" firstAttribute="centerX" secondItem="ncA-dk-B6x" secondAttribute="centerX" id="xPu-Z6-QWI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4N7-wk-ARu"/>
                         <connections>
