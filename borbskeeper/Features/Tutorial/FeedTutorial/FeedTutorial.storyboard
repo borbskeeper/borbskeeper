@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -13,9 +13,6 @@
         <array key="Montserrat-Regular.ttf">
             <string>Montserrat-Regular</string>
         </array>
-        <array key="OpenSans-Bold.ttf">
-            <string>OpenSans-Bold</string>
-        </array>
     </customFonts>
     <scenes>
         <!--Feed Tutorial View Controller-->
@@ -23,52 +20,56 @@
             <objects>
                 <viewController storyboardIdentifier="FeedTutorial" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nFw-an-BPN" customClass="FeedTutorialViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Yn-YT-64B">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Task List" translatesAutoresizingMaskIntoConstraints="NO" id="fzb-rz-qIf">
-                                <rect key="frame" x="87.666666666666686" y="144" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="1Lz-31-11S"/>
-                                    <constraint firstAttribute="width" constant="200" id="jtb-4j-i89"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pH-4y-C3W">
-                                <rect key="frame" x="30" y="644" width="315" height="34"/>
-                                <color key="backgroundColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pH-4y-C3W">
+                                <rect key="frame" x="30" y="577" width="315" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
                                 <state key="normal" title="NEXT">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.36078431370000003" green="0.37254901959999998" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <segue destination="8wM-zs-Z7p" kind="presentation" id="Vs5-ez-vQV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Borb Tutorial Desc PlaceHolder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZp-nP-uvI">
-                                <rect key="frame" x="54.666666666666657" y="449" width="266" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="When you do not complete a task on time," textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Asd-ea-0th">
+                                <rect key="frame" x="16" y="57" width="353" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutorial TItle PlaceHolder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWl-XE-eoL">
-                                <rect key="frame" x="72.666666666666686" y="394" width="230" height="25"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
-                                <nil key="textColor"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Incomplete_Tutorial" translatesAutoresizingMaskIntoConstraints="NO" id="M1j-G5-v0R">
+                                <rect key="frame" x="35" y="138" width="315" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="your health points decrease. " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bb-fQ-W62">
+                                <rect key="frame" x="65" y="246" width="244" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Health_Tutorial" translatesAutoresizingMaskIntoConstraints="NO" id="zR5-4P-N6P">
+                                <rect key="frame" x="67" y="297" width="240" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Borb_Coin" translatesAutoresizingMaskIntoConstraints="NO" id="Gjp-yU-yJI">
+                                <rect key="frame" x="160" y="452" width="55" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="And you will need to earn coins by completing task to feed your borb. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YwW-tm-xaM">
+                                <rect key="frame" x="23" y="362" width="329" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="XWl-XE-eoL" firstAttribute="centerX" secondItem="fzb-rz-qIf" secondAttribute="centerX" id="Dkx-Bf-l53"/>
-                            <constraint firstItem="fzb-rz-qIf" firstAttribute="centerX" secondItem="7Us-75-Xi5" secondAttribute="centerX" id="EFD-80-IMO"/>
-                            <constraint firstItem="fzb-rz-qIf" firstAttribute="top" secondItem="7Us-75-Xi5" secondAttribute="top" constant="100" id="GlJ-lh-Suk"/>
-                            <constraint firstItem="5pH-4y-C3W" firstAttribute="leading" secondItem="7Us-75-Xi5" secondAttribute="leading" constant="30" id="OaB-yc-fbt"/>
-                            <constraint firstItem="XWl-XE-eoL" firstAttribute="top" secondItem="fzb-rz-qIf" secondAttribute="bottom" constant="50" id="UI9-4w-M7x"/>
-                            <constraint firstItem="FZp-nP-uvI" firstAttribute="centerX" secondItem="fzb-rz-qIf" secondAttribute="centerX" id="kgT-LU-aUt"/>
-                            <constraint firstItem="7Us-75-Xi5" firstAttribute="trailing" secondItem="5pH-4y-C3W" secondAttribute="trailing" constant="30" id="n6m-bD-Vp3"/>
-                            <constraint firstItem="7Us-75-Xi5" firstAttribute="bottom" secondItem="5pH-4y-C3W" secondAttribute="bottom" constant="100" id="pyc-85-sOL"/>
-                            <constraint firstItem="FZp-nP-uvI" firstAttribute="top" secondItem="XWl-XE-eoL" secondAttribute="bottom" constant="30" id="wb0-p0-OWy"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.37254901959999998" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="7Us-75-Xi5"/>
                     </view>
                     <connections>
@@ -77,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2sH-30-tdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84" y="113"/>
+            <point key="canvasLocation" x="84" y="112.89355322338831"/>
         </scene>
         <!--SocialTutorial-->
         <scene sceneID="fiY-0T-khv">
@@ -89,6 +90,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Task List" width="30" height="30"/>
+        <image name="Borb_Coin" width="999" height="889"/>
+        <image name="Health_Tutorial" width="598" height="90"/>
+        <image name="Incomplete_Tutorial" width="714" height="192"/>
     </resources>
 </document>

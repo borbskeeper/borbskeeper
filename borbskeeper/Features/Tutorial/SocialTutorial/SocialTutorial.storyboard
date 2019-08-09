@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -13,9 +13,6 @@
         <array key="Montserrat-Regular.ttf">
             <string>Montserrat-Regular</string>
         </array>
-        <array key="OpenSans-Bold.ttf">
-            <string>OpenSans-Bold</string>
-        </array>
     </customFonts>
     <scenes>
         <!--Social Tutorial View Controller-->
@@ -23,52 +20,44 @@
             <objects>
                 <viewController storyboardIdentifier="SocialTutorial" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EDv-fb-ghb" customClass="SocialTutorialViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VBb-Cr-vw3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Globe shared" translatesAutoresizingMaskIntoConstraints="NO" id="2a9-C1-TmM">
-                                <rect key="frame" x="107" y="144" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="azB-iR-vsd"/>
-                                    <constraint firstAttribute="height" constant="200" id="sfc-lk-lgL"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1P-2f-Hgm">
-                                <rect key="frame" x="30" y="728" width="354" height="34"/>
-                                <color key="backgroundColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1P-2f-Hgm">
+                                <rect key="frame" x="30" y="586" width="315" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
                                 <state key="normal" title="GET STARTED">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.36078431370000003" green="0.37254901959999998" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <segue destination="pJO-Kb-DJw" kind="presentation" id="a0n-ii-0cJ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Borb Tutorial Desc PlaceHolder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEo-03-H9a">
-                                <rect key="frame" x="74" y="449" width="266" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Post proof of your completed task to the social page and have your friends verify it to earn more coins!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCY-QZ-DDy">
+                                <rect key="frame" x="23" y="37" width="329" height="131"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutorial TItle PlaceHolder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3D-XM-4PR">
-                                <rect key="frame" x="92" y="394" width="230" height="25"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGi-Kk-1zU">
+                                <rect key="frame" x="125" y="506" width="113.5" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Verify!">
+                                    <color key="titleColor" red="0.36078431370000003" green="0.37254901959999998" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Social_Tutorial" translatesAutoresizingMaskIntoConstraints="NO" id="DM1-0Z-m6W">
+                                <rect key="frame" x="66" y="159" width="242" height="314"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="m3D-XM-4PR" firstAttribute="top" secondItem="2a9-C1-TmM" secondAttribute="bottom" constant="50" id="5tO-dh-qLm"/>
-                            <constraint firstItem="2a9-C1-TmM" firstAttribute="centerX" secondItem="Ne5-rP-s1B" secondAttribute="centerX" id="6fn-Ns-B4p"/>
-                            <constraint firstItem="DEo-03-H9a" firstAttribute="centerX" secondItem="2a9-C1-TmM" secondAttribute="centerX" id="NM8-nN-zR9"/>
-                            <constraint firstItem="m3D-XM-4PR" firstAttribute="centerX" secondItem="2a9-C1-TmM" secondAttribute="centerX" id="Obu-Fm-Xeo"/>
-                            <constraint firstItem="2a9-C1-TmM" firstAttribute="top" secondItem="Ne5-rP-s1B" secondAttribute="top" constant="100" id="Vw1-CB-CuT"/>
-                            <constraint firstItem="Ne5-rP-s1B" firstAttribute="bottom" secondItem="U1P-2f-Hgm" secondAttribute="bottom" constant="100" id="ZgT-5e-0v6"/>
-                            <constraint firstItem="U1P-2f-Hgm" firstAttribute="leading" secondItem="Ne5-rP-s1B" secondAttribute="leading" constant="30" id="gmt-XM-tub"/>
-                            <constraint firstItem="DEo-03-H9a" firstAttribute="top" secondItem="m3D-XM-4PR" secondAttribute="bottom" constant="30" id="jdU-wH-KZp"/>
-                            <constraint firstItem="Ne5-rP-s1B" firstAttribute="trailing" secondItem="U1P-2f-Hgm" secondAttribute="trailing" constant="30" id="nWR-qP-eTW"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.37254901959999998" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="Ne5-rP-s1B"/>
                     </view>
                     <connections>
@@ -77,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xps-rJ-Qnp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129" y="116"/>
+            <point key="canvasLocation" x="128.80000000000001" y="115.59220389805098"/>
         </scene>
         <!--taskList-->
         <scene sceneID="R3R-y1-2fW">
@@ -89,6 +78,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Globe shared" width="700" height="700"/>
+        <image name="Social_Tutorial" width="732" height="928"/>
     </resources>
 </document>
