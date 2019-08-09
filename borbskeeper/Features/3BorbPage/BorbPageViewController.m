@@ -51,8 +51,8 @@ static NSString *const OK_ACTION_TITLE = @"OK";
     [self setupNavBar];
     self.backgroundView.layer.cornerRadius = 20;
     self.backgroundView.clipsToBounds = YES;
-    [self setupBorb];
 }
+
 - (void) setupBorb {
     FLAnimatedImage *image = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://i.imgur.com/NJpq7VU.gif"]]];
     FLAnimatedImageView *imageView = [[FLAnimatedImageView alloc] init];
@@ -69,6 +69,13 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 - (void)reloadData {
     [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
         Borb *borb = borbs[0];
+        if ([borb.borbLevel isEqual:@0]) {
+            UIImageView *egg =[[UIImageView alloc] initWithFrame:self.borbView.frame];
+            egg.image=[UIImage imageNamed:@"egg.png"];
+            [self.view addSubview:egg];
+        } else {
+            [self setupBorb];
+        }
         
         self.borbCoinsLabel.text = [NSString stringWithFormat:@"%@", borb.borbCoins];
         self.borbNameLabel.text = borb.borbName;
