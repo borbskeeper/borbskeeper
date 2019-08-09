@@ -16,7 +16,6 @@
 @dynamic borbHealth;
 @dynamic borbExperience;
 @dynamic borbLevel;
-@dynamic borbPicture;
 @dynamic borbCoins;
 
 + (NSString *)parseClassName {
@@ -31,11 +30,7 @@
         self.borbHealth = [NSNumber numberWithInt:MAX_HP];
         self.borbExperience = @0;
         self.borbLevel = @0;
-        self.borbCoins = @0; 
-        
-        UIImage *defaultImage = [UIImage imageNamed:@"borb_original"];
-        NSData *imageData = UIImagePNGRepresentation(defaultImage);
-        self.borbPicture = [PFFileObject fileObjectWithName:@"borb.png" data:imageData];
+        self.borbCoins = @0;
     }
     return self;
 }
