@@ -19,19 +19,22 @@
 @property (weak, nonatomic) IBOutlet UITextView *taskDescTextView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *taskDeadlineDatePicker;
 @property (weak, nonatomic) IBOutlet UIButton *deleteTaskButton;
+@property (weak, nonatomic) IBOutlet UILabel *charRemainingCount;
 
 @end
 
 @implementation ComposeTaskViewController
 
 static NSString *const TASK_DESCRIPTION_PLACEHOLDER = @"What are the details of your task?";
-
 static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
+int charLimit = 240;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupTextView];
     [self setupDatePicker];
+    [self setupCharCounter];
+    
     if (self.task == nil){
         self.deleteTaskButton.hidden = YES;
     } else {
@@ -40,7 +43,12 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
     [self setupNavBar];
 }
 
-- (void)setupDatePicker {
+- (void) setupCharCounter{
+    int charsRemaining = charLimit - (int)self.taskDescTextView.text.length;
+    self.charRemainingCount.text = [NSString stringWithFormat: @"%d", charsRemaining];
+}
+
+- (void) setupDatePicker {
     self.taskDeadlineDatePicker.minimumDate = [NSDate date];
 }
 
@@ -104,6 +112,17 @@ static NSString *const EDIT_SEGUE_ID = @"editTaskSegue";
         }
     }
 }
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    
+    NSString *newText = [self.taskDescTextView.text stringByReplacingCharactersInRange:range withString:text];
+    
+    int charsRemaining = charLimit - (int)newText.length;
+    self.charRemainingCount.text = [NSString stringWithFormat: @"%d", charsRemaining];
+    
+    return newText.length < charLimit;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
