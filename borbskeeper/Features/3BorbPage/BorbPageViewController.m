@@ -30,6 +30,8 @@
 @property (weak, nonatomic) IBOutlet SKView *hpBarSKView;
 @property (weak, nonatomic) IBOutlet SKView *xpBarSKView;
 
+@property (weak, nonatomic) IBOutlet UIView *backgroundView;
+@property (weak, nonatomic) IBOutlet UIView *borbView;
 
 @property (strong, nonatomic) User *user;
 
@@ -47,10 +49,15 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNavBar];
+    self.backgroundView.layer.cornerRadius = 20;
+    self.backgroundView.clipsToBounds = YES;
+    [self setupBorb];
+}
+- (void) setupBorb {
     FLAnimatedImage *image = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://i.imgur.com/NJpq7VU.gif"]]];
     FLAnimatedImageView *imageView = [[FLAnimatedImageView alloc] init];
     imageView.animatedImage = image;
-    imageView.frame = CGRectMake(89, 203, 193, 193);
+    imageView.frame = self.borbView.frame;
     [self.view addSubview:imageView];
 }
 
