@@ -97,6 +97,8 @@ static NSString *const COMPLETE_TASK_TABLE_VIEW_CELL_ID = @"CompletedTaskCell";
 - (void)saveImage:(nonnull UIImage *)selectedImage {
     self.selectedImage = [UIImage imageWithCGImage:selectedImage.CGImage];
     self.selectedImageView.image = self.selectedImage;
+    self.selectedImageView.layer.cornerRadius = 5;
+    self.selectedImageView.clipsToBounds = YES;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

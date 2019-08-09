@@ -67,6 +67,8 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
 - (void)saveImage:(nonnull UIImage *)selectedImage {
     self.selectedImage = [UIImage imageWithCGImage:selectedImage.CGImage];
     self.selectedImageView.image = self.selectedImage;
+    self.selectedImageView.layer.cornerRadius = 5;
+    self.selectedImageView.clipsToBounds = YES;
 }
 
 - (IBAction)didTapCancel:(id)sender {

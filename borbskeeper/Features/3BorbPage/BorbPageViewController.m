@@ -13,6 +13,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import "statsBarManager.h"
 #import "AlertManager.h"
+#import "FLAnimatedImage.h"
 
 @interface BorbPageViewController ()
 
@@ -46,6 +47,11 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNavBar];
+    FLAnimatedImage *image = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://i.imgur.com/NJpq7VU.gif"]]];
+    FLAnimatedImageView *imageView = [[FLAnimatedImageView alloc] init];
+    imageView.animatedImage = image;
+    imageView.frame = CGRectMake(89, 203, 193, 193);
+    [self.view addSubview:imageView];
 }
 
 - (void) setupNavBar {

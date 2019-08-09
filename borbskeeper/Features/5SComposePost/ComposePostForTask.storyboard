@@ -39,46 +39,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="9lz-Ps-eyj">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="9lz-Ps-eyj">
                                 <rect key="frame" x="100" y="74" width="175" height="175"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="175" id="Dls-Rf-hg6"/>
                                     <constraint firstAttribute="width" constant="175" id="QHR-kU-5an"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="tpb-XO-QrF" appends="YES" id="GX0-N4-aj4"/>
+                                </connections>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="4/20/2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKu-p2-S3w">
-                                <rect key="frame" x="20" y="364" width="335" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/20/2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKu-p2-S3w">
+                                <rect key="frame" x="20" y="333" width="335" height="17"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name of Task" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTe-9D-U15">
-                                <rect key="frame" x="20" y="333" width="335" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Task" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTe-9D-U15">
+                                <rect key="frame" x="20" y="302" width="335" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5hj-OT-GAV">
-                                <rect key="frame" x="30" y="295" width="325" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5hj-OT-GAV">
+                                <rect key="frame" x="20" y="259" width="335" height="29"/>
                                 <segments>
                                     <segment title="Friends"/>
                                     <segment title="Global"/>
                                 </segments>
                                 <color key="tintColor" red="0.3650847673" green="0.37326100470000001" blue="0.87848275899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZQ-Qp-HVR">
-                                <rect key="frame" x="20" y="391" width="335" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZQ-Qp-HVR">
+                                <rect key="frame" x="20" y="360" width="335" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fX-l7-R7b">
-                                <rect key="frame" x="100" y="74" width="175" height="172"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="didTapPhotoButton:" destination="Nwz-sn-vfe" eventType="touchUpInside" id="e0e-Jg-862"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -89,13 +86,15 @@
                             <constraint firstItem="vYC-1P-lh1" firstAttribute="trailing" secondItem="5hj-OT-GAV" secondAttribute="trailing" constant="20" id="LBC-od-y1N"/>
                             <constraint firstItem="8ZQ-Qp-HVR" firstAttribute="trailing" secondItem="HKu-p2-S3w" secondAttribute="trailing" id="Mpt-Ai-CsE"/>
                             <constraint firstItem="HKu-p2-S3w" firstAttribute="leading" secondItem="kTe-9D-U15" secondAttribute="leading" id="SYK-EN-46W"/>
-                            <constraint firstItem="5hj-OT-GAV" firstAttribute="leading" secondItem="vYC-1P-lh1" secondAttribute="leading" constant="30" id="XzB-Y7-Hnu"/>
+                            <constraint firstItem="5hj-OT-GAV" firstAttribute="centerX" secondItem="9lz-Ps-eyj" secondAttribute="centerX" id="TZH-f1-sh3"/>
+                            <constraint firstItem="5hj-OT-GAV" firstAttribute="leading" secondItem="vYC-1P-lh1" secondAttribute="leading" constant="20" id="XzB-Y7-Hnu"/>
                             <constraint firstItem="8ZQ-Qp-HVR" firstAttribute="top" secondItem="HKu-p2-S3w" secondAttribute="bottom" constant="10" id="Z8y-cL-EwW"/>
                             <constraint firstItem="vYC-1P-lh1" firstAttribute="trailing" secondItem="kTe-9D-U15" secondAttribute="trailing" constant="20" id="fa1-Rh-nNF"/>
                             <constraint firstItem="kTe-9D-U15" firstAttribute="leading" secondItem="vYC-1P-lh1" secondAttribute="leading" constant="20" id="jMR-9M-pvN"/>
-                            <constraint firstItem="kTe-9D-U15" firstAttribute="top" secondItem="5hj-OT-GAV" secondAttribute="bottom" constant="10" id="k0D-6f-KNu"/>
+                            <constraint firstItem="kTe-9D-U15" firstAttribute="top" secondItem="5hj-OT-GAV" secondAttribute="bottom" constant="15" id="k0D-6f-KNu"/>
                             <constraint firstItem="HKu-p2-S3w" firstAttribute="trailing" secondItem="kTe-9D-U15" secondAttribute="trailing" id="kBO-wE-TOZ"/>
                             <constraint firstItem="HKu-p2-S3w" firstAttribute="top" secondItem="kTe-9D-U15" secondAttribute="bottom" constant="10" id="n4n-Hn-Bsk"/>
+                            <constraint firstItem="5hj-OT-GAV" firstAttribute="top" secondItem="9lz-Ps-eyj" secondAttribute="bottom" constant="10" id="zik-RL-AUU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vYC-1P-lh1"/>
                     </view>
@@ -122,6 +121,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="otD-b7-pIc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="tpb-XO-QrF">
+                    <connections>
+                        <action selector="didTapPhotoButton:" destination="Nwz-sn-vfe" id="Xm5-P0-cjv"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1100" y="224.4377811094453"/>
         </scene>
