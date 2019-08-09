@@ -273,4 +273,27 @@ static NSString *const DELETE_ACTION_TITLE = @"Delete";
     [viewController presentViewController:renameBorbAlert animated:YES completion:nil];
 }
 
++ (void) presentCameraChoiceAlert:(UIViewController *)viewController withCompletion:(void (^)(bool choseCamera))completion{
+    UIAlertController *presentNoCameraAlert = [UIAlertController alertControllerWithTitle:@"Choose an image source: "
+                                                                                  message:nil
+                                                                           preferredStyle:(UIAlertControllerStyleActionSheet)];
+    
+    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"Take a photo..."
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                         completion(YES);
+                                                     }];
+    [presentNoCameraAlert addAction:cameraAction];
+    
+    UIAlertAction *libraryAction = [UIAlertAction actionWithTitle:@"Choose from library..."
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+                                                             completion(NO);
+                                                         }];
+    [presentNoCameraAlert addAction:libraryAction];
+    
+    [self addCancelActionToAlert:presentNoCameraAlert];
+    [viewController presentViewController:presentNoCameraAlert animated:YES completion:nil];
+}
+
 @end

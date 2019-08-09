@@ -52,14 +52,16 @@ static NSString *const DATE_FORMAT = @"'Due' MM/dd/yyyy 'at' hh:mm a";
     self.taskDueDateLabel.text = [dateFormatter stringFromDate:self.selectedTask.dueDate];
 }
 
-- (IBAction)choosePhotoButtonClicked:(id)sender {
-    [self.imageManip presentImagePickerFromViewController:self withImageSource:IMAGESOURCE_LIBRARY];
-}
-
-- (IBAction)takePhotoButtonClicked:(id)sender {
-    if (![self.imageManip presentImagePickerFromViewController:self withImageSource:IMAGESOURCE_CAMERA]) {
-        [AlertManager presentNoCameraAlert:self];
-    }
+- (IBAction)didTapPhotoButton:(id)sender {
+    [AlertManager presentCameraChoiceAlert:self withCompletion:^(bool choseCamera) {
+        if (choseCamera) {
+            if (![self.imageManip presentImagePickerFromViewController:self withImageSource:IMAGESOURCE_CAMERA]) {
+                [AlertManager presentNoCameraAlert:self];
+            }
+        } else {
+            [self.imageManip presentImagePickerFromViewController:self withImageSource:IMAGESOURCE_LIBRARY];
+        }
+    }];
 }
 
 - (void)saveImage:(nonnull UIImage *)selectedImage {

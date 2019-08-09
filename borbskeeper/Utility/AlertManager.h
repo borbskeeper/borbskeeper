@@ -56,6 +56,8 @@ NS_ASSUME_NONNULL_BEGIN
 // other alerts
 + (void) presentRenameBorbAlert:(UIViewController *)viewController withCompletion:(void (^)(NSString *)) completion;
 
++ (void) presentCameraChoiceAlert:(UIViewController *)viewController withCompletion:(void (^)(bool choseCamera))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END
