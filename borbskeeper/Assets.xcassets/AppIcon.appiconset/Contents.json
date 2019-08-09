@@ -33,13 +33,12 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "BorbsKeeperAppIcon.png",
+      "filename" : "Icon-120.png",
       "scale" : "2x"
     },
     {
-      "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "5B3A30DD-4A59-411E-BD99-F5C30BCA15CB 3.png",
+      "size" : "60x60",
       "scale" : "3x"
     },
     {
