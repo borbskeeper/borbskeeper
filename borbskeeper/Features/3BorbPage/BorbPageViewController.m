@@ -21,9 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *borbNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *borbLevelLabel;
 @property (weak, nonatomic) IBOutlet UILabel *borbXPLabel;
-@property (weak, nonatomic) IBOutlet UILabel *maxXPLabel;
 @property (weak, nonatomic) IBOutlet UILabel *borbHPLabel;
-@property (weak, nonatomic) IBOutlet UILabel *maxHPLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *eggImageView;
 
 @property (weak, nonatomic) IBOutlet UIButton *feedBorbButton;
 
@@ -39,8 +38,6 @@
 
 @implementation BorbPageViewController
 
-static NSString *const OK_ACTION_TITLE = @"OK";
-
 - (void)viewWillAppear:(BOOL)animated{
     self.user = [User currentUser];
     [self reloadData];
@@ -51,6 +48,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
     [self setupNavBar];
     self.backgroundView.layer.cornerRadius = 20;
     self.backgroundView.clipsToBounds = YES;
+    [self setupBorb]; 
 }
 
 - (void) setupBorb {
@@ -58,6 +56,7 @@ static NSString *const OK_ACTION_TITLE = @"OK";
     FLAnimatedImageView *imageView = [[FLAnimatedImageView alloc] init];
     imageView.animatedImage = image;
     imageView.frame = self.borbView.frame;
+    imageView.tag = 1;
     [self.view addSubview:imageView];
 }
 
@@ -69,11 +68,21 @@ static NSString *const OK_ACTION_TITLE = @"OK";
 - (void)reloadData {
     [BorbParseManager fetchBorb:self.user.usersBorb.objectId WithCompletion:^(NSMutableArray *borbs) {
         Borb *borb = borbs[0];
+        
         if ([borb.borbLevel isEqual:@0]) {
-            UIImageView *egg =[[UIImageView alloc] initWithFrame:self.borbView.frame];
-            egg.image=[UIImage imageNamed:@"egg.png"];
-            [self.view addSubview:egg];
+            for (UIView *subview in [self.view subviews]) {
+                if (subview.tag == 1) {
+                    [subview removeFromSuperview];
+                }
+            }
+            self.eggImageView.hidden = NO;
         } else {
+            self.eggImageView.hidden = YES;
+            for (UIView *subview in [self.view subviews]) {
+                if (subview.tag == 1) {
+                    [subview removeFromSuperview];
+                }
+            }
             [self setupBorb];
         }
         

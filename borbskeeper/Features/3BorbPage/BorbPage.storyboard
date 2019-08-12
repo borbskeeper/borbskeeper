@@ -229,9 +229,18 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drW-Xq-Ig0">
                                 <rect key="frame" x="87.5" y="224" width="200" height="200"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="egg" translatesAutoresizingMaskIntoConstraints="NO" id="ZGX-vH-eNC">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
+                                    <constraint firstItem="ZGX-vH-eNC" firstAttribute="leading" secondItem="drW-Xq-Ig0" secondAttribute="leading" id="6eV-RX-xzW"/>
                                     <constraint firstAttribute="width" constant="200" id="JWj-L2-7g7"/>
+                                    <constraint firstItem="ZGX-vH-eNC" firstAttribute="top" secondItem="drW-Xq-Ig0" secondAttribute="top" id="h3N-ra-uzM"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZGX-vH-eNC" secondAttribute="bottom" id="h5X-M0-tAi"/>
                                     <constraint firstAttribute="height" constant="200" id="vz2-rp-Lvj"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZGX-vH-eNC" secondAttribute="trailing" id="z8W-s4-sjl"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -288,6 +297,7 @@
                         <outlet property="borbNameLabel" destination="Mtj-Pr-phh" id="6ee-aP-C1Q"/>
                         <outlet property="borbView" destination="drW-Xq-Ig0" id="41V-fn-Dyi"/>
                         <outlet property="borbXPLabel" destination="vGV-7n-LyG" id="Pig-Ls-Eqc"/>
+                        <outlet property="eggImageView" destination="ZGX-vH-eNC" id="bCf-cV-QHH"/>
                         <outlet property="feedBorbButton" destination="v6n-yM-h3k" id="6Bt-pV-F14"/>
                         <outlet property="hpBarSKView" destination="h6h-iV-KUs" id="WZo-kY-vDH"/>
                         <outlet property="xpBarSKView" destination="cuM-QM-moe" id="DBF-tO-nl5"/>
@@ -305,5 +315,6 @@
         <image name="Heart_Icon-2" width="300" height="300"/>
         <image name="Seed_Icon-2" width="698" height="997"/>
         <image name="Star_Icon" width="997" height="949"/>
+        <image name="egg" width="750" height="750"/>
     </resources>
 </document>

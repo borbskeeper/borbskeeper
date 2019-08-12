@@ -75,6 +75,9 @@
     int newHP = [self.borbHealth intValue] - HP;
     if (newHP < 0) {
         self.borbLevel = [NSNumber numberWithInteger:([self.borbLevel intValue] - 1)];
+        if ([self.borbLevel intValue] < 0) {
+            self.borbLevel = @0;
+        }
         self.borbExperience = @0;
         self.borbHealth = [NSNumber numberWithInteger:MAX_HP];
     } else {
