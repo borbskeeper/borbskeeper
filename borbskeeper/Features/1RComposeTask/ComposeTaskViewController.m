@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *taskDeadlineDatePicker;
 @property (weak, nonatomic) IBOutlet UIButton *deleteTaskButton;
 @property (weak, nonatomic) IBOutlet UILabel *charRemainingCount;
+@property BOOL posting;
 
 @end
 
@@ -41,6 +42,7 @@ int charLimit = 240;
         self.navigationItem.title = @"Edit Task";
     }
     [self setupNavBar];
+    self.posting = NO; 
 }
 
 - (void) setupCharCounter{
@@ -75,6 +77,11 @@ int charLimit = 240;
 }
 
 - (IBAction)didTapSaveTask:(id)sender {
+    if (self.posting) {
+        return;
+    }
+    
+    self.posting = YES;
     if ([AlertManager isInvalidTextField:@[self.taskTitleTextField.text]] == YES){
         [AlertManager presentInvalidTaskAlert:self];
     } else {
@@ -111,6 +118,7 @@ int charLimit = 240;
             [PushNotificationsManager deleteNotificationForTaskWithID:taskId];
         }
     }
+    self.posting = NO;
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
