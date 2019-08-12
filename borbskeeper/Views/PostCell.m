@@ -35,6 +35,8 @@ static NSString *const USER_PROF_PIC_KEY = @"profilePicture";
         self.taskNameLabel.text = task.taskName;
         self.verifyButton.layer.cornerRadius = 5;
         self.verifyButton.clipsToBounds = YES;
+        self.verifyButton.hidden = NO;
+        self.verifyButtonHeight.constant = 35;
         
         if ([[User currentUser].username isEqualToString:post.author.username] || task.verified) {
             self.verifyButton.hidden = YES;
