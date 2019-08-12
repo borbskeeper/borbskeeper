@@ -79,6 +79,12 @@
                                     <action selector="tapDelete:" destination="CvE-Kd-8dx" eventType="touchUpInside" id="Yfl-Vn-Fag"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlC-dH-FLW">
+                                <rect key="frame" x="338" y="365" width="12" height="21"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <color key="textColor" red="0.59173410404757187" green="0.59173410404757187" blue="0.59173410404757187" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -87,6 +93,7 @@
                             <constraint firstItem="sf4-0N-C2D" firstAttribute="trailing" secondItem="DmC-d1-ge6" secondAttribute="trailing" id="4tn-kU-PXM"/>
                             <constraint firstItem="grc-d6-dZI" firstAttribute="top" secondItem="ncA-dk-B6x" secondAttribute="topMargin" constant="26" id="7Fn-G9-AcM"/>
                             <constraint firstItem="IdO-0x-tuP" firstAttribute="top" secondItem="sf4-0N-C2D" secondAttribute="bottom" constant="25" id="7mi-ha-tBS"/>
+                            <constraint firstItem="jlC-dH-FLW" firstAttribute="trailing" secondItem="sf4-0N-C2D" secondAttribute="trailing" id="EM0-zG-ex6"/>
                             <constraint firstItem="VJt-cU-FQc" firstAttribute="trailing" secondItem="sf4-0N-C2D" secondAttribute="trailing" id="H0v-M9-sjb"/>
                             <constraint firstItem="R3k-98-oPQ" firstAttribute="top" secondItem="DmC-d1-ge6" secondAttribute="bottom" constant="25" id="HDz-PZ-hbx"/>
                             <constraint firstItem="Hb8-G6-CaO" firstAttribute="top" secondItem="VJt-cU-FQc" secondAttribute="bottom" constant="15" id="HPG-SI-lLm"/>
@@ -97,6 +104,7 @@
                             <constraint firstItem="VJt-cU-FQc" firstAttribute="leading" secondItem="IdO-0x-tuP" secondAttribute="leading" id="dCD-bL-EmZ"/>
                             <constraint firstItem="VJt-cU-FQc" firstAttribute="leading" secondItem="sf4-0N-C2D" secondAttribute="leading" id="eq6-qI-kSi"/>
                             <constraint firstItem="4N7-wk-ARu" firstAttribute="bottom" secondItem="Hb8-G6-CaO" secondAttribute="bottom" constant="15" id="g1n-I4-LGz"/>
+                            <constraint firstItem="jlC-dH-FLW" firstAttribute="bottom" secondItem="sf4-0N-C2D" secondAttribute="bottom" id="iFA-JZ-Y7x"/>
                             <constraint firstItem="sf4-0N-C2D" firstAttribute="top" secondItem="R3k-98-oPQ" secondAttribute="bottom" constant="8" id="qf7-Ga-9vp"/>
                             <constraint firstItem="grc-d6-dZI" firstAttribute="leading" secondItem="4N7-wk-ARu" secondAttribute="leading" constant="22" id="s2A-nD-cxu"/>
                             <constraint firstItem="VJt-cU-FQc" firstAttribute="top" secondItem="IdO-0x-tuP" secondAttribute="bottom" constant="8" id="sZE-kk-UGR"/>
@@ -123,6 +131,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="charRemainingCount" destination="jlC-dH-FLW" id="KL4-t2-XDh"/>
                         <outlet property="deleteTaskButton" destination="Hb8-G6-CaO" id="ENf-3z-e5R"/>
                         <outlet property="taskDeadlineDatePicker" destination="VJt-cU-FQc" id="RSy-do-aes"/>
                         <outlet property="taskDescTextView" destination="sf4-0N-C2D" id="yk4-2d-bzO"/>

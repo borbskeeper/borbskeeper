@@ -15,7 +15,7 @@
 @end
 
 @implementation ImageManipManager
-const int IMAGE_DIMENSION = 500;
+const int IMAGE_DIMENSION = 300;
 const int ORIGIN_POS = 0;
 
 - (bool) presentImagePickerFromViewController:(UIViewController *)viewController withImageSource:(imageSource) imageSource {
