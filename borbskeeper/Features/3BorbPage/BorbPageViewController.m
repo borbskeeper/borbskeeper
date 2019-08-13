@@ -48,7 +48,6 @@
     [self setupNavBar];
     self.backgroundView.layer.cornerRadius = 20;
     self.backgroundView.clipsToBounds = YES;
-    [self setupBorb]; 
 }
 
 - (void) setupBorb {
@@ -77,13 +76,10 @@
             }
             self.eggImageView.hidden = NO;
         } else {
-            self.eggImageView.hidden = YES;
-            for (UIView *subview in [self.view subviews]) {
-                if (subview.tag == 1) {
-                    [subview removeFromSuperview];
-                }
+            if (!self.eggImageView.hidden) {
+                self.eggImageView.hidden = YES;
+                [self setupBorb];
             }
-            [self setupBorb];
         }
         
         self.borbCoinsLabel.text = [NSString stringWithFormat:@"%@", borb.borbCoins];
