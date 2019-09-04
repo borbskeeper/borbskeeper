@@ -1,18 +1,6 @@
 # *Borbskeeper*
 
-**Borbskeeper** is a 
-
-
-## User Stories
-
-
-## Video Walkthrough
-
-Here's a walkthrough of implemented user stories:
-
-<img src='http://g.recordit.co' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-GIF created with [Recordit](http://recordit.co).
+**Borbskeeper** is a gamified task manager where users create and complete tasks to collect coins to feed their virtual pet. The user can post proof of their completed task to the app's social feed to earn extra coins. 
 
 ## Credits
 
