@@ -2,6 +2,32 @@
 
 **Borbskeeper** is a gamified task manager where users create and complete tasks to collect coins to feed their virtual pet. The user can post proof of their completed task to the app's social feed to earn extra coins. 
 
+## Demo Images
+
+Login Screen
+![Alt text](/ex_images/login.png?raw=true "Login Screen")
+
+Tasklist
+![Alt text](/ex_images/tasklist.png?raw=true "Tasklist")
+
+Borb Screen
+![Alt text](/ex_images/borb.png?raw=true "Borb")
+
+Feed
+![Alt text](/ex_images/feed.png?raw=true "Feed")
+
+Profile
+![Alt text](/ex_images/profile.png?raw=true "Profile")
+
+Friends list
+![Alt text](/ex_images/friends.png?raw=true "Friends list")
+
+Task Creation Screen
+![Alt text](/ex_images/task_creation.png?raw=true "Task Creation")
+
+Settings
+![Alt text](/ex_images/settings.png?raw=true "Settings")
+
 ## Credits
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
